@@ -4,3 +4,4 @@ __pycache__
 */__pycache__/*
 /run/**
 */data/*
+!/GTSRB/data/dataset.tar.gz
