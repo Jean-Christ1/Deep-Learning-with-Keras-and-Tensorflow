@@ -25,25 +25,25 @@ from tensorflow import keras
 import matplotlib
 import matplotlib.pyplot as plt
 
-VERSION='0.1.0'
+VERSION='0.1.1'
 
 
 # -------------------------------------------------------------
 # init_all
 # -------------------------------------------------------------
 #
-def init(mplstyle='deepmods/talk.mplstyle'):
+def init(mplstyle='idle/talk.mplstyle'):
     global VERSION
     # ---- matplotlib
     matplotlib.style.use(mplstyle)
     # ---- Hello world
     now = datetime.datetime.now()
-    print('\nDeepmod/pwk by pjluc 2019')
+    print('IDLE 2020 - Practical Work Module')
     print('  Version            :', VERSION)
     print('  Run time           : {}'.format(now.strftime("%A %-d %B %Y, %H:%M:%S")))
     print('  Matplotlib style   :', mplstyle)
-    print('  TensorFlow version : ',tf.__version__)
-    print('  Keras version      : ',tf.keras.__version__)
+    print('  TensorFlow version :',tf.__version__)
+    print('  Keras version      :',tf.keras.__version__)
           
 # -------------------------------------------------------------
 # init_folder
@@ -52,12 +52,25 @@ def init(mplstyle='deepmods/talk.mplstyle'):
 def init_folder(path):
     os.makedirs(path, mode=0o750, exist_ok=True)
       
+def get_directory_size(path):
+    """
+    Return the directory size, but only 1 level
+    args:
+        path : directory path
+    return:
+        size in Mo
+    """
+    size=0
+    for f in os.listdir(path):
+        if os.path.isfile(path+'/'+f):
+            size+=os.path.getsize(path+'/'+f)
+    return size/(1024*1024)
 
 # -------------------------------------------------------------
 # shuffle_dataset
 # -------------------------------------------------------------
 #
-def shuffle_dataset(x, y):
+def shuffle_np_dataset(x, y):
     assert (len(x) == len(y)), "x and y must have same size"
     p = np.random.permutation(len(x))
     return x[p], y[p]
@@ -70,7 +83,7 @@ def update_progress(what,i,imax):
     progress  = float(i/imax)
     block     = int(round(bar_length * progress))
     endofline = '\r' if progress<1 else '\n'
-    text = "{:16s} [{}] {:.1f}%".format( what, "#"*block+"-"*(bar_length-block), progress*100)
+    text = "{:16s} [{}] {:>5.1f}% of {}".format( what, "#"*block+"-"*(bar_length-block), progress*100, imax)
     print(text, end=endofline)
 
 
