@@ -2,8 +2,7 @@ German Traffic Sign Recognition Benchmark (GTSRB)
 =================================================
 
 ---
-pjluc 2019 - CNRS/DEVLOG - Formation Deep Learning
-
+FIDLE - Formation Introduction au Deep Learning
 
 1/ Objectives
    ----------
