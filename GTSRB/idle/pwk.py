@@ -46,10 +46,13 @@ def init(mplstyle='idle/talk.mplstyle'):
     print('  Keras version      :',tf.keras.__version__)
           
 # -------------------------------------------------------------
-# init_folder
+# Folder cooking
 # -------------------------------------------------------------
 #
-def init_folder(path):
+def tag_now():
+    return datetime.datetime.now().strftime("%Y-%m-%d_%Hh%Mm%Ss")
+
+def mkdir(path):
     os.makedirs(path, mode=0o750, exist_ok=True)
       
 def get_directory_size(path):
@@ -147,14 +150,12 @@ def plot_history(history, figsize=(8,6)):
     """
     # Accuracy 
     plt.figure(figsize=figsize)
-    plt.plot(history.history['acc'])
-    plt.plot(history.history['val_acc'])
+    plt.plot(history.history['accuracy'])
+    plt.plot(history.history['val_accuracy'])
     plt.title('Model accuracy')
     plt.ylabel('Accuracy')
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Test'], loc='upper left')
-    if save_as!=None:
-        save_fig(save_as+'-acc', svg=False)
     plt.show()
 
     # Loss values
@@ -168,6 +169,10 @@ def plot_history(history, figsize=(8,6)):
     plt.show()    
 
 
+# -------------------------------------------------------------
+# plot_confusion_matrix
+# -------------------------------------------------------------
+#
 def plot_confusion_matrix(cm,
                           target_names,
                           title='Confusion matrix',
