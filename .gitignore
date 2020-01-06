@@ -2,6 +2,6 @@
 */.ipynb_checkpoints/*
 __pycache__
 */__pycache__/*
-/run/**
+run/
 */data/*
 !/GTSRB/data/dataset.tar.gz
