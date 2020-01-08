@@ -80,7 +80,7 @@ def shuffle_np_dataset(x, y):
 
 
 def update_progress(what,i,imax):
-    bar_length = 40
+    bar_length = min(40,imax)
     if (i%int(imax/bar_length))!=0 and i<imax:
         return
     progress  = float(i/imax)
