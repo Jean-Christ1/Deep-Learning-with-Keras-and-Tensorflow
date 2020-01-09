@@ -98,7 +98,7 @@ def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_
     """
     Show some images in a grid, with legends
     args:
-        X: images
+        X: images - Shapes must be (-1 lx,ly,1) or (-1 lx,ly,3)
         y: real classes
         indices: indices of images to show
         columns: number of columns (12)
@@ -118,8 +118,12 @@ def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_
     for i in indices:
         axs=fig.add_subplot(rows, columns, n)
         n+=1
-        img=axs.imshow(x[i],cmap = cm, interpolation='lanczos')
-        img=axs.imshow(x[i],cmap = cm)
+        # Shapes must be differents for RGB and L
+        (lx,ly,lz)=x[i].shape
+        if lz==1:
+            img=axs.imshow(x[i].reshape(lx,ly),   cmap = cm, interpolation='lanczos')
+        else:
+            img=axs.imshow(x[i].reshape(lx,ly,lz),cmap = cm, interpolation='lanczos')
         axs.spines['right'].set_visible(True)
         axs.spines['left'].set_visible(True)
         axs.spines['top'].set_visible(True)
