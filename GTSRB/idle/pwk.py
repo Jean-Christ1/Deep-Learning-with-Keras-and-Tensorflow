@@ -24,8 +24,9 @@ from tensorflow import keras
 
 import matplotlib
 import matplotlib.pyplot as plt
+import seaborn as sn
 
-VERSION='0.1.1'
+VERSION='0.1.4'
 
 
 # -------------------------------------------------------------
@@ -139,7 +140,16 @@ def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_
         if colorbar:
             fig.colorbar(img,orientation="vertical", shrink=0.65)
     plt.show()
-  
+
+def plot_image(x,cm='binary', figsize=(4,4)):
+    (lx,ly,lz)=x.shape
+    plt.figure(figsize=figsize)
+    if lz==1:
+        plt.imshow(x.reshape(lx,ly),   cmap = cm, interpolation='lanczos')
+    else:
+        plt.imshow(x.reshape(lx,ly,lz),cmap = cm, interpolation='lanczos')
+    plt.show()
+
 
 # -------------------------------------------------------------
 # show_history
@@ -178,66 +188,31 @@ def plot_history(history, figsize=(8,6)):
 # -------------------------------------------------------------
 #
 def plot_confusion_matrix(cm,
-                          target_names,
                           title='Confusion matrix',
-                          figsize=(8,6),
-                          cmap=None,
-                          normalize=True):
+                          figsize=(12,8),
+                          cmap="gist_heat_r",
+                          vmin=0,
+                          vmax=1,
+                          xticks=5,yticks=5):
     """
     given a sklearn confusion matrix (cm), make a nice plot
 
     Args:
         cm:           confusion matrix from sklearn.metrics.confusion_matrix
-        target_names: given classification classes such as [0, 1, 2]
-                      the class names, for example: ['high', 'medium', 'low']
         title:        the text to display at the top of the matrix
-        cmap:         color map
-        normalize:    False : plot raw numbers, True: plot proportions
-        save_as:      If not None, filename to save
-
-    Citiation:
-        http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
-
+        figsize:      Figure size (12,8)
+        cmap:         color map (gist_heat_r)
+        vmi,vmax:     Min/max 0 and 1
+        
     """
  
     accuracy = np.trace(cm) / float(np.sum(cm))
     misclass = 1 - accuracy
 
-    if (figsize[0]==figsize[1]):
-        aspect='equal'
-    else:
-        aspect='auto'
-
-    if cmap is None:
-        cmap = plt.get_cmap('Blues')
-
     plt.figure(figsize=figsize)
-    plt.imshow(cm, interpolation='nearest', cmap=cmap, aspect=aspect)
-    plt.title(title)
-    plt.colorbar()
-
-    if target_names is not None:
-        tick_marks = np.arange(len(target_names))
-        plt.xticks(tick_marks, target_names, rotation=45)
-        plt.yticks(tick_marks, target_names)
-
-    if normalize:
-        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-
-
-    thresh = cm.max() / 1.5 if normalize else cm.max() / 2
-    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        if normalize:
-            plt.text(j, i, "{:0.4f}".format(cm[i, j]),
-                     horizontalalignment="center",
-                     color="white" if cm[i, j] > thresh else "black")
-        else:
-            plt.text(j, i, "{:,}".format(cm[i, j]),
-                     horizontalalignment="center",
-                     color="white" if cm[i, j] > thresh else "black")
-
-
-    # plt.tight_layout()
+    sn.heatmap(cm, linewidths=1, linecolor="#ffffff",square=True, 
+               cmap=cmap, xticklabels=xticks, yticklabels=yticks,
+               vmin=vmin,vmax=vmax)
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
 
