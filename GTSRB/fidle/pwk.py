@@ -8,13 +8,13 @@
 #                                                        module pwk                                   
 # ==================================================================
 # A simple module to host some common functions for practical work
-# pjluc 2019
+# pjluc 2020
 
 import os
 import glob
 from datetime import datetime
 import itertools
-import datetime
+import datetime, time
 
 import math
 import numpy as np
@@ -26,22 +26,22 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sn
 
-VERSION='0.1.4'
+VERSION='0.1.5'
 
 
 # -------------------------------------------------------------
 # init_all
 # -------------------------------------------------------------
 #
-def init(mplstyle='idle/talk.mplstyle'):
+def init(mplstyle='fidle/talk.mplstyle'):
     global VERSION
     # ---- matplotlib
     matplotlib.style.use(mplstyle)
     # ---- Hello world
-    now = datetime.datetime.now()
+#     now = datetime.datetime.now()
     print('IDLE 2020 - Practical Work Module')
     print('  Version            :', VERSION)
-    print('  Run time           : {}'.format(now.strftime("%A %-d %B %Y, %H:%M:%S")))
+    print('  Run time           : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
     print('  Matplotlib style   :', mplstyle)
     print('  TensorFlow version :',tf.__version__)
     print('  Keras version      :',tf.keras.__version__)
