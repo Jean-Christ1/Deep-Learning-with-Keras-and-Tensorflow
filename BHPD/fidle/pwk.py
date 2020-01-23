@@ -26,7 +26,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sn
 
-VERSION='0.1.7'
+VERSION='0.1.8'
 
 
 # -------------------------------------------------------------
@@ -160,7 +160,7 @@ def plot_image(x,cm='binary', figsize=(4,4)):
 # show_history
 # -------------------------------------------------------------
 #
-def plot_history(history, figsize=(8,6)):
+def plot_history_obsolete(history, figsize=(8,6)):
     """
     Show history
     args:
@@ -186,6 +186,27 @@ def plot_history(history, figsize=(8,6)):
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Test'], loc='upper left')
     plt.show()    
+
+def plot_history(history, figsize=(8,6), 
+                  plot={"Accuracy":['accuracy','val_accuracy'], 'Loss':['loss', 'val_loss']}):
+    """
+    Show history
+    args:
+        history: history
+        figsize: fig size
+        plot: list of data to plot
+    """
+    for title,curves in plot.items():
+        plt.figure(figsize=figsize)
+        plt.title(title)
+        plt.ylabel(title)
+        plt.xlabel('Epoch')
+        for c in curves:
+            plt.plot(history.history[c])
+        plt.legend(curves, loc='upper left')
+        plt.show()
+
+    
     
 # -------------------------------------------------------------
 # plot_confusion_matrix
