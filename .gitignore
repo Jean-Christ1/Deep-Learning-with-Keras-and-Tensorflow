@@ -5,3 +5,4 @@ __pycache__
 run/
 */data/*
 !/GTSRB/data/dataset.tar.gz
+!/BHPD/data/BostonHousing.csv
