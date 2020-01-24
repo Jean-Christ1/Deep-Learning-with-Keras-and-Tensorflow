@@ -26,7 +26,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sn
 
-VERSION='0.1.7'
+VERSION='0.2'
 
 
 # -------------------------------------------------------------
@@ -160,34 +160,27 @@ def plot_image(x,cm='binary', figsize=(4,4)):
 # show_history
 # -------------------------------------------------------------
 #
-def plot_history(history, figsize=(8,6)):
+def plot_history(history, figsize=(8,6), 
+                  plot={"Accuracy":['accuracy','val_accuracy'], 'Loss':['loss', 'val_loss']}):
     """
     Show history
     args:
         history: history
-        save_as: filename to save or None
+        figsize: fig size
+        plot: list of data to plot : {<title>:[<metrics>,...], ...}
     """
-    # Accuracy 
-    plt.figure(figsize=figsize)
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.title('Model accuracy')
-    plt.ylabel('Accuracy')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Test'], loc='upper left')
-    plt.show()
+    for title,curves in plot.items():
+        plt.figure(figsize=figsize)
+        plt.title(title)
+        plt.ylabel(title)
+        plt.xlabel('Epoch')
+        for c in curves:
+            plt.plot(history.history[c])
+        plt.legend(curves, loc='upper left')
+        plt.show()
 
-    # Loss values
-    plt.figure(figsize=figsize)
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('Model loss')
-    plt.ylabel('Loss')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Test'], loc='upper left')
-    plt.show()    
-
-
+    
+    
 # -------------------------------------------------------------
 # plot_confusion_matrix
 # -------------------------------------------------------------
