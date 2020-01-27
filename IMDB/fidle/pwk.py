@@ -18,15 +18,20 @@ import datetime, time
 
 import math
 import numpy as np
+from collections.abc import Iterable
 
 import tensorflow as tf
 from tensorflow import keras
+from sklearn.metrics import confusion_matrix
 
+import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sn
 
-VERSION='0.2'
+from IPython.display import display, Markdown
+
+VERSION='0.2.4'
 
 
 # -------------------------------------------------------------
@@ -75,12 +80,29 @@ def get_directory_size(path):
 # -------------------------------------------------------------
 #
 def shuffle_np_dataset(x, y):
+    """
+    Shuffle a dataset (x,y)
+    args:
+        x,y : dataset
+    return:
+        x,y mixed
+    """
     assert (len(x) == len(y)), "x and y must have same size"
     p = np.random.permutation(len(x))
     return x[p], y[p]
 
 
 def update_progress(what,i,imax):
+    """
+    Display a text progress bar, as :
+    My progress bar : ############# 34%
+    args:
+        what  : Progress bas name
+        i     : Current progress
+        imax  : Max value for i
+    return:
+        nothing
+    """
     bar_length = min(40,imax)
     if (i%int(imax/bar_length))!=0 and i<imax:
         return
@@ -90,6 +112,44 @@ def update_progress(what,i,imax):
     text = "{:16s} [{}] {:>5.1f}% of {}".format( what, "#"*block+"-"*(bar_length-block), progress*100, imax)
     print(text, end=endofline)
 
+    
+def rmax(l):
+    """
+    Recursive max() for a given iterable of iterables
+    Should be np.array of np.array or list of list, etc.
+    args:
+        l : Iterable of iterables
+    return: 
+        max value
+    """
+    maxi = float('-inf')
+    for item in l:
+        if isinstance(item, Iterable):
+            t = rmax(item)
+        else:
+            t = item
+        if t > maxi:
+            maxi = t
+    return maxi
+
+def rmin(l):
+    """
+    Recursive min() for a given iterable of iterables
+    Should be np.array of np.array or list of list, etc.
+    args:
+        l : Iterable of iterables
+    return: 
+        min value
+    """
+    mini = float('inf')
+    for item in l:
+        if isinstance(item, Iterable):
+            t = rmin(item)
+        else:
+            t = item
+        if t < mini:
+            mini = t
+    return mini
 
 # -------------------------------------------------------------
 # show_images
@@ -146,13 +206,29 @@ def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_
             fig.colorbar(img,orientation="vertical", shrink=0.65)
     plt.show()
 
+    
 def plot_image(x,cm='binary', figsize=(4,4)):
-    (lx,ly,lz)=x.shape
+    """
+    Draw a single image.
+    Image shape can be (lx,ly), (lx,ly,1) or (lx,ly,n)
+    args:
+        x       : image as np array
+        cm      : color map ('binary')
+        figsize : fig size (4,4)
+    """
+    # ---- Shape is (lx,ly)
+    if len(x.shape)==2:
+        xx=x
+    # ---- Shape is (lx,ly,n)
+    if len(x.shape)==3:
+        (lx,ly,lz)=x.shape
+        if lz==1: 
+            xx=x.reshape(lx,ly)
+        else:
+            xx=x
+    # ---- Draw it
     plt.figure(figsize=figsize)
-    if lz==1:
-        plt.imshow(x.reshape(lx,ly),   cmap = cm, interpolation='lanczos')
-    else:
-        plt.imshow(x.reshape(lx,ly,lz),cmap = cm, interpolation='lanczos')
+    plt.imshow(xx,   cmap = cm, interpolation='lanczos')
     plt.show()
 
 
@@ -184,6 +260,7 @@ def plot_history(history, figsize=(8,6),
 # -------------------------------------------------------------
 # plot_confusion_matrix
 # -------------------------------------------------------------
+# Bug in Matplotlib 3.1.1
 #
 def plot_confusion_matrix(cm,
                           title='Confusion matrix',
@@ -194,6 +271,7 @@ def plot_confusion_matrix(cm,
                           xticks=5,yticks=5):
     """
     given a sklearn confusion matrix (cm), make a nice plot
+    Note:bug in matplotlib 3.1.1
 
     Args:
         cm:           confusion matrix from sklearn.metrics.confusion_matrix
@@ -210,8 +288,67 @@ def plot_confusion_matrix(cm,
     plt.figure(figsize=figsize)
     sn.heatmap(cm, linewidths=1, linecolor="#ffffff",square=True, 
                cmap=cmap, xticklabels=xticks, yticklabels=yticks,
-               vmin=vmin,vmax=vmax)
+               vmin=vmin,vmax=vmax,annot=True)
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
 
+    plt.show()
+
+
+    
+def display_confusion_matrix(y_true,y_pred,labels=None,color='green',
+                             font_size='12pt', title="#### Confusion matrix is :"):
+    """
+    Show a confusion matrix for a predictions.
+    see : sklearn.metrics.confusion_matrix
+
+    Args:
+        y_true        Real classes
+        y_pred        Predicted classes
+        labels        List of classes to show in the cm
+        color:        Color for the palette (green)
+        font_size:    Values font size 
+        title:        the text to display at the top of the matrix        
+    """
+    assert (labels!=None),"Label must be set"
+    
+    if title != None :  display(Markdown(title)) 
+    
+    cm = confusion_matrix( y_true,y_pred, normalize="true", labels=labels)
+    df=pd.DataFrame(cm)
+
+    cmap = sn.light_palette(color, as_cmap=True)
+    df.style.set_properties(**{'font-size': '20pt'})
+    display(df.style.format('{:.2f}') \
+            .background_gradient(cmap=cmap)
+            .set_properties(**{'font-size': font_size}))
+    
+    
+def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6), title=None):
+    """
+    Draw a donut
+    args:
+        values   : list of values
+        labels   : list of labels
+        colors   : list of color (["lightsteelblue","coral"])
+        figsize  : size of figure ( (6,6) )
+    return:
+        nothing
+    """
+    # ---- Title or not
+    if title != None :  display(Markdown(title))
+    # ---- Donut
+    plt.figure(figsize=figsize)
+    # ---- Draw a pie  chart..
+    plt.pie(values, labels=labels, 
+            colors = colors, autopct='%1.1f%%', startangle=70, pctdistance=0.85,
+            textprops={'fontsize': 18},
+            wedgeprops={"edgecolor":"w",'linewidth': 5, 'linestyle': 'solid', 'antialiased': True})
+    # ---- ..with a white circle
+    circle = plt.Circle((0,0),0.70,fc='white')
+    ax = plt.gca()
+    ax.add_artist(circle)
+    # Equal aspect ratio ensures that pie is drawn as a circle
+    plt.axis('equal')  
+    plt.tight_layout()
     plt.show()
