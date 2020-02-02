@@ -38,7 +38,7 @@ VERSION='0.2.4'
 # init_all
 # -------------------------------------------------------------
 #
-def init(mplstyle='fidle/talk.mplstyle'):
+def init(mplstyle='../fidle/talk.mplstyle'):
     global VERSION
     # ---- matplotlib
     matplotlib.style.use(mplstyle)
