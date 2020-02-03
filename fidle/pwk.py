@@ -31,7 +31,7 @@ import seaborn as sn
 
 from IPython.display import display, Markdown
 
-VERSION='0.2.4'
+VERSION='0.2.5'
 
 
 # -------------------------------------------------------------
@@ -352,3 +352,6 @@ def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6),
     plt.axis('equal')  
     plt.tight_layout()
     plt.show()
+    
+def display_md(md_text):
+    display(Markdown(md_text))
