@@ -5,12 +5,15 @@ import os
 
 class ImagesCallback(Callback):
     
-    def __init__(self, initial_epoch=0, batch_periodicity=1000, vae=None):
+    def __init__(self, initial_epoch=0, image_periodicity=1, vae=None):
         self.epoch             = initial_epoch
-        self.batch_periodicity = batch_periodicity
+        self.image_periodicity = image_periodicity
         self.vae               = vae
         self.images_dir        = vae.run_directory+'/images'
-
+        batch_per_epochs       = int(vae.n_train / vae.batch_size)
+        self.batch_periodicity = batch_per_epochs*image_periodicity
+        
+        
     def on_train_batch_end(self, batch, logs={}):  
         
         if batch % self.batch_periodicity == 0:

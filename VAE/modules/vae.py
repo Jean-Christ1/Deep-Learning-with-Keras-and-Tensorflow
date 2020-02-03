@@ -144,8 +144,10 @@ class VariationalAutoencoder():
     
     def train(self, 
               x_train,x_test,
-              batch_size=32, epochs=200, 
-              batch_periodicity=100, 
+              batch_size=32, 
+              epochs=200, 
+              image_periodicity=1,
+              chkpt_periodicity=2,
               initial_epoch=0,
               dataset_size=1,
               lr_decay=1):
@@ -154,14 +156,18 @@ class VariationalAutoencoder():
         n_train = int(x_train.shape[0] * dataset_size)
         n_test  = int(x_test.shape[0]  * dataset_size)
 
+        # ---- Need by callbacks
+        self.n_train    = n_train
+        self.n_test     = n_test
+        self.batch_size = batch_size
+        
         # ---- Callbacks
-        images_callback = modules.callbacks.ImagesCallback(initial_epoch, batch_periodicity, self)
+        images_callback = modules.callbacks.ImagesCallback(initial_epoch, image_periodicity, self)
         
 #         lr_sched = step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
         
         filename1 = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"
-        batch_per_epoch = int(len(x_train)/batch_size)
-        checkpoint1 = ModelCheckpoint(filename1, save_freq=batch_per_epoch*5,verbose=0)
+        checkpoint1 = ModelCheckpoint(filename1, save_freq=n_train*chkpt_periodicity ,verbose=0)
 
         filename2 = self.run_directory+"/models/best_model.h5"
         checkpoint2 = ModelCheckpoint(filename2, save_best_only=True, mode='min',monitor='val_loss',verbose=0)
