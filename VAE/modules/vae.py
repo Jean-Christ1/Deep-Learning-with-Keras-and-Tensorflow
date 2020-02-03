@@ -6,7 +6,7 @@ from tensorflow.keras import backend as K
 from tensorflow.keras.layers import Input, Conv2D, Flatten, Dense, Conv2DTranspose, Reshape, Lambda
 from tensorflow.keras.layers import Activation, BatchNormalization, LeakyReLU, Dropout
 from tensorflow.keras.models import Model
-from tensorflow.keras.callbacks import ModelCheckpoint 
+from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.utils import plot_model
 
@@ -161,18 +161,25 @@ class VariationalAutoencoder():
         self.n_test     = n_test
         self.batch_size = batch_size
         
-        # ---- Callbacks
-        images_callback = modules.callbacks.ImagesCallback(initial_epoch, image_periodicity, self)
+        # ---- Callback : Images
+        callbacks_images = modules.callbacks.ImagesCallback(initial_epoch, image_periodicity, self)
         
-#         lr_sched = step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
+        # ---- Callback : Learning rate scheduler
+        lr_sched = modules.callbacks.step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
         
-        filename1 = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"
-        checkpoint1 = ModelCheckpoint(filename1, save_freq=n_train*chkpt_periodicity ,verbose=0)
+        # ---- Callback : Checkpoint
+        filename = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"
+        callback_chkpts = ModelCheckpoint(filename, save_freq=n_train*chkpt_periodicity ,verbose=0)
 
-        filename2 = self.run_directory+"/models/best_model.h5"
-        checkpoint2 = ModelCheckpoint(filename2, save_best_only=True, mode='min',monitor='val_loss',verbose=0)
+        # ---- Callback : Best model
+        filename = self.run_directory+"/models/best_model.h5"
+        callback_bestmodel = ModelCheckpoint(filename, save_best_only=True, mode='min',monitor='val_loss',verbose=0)
 
-        callbacks_list = [checkpoint1, checkpoint2, images_callback]
+        # ---- Callback tensorboard
+        dirname = self.run_directory+"/logs"
+        callback_tensorboard = TensorBoard(log_dir=dirname, histogram_freq=1)
+
+        callbacks_list = [callbacks_images, callback_chkpts, callback_bestmodel, callback_tensorboard, lr_sched]
 
         self.model.fit(x_train[:n_train], x_train[:n_train],
                        batch_size = batch_size,
@@ -189,3 +196,5 @@ class VariationalAutoencoder():
         plot_model(self.model,   to_file=f'{d}/model.png',   show_shapes = True, show_layer_names = True, expand_nested=True)
         plot_model(self.encoder, to_file=f'{d}/encoder.png', show_shapes = True, show_layer_names = True)
         plot_model(self.decoder, to_file=f'{d}/decoder.png', show_shapes = True, show_layer_names = True)
+
+        
