@@ -13,20 +13,21 @@ from tensorflow.keras.utils import plot_model
 import tensorflow.keras.datasets.imdb as imdb
 
 import modules.callbacks
-import os
+import os, json, time, datetime
 
 
 
 class VariationalAutoencoder():
 
     
-    def __init__(self, input_shape=None, encoder_layers=None, decoder_layers=None, z_dim=None, run_tag='default', verbose=0):
-        
+    def __init__(self, input_shape=None, encoder_layers=None, decoder_layers=None, z_dim=None, run_tag='000', verbose=0):
+               
         self.name           = 'Variational AutoEncoder'
-        self.input_shape    = input_shape
+        self.input_shape    = list(input_shape)
         self.encoder_layers = encoder_layers
         self.decoder_layers = decoder_layers
         self.z_dim          = z_dim
+        self.run_tag        = str(run_tag)
         self.verbose        = verbose
         self.run_directory  = f'./run/{run_tag}'
         
@@ -42,13 +43,14 @@ class VariationalAutoencoder():
         
         # ---- Add next layers
         i=1
-        for params in encoder_layers:
-            t=params['type']
-            params.pop('type')
-            if t=='Conv2D':
-                layer = Conv2D(**params, name=f"Layer_{i}")
-            if t=='Dropout':
-                layer = Dropout(**params)
+        for l_config in encoder_layers:
+            l_type   = l_config['type']
+            l_params = l_config.copy()
+            l_params.pop('type')
+            if l_type=='Conv2D':
+                layer = Conv2D(**l_params)
+            if l_type=='Dropout':
+                layer = Dropout(**l_params)
             x = layer(x)
             i+=1
             
@@ -83,13 +85,14 @@ class VariationalAutoencoder():
 
         # ---- Add next layers
         i=1
-        for params in decoder_layers:
-            t=params['type']
-            params.pop('type')
-            if t=='Conv2DT':
-                layer = Conv2DTranspose(**params, name=f"Layer_{i}")
-            if t=='Dropout':
-                layer = Dropout(**params)
+        for l_config in decoder_layers:
+            l_type   = l_config['type']
+            l_params = l_config.copy()
+            l_params.pop('type')
+            if l_type=='Conv2DT':
+                layer = Conv2DTranspose(**l_params)
+            if l_type=='Dropout':
+                layer = Dropout(**l_params)
             x = layer(x)
             i+=1
 
@@ -140,6 +143,8 @@ class VariationalAutoencoder():
                            loss = vae_loss,
                            metrics = [vae_r_loss, vae_kl_loss], 
                            experimental_run_tf_function=False)
+        print('Compiled.')
+        print(f'Optimizer is Adam with learning_rate={learning_rate:}')
     
     
     def train(self, 
@@ -165,7 +170,7 @@ class VariationalAutoencoder():
         callbacks_images = modules.callbacks.ImagesCallback(initial_epoch, image_periodicity, self)
         
         # ---- Callback : Learning rate scheduler
-        lr_sched = modules.callbacks.step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
+        #lr_sched = modules.callbacks.step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
         
         # ---- Callback : Checkpoint
         filename = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"
@@ -179,17 +184,23 @@ class VariationalAutoencoder():
         dirname = self.run_directory+"/logs"
         callback_tensorboard = TensorBoard(log_dir=dirname, histogram_freq=1)
 
-        callbacks_list = [callbacks_images, callback_chkpts, callback_bestmodel, callback_tensorboard, lr_sched]
+        callbacks_list = [callbacks_images, callback_chkpts, callback_bestmodel, callback_tensorboard]
 
-        self.model.fit(x_train[:n_train], x_train[:n_train],
-                       batch_size = batch_size,
-                       shuffle = True,
-                       epochs = epochs,
-                       initial_epoch = initial_epoch,
-                       callbacks = callbacks_list,
-                       validation_data = (x_test[:n_test], x_test[:n_test])
-                        )
-        
+        # ---- Let's go...
+        start_time   = time.time()
+        self.history = self.model.fit(x_train[:n_train], x_train[:n_train],
+                                      batch_size = batch_size,
+                                      shuffle = True,
+                                      epochs = epochs,
+                                      initial_epoch = initial_epoch,
+                                      callbacks = callbacks_list,
+                                      validation_data = (x_test[:n_test], x_test[:n_test])
+                                      )
+        end_time  = time.time()
+        dt  = end_time-start_time
+        dth = str(datetime.timedelta(seconds=int(dt)))
+        self.duration = dt
+        print(f'\nTrain duration : {dt:.2f} sec. - {dth:}')
         
     def plot_model(self):
         d=self.run_directory+'/figs'
@@ -198,3 +209,39 @@ class VariationalAutoencoder():
         plot_model(self.decoder, to_file=f'{d}/decoder.png', show_shapes = True, show_layer_names = True)
 
         
+    def save(self,config='vae_config.json', model='model.h5'):
+        # ---- Save config in json
+        if config!=None:
+            to_save  = ['input_shape', 'encoder_layers', 'decoder_layers', 'z_dim', 'run_tag', 'verbose']
+            data     = { i:self.__dict__[i] for i in to_save }
+            filename = self.run_directory+'/models/'+config
+            with open(filename, 'w') as outfile:
+                json.dump(data, outfile)
+            print(f'Config saved in : {filename}')
+        # ---- Save model
+        if model!=None:
+            filename = self.run_directory+'/models/'+model
+            self.model.save(filename)
+            print(f'Model saved in  : {filename}')
+
+            
+    def load_weights(self,model='model.h5'):
+        filename = self.run_directory+'/models/'+model
+        self.model.load_weights(filename)
+        print(f'Weights loaded from : {filename}')
+    
+            
+    @classmethod
+    def load(cls, run_tag='000', config='vae_config.json', model='model.h5'):
+        # ---- Instantiate a new vae
+        filename = f'./run/{run_tag}/models/{config}'
+        with open(filename, 'r') as infile:
+            params=json.load(infile)
+            print(params.keys())
+#             vae=cls( params['input_shape'], params['encoder_layers'], params['decoder_layers'], params['z_dim'], '004', 0)
+            vae=cls( **params)
+        # ---- model==None, just return it
+        if model==None: return vae
+        # ---- model!=None, get weight
+        vae.load_weights(model)
+        return vae
