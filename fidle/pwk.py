@@ -155,11 +155,11 @@ def rmin(l):
 # show_images
 # -------------------------------------------------------------
 #
-def plot_images(x,y=None, indices=None, columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary'):
+def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary'):
     """
     Show some images in a grid, with legends
     args:
-        X: images - Shapes must be (-1 lx,ly,1) or (-1 lx,ly,3)
+        x: images - Shapes must be (-1,lx,ly) (-1,lx,ly,1) or (-1,lx,ly,3)
         y: real classes or labels or None (None)
         indices: indices of images to show or None for all (None)
         columns: number of columns (12)
@@ -177,8 +177,7 @@ def plot_images(x,y=None, indices=None, columns=12, x_size=1, y_size=1, colorbar
     
     draw_labels = (y is not None)
     draw_pred   = (y_pred is not None)
-#     if y_pred is None:  y_pred=y
-    if indices==None:         indices=range(len(x))
+    if indices=='all': indices=range(len(x))
     for i in indices:
         axs=fig.add_subplot(rows, columns, n)
         n+=1
