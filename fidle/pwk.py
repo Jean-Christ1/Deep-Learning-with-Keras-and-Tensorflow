@@ -31,7 +31,7 @@ import seaborn as sn
 
 from IPython.display import display, Markdown
 
-VERSION='0.2.5'
+VERSION='0.2.6'
 
 
 # -------------------------------------------------------------
@@ -44,12 +44,12 @@ def init(mplstyle='../fidle/talk.mplstyle'):
     matplotlib.style.use(mplstyle)
     # ---- Hello world
 #     now = datetime.datetime.now()
-    print('IDLE 2020 - Practical Work Module')
-    print('  Version            :', VERSION)
-    print('  Run time           : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
-    print('  Matplotlib style   :', mplstyle)
-    print('  TensorFlow version :',tf.__version__)
-    print('  Keras version      :',tf.keras.__version__)
+    print('\nFIDLE 2020 - Practical Work Module')
+    print('Version              :', VERSION)
+    print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
+    print('Matplotlib style     :', mplstyle)
+    print('TensorFlow version   :',tf.__version__)
+    print('Keras version        :',tf.keras.__version__)
           
 # -------------------------------------------------------------
 # Folder cooking
@@ -155,18 +155,18 @@ def rmin(l):
 # show_images
 # -------------------------------------------------------------
 #
-def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary'):
+def plot_images(x,y=None, indices=None, columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary'):
     """
     Show some images in a grid, with legends
     args:
         X: images - Shapes must be (-1 lx,ly,1) or (-1 lx,ly,3)
-        y: real classes
-        indices: indices of images to show
+        y: real classes or labels or None (None)
+        indices: indices of images to show or None for all (None)
         columns: number of columns (12)
-        x_size,y_size: figure size
+        x_size,y_size: figure size (1), (1)
         colorbar: show colorbar (False)
         y_pred: predicted classes (None)
-        cm: Matplotlib olor map
+        cm: Matplotlib color map (binary)
     returns: 
         nothing
     """
@@ -174,8 +174,11 @@ def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_
     fig=plt.figure(figsize=(columns*x_size, rows*(y_size+0.35)))
     n=1
     errors=0 
-    if np.any(y_pred)==None:
-        y_pred=y
+    
+    draw_labels = (y is not None)
+    draw_pred   = (y_pred is not None)
+#     if y_pred is None:  y_pred=y
+    if indices==None:         indices=range(len(x))
     for i in indices:
         axs=fig.add_subplot(rows, columns, n)
         n+=1
@@ -196,12 +199,15 @@ def plot_images(x,y, indices, columns=12, x_size=1, y_size=1, colorbar=False, y_
         axs.spines['bottom'].set_visible(True)
         axs.set_yticks([])
         axs.set_xticks([])
-        if y[i]!=y_pred[i]:
-            axs.set_xlabel('{} ({})'.format(y_pred[i],y[i]))
-            axs.xaxis.label.set_color('red')
-            errors+=1
-        else:
+        if draw_labels and not draw_pred:
             axs.set_xlabel(y[i])
+        if draw_labels and draw_pred:
+            if y[i]!=y_pred[i]:
+                axs.set_xlabel('{} ({})'.format(y_pred[i],y[i]))
+                axs.xaxis.label.set_color('red')
+                errors+=1
+            else:
+                axs.set_xlabel(y[i])
         if colorbar:
             fig.colorbar(img,orientation="vertical", shrink=0.65)
     plt.show()

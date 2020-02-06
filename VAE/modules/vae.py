@@ -13,12 +13,15 @@ from tensorflow.keras.utils import plot_model
 import tensorflow.keras.datasets.imdb as imdb
 
 import modules.callbacks
+from modules.callbacks import ImagesCallback
+
 import os, json, time, datetime
 
 
 
 class VariationalAutoencoder():
 
+    version = '1.24'
     
     def __init__(self, input_shape=None, encoder_layers=None, decoder_layers=None, z_dim=None, run_tag='000', verbose=0):
                
@@ -89,7 +92,7 @@ class VariationalAutoencoder():
             l_type   = l_config['type']
             l_params = l_config.copy()
             l_params.pop('type')
-            if l_type=='Conv2DT':
+            if l_type=='Conv2DTranspose':
                 layer = Conv2DTranspose(**l_params)
             if l_type=='Dropout':
                 layer = Dropout(**l_params)
@@ -110,7 +113,7 @@ class VariationalAutoencoder():
         # ==== Verbosity ==============================================================
 
         print('Model initialized.')
-        print('Outputs will be in : ',self.run_directory)
+        print(f'Outputs will be in  : {self.run_directory}')
         
         if verbose>0 :
             print('\n','-'*10,'Encoder','-'*50,'\n')
@@ -167,7 +170,7 @@ class VariationalAutoencoder():
         self.batch_size = batch_size
         
         # ---- Callback : Images
-        callbacks_images = modules.callbacks.ImagesCallback(initial_epoch, image_periodicity, self)
+        callbacks_images = ImagesCallback(initial_epoch, image_periodicity, self)
         
         # ---- Callback : Learning rate scheduler
         #lr_sched = modules.callbacks.step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
@@ -217,12 +220,12 @@ class VariationalAutoencoder():
             filename = self.run_directory+'/models/'+config
             with open(filename, 'w') as outfile:
                 json.dump(data, outfile)
-            print(f'Config saved in : {filename}')
+            print(f'Config saved in     : {filename}')
         # ---- Save model
         if model!=None:
             filename = self.run_directory+'/models/'+model
             self.model.save(filename)
-            print(f'Model saved in  : {filename}')
+            print(f'Model saved in      : {filename}')
 
             
     def load_weights(self,model='model.h5'):
@@ -232,16 +235,20 @@ class VariationalAutoencoder():
     
             
     @classmethod
-    def load(cls, run_tag='000', config='vae_config.json', model='model.h5'):
+    def load(cls, run_tag='000', config='vae_config.json', weights='model.h5'):
         # ---- Instantiate a new vae
         filename = f'./run/{run_tag}/models/{config}'
         with open(filename, 'r') as infile:
             params=json.load(infile)
-            print(params.keys())
-#             vae=cls( params['input_shape'], params['encoder_layers'], params['decoder_layers'], params['z_dim'], '004', 0)
             vae=cls( **params)
-        # ---- model==None, just return it
-        if model==None: return vae
-        # ---- model!=None, get weight
-        vae.load_weights(model)
+        # ---- weights==None, just return it
+        if weights==None: return vae
+        # ---- weights!=None, get weights
+        vae.load_weights(weights)
         return vae
+    
+    @classmethod
+    def about(cls):
+        print('\nFIDLE 2020 - Variational AutoEncoder (VAE)')
+        print('TensorFlow version   :',tf.__version__)
+        print('VAE version          :', cls.version)
