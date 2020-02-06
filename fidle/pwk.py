@@ -155,7 +155,7 @@ def rmin(l):
 # show_images
 # -------------------------------------------------------------
 #
-def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary'):
+def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1):
     """
     Show some images in a grid, with legends
     args:
@@ -170,14 +170,13 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorba
     returns: 
         nothing
     """
-    rows    = math.ceil(len(indices)/columns)
-    fig=plt.figure(figsize=(columns*x_size, rows*(y_size+0.35)))
-    n=1
-    errors=0 
-    
+    if indices=='all': indices=range(len(x))
     draw_labels = (y is not None)
     draw_pred   = (y_pred is not None)
-    if indices=='all': indices=range(len(x))
+    rows        = math.ceil(len(indices)/columns)
+    fig=plt.figure(figsize=(columns*x_size, rows*(y_size+y_padding)))
+    n=1
+    errors=0 
     for i in indices:
         axs=fig.add_subplot(rows, columns, n)
         n+=1
@@ -196,6 +195,10 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorba
         axs.spines['left'].set_visible(True)
         axs.spines['top'].set_visible(True)
         axs.spines['bottom'].set_visible(True)
+        axs.spines['right'].set_alpha(spines_alpha)
+        axs.spines['left'].set_alpha(spines_alpha)
+        axs.spines['top'].set_alpha(spines_alpha)
+        axs.spines['bottom'].set_alpha(spines_alpha)
         axs.set_yticks([])
         axs.set_xticks([])
         if draw_labels and not draw_pred:
