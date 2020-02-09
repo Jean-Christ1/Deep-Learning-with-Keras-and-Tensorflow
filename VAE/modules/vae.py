@@ -1,3 +1,16 @@
+
+# ------------------------------------------------------------------
+#     _____ _     _ _
+#    |  ___(_) __| | | ___
+#    | |_  | |/ _` | |/ _ \
+#    |  _| | | (_| | |  __/
+#    |_|   |_|\__,_|_|\___|
+# ------------------------------------------------------------------
+# Formation Introduction au Deep Learning  (FIDLE)
+# CNRS/SARI/DEVLOG 2020 - S. Arias, E. Maldonado, JL. Parouty
+# ------------------------------------------------------------------
+# by JL Parouty (feb 2020), based on David Foster examples.
+
 import numpy as np
 
 import tensorflow as tf
@@ -157,8 +170,8 @@ class VariationalAutoencoder():
               image_periodicity=1,
               chkpt_periodicity=2,
               initial_epoch=0,
-              dataset_size=1,
-              lr_decay=1):
+              dataset_size=1
+             ):
 
         # ---- Dataset size
         n_train = int(x_train.shape[0] * dataset_size)
@@ -171,9 +184,6 @@ class VariationalAutoencoder():
         
         # ---- Callback : Images
         callbacks_images = ImagesCallback(initial_epoch, image_periodicity, self)
-        
-        # ---- Callback : Learning rate scheduler
-        #lr_sched = modules.callbacks.step_decay_schedule(initial_lr=self.learning_rate, decay_factor=lr_decay, step_size=1)
         
         # ---- Callback : Checkpoint
         filename = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"

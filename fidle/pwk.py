@@ -29,25 +29,25 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sn
 
-from IPython.display import display, Markdown
+from IPython.display import display,Markdown,HTML
 
-VERSION='0.2.6'
+VERSION='0.2.7'
 
 
 # -------------------------------------------------------------
 # init_all
 # -------------------------------------------------------------
 #
-def init(mplstyle='../fidle/talk.mplstyle'):
+def init(mplstyle='../fidle/custom.mplstyle', cssfile='../fidle/custom.css'):
     global VERSION
-    # ---- matplotlib
+    # ---- matplotlib and css
     matplotlib.style.use(mplstyle)
+    load_cssfile(cssfile)
     # ---- Hello world
 #     now = datetime.datetime.now()
     print('\nFIDLE 2020 - Practical Work Module')
     print('Version              :', VERSION)
     print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
-    print('Matplotlib style     :', mplstyle)
     print('TensorFlow version   :',tf.__version__)
     print('Keras version        :',tf.keras.__version__)
           
@@ -92,7 +92,7 @@ def shuffle_np_dataset(x, y):
     return x[p], y[p]
 
 
-def update_progress(what,i,imax):
+def update_progress(what,i,imax, redraw=False):
     """
     Display a text progress bar, as :
     My progress bar : ############# 34%
@@ -104,7 +104,7 @@ def update_progress(what,i,imax):
         nothing
     """
     bar_length = min(40,imax)
-    if (i%int(imax/bar_length))!=0 and i<imax:
+    if (i%int(imax/bar_length))!=0 and i<imax and not redraw:
         return
     progress  = float(i/imax)
     block     = int(round(bar_length * progress))
@@ -155,7 +155,9 @@ def rmin(l):
 # show_images
 # -------------------------------------------------------------
 #
-def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1):
+def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
+                colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1,
+                fontsize=20):
     """
     Show some images in a grid, with legends
     args:
@@ -176,7 +178,6 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorba
     rows        = math.ceil(len(indices)/columns)
     fig=plt.figure(figsize=(columns*x_size, rows*(y_size+y_padding)))
     n=1
-    errors=0 
     for i in indices:
         axs=fig.add_subplot(rows, columns, n)
         n+=1
@@ -202,14 +203,13 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1, colorba
         axs.set_yticks([])
         axs.set_xticks([])
         if draw_labels and not draw_pred:
-            axs.set_xlabel(y[i])
+            axs.set_xlabel(y[i],fontsize=fontsize)
         if draw_labels and draw_pred:
             if y[i]!=y_pred[i]:
-                axs.set_xlabel('{} ({})'.format(y_pred[i],y[i]))
+                axs.set_xlabel(f'{y_pred[i]} ({y[i]})',fontsize=fontsize)
                 axs.xaxis.label.set_color('red')
-                errors+=1
             else:
-                axs.set_xlabel(y[i])
+                axs.set_xlabel(y[i],fontsize=fontsize)
         if colorbar:
             fig.colorbar(img,orientation="vertical", shrink=0.65)
     plt.show()
@@ -363,3 +363,18 @@ def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6),
     
 def display_md(md_text):
     display(Markdown(md_text))
+    
+def hdelay(sec):
+    return str(datetime.timedelta(seconds=int(sec)))
+
+def hsize(num, suffix='o'):
+    for unit in ['','K','M','G','T','P','E','Z']:
+        if abs(num) < 1024.0:
+            return f'{num:3.1f} {unit}{suffix}'
+        num /= 1024.0
+    return f'{num:.1f} Y{suffix}'
+
+def load_cssfile(cssfile):
+    if cssfile is None: return
+    styles = open("../fidle/custom.css", "r").read()
+    display(HTML(styles))
