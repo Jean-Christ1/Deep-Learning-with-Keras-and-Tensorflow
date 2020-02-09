@@ -234,8 +234,8 @@ class VariationalAutoencoder():
                                           shuffle = True,
                                           epochs = epochs,
                                           initial_epoch = initial_epoch,
-                                          callbacks = callbacks_list
-#                                           validation_data = (x_test, x_test)
+                                          callbacks = [], #callbacks_list,
+                                          validation_data = (x_test, x_test)
                                          )
         
         end_time  = time.time()

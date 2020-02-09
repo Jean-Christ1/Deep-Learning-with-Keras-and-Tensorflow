@@ -106,7 +106,7 @@ class DataGenerator(Sequence):
     
     
     def on_epoch_end(self):
-        self.cluster_i = clusters_size
+        self.cluster_i = self.clusters_size
         self.read_next_cluster()
     
     
