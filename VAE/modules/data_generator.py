@@ -3,7 +3,7 @@
 #     _____ _     _ _
 #    |  ___(_) __| | | ___
 #    | |_  | |/ _` | |/ _ \
-#    |  _| | | (_| | |  __/       Data_generator
+#    |  _| | | (_| | |  __/       DataGenerator
 #    |_|   |_|\__,_|_|\___|       for clustered CelebA sataset
 # ------------------------------------------------------------------
 # Formation Introduction au Deep Learning  (FIDLE)
@@ -19,11 +19,11 @@ import os,glob
 
 from tensorflow.keras.utils import Sequence
 
-class Data_generator(Sequence):
+class DataGenerator(Sequence):
 
-    version = 0.1
+    version = 0.4
     
-    def __init__(self, clusters_dir='./data', batch_size=32, debug=False):
+    def __init__(self, clusters_dir='./data', batch_size=32, debug=False, k_size=1):
         '''
         Instanciation of the data generator
         args:
@@ -31,6 +31,7 @@ class Data_generator(Sequence):
             batch_size  : Batch size (32)
             debug       : debug mode (False)
         '''
+        if debug : self.about()
         #
         # ---- Get the list of clusters
         #      
@@ -44,8 +45,13 @@ class Data_generator(Sequence):
         for c in clusters_name:
             df = pd.read_csv(c+'.csv', header=0)
             dataset_size+=len(df.index)
+        #
+        # ---- If we only want to use a part of the dataset...
+        #
+        dataset_size = int(dataset_size * k_size)
+        #
         if debug: 
-            print(f'Clusters nb  : {len(clusters_name)} files')
+            print(f'\nClusters nb  : {len(clusters_name)} files')
             print(f'Dataset size : {dataset_size}')
             print(f'Batch size   : {batch_size}')
 
@@ -99,6 +105,11 @@ class Data_generator(Sequence):
         return batch, batch
     
     
+    def on_epoch_end(self):
+        self.cluster_i = clusters_size
+        self.read_next_cluster()
+    
+    
     def read_next_cluster(self):
         #
         # ---- Get the next cluster name
@@ -123,10 +134,9 @@ class Data_generator(Sequence):
         self.cluster_i = i
         #
         if self.debug: print(f'\n[Load {self.cluster_i:02d},s={len(self.data):3d}] ',end='')
-
-    
+          
         
     @classmethod
     def about(cls):
-        print('\nFIDLE 2020 - Data_generator')
+        print('\nFIDLE 2020 - DataGenerator')
         print('Version              :', cls.version)

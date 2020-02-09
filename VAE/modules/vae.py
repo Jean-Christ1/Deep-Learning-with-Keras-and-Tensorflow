@@ -23,10 +23,9 @@ from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.utils import plot_model
 
-import tensorflow.keras.datasets.imdb as imdb
+from modules.callbacks      import ImagesCallback
+from modules.data_generator import DataGenerator
 
-import modules.callbacks
-from modules.callbacks import ImagesCallback
 
 import os, json, time, datetime
 
@@ -163,20 +162,33 @@ class VariationalAutoencoder():
         print(f'Optimizer is Adam with learning_rate={learning_rate:}')
     
     
+    
     def train(self, 
-              x_train,x_test,
+              x_train=None,
+              x_test=None,
+              data_generator=None,
               batch_size=32, 
               epochs=200, 
               image_periodicity=1,
               chkpt_periodicity=2,
               initial_epoch=0,
-              dataset_size=1
+              k_size=1
              ):
 
-        # ---- Dataset size
-        n_train = int(x_train.shape[0] * dataset_size)
-        n_test  = int(x_test.shape[0]  * dataset_size)
-
+        # ---- Data given or via generator
+        mode_data = (data_generator is None)
+        
+        # ---- Size of the dataset we are going to use
+        #      k_size ==1 : mean 100%
+        #      ** Cannot be use with data generator **
+        #
+        if mode_data:
+            n_train = int(x_train.shape[0] * k_size)
+            n_test  = int(x_test.shape[0]  * k_size)
+        else:
+            n_train = len(data_generator)
+            n_test  = int(x_test.shape[0])
+            
         # ---- Need by callbacks
         self.n_train    = n_train
         self.n_test     = n_test
@@ -201,20 +213,38 @@ class VariationalAutoencoder():
 
         # ---- Let's go...
         start_time   = time.time()
-        self.history = self.model.fit(x_train[:n_train], x_train[:n_train],
-                                      batch_size = batch_size,
-                                      shuffle = True,
-                                      epochs = epochs,
-                                      initial_epoch = initial_epoch,
-                                      callbacks = callbacks_list,
-                                      validation_data = (x_test[:n_test], x_test[:n_test])
-                                      )
+        
+        if mode_data:
+            #
+            # ---- With pure data (x_train) -----------------------------------------
+            #                             
+            self.history = self.model.fit(x_train[:n_train], x_train[:n_train],
+                                          batch_size = batch_size,
+                                          shuffle = True,
+                                          epochs = epochs,
+                                          initial_epoch = initial_epoch,
+                                          callbacks = callbacks_list,
+                                          validation_data = (x_test[:n_test], x_test[:n_test])
+                                          )
+            #
+        else:
+            # ---- With Data Generator ----------------------------------------------
+            #
+            self.history = self.model.fit(data_generator,
+                                          shuffle = True,
+                                          epochs = epochs,
+                                          initial_epoch = initial_epoch,
+                                          callbacks = callbacks_list
+#                                           validation_data = (x_test, x_test)
+                                         )
+        
         end_time  = time.time()
         dt  = end_time-start_time
         dth = str(datetime.timedelta(seconds=int(dt)))
         self.duration = dt
         print(f'\nTrain duration : {dt:.2f} sec. - {dth:}')
-        
+
+
     def plot_model(self):
         d=self.run_directory+'/figs'
         plot_model(self.model,   to_file=f'{d}/model.png',   show_shapes = True, show_layer_names = True, expand_nested=True)
