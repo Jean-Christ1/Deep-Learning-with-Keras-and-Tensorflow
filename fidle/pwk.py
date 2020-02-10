@@ -27,7 +27,7 @@ from sklearn.metrics import confusion_matrix
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
-import seaborn as sn
+# import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Markdown,HTML
 
