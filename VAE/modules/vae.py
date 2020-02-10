@@ -186,7 +186,7 @@ class VariationalAutoencoder():
             n_train = int(x_train.shape[0] * k_size)
             n_test  = int(x_test.shape[0]  * k_size)
         else:
-            n_train = len(data_generator)
+            n_train = len(data_generator)*batch_size
             n_test  = int(x_test.shape[0])
             
         # ---- Need by callbacks
@@ -210,6 +210,7 @@ class VariationalAutoencoder():
         callback_tensorboard = TensorBoard(log_dir=dirname, histogram_freq=1)
 
         callbacks_list = [callbacks_images, callback_chkpts, callback_bestmodel, callback_tensorboard]
+#         callbacks_list = [callback_chkpts, callback_bestmodel, callback_tensorboard]
 
         # ---- Let's go...
         start_time   = time.time()
@@ -234,7 +235,7 @@ class VariationalAutoencoder():
                                           shuffle = True,
                                           epochs = epochs,
                                           initial_epoch = initial_epoch,
-                                          callbacks = [], #callbacks_list,
+                                          callbacks = callbacks_list,
                                           validation_data = (x_test, x_test)
                                          )
         
@@ -245,6 +246,8 @@ class VariationalAutoencoder():
         print(f'\nTrain duration : {dt:.2f} sec. - {dth:}')
 
 
+        
+        
     def plot_model(self):
         d=self.run_directory+'/figs'
         plot_model(self.model,   to_file=f'{d}/model.png',   show_shapes = True, show_layer_names = True, expand_nested=True)
@@ -252,8 +255,18 @@ class VariationalAutoencoder():
         plot_model(self.decoder, to_file=f'{d}/decoder.png', show_shapes = True, show_layer_names = True)
 
         
-    def save(self,config='vae_config.json', model='model.h5'):
+        
+        
+    def save(self,config='vae_config.json', model='model.h5', force=False):
+        
+        # ---- Check if the place is still used
+        
+        if os.path.isfile(self.run_directory+'/models/best_model.h5') and not force:
+            print('\n*** Oops. There are already stuff in the target folder !\n')
+            assert False, f'Tag directory {self.run_directory} is not empty...'
+           
         # ---- Save config in json
+        
         if config!=None:
             to_save  = ['input_shape', 'encoder_layers', 'decoder_layers', 'z_dim', 'run_tag', 'verbose']
             data     = { i:self.__dict__[i] for i in to_save }
@@ -261,13 +274,16 @@ class VariationalAutoencoder():
             with open(filename, 'w') as outfile:
                 json.dump(data, outfile)
             print(f'Config saved in     : {filename}')
+        
         # ---- Save model
+        
         if model!=None:
             filename = self.run_directory+'/models/'+model
             self.model.save(filename)
             print(f'Model saved in      : {filename}')
 
-            
+        
+        
     def load_weights(self,model='model.h5'):
         filename = self.run_directory+'/models/'+model
         self.model.load_weights(filename)

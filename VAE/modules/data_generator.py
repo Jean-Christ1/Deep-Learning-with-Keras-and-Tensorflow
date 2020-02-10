@@ -122,10 +122,9 @@ class DataGenerator(Sequence):
             i = 0
             if self.debug : print(f'\n[shuffle!]')
         #
-        # ---- Read it, and normalize
+        # ---- Read it (images still normalized)
         #
         data = np.load( self.clusters_name[i]+'.npy' )
-        data = data/255
         #
         # ---- Remember all of that
         #
