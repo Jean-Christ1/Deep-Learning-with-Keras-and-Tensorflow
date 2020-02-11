@@ -31,7 +31,7 @@ import matplotlib.pyplot as plt
 
 from IPython.display import display,Markdown,HTML
 
-VERSION='0.2.7'
+VERSION='0.2.8'
 
 
 # -------------------------------------------------------------
@@ -378,3 +378,22 @@ def load_cssfile(cssfile):
     if cssfile is None: return
     styles = open("../fidle/custom.css", "r").read()
     display(HTML(styles))
+    
+    
+def good_place( places={'SOMEWHERE':'/tmp'} ):
+    for place_name, place_dir in places.items():
+        if os.path.isdir(place_dir):
+            print(f'Well, we should be at {place_name} !')
+            print(f'We are going to use: {place_dir}')
+            return place_name,place_dir
+
+    print('** Attention : No expected folder exists in this environment..')
+    assert False, 'No expected folder exists in this environment..'
+     
+     
+     
+     
+     
+     
+     
+     

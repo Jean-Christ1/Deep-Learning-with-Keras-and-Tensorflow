@@ -12,6 +12,7 @@
 # by JL Parouty (feb 2020), based on David Foster examples.
 
 import numpy as np
+import math
 
 import tensorflow as tf
 import tensorflow.keras as keras
@@ -33,7 +34,7 @@ import os, json, time, datetime
 
 class VariationalAutoencoder():
 
-    version = '1.24'
+    version = '1.27'
     
     def __init__(self, input_shape=None, encoder_layers=None, decoder_layers=None, z_dim=None, run_tag='000', verbose=0):
                
@@ -136,8 +137,7 @@ class VariationalAutoencoder():
         
         
         
-    def compile(self, learning_rate, r_loss_factor):
-        self.learning_rate = learning_rate
+    def compile(self, optimizer='adam', r_loss_factor='1000'):
         self.r_loss_factor = r_loss_factor
 
         def vae_r_loss(y_true, y_pred):
@@ -153,13 +153,11 @@ class VariationalAutoencoder():
             kl_loss = vae_kl_loss(y_true, y_pred)
             return  r_loss + kl_loss
 
-        optimizer = Adam(lr=learning_rate)
         self.model.compile(optimizer=optimizer, 
                            loss = vae_loss,
                            metrics = [vae_r_loss, vae_kl_loss], 
                            experimental_run_tf_function=False)
         print('Compiled.')
-        print(f'Optimizer is Adam with learning_rate={learning_rate:}')
     
     
     
@@ -168,9 +166,7 @@ class VariationalAutoencoder():
               x_test=None,
               data_generator=None,
               batch_size=32, 
-              epochs=200, 
-              image_periodicity=1,
-              chkpt_periodicity=2,
+              epochs=20,
               initial_epoch=0,
               k_size=1
              ):
@@ -180,26 +176,19 @@ class VariationalAutoencoder():
         
         # ---- Size of the dataset we are going to use
         #      k_size ==1 : mean 100%
-        #      ** Cannot be use with data generator **
+        #      Unused with data generator
         #
         if mode_data:
             n_train = int(x_train.shape[0] * k_size)
             n_test  = int(x_test.shape[0]  * k_size)
-        else:
-            n_train = len(data_generator)*batch_size
-            n_test  = int(x_test.shape[0])
-            
-        # ---- Need by callbacks
-        self.n_train    = n_train
-        self.n_test     = n_test
-        self.batch_size = batch_size
-        
+                   
         # ---- Callback : Images
-        callbacks_images = ImagesCallback(initial_epoch, image_periodicity, self)
+        filename = self.run_directory+"/images/image-{epoch:03d}.jpg"
+        callbacks_images = ImagesCallback(filename, z_dim=self.z_dim, decoder=self.decoder)
         
         # ---- Callback : Checkpoint
         filename = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"
-        callback_chkpts = ModelCheckpoint(filename, save_freq=n_train*chkpt_periodicity ,verbose=0)
+        callback_chkpts = ModelCheckpoint(filename, save_freq='epoch' ,verbose=0)
 
         # ---- Callback : Best model
         filename = self.run_directory+"/models/best_model.h5"
