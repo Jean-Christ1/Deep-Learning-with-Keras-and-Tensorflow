@@ -21,7 +21,7 @@ from tensorflow.keras.utils import Sequence
 
 class DataGenerator(Sequence):
 
-    version = 0.4
+    version = '0.4.1'
     
     def __init__(self, clusters_dir='./data', batch_size=32, debug=False, k_size=1):
         '''
@@ -124,7 +124,7 @@ class DataGenerator(Sequence):
         #
         # ---- Read it (images still normalized)
         #
-        data = np.load( self.clusters_name[i]+'.npy' )
+        data = np.load( self.clusters_name[i]+'.npy', mmap_mode='r' )
         #
         # ---- Remember all of that
         #

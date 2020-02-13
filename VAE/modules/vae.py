@@ -34,7 +34,7 @@ import os, json, time, datetime
 
 class VariationalAutoencoder():
 
-    version = '1.27'
+    version = '1.28'
     
     def __init__(self, input_shape=None, encoder_layers=None, decoder_layers=None, z_dim=None, run_tag='000', verbose=0):
                
@@ -183,11 +183,11 @@ class VariationalAutoencoder():
             n_test  = int(x_test.shape[0]  * k_size)
                    
         # ---- Callback : Images
-        filename = self.run_directory+"/images/image-{epoch:03d}.jpg"
+        filename = self.run_directory+"/images/image-{epoch:03d}-{i:02d}.jpg"
         callbacks_images = ImagesCallback(filename, z_dim=self.z_dim, decoder=self.decoder)
         
         # ---- Callback : Checkpoint
-        filename = self.run_directory+"/models/model-{epoch:03d}-{loss:.2f}.h5"
+        filename = self.run_directory+"/models/model-{epoch:03d}.h5"
         callback_chkpts = ModelCheckpoint(filename, save_freq='epoch' ,verbose=0)
 
         # ---- Callback : Best model
