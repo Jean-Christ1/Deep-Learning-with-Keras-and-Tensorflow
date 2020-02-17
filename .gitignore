@@ -3,5 +3,9 @@
 __pycache__
 */__pycache__/*
 run/
-data/
-!/BHPD/data/BostonHousing.csv
+GTSRB/data
+IMDB/data
+MNIST/data
+VAE/data
+BHPD/data/*
+!BHPD/data/BostonHousing.csv

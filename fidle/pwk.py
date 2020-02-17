@@ -8,7 +8,7 @@
 #                                                        module pwk                                   
 # ==================================================================
 # A simple module to host some common functions for practical work
-# pjluc 2020
+# Jean-Luc Parouty 2020
 
 import os
 import glob
@@ -31,14 +31,14 @@ import matplotlib.pyplot as plt
 
 from IPython.display import display,Markdown,HTML
 
-VERSION='0.2.8'
+VERSION='0.2.9'
 
 
 # -------------------------------------------------------------
 # init_all
 # -------------------------------------------------------------
 #
-def init(mplstyle='../fidle/custom.mplstyle', cssfile='../fidle/custom.css'):
+def init(mplstyle='../fidle/mplstyles/custom.mplstyle', cssfile='../fidle/css/custom.css'):
     global VERSION
     # ---- matplotlib and css
     matplotlib.style.use(mplstyle)
@@ -376,7 +376,7 @@ def hsize(num, suffix='o'):
 
 def load_cssfile(cssfile):
     if cssfile is None: return
-    styles = open("../fidle/custom.css", "r").read()
+    styles = open(cssfile, "r").read()
     display(HTML(styles))
     
     
