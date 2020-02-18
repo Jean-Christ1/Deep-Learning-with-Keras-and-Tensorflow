@@ -17,7 +17,7 @@ Vous trouverez ici :
  - le support des présentations
  - l'ensemble des travaux pratiques
  - des fiches et informations pratiques :
-   - [Configuration SSH](-/wikis/howto-ssh)
+   - [Configuration SSH](../-/wikis/howto-ssh)
 
 
 
