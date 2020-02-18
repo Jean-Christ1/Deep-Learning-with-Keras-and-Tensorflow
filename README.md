@@ -21,9 +21,6 @@ Vous trouverez ici :
 
 
 
-ceci est un test
-
-
 ## Récupération de ce dépot et installation
 To run this examples, you need an environment with the following packages :
  - Python 3.6
