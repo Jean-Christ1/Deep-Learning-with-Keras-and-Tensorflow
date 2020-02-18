@@ -12,19 +12,19 @@ Les objectifs de cette formations, co-organisée par la formation continue du CN
  - Appréhender les technologies **Tensorflow/Kera**s et **Jupyter lab**, sur GPU
  - Appréhender les **environnements de calcul académiques** tier-2 (méso) et/ou tier-1 (nationaux)
 
-## disposibles dans ce dépot :
+## Disposibles dans ce dépot :
 Vous trouverez ici :
  - le support des présentations
- - l'ensemble des travaux pratiques
+ - l'ensemble des travaux pratiques, sous forme de notebooks Jupyter
  - des fiches et informations pratiques :
-   - [Configuration SSH](../-/wikis/howto-ssh)
+   - **[Configuration SSH](../-/wikis/howto-ssh)**
 
 
 
 
 
-```
-## 1/ Environment
+
+## Récupération de ce dépot et installation
 To run this examples, you need an environment with the following packages :
  - Python 3.6
  - numpy
@@ -44,9 +44,5 @@ To manage conda environment see [there](https://docs.conda.io/projects/conda/en/
 
 
 
-## 4/ Misc
-To update an existing environment :  
-```
-conda env update --name=deeplearning2 --file=environment.yml
-```
-
+## Misc
+...
