@@ -3,27 +3,27 @@
 
 ## A propos
 
-Ce dépot contient l'ensemble des documents et liens de la **formation Fidle**.  
+This repository contains all the documents and links of the **Fidle Training**.  
 
-Les objectifs de cette formations, co-organisée par la formation continue du CNRS et les réseaux SARI et DEVLOG, sont :
- - Comprendre les **bases** des réseaux de neurones profonds (Deep Learning)
- - Développer une **première expérience** à travers des exemples simples et représentatifs
- - Comprendre les différents types de réseaux, leurs **architectures** et leurs **cas d'usages**
- - Appréhender les technologies **Tensorflow/Kera**s et **Jupyter lab**, sur GPU
- - Appréhender les **environnements de calcul académiques** tier-2 (méso) et/ou tier-1 (nationaux)
+The objectives of this training, co-organized by the Formation Permanente CNRS and the SARI and DEVLOG networks, are :
+ - Understanding the **bases** of deep learning neural networks (Deep Learning)
+ - Develop a **first experience** through simple and representative examples
+ - Understand the different types of networks, their **architectures** and their **use cases**.
+ - Understanding Tensorflow/Kera**s and Jupyter lab** technologies on the GPU
+ - Apprehend the **academic computing environments** Tier-2 (meso) and/or Tier-1 (national)
 
-## Disposibles dans ce dépot :
-Vous trouverez ici :
- - le support des présentations
- - l'ensemble des travaux pratiques, sous forme de notebooks Jupyter
- - des fiches et informations pratiques :
+## Available at this depot:
+You will find here :
+ - the support of the presentations
+ - all the practical work, in the form of Jupyter notebooks
+ - sheets and practical information :
    - **[Configuration SSH](../-/wikis/howto-ssh)**
 
 
 
-## Récupération de ce dépot et installation
+## Installation
 To run this examples, you need an environment with the following packages :
- - Python 3.6
+ - Python >3.5
  - numpy
  - Tensorflow 2.0
  - scikit-image
@@ -41,5 +41,9 @@ To manage conda environment see [there](https://docs.conda.io/projects/conda/en/
 
 
 
-## Misc
-...
+## Licence
+
+\[en\] Attribution - NonCommercial - ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
+\[Fr\] Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International
+See [License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  
+See [Disclaimer](https://creativecommons.org/licenses/by-nc-sa/4.0/#).
