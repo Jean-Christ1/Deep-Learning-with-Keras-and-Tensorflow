@@ -1,20 +1,28 @@
 
+![](fidle/img/00-Fidle-titre-01_m.png)
 
-FIDLE - Formation Introduction au Deep Learning
-===============================================
----
-S. Arias, E. Maldonado, JL. Parouty - CNRS/SARI/DEVLOG - 2020  
+## A propos
 
-## 0/ SSH et accès aux machines de calcul Gricad
-Fichier config à créer sous $HOME/.ssh
-```
-ForwardAgent yes
+Ce dépot contient l'ensemble des documents et liens de la **formation Fidle**.  
 
-Host *.ciment
-User votre_login
-ProxyCommand ssh -q votre_login@access-rr-ciment.imag.fr "nc -w 60 `basename %h .cime
-nt` %p"
-LocalForward 8888 f-dahu:numerodeport_particulier
+Les objectifs de cette formations, co-organisée par la formation continue du CNRS et les réseaux SARI et DEVLOG, sont :
+ - Comprendre les **bases** des réseaux de neurones profonds (Deep Learning)
+ - Développer une **première expérience** à travers des exemples simples et représentatifs
+ - Comprendre les différents types de réseaux, leurs **architectures** et leurs **cas d'usages**
+ - Appréhender les technologies **Tensorflow/Kera**s et **Jupyter lab**, sur GPU
+ - Appréhender les **environnements de calcul académiques** tier-2 (méso) et/ou tier-1 (nationaux)
+
+## disposibles dans ce dépot :
+Vous trouverez ici :
+ - le support des présentations
+ - l'ensemble des travaux pratiques
+ - des fiches et informations pratiques :
+   - [Configuration SSH](-/wikis/howto-ssh)
+
+
+
+
+
 ```
 ## 1/ Environment
 To run this examples, you need an environment with the following packages :
