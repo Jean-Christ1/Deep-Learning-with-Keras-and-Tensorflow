@@ -6,26 +6,53 @@
 This repository contains all the documents and links of the **Fidle Training**.  
 
 The objectives of this training, co-organized by the Formation Permanente CNRS and the SARI and DEVLOG networks, are :
- - Understanding the **bases** of deep learning neural networks (Deep Learning)
+ - Understanding the **bases of deep learning** neural networks (Deep Learning)
  - Develop a **first experience** through simple and representative examples
  - Understand the different types of networks, their **architectures** and their **use cases**.
- - Understanding Tensorflow/Kera**s and Jupyter lab** technologies on the GPU
+ - Understanding **Tensorflow/Keras and Jupyter lab** technologies on the GPU
  - Apprehend the **academic computing environments** Tier-2 (meso) and/or Tier-1 (national)
 
-## Support and notebooks
+## Course materials
 Get the **[support of the presentations](Bientot)**  
-Note that useful information is also available in the **[wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)**  
+Useful information is also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
 
-All examples and practical work are available as Jupyter notebooks :
+**Jupyter notebooks :**
 
+<!-- DO NOT REMOVE THIS TAG !!! -->
 <!-- INDEX -->
 <!-- INDEX_BEGIN -->
+1. [Linear regression with direct resolution](LinearReg/01-Linear-Regression.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direct determination of linear regression 
+1. [Linear regression with gradient descent](LinearReg/02-Gradient-descent.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of gradient descent in the simple case of a linear regression.
+1. [Complexity Syndrome](LinearReg/03-Polynomial-Regression.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Illustration of the problem of complexity with the polynomial regression
+1. [Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow. 
 1. [Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Simple regression with a Dense Neural Network (DNN) - BHPD dataset
 1. [Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More advanced example of DNN network code - BHPD dataset
 1. [CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1: Data analysis and creation of a usable dataset
+1. [CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : First convolutions and first results
+1. [CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Monitoring and analysing training, managing checkpoints
+1. [CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4: Improving the results with data augmentation
+1. [CNN with GTSRB dataset - Full convolutions ](GTSRB/05-Full-convolutions.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 5: A lot of models, a lot of datasets and a lot of results.
+1. [CNN with GTSRB dataset - Full convolutions as a batch](GTSRB/06-Full-convolutions-batch.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 6 : Run Full convolution notebook as a batch
+1. [Tensorboard with/from Jupyter ](GTSRB/99-Scripts-Tensorboard.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 ways to use Tensorboard from the Jupyter environment
+1. [Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A very classical example of word embedding for text classification (sentiment analysis)
+1. [Text embedding with IMDB - Reloaded](IMDB/02-Prediction.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of reusing a previously saved model
+1. [Text embedding/LSTM model with IMDB](IMDB/03-LSTM-Keras.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Still the same problem, but with a network combining embedding and LSTM
 <!-- INDEX_END -->
 
 
