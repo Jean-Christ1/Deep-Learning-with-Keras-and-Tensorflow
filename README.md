@@ -1,4 +1,3 @@
-
 ![](fidle/img/00-Fidle-titre-01_m.png)
 
 ## A propos
@@ -13,7 +12,7 @@ The objectives of this training, co-organized by the Formation Permanente CNRS a
  - Apprehend the **academic computing environments** Tier-2 (meso) and/or Tier-1 (national)
 
 ## Course materials
-Get the **[support of the presentations](Bientot)**  
+Get the **[course slides](Bientot)**  
 Useful information is also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
 
 **Jupyter notebooks :**
