@@ -19,6 +19,14 @@ You will find here :
  - sheets and practical information :
    - **[Configuration SSH](../-/wikis/howto-ssh)**
 
+- [Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Simple regression with a Dense Neural Network (DNN) - BHPD dataset
+
+- [Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More advanced example of DNN network code - BHPD dataset
+
+
+
 
 
 ## Installation
