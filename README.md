@@ -1,4 +1,3 @@
-<!-- ![](fidle/img/00-Fidle-titre-01_m.png) -->
 [<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>](#)
 
 ## A propos
@@ -13,15 +12,16 @@ The objectives of this training, co-organized by the Formation Permanente CNRS a
  - Apprehend the **academic computing environments** Tier-2 (meso) and/or Tier-1 (national)
 
 ## Course materials
-Get the **[course slides](Bientot)**  
-<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
+**[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
+Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/z7XZA36xKkMcaTS)**  
+
 
 
 <!-- ![pdf](fidle/img/00-Fidle-pdf.png) -->
 Useful information is also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
 
 
-**Jupyter notebooks :**
+## Jupyter notebooks
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/git/https%3A%2F%2Fgricad-gitlab.univ-grenoble-alpes.fr%2Ftalks%2Fdeeplearning.git/master?urlpath=lab/tree/index.ipynb)
 
@@ -66,23 +66,26 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 
 
 ## Installation
-To run this examples, you need an environment with the following packages :
+To run this examples, you need a Python environment, with the following packages :
  - Python >3.5
- - numpy
+ - Numpy
  - Tensorflow 2.0
- - scikit-image
- - scikit-learn
+ - Scikit-image
+ - Scikit-learn
  - Matplotlib
- - seaborn
+ - Seaborn
  - pyplot
 
-You can install such a predefined environment :
-```
-conda env create -f environment.yml
-```
+For this, you can use the [Anaconda](https://www.anaconda.com) distribution :
+
+ 1. Installing Anaconda :  
+ https://www.anaconda.com/distribution
+
+ 2. Installing the Fidle conda environment :  
+`# conda env create -f environment.yml`
 
 To manage conda environment see [there](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#)  
-
+To start Jupyter Lab on your machine or on a GRICAD cluster, see Wiki
 
 
 ## Licence
@@ -91,3 +94,7 @@ To manage conda environment see [there](https://docs.conda.io/projects/conda/en/
 \[Fr\] Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International
 See [License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  
 See [Disclaimer](https://creativecommons.org/licenses/by-nc-sa/4.0/#).
+
+
+----
+[<img width="80px" src="fidle/img/00-Fidle-logo-01.svg"></img>](#)
