@@ -37,15 +37,15 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Illustration of the problem of complexity with the polynomial regression
 1. [Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow. 
-1. [Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)<br>
+1. [[REG1] - Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Simple regression with a Dense Neural Network (DNN) - BHPD dataset
-1. [Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)<br>
+1. [[REG2] - Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More advanced example of DNN network code - BHPD dataset
-1. [CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)<br>
+1. [[GTS1] - CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1: Data analysis and creation of a usable dataset
-1. [CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)<br>
+1. [[GTS2] - CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : First convolutions and first results
-1. [CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)<br>
+1. [[GTS3] - CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Monitoring and analysing training, managing checkpoints
 1. [CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4: Improving the results with data augmentation
