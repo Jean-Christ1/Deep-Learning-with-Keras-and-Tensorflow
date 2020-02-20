@@ -66,34 +66,15 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 
 
 ## Installation
-To run this examples, you need a Python environment, with the following packages :
- - Python >3.5
- - Numpy
- - Tensorflow 2.0
- - Scikit-image
- - Scikit-learn
- - Matplotlib
- - Seaborn
- - pyplot
 
-For this, you can use the [Anaconda](https://www.anaconda.com) distribution :
-
- 1. Installing Anaconda :  
- https://www.anaconda.com/distribution
-
- 2. Installing the Fidle conda environment :  
-`# conda env create -f environment.yml`
-
-To manage conda environment see [there](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#)  
-To start Jupyter Lab on your machine or on a GRICAD cluster, see Wiki
-
+A procedure for **configuring** and **starting Jupyter** is available in the **[Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/howto-jupyter)**.
 
 ## Licence
 
 \[en\] Attribution - NonCommercial - ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
-\[Fr\] Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International
+\[Fr\] Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International  
 See [License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  
-See [Disclaimer](https://creativecommons.org/licenses/by-nc-sa/4.0/#).
+See [Disclaimer](https://creativecommons.org/licenses/by-nc-sa/4.0/#).  
 
 
 ----
