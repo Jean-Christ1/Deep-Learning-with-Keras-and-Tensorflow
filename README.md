@@ -1,4 +1,5 @@
-![](fidle/img/00-Fidle-titre-01_m.png)
+<!-- ![](fidle/img/00-Fidle-titre-01_m.png) -->
+<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>
 
 ## A propos
 
@@ -13,9 +14,17 @@ The objectives of this training, co-organized by the Formation Permanente CNRS a
 
 ## Course materials
 Get the **[course slides](Bientot)**  
+<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
+
+
+<!-- ![pdf](fidle/img/00-Fidle-pdf.png) -->
 Useful information is also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
 
+
 **Jupyter notebooks :**
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/git/https%3A%2F%2Fgricad-gitlab.univ-grenoble-alpes.fr%2Ftalks%2Fdeeplearning.git/master?urlpath=lab/tree/index.ipynb)
+
 
 <!-- DO NOT REMOVE THIS TAG !!! -->
 <!-- INDEX -->
