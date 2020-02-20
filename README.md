@@ -1,5 +1,5 @@
 <!-- ![](fidle/img/00-Fidle-titre-01_m.png) -->
-<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>
+[<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>](#)
 
 ## A propos
 
