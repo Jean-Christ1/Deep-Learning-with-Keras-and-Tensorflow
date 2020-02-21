@@ -17,13 +17,16 @@
 #        | '_ \ / _` | __/ __| '_ \
 #        | |_) | (_| | || (__| | | |
 #        |_.__/ \__,_|\__\___|_| |_|
-#                       VAE CelebA at IDRIS
+#                              Fidle at IDRIS
 # -----------------------------------------------
 #
+# <!-- TITLE --> [BASH2] - SLURM batch script
+# <!-- DESC --> Bash script for SLURM batch submission of a notebook 
+# <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 MODULE_ENV="tensorflow-gpu/py3/2.0.0"
 RUN_DIR="$WORK/fidle/VAE"
-RUN_IPYNB="05.2-Variant.ipynb"
+RUN_IPYNB="06-VAE-with-CelebA-s.ipynb"
 
 # ---- Welcome...
 

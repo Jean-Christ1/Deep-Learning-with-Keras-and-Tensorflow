@@ -17,23 +17,26 @@
 #        | '_ \ / _` | __/ __| '_ \
 #        | |_) | (_| | || (__| | | |
 #        |_.__/ \__,_|\__\___|_| |_|
-#                       VAE CelebA at GRICAD
+#                             Fidle at GRICAD
 # -----------------------------------------------
 #
+# <!-- TITLE --> [BASH1] - OAR batch script
+# <!-- DESC --> Bash script for OAR batch submission of a notebook 
+# <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
-CONDA_ENV=deeplearning2
+CONDA_ENV=fidle
 RUN_DIR=~/fidle/VAE
-RUN_IPYNB=05.1-Batch-01.ipynb
+RUN_IPYNB='06-VAE-with-CelebA-s.ipynb'
 
 # ---- Cuda Conda initialization
-#
+
 echo '------------------------------------------------------------'
 echo "Start : $0"
 echo '------------------------------------------------------------'
-#
+
 source /applis/environments/cuda_env.sh dahu 10.0
 source /applis/environments/conda.sh
-#
+
 conda activate "$CONDA_ENV"
 
 # ---- Run it...

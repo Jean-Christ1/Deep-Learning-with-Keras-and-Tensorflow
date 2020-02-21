@@ -29,46 +29,65 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 <!-- DO NOT REMOVE THIS TAG !!! -->
 <!-- INDEX -->
 <!-- INDEX_BEGIN -->
-1. [[NP1] - A short introduction to Numpy](Prerequisites/Numpy.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numpy is an essential tool for the Scientific Python.
-1. [[LINR1] - Linear regression with direct resolution](LinearReg/01-Linear-Regression.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direct determination of linear regression 
-1. [[GRAD1] - Linear regression with gradient descent](LinearReg/02-Gradient-descent.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of gradient descent in the simple case of a linear regression.
-1. [[FIT1] - Complexity Syndrome](LinearReg/03-Polynomial-Regression.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Illustration of the problem of complexity with the polynomial regression
-1. [[LOGR1] - Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow. 
-1. [[MNIST1] - Simple classification with DNN](MNIST/01-DNN-MNIST.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of classification with a fully connected neural network
-1. [[BHP1] - Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Simple regression with a Dense Neural Network (DNN) - BHPD dataset
-1. [[BHP2] - Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More advanced example of DNN network code - BHPD dataset
-1. [[GTS1] - CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1: Data analysis and creation of a usable dataset
-1. [[GTS2] - CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : First convolutions and first results
-1. [[GTS3] - CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Monitoring and analysing training, managing checkpoints
-1. [[GTS4] - CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4: Improving the results with data augmentation
-1. [[GTS5] - CNN with GTSRB dataset - Full convolutions ](GTSRB/05-Full-convolutions.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 5: A lot of models, a lot of datasets and a lot of results.
-1. [[GTS6] - CNN with GTSRB dataset - Full convolutions as a batch](GTSRB/06-Full-convolutions-batch.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 6 : Run Full convolution notebook as a batch
-1. [[GTS7] - Full convolutions Report](GTSRB/07-Full-convolutions-reports.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displaying the reports of the different jobs
-1. [[TSB1] - Tensorboard with/from Jupyter ](GTSRB/99-Scripts-Tensorboard.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 ways to use Tensorboard from the Jupyter environment
-1. [[IMDB1] - Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A very classical example of word embedding for text classification (sentiment analysis)
-1. [[IMDB2] - Text embedding with IMDB - Reloaded](IMDB/02-Prediction.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of reusing a previously saved model
-1. [[IMDB3] - Text embedding/LSTM model with IMDB](IMDB/03-LSTM-Keras.ipynb)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Still the same problem, but with a network combining embedding and LSTM
+[[NP1] - A short introduction to Numpy](Prerequisites/Numpy.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numpy is an essential tool for the Scientific Python.  
+[[LINR1] - Linear regression with direct resolution](LinearReg/01-Linear-Regression.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direct determination of linear regression   
+[[GRAD1] - Linear regression with gradient descent](LinearReg/02-Gradient-descent.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of gradient descent in the simple case of a linear regression.  
+[[FIT1] - Complexity Syndrome](LinearReg/03-Polynomial-Regression.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Illustration of the problem of complexity with the polynomial regression  
+[[LOGR1] - Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow.   
+[[MNIST1] - Simple classification with DNN](MNIST/01-DNN-MNIST.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of classification with a fully connected neural network  
+[[BHP1] - Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Simple regression with a Dense Neural Network (DNN) - BHPD dataset  
+[[BHP2] - Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More advanced example of DNN network code - BHPD dataset  
+[[GTS1] - CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1: Data analysis and creation of a usable dataset  
+[[GTS2] - CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : First convolutions and first results  
+[[GTS3] - CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Monitoring and analysing training, managing checkpoints  
+[[GTS4] - CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4: Improving the results with data augmentation  
+[[GTS5] - CNN with GTSRB dataset - Full convolutions ](GTSRB/05-Full-convolutions.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 5: A lot of models, a lot of datasets and a lot of results.  
+[[GTS6] - CNN with GTSRB dataset - Full convolutions as a batch](GTSRB/06-Full-convolutions-batch.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 6 : Run Full convolution notebook as a batch  
+[[GTS7] - Full convolutions Report](GTSRB/07-Full-convolutions-reports.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displaying the reports of the different jobs  
+[[TSB1] - Tensorboard with/from Jupyter ](GTSRB/99-Scripts-Tensorboard.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 ways to use Tensorboard from the Jupyter environment  
+[[IMDB1] - Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A very classical example of word embedding for text classification (sentiment analysis)  
+[[IMDB2] - Text embedding with IMDB - Reloaded](IMDB/02-Prediction.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of reusing a previously saved model  
+[[IMDB3] - Text embedding/LSTM model with IMDB](IMDB/03-LSTM-Keras.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Still the same problem, but with a network combining embedding and LSTM  
+[[VAE1] - Variational AutoEncoder (VAE) with MNIST](VAE/01-VAE-with-MNIST.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First generative network experience with the MNIST dataset  
+[[VAE2] - Variational AutoEncoder (VAE) with MNIST - Analysis](VAE/02-VAE-with-MNIST-post.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of the previously trained model, analysis of the results  
+[[VAE3] - About the CelebA dataset](VAE/03-Prepare-CelebA.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New VAE experience, but with a larger and more fun dataset  
+[[VAE4] - Preparation of the CelebA dataset](VAE/04-Prepare-CelebA-batch.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preparation of a clustered dataset, batchable  
+[[VAE5] - Checking the clustered CelebA dataset](VAE/05-Check-CelebA.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Verification of prepared data from CelebA dataset  
+[[VAE6] - Variational AutoEncoder (VAE) with CelebA (small)](VAE/06-VAE-with-CelebA-s.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VAE with a more fun and realistic dataset - small resolution and batchable  
+[[VAE7] - Variational AutoEncoder (VAE) with CelebA (medium)](VAE/07-VAE-with-CelebA-m.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VAE with a more fun and realistic dataset - medium resolution and batchable  
+[[VAE12] - Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/12-VAE-withCelebA-post.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of the previously trained model with CelebA, analysis of the results  
+[[BASH1] - OAR batch script](VAE/batch-oar.sh)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash script for OAR batch submission of a notebook  
+[[BASH2] - SLURM batch script](VAE/batch-slurm.sh)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash script for SLURM batch submission of a notebook  
 <!-- INDEX_END -->
-
 
 
 ## Installation
@@ -77,6 +96,7 @@ A procedure for **configuring** and **starting Jupyter** is available in the **[
 
 ## Licence
 
+[<img width="100px" src="fidle/img/00-fidle-CC BY-NC-SA.svg"></img>](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
 \[en\] Attribution - NonCommercial - ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
 \[Fr\] Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International  
 See [License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).  
