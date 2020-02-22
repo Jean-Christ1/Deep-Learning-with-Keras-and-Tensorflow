@@ -1,15 +1,21 @@
 [<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>](#)
 
+<!-- --------------------------------------------------- -->
+<!-- To correctly view this README under Jupyter Lab     -->
+<!-- Open the notebook: README.ipynb!                    -->
+<!-- --------------------------------------------------- -->
+
 ## A propos
 
 This repository contains all the documents and links of the **Fidle Training**.  
 
 The objectives of this training, co-organized by the Formation Permanente CNRS and the SARI and DEVLOG networks, are :
- - Understanding the **bases of deep learning** neural networks (Deep Learning)
+ - Understanding the **bases of Deep Learning** neural networks
  - Develop a **first experience** through simple and representative examples
- - Understand the different types of networks, their **architectures** and their **use cases**.
- - Understanding **Tensorflow/Keras and Jupyter lab** technologies on the GPU
- - Apprehend the **academic computing environments** Tier-2 (meso) and/or Tier-1 (national)
+ - Understanding **Tensorflow/Keras** and **Jupyter lab** technologies
+ - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
+
+Current Version : 0.2
 
 ## Course materials
 **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
