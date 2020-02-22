@@ -31,7 +31,7 @@ import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Markdown,HTML
 
-VERSION='0.2.9'
+VERSION='0.4.0'
 
 
 # -------------------------------------------------------------
@@ -390,7 +390,11 @@ def good_place( places={'SOMEWHERE':'/tmp'} ):
     print('** Attention : No expected folder exists in this environment..')
     assert False, 'No expected folder exists in this environment..'
      
-     
+        
+def np_print(*args, format={'float': '{:6.3f}'.format}):
+    with np.printoptions(formatter=format):
+        for a in args:
+            print(a)
      
      
      

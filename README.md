@@ -35,7 +35,7 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direct determination of linear regression   
 [[GRAD1] - Linear regression with gradient descent](LinearReg/02-Gradient-descent.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of gradient descent in the simple case of a linear regression.  
-[[FIT1] - Complexity Syndrome](LinearReg/03-Polynomial-Regression.ipynb)  
+[[POLR1] - Complexity Syndrome](LinearReg/03-Polynomial-Regression.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Illustration of the problem of complexity with the polynomial regression  
 [[LOGR1] - Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow.   
