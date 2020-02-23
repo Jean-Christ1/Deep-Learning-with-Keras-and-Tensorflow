@@ -31,8 +31,12 @@ import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Markdown,HTML
 
-VERSION='0.4.0'
+VERSION='0.4.2'
 
+_save_figs = False
+_figs_dir  = './figs'
+_figs_name = 'fig_'
+_figs_id   = 0
 
 # -------------------------------------------------------------
 # init_all
@@ -157,18 +161,22 @@ def rmin(l):
 #
 def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1,
-                fontsize=20):
+                fontsize=20, save_as='auto'):
     """
     Show some images in a grid, with legends
     args:
-        x: images - Shapes must be (-1,lx,ly) (-1,lx,ly,1) or (-1,lx,ly,3)
-        y: real classes or labels or None (None)
-        indices: indices of images to show or None for all (None)
-        columns: number of columns (12)
-        x_size,y_size: figure size (1), (1)
-        colorbar: show colorbar (False)
-        y_pred: predicted classes (None)
-        cm: Matplotlib color map (binary)
+        x             : images - Shapes must be (-1,lx,ly) (-1,lx,ly,1) or (-1,lx,ly,3)
+        y             : real classes or labels or None (None)
+        indices       : indices of images to show or None for all (None)
+        columns       : number of columns (12)
+        x_size,y_size : figure size (1), (1)
+        colorbar      : show colorbar (False)
+        y_pred        : predicted classes (None)
+        cm            : Matplotlib color map (binary)
+        y_padding     : Padding / rows (0.35)
+        spines_alpha  : Spines alpha (1.)
+        font_size     : Font size in px (20)
+        save_as       : Filename to use if save figs is enable ('auto')
     returns: 
         nothing
     """
@@ -212,10 +220,11 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 axs.set_xlabel(y[i],fontsize=fontsize)
         if colorbar:
             fig.colorbar(img,orientation="vertical", shrink=0.65)
+    save_fig(save_as)
     plt.show()
 
     
-def plot_image(x,cm='binary', figsize=(4,4)):
+def plot_image(x,cm='binary', figsize=(4,4),save_as='auto'):
     """
     Draw a single image.
     Image shape can be (lx,ly), (lx,ly,1) or (lx,ly,n)
@@ -237,6 +246,7 @@ def plot_image(x,cm='binary', figsize=(4,4)):
     # ---- Draw it
     plt.figure(figsize=figsize)
     plt.imshow(xx,   cmap = cm, interpolation='lanczos')
+    save_fig(save_as)
     plt.show()
 
 
@@ -245,7 +255,8 @@ def plot_image(x,cm='binary', figsize=(4,4)):
 # -------------------------------------------------------------
 #
 def plot_history(history, figsize=(8,6), 
-                  plot={"Accuracy":['accuracy','val_accuracy'], 'Loss':['loss', 'val_loss']}):
+                 plot={"Accuracy":['accuracy','val_accuracy'], 'Loss':['loss', 'val_loss']},
+                 save_as='auto'):
     """
     Show history
     args:
@@ -253,6 +264,7 @@ def plot_history(history, figsize=(8,6),
         figsize: fig size
         plot: list of data to plot : {<title>:[<metrics>,...], ...}
     """
+    fig_id=0
     for title,curves in plot.items():
         plt.figure(figsize=figsize)
         plt.title(title)
@@ -261,6 +273,12 @@ def plot_history(history, figsize=(8,6),
         for c in curves:
             plt.plot(history.history[c])
         plt.legend(curves, loc='upper left')
+        if save_as=='auto':
+            figname='auto'
+        else:
+            figname=f'{save_as}_{fig_id}'
+            fig_id+=1
+        save_fig(figname)
         plt.show()
 
     
@@ -276,7 +294,8 @@ def plot_confusion_matrix(cm,
                           cmap="gist_heat_r",
                           vmin=0,
                           vmax=1,
-                          xticks=5,yticks=5):
+                          xticks=5,yticks=5,
+                          save_as='auto'):
     """
     given a sklearn confusion matrix (cm), make a nice plot
     Note:bug in matplotlib 3.1.1
@@ -299,7 +318,7 @@ def plot_confusion_matrix(cm,
                vmin=vmin,vmax=vmax,annot=True)
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
-
+    save_fig(save_as)
     plt.show()
 
 
@@ -332,7 +351,7 @@ def display_confusion_matrix(y_true,y_pred,labels=None,color='green',
             .set_properties(**{'font-size': font_size}))
     
     
-def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6), title=None):
+def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6), title=None, save_as='auto'):
     """
     Draw a donut
     args:
@@ -359,7 +378,48 @@ def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6),
     # Equal aspect ratio ensures that pie is drawn as a circle
     plt.axis('equal')  
     plt.tight_layout()
+    save_fig(save_as)
     plt.show()
+    
+    
+def set_save_fig(save=True, figs_dir='./figs', figs_name='fig_', figs_id=0):
+    """
+    Set save_fig parameters
+    Default figs name is <figs_name><figs_id>.{png|svg}
+    args:
+        save      : Boolean, True to save figs (True)
+        figs_dir  : Path to save figs (./figs)
+        figs_name : Default basename for figs (figs_)
+        figs_id   : Start id for figs name (0)
+    """
+    global _save_figs, _figs_dir, _figs_name, _figs_id
+    _save_figs = save
+    _figs_dir  = figs_dir
+    _figs_name = figs_name
+    _figs_id   = figs_id
+    print(f'Save figs            : {_save_figs}')
+    print(f'Path figs            : {_figs_dir}')
+    
+    
+def save_fig(filename='auto', png=True, svg=False):
+    """
+    Save current figure
+    args:
+        filename : Image filename ('auto')
+        png      : Boolean. Save as png if True (True)
+        svg      : Boolean. Save as svg if True (False)
+    """
+    global _save_figs, _figs_dir, _figs_name, _figs_id
+    if not _save_figs : return
+    mkdir(_figs_dir)
+    if filename=='auto': 
+        path=f'{_figs_dir}/{_figs_name}{_figs_id:02d}'
+    else:
+        path=f'{_figs_dir}/{filename}'
+    if png : plt.savefig( f'{path}.png')
+    if svg : plt.savefig( f'{path}.png')
+    if filename=='auto': _figs_id+=1
+        
     
 def display_md(md_text):
     display(Markdown(md_text))

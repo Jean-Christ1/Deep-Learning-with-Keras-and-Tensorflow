@@ -3,6 +3,7 @@
 __pycache__
 */__pycache__/*
 run/
+figs/
 GTSRB/data
 IMDB/data
 MNIST/data

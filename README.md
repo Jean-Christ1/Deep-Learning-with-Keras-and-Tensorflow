@@ -35,8 +35,6 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 <!-- DO NOT REMOVE THIS TAG !!! -->
 <!-- INDEX -->
 <!-- INDEX_BEGIN -->
-[[NP1] - A short introduction to Numpy](Prerequisites/Numpy.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numpy is an essential tool for the Scientific Python.  
 [[LINR1] - Linear regression with direct resolution](LinearReg/01-Linear-Regression.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direct determination of linear regression   
 [[GRAD1] - Linear regression with gradient descent](LinearReg/02-Gradient-descent.ipynb)  
@@ -45,6 +43,8 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Illustration of the problem of complexity with the polynomial regression  
 [[LOGR1] - Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow.   
+[[PER57] - Perceptron Model 1957](IRIS/01-Simple-Perceptron.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A simple perceptron, with the IRIS dataset.  
 [[MNIST1] - Simple classification with DNN](MNIST/01-DNN-MNIST.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of classification with a fully connected neural network  
 [[BHP1] - Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)  
@@ -77,7 +77,7 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First generative network experience with the MNIST dataset  
 [[VAE2] - Variational AutoEncoder (VAE) with MNIST - Analysis](VAE/02-VAE-with-MNIST-post.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of the previously trained model, analysis of the results  
-[[VAE3] - About the CelebA dataset](VAE/03-Prepare-CelebA.ipynb)  
+[[VAE3] - About the CelebA dataset](VAE/03-About-CelebA.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New VAE experience, but with a larger and more fun dataset  
 [[VAE4] - Preparation of the CelebA dataset](VAE/04-Prepare-CelebA-batch.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preparation of a clustered dataset, batchable  
@@ -93,6 +93,10 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash script for OAR batch submission of a notebook  
 [[BASH2] - SLURM batch script](VAE/batch-slurm.sh)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash script for SLURM batch submission of a notebook  
+[[ACTF1] - Activation functions](Misc/Activation-Functions.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some activation functions, with their derivatives.  
+[[NP1] - A short introduction to Numpy](Misc/Numpy.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numpy is an essential tool for the Scientific Python.  
 <!-- INDEX_END -->
 
 
