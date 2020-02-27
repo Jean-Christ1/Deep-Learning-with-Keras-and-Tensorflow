@@ -45,26 +45,26 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow.   
 [[PER57] - Perceptron Model 1957](IRIS/01-Simple-Perceptron.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A simple perceptron, with the IRIS dataset.  
-[[MNIST1] - Simple classification with DNN](MNIST/01-DNN-MNIST.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of classification with a fully connected neural network  
 [[BHP1] - Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Simple regression with a Dense Neural Network (DNN) - BHPD dataset  
 [[BHP2] - Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More advanced example of DNN network code - BHPD dataset  
+[[MNIST1] - Simple classification with DNN](MNIST/01-DNN-MNIST.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of classification with a fully connected neural network  
 [[GTS1] - CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1: Data analysis and creation of a usable dataset  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1 : Data analysis and creation of a usable dataset  
 [[GTS2] - CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : First convolutions and first results  
 [[GTS3] - CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Monitoring and analysing training, managing checkpoints  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3 : Monitoring and analysing training, managing checkpoints  
 [[GTS4] - CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4: Improving the results with data augmentation  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4 : Improving the results with data augmentation  
 [[GTS5] - CNN with GTSRB dataset - Full convolutions ](GTSRB/05-Full-convolutions.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 5: A lot of models, a lot of datasets and a lot of results.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 5 : A lot of models, a lot of datasets and a lot of results.  
 [[GTS6] - CNN with GTSRB dataset - Full convolutions as a batch](GTSRB/06-Full-convolutions-batch.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 6 : Run Full convolution notebook as a batch  
 [[GTS7] - Full convolutions Report](GTSRB/07-Full-convolutions-reports.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displaying the reports of the different jobs  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 7 : Displaying the reports of the different jobs  
 [[TSB1] - Tensorboard with/from Jupyter ](GTSRB/99-Scripts-Tensorboard.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 ways to use Tensorboard from the Jupyter environment  
 [[IMDB1] - Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)  
