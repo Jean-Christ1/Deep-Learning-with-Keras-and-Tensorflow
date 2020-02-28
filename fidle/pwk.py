@@ -29,9 +29,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sn     #IDRIS : module en cours d'installation
 
-from IPython.display import display,Markdown,HTML
-
-VERSION='0.4.2'
+from IPython.display import display,Image,Markdown,HTML
+VERSION='0.4.3'
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -295,6 +294,7 @@ def plot_confusion_matrix(cm,
                           vmin=0,
                           vmax=1,
                           xticks=5,yticks=5,
+                          annot=True,
                           save_as='auto'):
     """
     given a sklearn confusion matrix (cm), make a nice plot
@@ -306,6 +306,7 @@ def plot_confusion_matrix(cm,
         figsize:      Figure size (12,8)
         cmap:         color map (gist_heat_r)
         vmi,vmax:     Min/max 0 and 1
+        annot:        Annotation or just colors (True)
         
     """
  
@@ -315,7 +316,7 @@ def plot_confusion_matrix(cm,
     plt.figure(figsize=figsize)
     sn.heatmap(cm, linewidths=1, linecolor="#ffffff",square=True, 
                cmap=cmap, xticklabels=xticks, yticklabels=yticks,
-               vmin=vmin,vmax=vmax,annot=True)
+               vmin=vmin,vmax=vmax,annot=annot)
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
     save_fig(save_as)
@@ -423,6 +424,9 @@ def save_fig(filename='auto', png=True, svg=False):
     
 def display_md(md_text):
     display(Markdown(md_text))
+    
+def display_img(img):
+    display(Image(img))
     
 def hdelay(sec):
     return str(datetime.timedelta(seconds=int(sec)))
