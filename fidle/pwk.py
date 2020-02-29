@@ -30,7 +30,7 @@ import matplotlib.pyplot as plt
 import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Image,Markdown,HTML
-VERSION='0.4.3'
+VERSION='0.4.4'
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -420,7 +420,10 @@ def save_fig(filename='auto', png=True, svg=False):
     if png : plt.savefig( f'{path}.png')
     if svg : plt.savefig( f'{path}.png')
     if filename=='auto': _figs_id+=1
-        
+    
+
+def subtitle(t):
+    display(Markdown(f'<br>**{t}**'))
     
 def display_md(md_text):
     display(Markdown(md_text))
