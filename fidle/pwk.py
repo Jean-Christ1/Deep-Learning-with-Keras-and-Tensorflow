@@ -384,16 +384,22 @@ def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6),
     
 
     
-def plot_multivariate_serie(sequence, labels=None, prediction=None, only_features=None,
+def plot_multivariate_serie(sequence, labels=None, predictions=None, only_features=None,
                             columns=3, width=5,height=4,wspace=0.3,hspace=0.2,
-                            save_as='auto'):
+                            save_as='auto', time_dt=1):
     
     sequence_len = len(sequence)
     features_len = sequence.shape[1]
     if only_features is None : only_features=range(features_len)
     if labels is None        : labels=range(features_len)
-        
-    t=np.arange(sequence_len)
+    
+    t  = np.arange(sequence_len)    
+    if predictions is None:
+        dt = 0
+    else:
+        dt = len(predictions)
+        sequence_with_pred = sequence.copy()
+        sequence_with_pred[-dt:]=predictions
 
     rows = math.ceil(features_len/columns)
     fig  = plt.figure(figsize=(columns*width, rows*height))
@@ -401,11 +407,12 @@ def plot_multivariate_serie(sequence, labels=None, prediction=None, only_feature
     n=1
     for i in only_features:
         ax=fig.add_subplot(rows, columns, n)
-        ax.plot(t,       sequence[:,i],    '-',  linewidth=1,   color='steelblue', label=labels[i])
-        ax.plot(t,       sequence[:,i],    'o',  markersize=4, color='steelblue')
-        ax.plot(t[-1],   sequence[-1:,i],  'o',  fillstyle='full',  markersize=8, color='steelblue')
-        if prediction is not None:
-            ax.plot(t[-1],   [prediction[0][i]],     'o',  fillstyle='full',  markersize=8, color='red')
+        ax.plot(t[:-dt],       sequence[:-dt,i],    '-',  linewidth=1,  color='steelblue', label=labels[i])
+        ax.plot(t[:-dt],       sequence[:-dt,i],    'o',  markersize=4, color='steelblue')
+        ax.plot(t[-dt-1:], sequence[-dt-1:,i],'--o', linewidth=1, fillstyle='none',  markersize=6, color='steelblue')
+        if predictions is not None:
+            ax.plot(t[-dt-1:],     sequence_with_pred[-dt-1:,i],     '--',  linewidth=1, fillstyle='full',  markersize=6, color='red')
+            ax.plot(t[-dt:],       predictions[:,i],     'o',  linewidth=1, fillstyle='full',  markersize=6, color='red')
 
         ax.legend(loc="upper left")
         n+=1
