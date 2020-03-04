@@ -93,7 +93,7 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 6 : Variational AutoEncoder (VAE) with CelebA (small res.)  
 [[VAE7] - Variational AutoEncoder (VAE) with CelebA (medium)](VAE/07-VAE-with-CelebA-m.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 7 : Variational AutoEncoder (VAE) with CelebA (medium res.)  
-[[VAE12] - Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/08-VAE-withCelebA-post.ipynb)  
+[[VAE8] - Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/08-VAE-withCelebA-post.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 8 : Exploring latent space of our trained models  
 [[BASH1] - OAR batch script](VAE/batch-oar.sh)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash script for OAR batch submission of a notebook  
