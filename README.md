@@ -73,6 +73,12 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of reusing a previously saved model  
 [[IMDB3] - Text embedding/LSTM model with IMDB](IMDB/03-LSTM-Keras.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Still the same problem, but with a network combining embedding and LSTM  
+[[SYNOP1] - Time series with RNN - Preparation of data](SYNOP/01-Preparation-of-data.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1 : Data analysis and creation of a usable dataset  
+[[SYNOP2] - Time series with RNN - Try a prediction](SYNOP/02-First-predictions.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : Training session and first predictions  
+[[SYNOP3] - Time series with RNN - 12h predictions](SYNOP/03-12h-predictions.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Attempt to predict in the longer term   
 [[VAE1] - Variational AutoEncoder (VAE) with MNIST](VAE/01-VAE-with-MNIST.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First generative network experience with the MNIST dataset  
 [[VAE2] - Variational AutoEncoder (VAE) with MNIST - Analysis](VAE/02-VAE-with-MNIST-post.ipynb)  
