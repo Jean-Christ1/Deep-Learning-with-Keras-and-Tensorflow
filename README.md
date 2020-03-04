@@ -80,21 +80,21 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 [[SYNOP3] - Time series with RNN - 12h predictions](SYNOP/03-12h-predictions.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3: Attempt to predict in the longer term   
 [[VAE1] - Variational AutoEncoder (VAE) with MNIST](VAE/01-VAE-with-MNIST.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First generative network experience with the MNIST dataset  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 1 : Model construction and Training  
 [[VAE2] - Variational AutoEncoder (VAE) with MNIST - Analysis](VAE/02-VAE-with-MNIST-post.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of the previously trained model, analysis of the results  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : Exploring our latent space  
 [[VAE3] - About the CelebA dataset](VAE/03-About-CelebA.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New VAE experience, but with a larger and more fun dataset  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3 : About the CelebA dataset, a more fun dataset !  
 [[VAE4] - Preparation of the CelebA dataset](VAE/04-Prepare-CelebA-batch.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preparation of a clustered dataset, batchable  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4 : Preparation of a clustered dataset, batchable  
 [[VAE5] - Checking the clustered CelebA dataset](VAE/05-Check-CelebA.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Verification of prepared data from CelebA dataset  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 5 :\tChecking the clustered dataset  
 [[VAE6] - Variational AutoEncoder (VAE) with CelebA (small)](VAE/06-VAE-with-CelebA-s.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VAE with a more fun and realistic dataset - small resolution and batchable  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 6 : Variational AutoEncoder (VAE) with CelebA (small res.)  
 [[VAE7] - Variational AutoEncoder (VAE) with CelebA (medium)](VAE/07-VAE-with-CelebA-m.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VAE with a more fun and realistic dataset - medium resolution and batchable  
-[[VAE12] - Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/12-VAE-withCelebA-post.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use of the previously trained model with CelebA, analysis of the results  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 7 : Variational AutoEncoder (VAE) with CelebA (medium res.)  
+[[VAE12] - Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/08-VAE-withCelebA-post.ipynb)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 8 : Exploring latent space of our trained models  
 [[BASH1] - OAR batch script](VAE/batch-oar.sh)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash script for OAR batch submission of a notebook  
 [[BASH2] - SLURM batch script](VAE/batch-slurm.sh)  
