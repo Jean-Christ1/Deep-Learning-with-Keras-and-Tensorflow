@@ -19,7 +19,7 @@ Current Version : 0.2
 
 ## Course materials
 **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
-Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/z7XZA36xKkMcaTS)**  
+Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/f5T59gk3bxm4Dt9)**  
 
 
 
