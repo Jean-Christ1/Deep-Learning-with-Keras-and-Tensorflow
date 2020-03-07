@@ -27,6 +27,7 @@
 CONDA_ENV=fidle
 RUN_DIR=~/fidle/VAE
 RUN_IPYNB='06-VAE-with-CelebA-s.ipynb'
+NODE_PREFIX=$(echo $HOSTNAME|sed 's/[0-9]*//g')
 
 # ---- Cuda Conda initialization
 
@@ -34,7 +35,7 @@ echo '------------------------------------------------------------'
 echo "Start : $0"
 echo '------------------------------------------------------------'
 
-source /applis/environments/cuda_env.sh dahu 10.0
+source /applis/environments/cuda_env.sh $NODE_PREFIX 10.0
 source /applis/environments/conda.sh
 
 conda activate "$CONDA_ENV"
