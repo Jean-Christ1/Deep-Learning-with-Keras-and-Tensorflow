@@ -15,7 +15,7 @@ The objectives of this training, co-organized by the Formation Permanente CNRS a
  - Understanding **Tensorflow/Keras** and **Jupyter lab** technologies
  - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
 
-Current Version : 0.2
+Current Version : 0.4
 
 ## Course materials
 **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
