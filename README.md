@@ -15,16 +15,15 @@ The objectives of this training, co-organized by the Formation Permanente CNRS a
  - Understanding **Tensorflow/Keras** and **Jupyter lab** technologies
  - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
 
-Current Version : 0.4
+Current Version : 0.5  
+
 
 ## Course materials
 **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
-Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/f5T59gk3bxm4Dt9)**  
+Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/nx9axb3Yz2Gd7F5)**  
 
-
-
-<!-- ![pdf](fidle/img/00-Fidle-pdf.png) -->
-Useful information is also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
+[How to get and install](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Install-Fidle) notebooks and datasets  
+Some other useful informations are also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
 
 
 ## Jupyter notebooks
@@ -108,7 +107,7 @@ Useful information is also available in the [wiki](https://gricad-gitlab.univ-gr
 
 ## Installation
 
-A procedure for **configuring** and **starting Jupyter** is available in the **[Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/howto-jupyter)**.
+A procedure for **configuring** and **starting Jupyter** is available in the **[Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Install-Fidle)**.
 
 ## Licence
 
