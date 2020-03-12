@@ -18,8 +18,8 @@ The objectives of this training are :
  - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
 
 For more information, you can contact us at : 
-[<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#)  
-Current Version : 0.5.1  
+<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>  
+Current Version : 0.5.2  
 
 
 ## Course materials
