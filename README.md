@@ -1,4 +1,6 @@
-[<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>](#)
+<a name="top"></a>
+
+[<img width="600px" src="fidle/img/00-Fidle-titre-01.svg"></img>](#top)
 
 <!-- --------------------------------------------------- -->
 <!-- To correctly view this README under Jupyter Lab     -->
@@ -18,7 +20,7 @@ The objectives of this training are :
  - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
 
 For more information, you can contact us at : 
-<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>  
+[<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#top)  
 Current Version : 0.5.2  
 
 
@@ -120,4 +122,4 @@ See [Disclaimer](https://creativecommons.org/licenses/by-nc-sa/4.0/#).
 
 
 ----
-[<img width="80px" src="fidle/img/00-Fidle-logo-01.svg"></img>](#)
+[<img width="80px" src="fidle/img/00-Fidle-logo-01.svg"></img>](#top)
