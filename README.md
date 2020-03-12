@@ -11,18 +11,20 @@ This repository contains all the documents and links of the **Fidle Training** .
 Fidle (for Formation Introduction au Deep Learning) is a 2-day training session  
 co-organized by the Formation Permanente CNRS and the SARI and DEVLOG networks.  
 
-The objectives of this training,, are :
+The objectives of this training are :
  - Understanding the **bases of Deep Learning** neural networks
  - Develop a **first experience** through simple and representative examples
  - Understanding **Tensorflow/Keras** and **Jupyter lab** technologies
  - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
 
-Current Version : 0.5  
+For more information, you can contact us at : 
+[<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#)  
+Current Version : 0.5.1  
 
 
 ## Course materials
 **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img>
-Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/nx9axb3Yz2Gd7F5)**  
+Get the course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/wxCztjYBbQ6zwd6)**  
 
 [How to get and install](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Install-Fidle) notebooks and datasets  
 Some other useful informations are also available in the [wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
