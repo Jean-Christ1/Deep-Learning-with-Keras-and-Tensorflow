@@ -30,4 +30,3 @@ savefig.format      : svg
 savefig.bbox        : tight
 savefig.pad_inches  : 0.1
 savefig.transparent : True
-savefig.jpeg_quality: 95
