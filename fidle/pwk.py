@@ -12,6 +12,7 @@
 
 import os
 import glob
+import shutil
 from datetime import datetime
 import itertools
 import datetime, time
@@ -30,7 +31,7 @@ import matplotlib.pyplot as plt
 import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Image,Markdown,HTML
-VERSION='0.5.0'
+VERSION='0.5.4'
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -41,19 +42,59 @@ _figs_id   = 0
 # init_all
 # -------------------------------------------------------------
 #
-def init(mplstyle='../fidle/mplstyles/custom.mplstyle', cssfile='../fidle/css/custom.css'):
+def init( mplstyle='../fidle/mplstyles/custom.mplstyle', 
+          cssfile='../fidle/css/custom.css',
+          places={ 'SOMEWHERE' : '/path/to/datasets'}):
+    
     global VERSION
-    # ---- matplotlib and css
+    update_keras_cache=False
+ 
+    # ---- Predifined places
+    #
+    predefined_places = { 'Fidle at GRICAD' : f"{os.getenv('SCRATCH_DIR','nowhere')}/PROJECTS/pr-fidle/datasets",
+                          'Fidle at IDRIS'  : f"{os.getenv('WORK',       'nowhere')}/datasets",
+                          'Fidle at HOME'   : f"{os.getenv('HOME',       'nowhere')}/datasets"}
+    
+    # ---- Load matplotlib style and css
+    #
     matplotlib.style.use(mplstyle)
     load_cssfile(cssfile)
+    
+    # ---- Create subdirs
+    #
+    mkdir('./run')
+    
+    # ---- Try to find where we are
+    #
+    place_name, dataset_dir = where_we_are({**places, **predefined_places})
+    
+    
+    # ---- If we are at IDRIS, we need to copy datasets/keras_cache to keras cache...
+    #
+    if place_name=='Fidle at HOME':
+        from_dir = f'{dataset_dir}/keras_cache/*.*'
+        to_dir   = os.path.expanduser('~/.keras/datasets')
+        mkdir(to_dir)
+        for pathname in glob.glob(from_dir):
+            filename=os.path.basename(pathname)
+            destname=f'{to_dir}/{filename}'
+            if not os.path.isfile(destname):
+                shutil.copy(pathname, destname)
+        update_keras_cache=True
+    
     # ---- Hello world
-#     now = datetime.datetime.now()
     print('\nFIDLE 2020 - Practical Work Module')
     print('Version              :', VERSION)
     print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
     print('TensorFlow version   :',tf.__version__)
     print('Keras version        :',tf.keras.__version__)
-          
+    print('Current place        :',place_name )
+    print('Dataset dir          :',dataset_dir)
+    if update_keras_cache:
+        print('Update keras cache   : Yes')
+    
+    return place_name, dataset_dir
+
 # -------------------------------------------------------------
 # Folder cooking
 # -------------------------------------------------------------
@@ -77,6 +118,26 @@ def get_directory_size(path):
         if os.path.isfile(path+'/'+f):
             size+=os.path.getsize(path+'/'+f)
     return size/(1024*1024)
+
+# ------------------------------------------------------------------
+# Where we are ?
+# ------------------------------------------------------------------
+#
+def where_we_are(places):
+        
+    for place_name, place_dir in places.items():
+        if os.path.isdir(place_dir):
+            return place_name,place_dir
+
+    print('** ERROR ** : Le dossier datasets est introuvable')
+    print('              Vous devez récupérer celui-ci et en préciser la localisation.')
+    print('              Une archive (datasets.tar) est disponible via le repo Fidle.\n')
+    print('   Une liste de localisations peut être donnée en paramètre de la fonction init()\n')
+    print('   Par exemple :')
+    print("         ooo.init( places={ 'Chez-moi':'/tmp/datasets',  'Sur-mon-cluster':'/tests/datasets'}')\n")
+    print('   Vous pouvez également recopier le dossier datasets directement dans votre home : ~/datasets\n\n')
+    assert False, 'datasets folder not found : Abort all...'
+
 
 # -------------------------------------------------------------
 # shuffle_dataset
@@ -486,16 +547,6 @@ def load_cssfile(cssfile):
     styles = open(cssfile, "r").read()
     display(HTML(styles))
     
-    
-def good_place( places={'SOMEWHERE':'/tmp'} ):
-    for place_name, place_dir in places.items():
-        if os.path.isdir(place_dir):
-            print(f'Well, we should be at {place_name} !')
-            print(f'We are going to use: {place_dir}')
-            return place_name,place_dir
-
-    print('** Attention : No expected folder exists in this environment..')
-    assert False, 'No expected folder exists in this environment..'
      
         
 def np_print(*args, format={'float': '{:6.3f}'.format}):
