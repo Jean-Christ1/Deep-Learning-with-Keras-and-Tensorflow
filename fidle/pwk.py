@@ -31,7 +31,7 @@ import matplotlib.pyplot as plt
 import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Image,Markdown,HTML
-VERSION='0.5.4'
+VERSION='0.5.5'
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -71,7 +71,7 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
     
     # ---- If we are at IDRIS, we need to copy datasets/keras_cache to keras cache...
     #
-    if place_name=='Fidle at HOME':
+    if place_name=='Fidle at IDRIS':
         from_dir = f'{dataset_dir}/keras_cache/*.*'
         to_dir   = os.path.expanduser('~/.keras/datasets')
         mkdir(to_dir)
