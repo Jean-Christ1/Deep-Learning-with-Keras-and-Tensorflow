@@ -31,7 +31,8 @@ import matplotlib.pyplot as plt
 import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Image,Markdown,HTML
-VERSION='0.5.5'
+
+import fidle.config as config
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -46,14 +47,11 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
           cssfile='../fidle/css/custom.css',
           places={ 'SOMEWHERE' : '/path/to/datasets'}):
     
-    global VERSION
     update_keras_cache=False
  
     # ---- Predifined places
     #
-    predefined_places = { 'Fidle at GRICAD' : f"{os.getenv('SCRATCH_DIR','nowhere')}/PROJECTS/pr-fidle/datasets",
-                          'Fidle at IDRIS'  : f"{os.getenv('WORK',       'nowhere')}/datasets",
-                          'Fidle at HOME'   : f"{os.getenv('HOME',       'nowhere')}/datasets"}
+    predefined_places = config.locations
     
     # ---- Load matplotlib style and css
     #
@@ -84,14 +82,14 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
     
     # ---- Hello world
     print('\nFIDLE 2020 - Practical Work Module')
-    print('Version              :', VERSION)
+    print('Version              :', config.VERSION)
     print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
     print('TensorFlow version   :',tf.__version__)
     print('Keras version        :',tf.keras.__version__)
     print('Current place        :',place_name )
     print('Dataset dir          :',dataset_dir)
     if update_keras_cache:
-        print('Update keras cache   : Yes')
+        print('Update keras cache   : Done')
     
     return place_name, dataset_dir
 
@@ -129,14 +127,17 @@ def where_we_are(places):
         if os.path.isdir(place_dir):
             return place_name,place_dir
 
-    print('** ERROR ** : Le dossier datasets est introuvable')
-    print('              Vous devez récupérer celui-ci et en préciser la localisation.')
-    print('              Une archive (datasets.tar) est disponible via le repo Fidle.\n')
-    print('   Une liste de localisations peut être donnée en paramètre de la fonction init()\n')
+    print('** ERROR ** : Le dossier datasets est introuvable\n')
+    print('              Vous devez :\n')
+    print('                 1/ Récupérer le dossier datasets')
+    print('                    Une archive (datasets.tar) est disponible via le repo Fidle.\n')
+    print("                 2/ Préciser la localisation de ce dossier datasets")
+    print("                    Soit dans le fichier fidle/config.py (préférable)")
+    print("                    Soit via un paramètre à la fonction ooo.init()\n")
     print('   Par exemple :')
     print("         ooo.init( places={ 'Chez-moi':'/tmp/datasets',  'Sur-mon-cluster':'/tests/datasets'}')\n")
-    print('   Vous pouvez également recopier le dossier datasets directement dans votre home : ~/datasets\n\n')
-    assert False, 'datasets folder not found : Abort all...'
+    print('   Note : Vous pouvez également déposer le dossier datasets directement dans votre home : ~/datasets\n\n')
+    assert False, 'datasets folder not found : Abort all.'
 
 
 # -------------------------------------------------------------
