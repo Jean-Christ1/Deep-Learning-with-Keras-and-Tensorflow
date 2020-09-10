@@ -153,9 +153,17 @@ class VariationalAutoencoder():
             kl_loss = vae_kl_loss(y_true, y_pred)
             return  r_loss + kl_loss
 
+        # See : https://github.com/tensorflow/tensorflow/issues/34944
+        # See : https://github.com/tensorflow/probability/issues/519
+        #
+        # Uncomment :
+        # tf.config.experimental_run_functions_eagerly(True)
+        #
+        # Works fine in versions 2.2, 2.3 but with horible perf. (7s -> 1'50s)
+        #
         self.model.compile(optimizer=optimizer, 
                            loss = vae_loss,
-                           metrics = [vae_r_loss, vae_kl_loss], 
+                           metrics = [vae_r_loss, vae_kl_loss],
                            experimental_run_tf_function=False)
         print('Compiled.')
     
