@@ -92,7 +92,7 @@ Some other useful informations are also available in the [wiki](https://gricad-g
 [[VAE2] - Variational AutoEncoder (VAE) with MNIST - Analysis](VAE/02-VAE-with-MNIST-post.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 2 : Exploring our latent space  
 [[VAE3] - About the CelebA dataset](VAE/03-About-CelebA.ipynb)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3 : About the CelebA dataset, a more fun dataset !  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 3 : About the CelebA dataset, a more fun dataset ;-)  
 [[VAE4] - Preparation of the CelebA dataset](VAE/04-Prepare-CelebA-datasets.ipynb)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Episode 4 : Preparation of a clustered dataset, batchable  
 [[VAE5] - Checking the clustered CelebA dataset](VAE/05-Check-CelebA.ipynb)  
