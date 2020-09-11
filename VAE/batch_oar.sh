@@ -21,7 +21,7 @@
 # -----------------------------------------------
 #
 # <!-- TITLE --> [BASH1] - OAR batch script
-# <!-- DESC --> Bash script for OAR batch submission of a notebook 
+# <!-- DESC --> Bash script for OAR batch submission of VAE notebook 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 CONDA_ENV=fidle

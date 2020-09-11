@@ -87,7 +87,7 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
     print('TensorFlow version   :',tf.__version__)
     print('Keras version        :',tf.keras.__version__)
     print('Current place        :',place_name )
-    print('Dataset dir          :',dataset_dir)
+    print('Datasets dir         :',dataset_dir)
     if update_keras_cache:
         print('Update keras cache   : Done')
     

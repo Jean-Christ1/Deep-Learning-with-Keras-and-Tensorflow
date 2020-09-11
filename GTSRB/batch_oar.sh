@@ -11,15 +11,19 @@
 # OAR -l /nodes=1/core=32,walltime=02:00:00
 # and add a 2>/dev/null to ipython xxx
 
-# ----------------------------------
-#   _           _       _
-#  | |__   __ _| |_ ___| |__
-#  | '_ \ / _` | __/ __| '_ \
-#  | |_) | (_| | || (__| | | |
-#  |_.__/ \__,_|\__\___|_| |_|
-#                  Full convolutions
-# ----------------------------------
+
+# -----------------------------------------------
+#         _           _       _
+#        | |__   __ _| |_ ___| |__
+#        | '_ \ / _` | __/ __| '_ \
+#        | |_) | (_| | || (__| | | |
+#        |_.__/ \__,_|\__\___|_| |_|
+#                             Fidle at GRICAD
+# -----------------------------------------------
 #
+# <!-- TITLE --> [BASH1] - OAR batch script
+# <!-- DESC --> Bash script for OAR batch submission of GTSRB notebook 
+# <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 CONDA_ENV=fidle
 RUN_DIR=~/fidle/GTSRB

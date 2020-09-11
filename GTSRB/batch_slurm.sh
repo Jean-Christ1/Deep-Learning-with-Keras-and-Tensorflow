@@ -21,7 +21,7 @@
 # -----------------------------------------------
 #
 # <!-- TITLE --> [BASH2] - SLURM batch script
-# <!-- DESC --> Bash script for SLURM batch submission of a notebook 
+# <!-- DESC --> Bash script for SLURM batch submission of GTSRB notebooks 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 MODULE_ENV="tensorflow-gpu/py3/2.2.0"
