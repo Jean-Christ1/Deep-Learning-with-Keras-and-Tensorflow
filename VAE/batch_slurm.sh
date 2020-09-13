@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH --job-name="VAE_bizness"                       # nom du job
+#SBATCH --job-name="VAE"                               # nom du job
 #SBATCH --ntasks=1                                     # nombre de tâche (un unique processus ici)
 #SBATCH --gres=gpu:1                                   # nombre de GPU à réserver (un unique GPU ici)
 #SBATCH --cpus-per-task=10                             # nombre de coeurs à réserver (un quart du noeud)
 #SBATCH --hint=nomultithread                           # on réserve des coeurs physiques et non logiques
-#SBATCH --time=00:20:00                                # temps exécution maximum demande (HH:MM:SS)
+#SBATCH --time=05:00:00                                # temps exécution maximum demande (HH:MM:SS)
 #SBATCH --output="_batch/VAE_%j.out"                   # nom du fichier de sortie
 #SBATCH --error="_batch/VAE_%j.err"                    # nom du fichier d'erreur (ici commun avec la sortie)
 #SBATCH --mail-user=Jean-Luc.Parouty@grenoble-inp.fr
@@ -26,7 +26,7 @@
 
 MODULE_ENV="tensorflow-gpu/py3/2.0.0"
 RUN_DIR="$WORK/fidle/VAE"
-RUN_IPYNB="01-VAE-with-MNIST.ipynb"
+RUN_IPYNB="07-VAE-with-CelebA-m.ipynb"
 
 # ---- Welcome...
 
@@ -46,7 +46,7 @@ echo '------------------------------------------------------------'
 # ---- Module
 
 module purge
-module load $MODULE_ENV
+module load "$MODULE_ENV"
 
 # ---- Run it...
 

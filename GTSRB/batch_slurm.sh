@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:1                                   # nombre de GPU à réserver (un unique GPU ici)
 #SBATCH --cpus-per-task=10                             # nombre de coeurs à réserver (un quart du noeud)
 #SBATCH --hint=nomultithread                           # on réserve des coeurs physiques et non logiques
-#SBATCH --time=02:00:00                                # temps exécution maximum demande (HH:MM:SS)
+#SBATCH --time=03:00:00                                # temps exécution maximum demande (HH:MM:SS)
 #SBATCH --output="_batch/GTSRB_%j.out"                 # nom du fichier de sortie
 #SBATCH --error="_batch/GTSRB_%j.err"                  # nom du fichier d'erreur (ici commun avec la sortie)
 #SBATCH --mail-user=Jean-Luc.Parouty@grenoble-inp.fr
