@@ -32,7 +32,7 @@ VERSION = '0.57 DEV'
 # This locations are defaults locations :
 #
 locations = { 'Fidle at GRICAD' : f"{os.getenv('SCRATCH_DIR',   'nowhere' )}/PROJECTS/pr-fidle/datasets",
-              'Fidle at IDRIS'  : f"{os.getenv('ALL_CCFRWORK',  'nowhere' )}/datasets",
+              'Fidle at IDRIS'  : "/gpfswork/rech/mlh/uja62cb/datasets",
               'Fidle at HOME'   : f"{os.getenv('HOME',          'nowhere' )}/datasets"}
 
 # ------------------------------------------------------------------
