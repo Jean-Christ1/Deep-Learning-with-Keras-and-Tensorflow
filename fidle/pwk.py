@@ -28,7 +28,6 @@ from sklearn.metrics import confusion_matrix
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
-import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Image,Markdown,HTML
 
@@ -43,16 +42,9 @@ _figs_id   = 0
 # init_all
 # -------------------------------------------------------------
 #
-def init( mplstyle='../fidle/mplstyles/custom.mplstyle', 
-          cssfile='../fidle/css/custom.css',
-          places={ 'SOMEWHERE' : '/path/to/datasets'}):
-    
-    update_keras_cache=False
- 
-    # ---- Predifined places
-    #
-    predefined_places = config.locations
-    
+def init( mplstyle = '../fidle/mplstyles/custom.mplstyle', 
+          cssfile  = '../fidle/css/custom.css'):
+       
     # ---- Load matplotlib style and css
     #
     matplotlib.style.use(mplstyle)
@@ -64,13 +56,14 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
     
     # ---- Try to find where we are
     #
-    place_name, dataset_dir = where_we_are({**places, **predefined_places})
+    datasets_dir = where_are_my_datasets()
     
-    
-    # ---- If we are at IDRIS, we need to copy datasets/keras_cache to keras cache...
+    # ---- We try to to copy datasets/keras_cache to keras cache...
+    # Sometime, we cannot access to the net (like at IDRIS)
     #
-    if place_name=='Fidle at IDRIS':
-        from_dir = f'{dataset_dir}/keras_cache/*.*'
+    update_keras_cache=False
+    if os.path.isdir(f'{datasets_dir}/keras_cache'):
+        from_dir = f'{datasets_dir}/keras_cache/*.*'
         to_dir   = os.path.expanduser('~/.keras/datasets')
         mkdir(to_dir)
         for pathname in glob.glob(from_dir):
@@ -78,20 +71,42 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
             destname=f'{to_dir}/{filename}'
             if not os.path.isfile(destname):
                 shutil.copy(pathname, destname)
-        update_keras_cache=True
+                update_keras_cache=True
     
     # ---- Hello world
     print('\nFIDLE 2020 - Practical Work Module')
     print('Version              :', config.VERSION)
     print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
-    print('TensorFlow version   :',tf.__version__)
-    print('Keras version        :',tf.keras.__version__)
-    print('Current place        :',place_name )
-    print('Datasets dir         :',dataset_dir)
-    if update_keras_cache:
-        print('Update keras cache   : Done')
+    print('TensorFlow version   :', tf.__version__)
+    print('Keras version        :', tf.keras.__version__)
+    print('Datasets dir         :', datasets_dir)
+    print('Update keras cache   :',update_keras_cache)
     
-    return place_name, dataset_dir
+    return datasets_dir
+
+# ------------------------------------------------------------------
+# Where are my datasets ?
+# ------------------------------------------------------------------
+#
+def where_are_my_datasets():
+        
+    datasets_dir = os.getenv('FIDLE_DATASETS_DIR', False)
+
+    if datasets_dir is False :
+        display_md('## ATTENTION !!\n----')
+        print('Le dossier datasets sont introuvable\n')
+        print('Pour que les notebooks puissent les localiser, vous devez :\n')
+        print('         1/ Récupérer le dossier datasets')
+        print('            Une archive (datasets.tar) est disponible via le repository Fidle.\n')
+        print("         2/ Préciser la localisation de ce dossier datasets via la variable")
+        print("            d'environnement : FIDLE_DATASETS_DIR.\n")
+        print('Exemple :')
+        print("   Dans votre fichier .bashrc :")
+        print('   export FIDLE_DATASETS_DIR=~/datasets')
+        display_md('----')
+        assert False, 'datasets folder not found, please set FIDLE_DATASETS_DIR env var.'
+    else:
+        return datasets_dir
 
 # -------------------------------------------------------------
 # Folder cooking
@@ -116,28 +131,6 @@ def get_directory_size(path):
         if os.path.isfile(path+'/'+f):
             size+=os.path.getsize(path+'/'+f)
     return size/(1024*1024)
-
-# ------------------------------------------------------------------
-# Where we are ?
-# ------------------------------------------------------------------
-#
-def where_we_are(places):
-        
-    for place_name, place_dir in places.items():
-        if os.path.isdir(place_dir):
-            return place_name,place_dir
-
-    print('** ERROR ** : Le dossier datasets est introuvable\n')
-    print('              Vous devez :\n')
-    print('                 1/ Récupérer le dossier datasets')
-    print('                    Une archive (datasets.tar) est disponible via le repo Fidle.\n')
-    print("                 2/ Préciser la localisation de ce dossier datasets")
-    print("                    Soit dans le fichier fidle/config.py (préférable)")
-    print("                    Soit via un paramètre à la fonction ooo.init()\n")
-    print('   Par exemple :')
-    print("         ooo.init( places={ 'Chez-moi':'/tmp/datasets',  'Sur-mon-cluster':'/tests/datasets'}')\n")
-    print('   Note : Vous pouvez également déposer le dossier datasets directement dans votre home : ~/datasets\n\n')
-    assert False, 'datasets folder not found : Abort all.'
 
 
 # -------------------------------------------------------------
@@ -556,7 +549,8 @@ def np_print(*args, format={'float': '{:6.3f}'.format}):
             print(a)
      
      
-     
-     
+def end():
+    print('End time is : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
+    print('This notebook ends here')
      
      
