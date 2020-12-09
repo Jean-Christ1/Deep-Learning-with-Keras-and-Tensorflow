@@ -11,5 +11,4 @@ IMDB/data
 MNIST/data
 SYNOP/data
 VAE/data
-BHPD/data/*
-!BHPD/data/BostonHousing.csv
+BHPD/data

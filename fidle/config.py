@@ -14,7 +14,17 @@
 
 # ---- Current version ---------------------------------------------
 #
-VERSION = '0.6 DEV'
+VERSION = '0.7 DEV'
 
+# ---- Default notebook name ---------------------------------------
+#
+DEFAULT_NOTEBOOK_NAME = "Fidle notebook"
 
+# ---- Styles ------------------------------------------------------
+#
+FIDLE_MPLSTYLE = '../fidle/mplstyles/custom.mplstyle'
+FIDLE_CSSFILE  = '../fidle/css/custom.css'
 
+# ---- Done file, to keep track of finished notebooks --------------
+#
+FINISHED_FILE  = '../fidle/log/finished_file.json'

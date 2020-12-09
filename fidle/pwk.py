@@ -16,6 +16,7 @@ import shutil
 from datetime import datetime
 import itertools
 import datetime, time
+import json
 
 import math
 import numpy as np
@@ -33,18 +34,37 @@ from IPython.display import display,Image,Markdown,HTML
 
 import fidle.config as config
 
+
+datasets_dir  = None
+notebook_name = None
+
 _save_figs = False
 _figs_dir  = './figs'
 _figs_name = 'fig_'
 _figs_id   = 0
 
+_start_time = None
+_end_time   = None
+
 # -------------------------------------------------------------
 # init_all
 # -------------------------------------------------------------
 #
-def init( mplstyle = '../fidle/mplstyles/custom.mplstyle', 
-          cssfile  = '../fidle/css/custom.css'):
-       
+def init(name=None, mplstyle=None, cssfile=None):
+    global notebook_name
+    global datasets_dir
+    global _start_time
+    
+    # ---- Parameters
+    #
+    notebook_name = config.DEFAULT_NOTEBOOK_NAME if name is None else name
+
+    if mplstyle is None:
+        mplstyle = config.FIDLE_MPLSTYLE
+
+    if cssfile  is None:
+        cssfile  = config.FIDLE_CSSFILE
+    
     # ---- Load matplotlib style and css
     #
     matplotlib.style.use(mplstyle)
@@ -58,10 +78,36 @@ def init( mplstyle = '../fidle/mplstyles/custom.mplstyle',
     #
     datasets_dir = where_are_my_datasets()
     
-    # ---- We try to to copy datasets/keras_cache to keras cache...
-    # Sometime, we cannot access to the net (like at IDRIS)
+    # ---- Update Keras cache
     #
-    update_keras_cache=False
+    updated = update_keras_cache()
+    
+    # ---- Today and now
+    #
+    _start_time = datetime.datetime.now()
+    
+    # ---- Hello world
+    print('\nFIDLE 2020 - Practical Work Module')
+    print('Version              :', config.VERSION)
+    print('Notebook name        :',notebook_name)
+    print('Run time             :',_start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('TensorFlow version   :', tf.__version__)
+    print('Keras version        :', tf.keras.__version__)
+    print('Datasets dir         :', datasets_dir)
+    print('Update keras cache   :',updated)
+    
+    update_finished_file(end=False)
+
+    return datasets_dir
+
+# ------------------------------------------------------------------
+# Update keras cache
+# ------------------------------------------------------------------
+# Try to sync ~/.keras/cache with datasets/keras_cache
+# because sometime, we cannot access to internet... (IDRIS..)
+#
+def update_keras_cache():
+    updated = False
     if os.path.isdir(f'{datasets_dir}/keras_cache'):
         from_dir = f'{datasets_dir}/keras_cache/*.*'
         to_dir   = os.path.expanduser('~/.keras/datasets')
@@ -71,18 +117,8 @@ def init( mplstyle = '../fidle/mplstyles/custom.mplstyle',
             destname=f'{to_dir}/{filename}'
             if not os.path.isfile(destname):
                 shutil.copy(pathname, destname)
-                update_keras_cache=True
-    
-    # ---- Hello world
-    print('\nFIDLE 2020 - Practical Work Module')
-    print('Version              :', config.VERSION)
-    print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
-    print('TensorFlow version   :', tf.__version__)
-    print('Keras version        :', tf.keras.__version__)
-    print('Datasets dir         :', datasets_dir)
-    print('Update keras cache   :',update_keras_cache)
-    
-    return datasets_dir
+                updated=True
+    return updated
 
 # ------------------------------------------------------------------
 # Where are my datasets ?
@@ -529,6 +565,15 @@ def display_img(img):
 def hdelay(sec):
     return str(datetime.timedelta(seconds=int(sec)))
 
+# Return human delay like 01:14:28 543ms
+def hdelay_ms(td):
+    sec = td.total_seconds()
+    hh = sec // 3600
+    mm = (sec // 60) - (hh * 60)
+    ss = sec - hh*3600 - mm*60
+    ms = (sec - int(sec))*1000
+    return f'{hh:02.0f}:{mm:02.0f}:{ss:02.0f} {ms:03.0f}ms'
+
 def hsize(num, suffix='o'):
     for unit in ['','K','M','G','T','P','E','Z']:
         if abs(num) < 1024.0:
@@ -547,10 +592,58 @@ def np_print(*args, format={'float': '{:6.3f}'.format}):
     with np.printoptions(formatter=format):
         for a in args:
             print(a)
-     
+
+            
+def check_finished_file():
+    if not os.access(config.FINISHED_FILE, os.W_OK):
+        print("\n** Error : Cannot access finished file in write mode for reset...")
+        print(f'** Finished file should be at : {config.FINISHED_FILE}\n')
+        return False
+    return True
+    
+    
+def reset_finished_file():
+    if check_finished_file() is False : return
+    data={}
+    # ---- Save it
+    with open(config.FINISHED_FILE,'wt') as fp:
+        json.dump(data,fp,indent=4)
+    
+    
+def update_finished_file(end=False):
+    
+    # ---- No finished file ?
+    if check_finished_file() is False : return
+    
+    # ---- Load it
+    with open(config.FINISHED_FILE) as fp:
+        data = json.load(fp)
+        
+    # ---- Update as a start
+    data[notebook_name]             = {}
+    data[notebook_name]['path']     = os.getcwd()
+    data[notebook_name]['start']    = _start_time.strftime("%A %-d %B %Y, %H:%M:%S")
+    data[notebook_name]['end']      = ''
+    data[notebook_name]['duration'] = 'Pending...'
+
+    # ---- Update as an end
+    if end is True:
+        data[notebook_name]['end']      = _end_time.strftime("%A %-d %B %Y, %H:%M:%S")
+        data[notebook_name]['duration'] = hdelay_ms(_end_time - _start_time)
+
+    # ---- Save it
+    with open(config.FINISHED_FILE,'wt') as fp:
+        json.dump(data,fp,indent=4)
+    
      
 def end():
-    print('End time is : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
+    global _end_time
+    _end_time = datetime.datetime.now()
+    
+    update_finished_file(end=True)
+    
+    print('End time is :', time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('Duration is :', hdelay_ms(_end_time - _start_time))
     print('This notebook ends here')
      
      

@@ -1,0 +1,20 @@
+{
+    "01-Linear-Regression": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Wednesday 9 December 2020, 20:16:41",
+        "end": "Wednesday 9 December 2020, 20:16:41",
+        "duration": "00:00:00 256ms"
+    },
+    "02-Gradient-descent": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Wednesday 9 December 2020, 20:16:56",
+        "end": "Wednesday 9 December 2020, 20:17:00",
+        "duration": "00:00:03 279ms"
+    },
+    "03-Polynomial-Regression": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Wednesday 9 December 2020, 20:20:32",
+        "end": "Wednesday 9 December 2020, 20:20:33",
+        "duration": "00:00:01 682ms"
+    }
+}
