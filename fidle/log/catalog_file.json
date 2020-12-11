@@ -1,0 +1,226 @@
+{
+    "LINR1": {
+        "dirname": "LinearReg",
+        "basename": "01-Linear-Regression.ipynb",
+        "id": "LINR1",
+        "title": "Linear regression with direct resolution",
+        "description": "Direct determination of linear regression "
+    },
+    "GRAD1": {
+        "dirname": "LinearReg",
+        "basename": "02-Gradient-descent.ipynb",
+        "id": "GRAD1",
+        "title": "Linear regression with gradient descent",
+        "description": "An example of gradient descent in the simple case of a linear regression."
+    },
+    "POLR1": {
+        "dirname": "LinearReg",
+        "basename": "03-Polynomial-Regression.ipynb",
+        "id": "POLR1",
+        "title": "Complexity Syndrome",
+        "description": "Illustration of the problem of complexity with the polynomial regression"
+    },
+    "LOGR1": {
+        "dirname": "LinearReg",
+        "basename": "04-Logistic-Regression.ipynb",
+        "id": "LOGR1",
+        "title": "Logistic regression, in pure Tensorflow",
+        "description": "Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow. "
+    },
+    "PER57": {
+        "dirname": "IRIS",
+        "basename": "01-Simple-Perceptron.ipynb",
+        "id": "PER57",
+        "title": "Perceptron Model 1957",
+        "description": "A simple perceptron, with the IRIS dataset."
+    },
+    "BHP1": {
+        "dirname": "BHPD",
+        "basename": "01-DNN-Regression.ipynb",
+        "id": "BHP1",
+        "title": "Regression with a Dense Network (DNN)",
+        "description": "A Simple regression with a Dense Neural Network (DNN) - BHPD dataset"
+    },
+    "BHP2": {
+        "dirname": "BHPD",
+        "basename": "02-DNN-Regression-Premium.ipynb",
+        "id": "BHP2",
+        "title": "Regression with a Dense Network (DNN) - Advanced code",
+        "description": "More advanced example of DNN network code - BHPD dataset"
+    },
+    "MNIST1": {
+        "dirname": "MNIST",
+        "basename": "01-DNN-MNIST.ipynb",
+        "id": "MNIST1",
+        "title": "Simple classification with DNN",
+        "description": "Example of classification with a fully connected neural network"
+    },
+    "GTS1": {
+        "dirname": "GTSRB",
+        "basename": "01-Preparation-of-data.ipynb",
+        "id": "GTS1",
+        "title": "CNN with GTSRB dataset - Data analysis and preparation",
+        "description": "Episode 1 : Data analysis and creation of a usable dataset"
+    },
+    "GTS2": {
+        "dirname": "GTSRB",
+        "basename": "02-First-convolutions.ipynb",
+        "id": "GTS2",
+        "title": "CNN with GTSRB dataset - First convolutions",
+        "description": "Episode 2 : First convolutions and first results"
+    },
+    "GTS3": {
+        "dirname": "GTSRB",
+        "basename": "03-Tracking-and-visualizing.ipynb",
+        "id": "GTS3",
+        "title": "CNN with GTSRB dataset - Monitoring ",
+        "description": "Episode 3 : Monitoring and analysing training, managing checkpoints"
+    },
+    "GTS4": {
+        "dirname": "GTSRB",
+        "basename": "04-Data-augmentation.ipynb",
+        "id": "GTS4",
+        "title": "CNN with GTSRB dataset - Data augmentation ",
+        "description": "Episode 4 : Improving the results with data augmentation"
+    },
+    "GTS5": {
+        "dirname": "GTSRB",
+        "basename": "05-Full-convolutions.ipynb",
+        "id": "GTS5",
+        "title": "CNN with GTSRB dataset - Full convolutions ",
+        "description": "Episode 5 : A lot of models, a lot of datasets and a lot of results."
+    },
+    "GTS6": {
+        "dirname": "GTSRB",
+        "basename": "06-Notebook-as-a-batch.ipynb",
+        "id": "GTS6",
+        "title": "CNN with GTSRB dataset - Full convolutions as a batch",
+        "description": "Episode 6 : Run Full convolution notebook as a batch"
+    },
+    "GTS7": {
+        "dirname": "GTSRB",
+        "basename": "07-Show-report.ipynb",
+        "id": "GTS7",
+        "title": "CNN with GTSRB dataset - Show reports",
+        "description": "Episode 7 : Displaying the reports of the different jobs"
+    },
+    "TSB1": {
+        "dirname": "GTSRB",
+        "basename": "99-Scripts-Tensorboard.ipynb",
+        "id": "TSB1",
+        "title": "Tensorboard with/from Jupyter ",
+        "description": "4 ways to use Tensorboard from the Jupyter environment"
+    },
+    "IMDB1": {
+        "dirname": "IMDB",
+        "basename": "01-Embedding-Keras.ipynb",
+        "id": "IMDB1",
+        "title": "Text embedding with IMDB",
+        "description": "A very classical example of word embedding for text classification (sentiment analysis)"
+    },
+    "IMDB2": {
+        "dirname": "IMDB",
+        "basename": "02-Prediction.ipynb",
+        "id": "IMDB2",
+        "title": "Text embedding with IMDB - Reloaded",
+        "description": "Example of reusing a previously saved model"
+    },
+    "IMDB3": {
+        "dirname": "IMDB",
+        "basename": "03-LSTM-Keras.ipynb",
+        "id": "IMDB3",
+        "title": "Text embedding/LSTM model with IMDB",
+        "description": "Still the same problem, but with a network combining embedding and LSTM"
+    },
+    "SYNOP1": {
+        "dirname": "SYNOP",
+        "basename": "01-Preparation-of-data.ipynb",
+        "id": "SYNOP1",
+        "title": "Time series with RNN - Preparation of data",
+        "description": "Episode 1 : Data analysis and creation of a usable dataset"
+    },
+    "SYNOP2": {
+        "dirname": "SYNOP",
+        "basename": "02-First-predictions.ipynb",
+        "id": "SYNOP2",
+        "title": "Time series with RNN - Try a prediction",
+        "description": "Episode 2 : Training session and first predictions"
+    },
+    "SYNOP3": {
+        "dirname": "SYNOP",
+        "basename": "03-12h-predictions.ipynb",
+        "id": "SYNOP3",
+        "title": "Time series with RNN - 12h predictions",
+        "description": "Episode 3: Attempt to predict in the longer term "
+    },
+    "VAE1": {
+        "dirname": "VAE",
+        "basename": "01-VAE-with-MNIST.nbconvert.ipynb",
+        "id": "VAE1",
+        "title": "Variational AutoEncoder (VAE) with MNIST",
+        "description": "Episode 1 : Model construction and Training"
+    },
+    "VAE2": {
+        "dirname": "VAE",
+        "basename": "02-VAE-with-MNIST-post.ipynb",
+        "id": "VAE2",
+        "title": "Variational AutoEncoder (VAE) with MNIST - Analysis",
+        "description": "Episode 2 : Exploring our latent space"
+    },
+    "VAE3": {
+        "dirname": "VAE",
+        "basename": "03-About-CelebA.ipynb",
+        "id": "VAE3",
+        "title": "About the CelebA dataset",
+        "description": "Episode 3\u00a0: About the CelebA dataset, a more fun dataset ;-)"
+    },
+    "VAE4": {
+        "dirname": "VAE",
+        "basename": "04-Prepare-CelebA-datasets.ipynb",
+        "id": "VAE4",
+        "title": "Preparation of the CelebA dataset",
+        "description": "Episode 4\u00a0: Preparation of a clustered dataset, batchable"
+    },
+    "VAE5": {
+        "dirname": "VAE",
+        "basename": "05-Check-CelebA.ipynb",
+        "id": "VAE5",
+        "title": "Checking the clustered CelebA dataset",
+        "description": "Episode 5\u00a0:\tChecking the clustered dataset"
+    },
+    "VAE6": {
+        "dirname": "VAE",
+        "basename": "06-VAE-with-CelebA-s.nbconvert.ipynb",
+        "id": "VAE6",
+        "title": "Variational AutoEncoder (VAE) with CelebA (small)",
+        "description": "Episode 6\u00a0: Variational AutoEncoder (VAE) with CelebA (small res.)"
+    },
+    "VAE7": {
+        "dirname": "VAE",
+        "basename": "07-VAE-with-CelebA-m.nbconvert.ipynb",
+        "id": "VAE7",
+        "title": "Variational AutoEncoder (VAE) with CelebA (medium)",
+        "description": "Episode 7\u00a0: Variational AutoEncoder (VAE) with CelebA (medium res.)"
+    },
+    "VAE8": {
+        "dirname": "VAE",
+        "basename": "08-VAE-withCelebA-post.ipynb",
+        "id": "VAE8",
+        "title": "Variational AutoEncoder (VAE) with CelebA - Analysis",
+        "description": "Episode 8\u00a0: Exploring latent space of our trained models"
+    },
+    "ACTF1": {
+        "dirname": "Misc",
+        "basename": "Activation-Functions.ipynb",
+        "id": "ACTF1",
+        "title": "Activation functions",
+        "description": "Some activation functions, with their derivatives."
+    },
+    "NP1": {
+        "dirname": "Misc",
+        "basename": "Numpy.ipynb",
+        "id": "NP1",
+        "title": "A short introduction to Numpy",
+        "description": "Numpy is an essential tool for the Scientific Python."
+    }
+}

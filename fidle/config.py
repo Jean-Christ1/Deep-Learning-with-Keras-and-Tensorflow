@@ -12,9 +12,9 @@
 # Jean-Luc Parouty 2020
 
 
-# ---- Current version ---------------------------------------------
+# ---- Version -----------------------------------------------------
 #
-VERSION = '0.7 DEV'
+VERSION = '0.6.0 DEV'
 
 # ---- Default notebook name ---------------------------------------
 #
@@ -28,3 +28,7 @@ FIDLE_CSSFILE  = '../fidle/css/custom.css'
 # ---- Done file, to keep track of finished notebooks --------------
 #
 FINISHED_FILE  = '../fidle/log/finished_file.json'
+
+# ---- Catalog file, a json description of all notebooks
+#
+CATALOG_FILE   = '../fidle/log/catalog_file.json'
