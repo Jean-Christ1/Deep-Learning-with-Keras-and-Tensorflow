@@ -14,7 +14,7 @@
 
 # ---- Version -----------------------------------------------------
 #
-VERSION = '0.6.0 DEV'
+VERSION = '0.6.1 DEV'
 
 # ---- Default notebook name ---------------------------------------
 #
@@ -31,4 +31,4 @@ FINISHED_FILE  = '../fidle/log/finished_file.json'
 
 # ---- Catalog file, a json description of all notebooks
 #
-CATALOG_FILE   = '../fidle/log/catalog_file.json'
+CATALOG_FILE   = '../fidle/log/catalog_nb.json'

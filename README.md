@@ -23,7 +23,7 @@ The objectives of this training are :
 For more information, you can contact us at : 
 [<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#top)  
 Current Version : <!-- VERSION_BEGIN -->
-0.6.0 DEV
+0.6.1 DEV
 <!-- VERSION_END -->
 
 
