@@ -36,7 +36,7 @@ import fidle.config as config
 
 
 datasets_dir  = None
-notebook_name = None
+notebook_id   = None
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -51,13 +51,13 @@ _end_time   = None
 # -------------------------------------------------------------
 #
 def init(name=None, mplstyle=None, cssfile=None):
-    global notebook_name
+    global notebook_id
     global datasets_dir
     global _start_time
     
     # ---- Parameters
     #
-    notebook_name = config.DEFAULT_NOTEBOOK_NAME if name is None else name
+    notebook_id = config.DEFAULT_NOTEBOOK_NAME if name is None else name
 
     if mplstyle is None:
         mplstyle = config.FIDLE_MPLSTYLE
@@ -89,14 +89,14 @@ def init(name=None, mplstyle=None, cssfile=None):
     # ---- Hello world
     print('\nFIDLE 2020 - Practical Work Module')
     print('Version              :', config.VERSION)
-    print('Notebook name        :',notebook_name)
-    print('Run time             :',_start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('Notebook id          :', notebook_id)
+    print('Run time             :', _start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
     print('TensorFlow version   :', tf.__version__)
     print('Keras version        :', tf.keras.__version__)
     print('Datasets dir         :', datasets_dir)
     print('Update keras cache   :',updated)
     
-    update_finished_file(end=False)
+    update_finished_file(start=True)
 
     return datasets_dir
 
@@ -603,16 +603,17 @@ def check_finished_file():
     
     
 def reset_finished_file():
-    if check_finished_file() is False : return
+    if check_finished_file()==False : return
     data={}
     # ---- Save it
     with open(config.FINISHED_FILE,'wt') as fp:
         json.dump(data,fp,indent=4)
+    print(f'Finished file has been reset.\n')
     
     
-def update_finished_file(end=False):
+def update_finished_file(start=False, end=False):
     
-    # ---- No finished file ?
+    # ---- No writable finished file ?
     if check_finished_file() is False : return
     
     # ---- Load it
@@ -620,16 +621,17 @@ def update_finished_file(end=False):
         data = json.load(fp)
         
     # ---- Update as a start
-    data[notebook_name]             = {}
-    data[notebook_name]['path']     = os.getcwd()
-    data[notebook_name]['start']    = _start_time.strftime("%A %-d %B %Y, %H:%M:%S")
-    data[notebook_name]['end']      = ''
-    data[notebook_name]['duration'] = 'Pending...'
+    if start is True:
+        data[notebook_id]             = {}
+        data[notebook_id]['path']     = os.getcwd()
+        data[notebook_id]['start']    = _start_time.strftime("%A %-d %B %Y, %H:%M:%S")
+        data[notebook_id]['end']      = ''
+        data[notebook_id]['duration'] = 'Pending...'
 
     # ---- Update as an end
     if end is True:
-        data[notebook_name]['end']      = _end_time.strftime("%A %-d %B %Y, %H:%M:%S")
-        data[notebook_name]['duration'] = hdelay_ms(_end_time - _start_time)
+        data[notebook_id]['end']      = _end_time.strftime("%A %-d %B %Y, %H:%M:%S")
+        data[notebook_id]['duration'] = hdelay_ms(_end_time - _start_time)
 
     # ---- Save it
     with open(config.FINISHED_FILE,'wt') as fp:

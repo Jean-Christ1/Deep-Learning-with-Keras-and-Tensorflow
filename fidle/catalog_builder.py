@@ -50,9 +50,9 @@ def get_infos(filename, top_dir='..'):
     '''
 
     about={}
+    about['id']          = '??'
     about['dirname']     = os.path.dirname(filename)
     about['basename']    = os.path.basename(filename)
-    about['id']          = '??'
     about['title']       = '??'
     about['description'] = '??'
     
