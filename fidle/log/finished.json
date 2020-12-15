@@ -1,0 +1,26 @@
+{
+    "LINR1": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Tuesday 15 December 2020, 14:04:04",
+        "end": "Tuesday 15 December 2020, 14:04:04",
+        "duration": "00:00:00 295ms"
+    },
+    "GRAD1": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Tuesday 15 December 2020, 15:05:11",
+        "end": "Tuesday 15 December 2020, 15:05:14",
+        "duration": "00:00:03 120ms"
+    },
+    "POLR1": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Tuesday 15 December 2020, 15:05:27",
+        "end": "Tuesday 15 December 2020, 15:05:28",
+        "duration": "00:00:01 686ms"
+    },
+    "LOGR1": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Tuesday 15 December 2020, 15:05:42",
+        "end": "Tuesday 15 December 2020, 15:06:44",
+        "duration": "00:01:02 112ms"
+    }
+}

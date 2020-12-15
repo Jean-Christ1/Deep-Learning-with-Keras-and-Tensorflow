@@ -612,7 +612,7 @@ def reset_finished_file():
     
     
 def update_finished_file(start=False, end=False):
-    
+      
     # ---- No writable finished file ?
     if check_finished_file() is False : return
     
@@ -626,7 +626,7 @@ def update_finished_file(start=False, end=False):
         data[notebook_id]['path']     = os.getcwd()
         data[notebook_id]['start']    = _start_time.strftime("%A %-d %B %Y, %H:%M:%S")
         data[notebook_id]['end']      = ''
-        data[notebook_id]['duration'] = 'Pending...'
+        data[notebook_id]['duration'] = 'Unfinished...'
 
     # ---- Update as an end
     if end is True:

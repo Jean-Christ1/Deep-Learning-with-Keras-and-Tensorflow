@@ -25,10 +25,15 @@ DEFAULT_NOTEBOOK_NAME = "Fidle notebook"
 FIDLE_MPLSTYLE = '../fidle/mplstyles/custom.mplstyle'
 FIDLE_CSSFILE  = '../fidle/css/custom.css'
 
-# ---- Done file, to keep track of finished notebooks --------------
-#
-FINISHED_FILE  = '../fidle/log/finished_file.json'
-
 # ---- Catalog file, a json description of all notebooks
 #
-CATALOG_FILE   = '../fidle/log/catalog_nb.json'
+CATALOG_FILE   = '../fidle/log/catalog.json'
+
+# ---- CI Done files, to keep track of finished notebooks -----------
+# Used for continous integration
+#
+FINISHED_FILE  = '../fidle/log/finished.json'
+
+# ---- CI Report
+#
+CI_REPORT      = '../fidle/log/ci_report.html'
