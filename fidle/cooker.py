@@ -129,6 +129,8 @@ def tag(tag, text, document):
 
 def get_ci_report():
 
+    columns=['id','repo','name','start','end','duration']
+    
     # ---- Load catalog (notebooks descriptions)
     #
     with open(config.CATALOG_FILE) as fp:
@@ -140,7 +142,7 @@ def get_ci_report():
         dict_finished = json.load( infile )
 
     if dict_finished == {}:
-        df=pd.DataFrame({}, columns=['id','name','start','end','duration'])
+        df=pd.DataFrame({}, columns=columns)
     else:
         df=pd.DataFrame(dict_finished).transpose()
         df.reset_index(inplace=True)
@@ -148,7 +150,7 @@ def get_ci_report():
 
     # ---- Add usefull html columns 
     #
-    df['name']=''
+    df[ ['name','repo'] ]=''
 
     for index, row in df.iterrows():
         id = row['id']
@@ -158,8 +160,8 @@ def get_ci_report():
         description = catalog[id]['description']
         row['id']   = f'<a href="../{dirname}/{basename}">{id}</a>'
         row['name'] = f'<a href="../{dirname}/{basename}"><b>{basename}</b></a>'
-
-    columns=['id','name','start','end','duration']
+        row['repo'] = dirname
+    
     df=df[columns]
 
     # ---- Add styles to be nice
@@ -170,8 +172,6 @@ def get_ci_report():
     ]
     def still_pending(v):
         return 'background-color: OrangeRed; color:white' if v == 'Unfinished...' else ''
-
-    columns=['id','name','start','end','duration']
 
     output = df[columns].style.set_table_styles(styles).hide_index().applymap(still_pending)
 
