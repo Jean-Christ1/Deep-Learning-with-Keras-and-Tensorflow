@@ -37,3 +37,8 @@ FINISHED_FILE  = '../fidle/log/finished.json'
 # ---- CI Report
 #
 CI_REPORT      = '../fidle/log/ci_report.html'
+
+# ---- Defaul mode
+#
+DEFAULT_RUNNING_MODE = 'full'
+# DEFAULT_RUNNING_MODE = 'smart'

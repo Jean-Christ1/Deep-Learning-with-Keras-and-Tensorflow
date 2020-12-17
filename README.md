@@ -44,7 +44,7 @@ Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble
 |LINR1| [Linear regression with direct resolution](LinearReg/01-Linear-Regression.ipynb)<br>Direct determination of linear regression |
 |GRAD1| [Linear regression with gradient descent](LinearReg/02-Gradient-descent.ipynb)<br>An example of gradient descent in the simple case of a linear regression.|
 |POLR1| [Complexity Syndrome](LinearReg/03-Polynomial-Regression.ipynb)<br>Illustration of the problem of complexity with the polynomial regression|
-|LOGR1| [Logistic regression, in pure Tensorflow](LinearReg/04-Logistic-Regression.ipynb)<br>Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow. |
+|LOGR1| [Logistic regression, with sklearn](LinearReg/04-Logistic-Regression.ipynb)<br>Logistic Regression using Sklearn|
 |PER57| [Perceptron Model 1957](IRIS/01-Simple-Perceptron.ipynb)<br>A simple perceptron, with the IRIS dataset.|
 |BHP1| [Regression with a Dense Network (DNN)](BHPD/01-DNN-Regression.ipynb)<br>A Simple regression with a Dense Neural Network (DNN) - BHPD dataset|
 |BHP2| [Regression with a Dense Network (DNN) - Advanced code](BHPD/02-DNN-Regression-Premium.ipynb)<br>More advanced example of DNN network code - BHPD dataset|

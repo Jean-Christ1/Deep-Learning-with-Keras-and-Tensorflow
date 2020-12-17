@@ -37,6 +37,12 @@ div.todo li{
     margin-bottom:0;
 }
 
+div .comment{
+    font-size:0.8em;
+    color:#696969;
+}
+
+
 
 </style>
 

@@ -37,6 +37,7 @@ import fidle.config as config
 
 datasets_dir  = None
 notebook_id   = None
+running_mode  = None
 
 _save_figs = False
 _figs_dir  = './figs'
@@ -50,20 +51,17 @@ _end_time   = None
 # init_all
 # -------------------------------------------------------------
 #
-def init(name=None, mplstyle=None, cssfile=None):
+def init(name=None):
     global notebook_id
     global datasets_dir
+    global running_mode
     global _start_time
     
-    # ---- Parameters
+    # ---- Parameters from config.py
     #
     notebook_id = config.DEFAULT_NOTEBOOK_NAME if name is None else name
-
-    if mplstyle is None:
-        mplstyle = config.FIDLE_MPLSTYLE
-
-    if cssfile  is None:
-        cssfile  = config.FIDLE_CSSFILE
+    mplstyle    = config.FIDLE_MPLSTYLE
+    cssfile     = config.FIDLE_CSSFILE
     
     # ---- Load matplotlib style and css
     #
@@ -74,9 +72,18 @@ def init(name=None, mplstyle=None, cssfile=None):
     #
     mkdir('./run')
     
-    # ---- Try to find where we are
+    # ---- datasets location
     #
-    datasets_dir = where_are_my_datasets()
+    datasets_dir = os.getenv('FIDLE_DATASETS_DIR', False)
+    if datasets_dir is False:
+        error_datasets_not_found()
+    # Resolve tilde...
+    datasets_dir=os.path.expanduser(datasets_dir)
+    
+    # ---- Running mode
+    #
+    running_mode = os.getenv('FIDLE_RUNNING_MODE', config.DEFAULT_RUNNING_MODE)
+    running_mode = running_mode.lower()
     
     # ---- Update Keras cache
     #
@@ -87,14 +94,23 @@ def init(name=None, mplstyle=None, cssfile=None):
     _start_time = datetime.datetime.now()
     
     # ---- Hello world
-    print('\nFIDLE 2020 - Practical Work Module')
+    #
+    display_md('**FIDLE 2020 - Practical Work Module**')
     print('Version              :', config.VERSION)
     print('Notebook id          :', notebook_id)
     print('Run time             :', _start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
     print('TensorFlow version   :', tf.__version__)
     print('Keras version        :', tf.keras.__version__)
     print('Datasets dir         :', datasets_dir)
-    print('Update keras cache   :',updated)
+    print('Running mode         :', running_mode)
+    print('Update keras cache   :', updated)
+
+    # ---- Save figs or not
+    #
+    save_figs = os.getenv('FIDLE_SAVE_FIGS', 'no')
+    if save_figs.lower() == 'yes':
+        set_save_fig(save=True, figs_dir='./run/figs', figs_name='fig_', figs_id=0)
+    
     
     update_finished_file(start=True)
 
@@ -124,25 +140,19 @@ def update_keras_cache():
 # Where are my datasets ?
 # ------------------------------------------------------------------
 #
-def where_are_my_datasets():
-        
-    datasets_dir = os.getenv('FIDLE_DATASETS_DIR', False)
-
-    if datasets_dir is False :
-        display_md('## ATTENTION !!\n----')
-        print('Le dossier datasets sont introuvable\n')
-        print('Pour que les notebooks puissent les localiser, vous devez :\n')
-        print('         1/ Récupérer le dossier datasets')
-        print('            Une archive (datasets.tar) est disponible via le repository Fidle.\n')
-        print("         2/ Préciser la localisation de ce dossier datasets via la variable")
-        print("            d'environnement : FIDLE_DATASETS_DIR.\n")
-        print('Exemple :')
-        print("   Dans votre fichier .bashrc :")
-        print('   export FIDLE_DATASETS_DIR=~/datasets')
-        display_md('----')
-        assert False, 'datasets folder not found, please set FIDLE_DATASETS_DIR env var.'
-    else:
-        return datasets_dir
+def error_datasets_not_found():        
+    display_md('## ATTENTION !!\n----')
+    print('Le dossier datasets sont introuvable\n')
+    print('Pour que les notebooks puissent les localiser, vous devez :\n')
+    print('         1/ Récupérer le dossier datasets')
+    print('            Une archive (datasets.tar) est disponible via le repository Fidle.\n')
+    print("         2/ Préciser la localisation de ce dossier datasets via la variable")
+    print("            d'environnement : FIDLE_DATASETS_DIR.\n")
+    print('Exemple :')
+    print("   Dans votre fichier .bashrc :")
+    print('   export FIDLE_DATASETS_DIR=~/datasets')
+    display_md('----')
+    assert False, 'datasets folder not found, please set FIDLE_DATASETS_DIR env var.'
 
 # -------------------------------------------------------------
 # Folder cooking
@@ -373,41 +383,72 @@ def plot_history(history, figsize=(8,6),
 
     
     
-# -------------------------------------------------------------
-# plot_confusion_matrix
-# -------------------------------------------------------------
-# Bug in Matplotlib 3.1.1
-#
-def plot_confusion_matrix(cm,
+def plot_confusion_matrix(y_true,y_pred,
+                          target_names,
                           title='Confusion matrix',
-                          figsize=(12,8),
-                          cmap="gist_heat_r",
-                          vmin=0,
-                          vmax=1,
-                          xticks=5,yticks=5,
-                          annot=True,
+                          cmap=None,
+                          normalize=True,
+                          figsize=(10, 8),
+                          digit_format='{:0.2f}',
                           save_as='auto'):
     """
     given a sklearn confusion matrix (cm), make a nice plot
-    Note:bug in matplotlib 3.1.1
 
-    Args:
-        cm:           confusion matrix from sklearn.metrics.confusion_matrix
-        title:        the text to display at the top of the matrix
-        figsize:      Figure size (12,8)
-        cmap:         color map (gist_heat_r)
-        vmi,vmax:     Min/max 0 and 1
-        annot:        Annotation or just colors (True)
-        
+    Arguments
+    ---------
+    cm:           confusion matrix from sklearn.metrics.confusion_matrix
+
+    target_names: given classification classes such as [0, 1, 2]
+                  the class names, for example: ['high', 'medium', 'low']
+
+    title:        the text to display at the top of the matrix
+
+    cmap:         the gradient of the values displayed from matplotlib.pyplot.cm
+                  see http://matplotlib.org/examples/color/colormaps_reference.html
+                  plt.get_cmap('jet') or plt.cm.Blues
+
+    normalize:    If False, plot the raw numbers
+                  If True, plot the proportions
+
+    Citiation
+    ---------
+    http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
+
     """
- 
+    cm = confusion_matrix( y_true,y_pred, normalize=None, labels=target_names)
+    
     accuracy = np.trace(cm) / float(np.sum(cm))
     misclass = 1 - accuracy
 
+    if cmap is None:
+        cmap = plt.get_cmap('Blues')
+
     plt.figure(figsize=figsize)
-    sn.heatmap(cm, linewidths=1, linecolor="#ffffff",square=True, 
-               cmap=cmap, xticklabels=xticks, yticklabels=yticks,
-               vmin=vmin,vmax=vmax,annot=annot)
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+
+    if target_names is not None:
+        tick_marks = np.arange(len(target_names))
+        plt.xticks(tick_marks, target_names, rotation=45)
+        plt.yticks(tick_marks, target_names)
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+
+
+    thresh = cm.max() / 1.5 if normalize else cm.max() / 2
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        if normalize:
+            plt.text(j, i, digit_format.format(cm[i, j]),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+        else:
+            plt.text(j, i, "{:,}".format(cm[i, j]),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
     save_fig(save_as)
@@ -436,7 +477,12 @@ def display_confusion_matrix(y_true,y_pred,labels=None,color='green',
     cm = confusion_matrix( y_true,y_pred, normalize="true", labels=labels)
     df=pd.DataFrame(cm)
 
-    cmap = sn.light_palette(color, as_cmap=True)
+#     cmap = sn.light_palette(color, as_cmap=True)
+
+    colorsList = ['whitesmoke','bisque']
+    cmap = matplotlib.colors.ListedColormap(colorsList)
+    cmap = matplotlib.colors.ListedColormap(cmap(np.linspace(0, 1, 256)))
+
     df.style.set_properties(**{'font-size': '20pt'})
     display(df.style.format('{:.2f}') \
             .background_gradient(cmap=cmap)
@@ -514,7 +560,7 @@ def plot_multivariate_serie(sequence, labels=None, predictions=None, only_featur
     
     
     
-def set_save_fig(save=True, figs_dir='./figs', figs_name='fig_', figs_id=0):
+def set_save_fig(save=True, figs_dir='./run/figs', figs_name='fig_', figs_id=0):
     """
     Set save_fig parameters
     Default figs name is <figs_name><figs_id>.{png|svg}
@@ -545,19 +591,23 @@ def save_fig(filename='auto', png=True, svg=False):
     if not _save_figs : return
     mkdir(_figs_dir)
     if filename=='auto': 
-        path=f'{_figs_dir}/{_figs_name}{_figs_id:02d}'
+        path=f'{_figs_dir}/{notebook_id}-{_figs_name}{_figs_id:02d}'
     else:
-        path=f'{_figs_dir}/{filename}'
+        path=f'{_figs_dir}/{notebook_id}-{filename}'
     if png : plt.savefig( f'{path}.png')
     if svg : plt.savefig( f'{path}.png')
     if filename=='auto': _figs_id+=1
+    display_html(f'<div class="comment">Saved: {path}</div>')
     
 
 def subtitle(t):
     display(Markdown(f'<br>**{t}**'))
     
-def display_md(md_text):
-    display(Markdown(md_text))
+def display_md(text):
+    display(Markdown(text))
+
+def display_html(text):
+    display(HTML(text))
     
 def display_img(img):
     display(Image(img))

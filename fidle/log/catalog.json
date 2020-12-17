@@ -24,8 +24,8 @@
         "id": "LOGR1",
         "dirname": "LinearReg",
         "basename": "04-Logistic-Regression.ipynb",
-        "title": "Logistic regression, in pure Tensorflow",
-        "description": "Logistic Regression with Mini-Batch Gradient Descent using pure TensorFlow. "
+        "title": "Logistic regression, with sklearn",
+        "description": "Logistic Regression using Sklearn"
     },
     "PER57": {
         "id": "PER57",
