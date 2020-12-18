@@ -6,6 +6,10 @@
 #OAR --stderr full_convolutions_%jobid%.err
 #OAR --project fidle
 
+# <!-- TITLE --> [SH1] - OAR batch submission
+# <!-- DESC -->  Bash script example for OAR batch submission
+# <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
+
 #---- With cpu
 # use :
 # OAR -l /nodes=1/core=32,walltime=02:00:00

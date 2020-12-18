@@ -38,7 +38,12 @@ FINISHED_FILE  = '../fidle/log/finished.json'
 #
 CI_REPORT      = '../fidle/log/ci_report.html'
 
-# ---- Defaul mode
+# ---- Defaul mode (full|smart)
+#      Overided by env : FIDLE_RUNNING_MODE
 #
 DEFAULT_RUNNING_MODE = 'full'
-# DEFAULT_RUNNING_MODE = 'smart'
+
+# ---- Save figs or not (yes|no)
+#      Overided by env : FIDLE_SAVE_FIGS
+#      
+DEFAULT_SAVE_FIGS    = 'yes'

@@ -107,7 +107,7 @@ def init(name=None):
 
     # ---- Save figs or not
     #
-    save_figs = os.getenv('FIDLE_SAVE_FIGS', 'no')
+    save_figs = os.getenv('FIDLE_SAVE_FIGS', config.DEFAULT_SAVE_FIGS)
     if save_figs.lower() == 'yes':
         set_save_fig(save=True, figs_dir='./run/figs', figs_name='fig_', figs_id=0)
     
@@ -142,7 +142,7 @@ def update_keras_cache():
 #
 def error_datasets_not_found():        
     display_md('## ATTENTION !!\n----')
-    print('Le dossier datasets sont introuvable\n')
+    print('Le dossier contenant les datasets est introuvable\n')
     print('Pour que les notebooks puissent les localiser, vous devez :\n')
     print('         1/ Récupérer le dossier datasets')
     print('            Une archive (datasets.tar) est disponible via le repository Fidle.\n')
@@ -430,7 +430,7 @@ def plot_confusion_matrix(y_true,y_pred,
 
     if target_names is not None:
         tick_marks = np.arange(len(target_names))
-        plt.xticks(tick_marks, target_names, rotation=45)
+        plt.xticks(tick_marks, target_names, rotation=90)
         plt.yticks(tick_marks, target_names)
 
     if normalize:

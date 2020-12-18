@@ -27,37 +27,40 @@ import fidle.config as config
 # -----------------------------------------------------------------------------
 # To built README.md / README.ipynb
 # -----------------------------------------------------------------------------
-#    get_notebooks  :  Get le notebooks lists
-#    get_infos      :  Get infos about a notebooks
-#    get_catalog    :  Get a catalog of all notebooks
+#    get_files      :  Get files lists
+#    get_infos      :  Get infos about a entry
+#    get_catalog    :  Get a catalog of all entries
 # -----------------------------------------------------------------------------
 
-def get_notebooks(directories, top_dir='..'):
+def get_files(directories, top_dir='..'):
     '''
-    Return a list of notebooks from a given list of directories
+    Return a list of files from a given list of directories
     args:
         directories : list of directories
         top_dir : location of theses directories
     return:
-        notebooks : notebooks filename list (without top_dir prefix)
+        files : filenames list (without top_dir prefix)
     '''
-    notebooks = []
+    files = []
     
     for d in directories:
-        filenames = glob.glob( f'{top_dir}/{d}/*.ipynb')
-        filenames.sort()
-        notebooks.extend(filenames)
+        notebooks = glob.glob( f'{top_dir}/{d}/*.ipynb')
+        scripts   = glob.glob( f'{top_dir}/{d}/*.sh')
+        notebooks.sort()
+        scripts.sort()
+        files.extend(notebooks)
+        files.extend(scripts)
 
-    notebooks = [ x.replace(f'{top_dir}/','') for x in notebooks]
-    return notebooks
+    files = [ x.replace(f'{top_dir}/','') for x in entries]
+    return files
 
 
-def get_infos(filename, top_dir='..'):
+def get_notebook_infos(filename, top_dir='..'):
     '''
     Extract informations from a fidle notebook.
     Informations are dirname, basename, id, title, description and are extracted from comments tags in markdown.
     args:
-        filename : Notebook filename
+        filename : notebook filename
     return:
         dict : with infos.
     '''
@@ -89,23 +92,64 @@ def get_infos(filename, top_dir='..'):
                 about['description']  = find[0]
 
     return about
-                
-
-def get_catalog(notebooks_list, top_dir='..'):
+    
+    
+def get_txt_file_infos(filename, top_dir='..'):
     '''
-    Return an OrderedDict of notebooks attributes.
-    Keys are notebooks id.
+    Extract fidle  informations from a text file (script...).
+    Informations are dirname, basename, id, title, description and are extracted from comments tags in document
     args:
-        notebooks_list : list of notebooks filenames
-        top_dir : Location of theses notebooks
+        filename : file to analyze
     return:
-        OrderedDict : {<notebook id> : { description} }
+        dict : with infos.
+    '''
+
+    about={}
+    about['id']          = '??'
+    about['dirname']     = os.path.dirname(filename)
+    about['basename']    = os.path.basename(filename)
+    about['title']       = '??'
+    about['description'] = '??'
+    
+    # ---- Read file
+    #
+    with open((f'{top_dir}/{filename}') af fp:
+        texte = fp.read()
+
+    find = re.findall(r'<\!-- TITLE -->\s*\[(.*)\]\s*-\s*(.*)\n',cell.source)
+    if find:
+        about['id']    = find[0][0]
+        about['title'] = find[0][1]
+
+    find = re.findall(r'<\!-- DESC -->\s*(.*)\n',cell.source)
+    if find:
+        about['description']  = find[0]
+
+    return about
+
+              
+def get_catalog(files_list, top_dir='..'):
+    '''
+    Return an OrderedDict of files attributes.
+    Keys are file id.
+    args:
+        files_list : list of files filenames
+        top_dir : Location of theses files
+    return:
+        OrderedDict : {<file id> : { description} }
     '''
     
     catalog = OrderedDict()
 
-    for nb in notebooks_list:
-        about = get_infos(nb, top_dir='..')
+    for file in files_list:
+        about=None
+        if file.endswith('.ipynb'):
+            about = get_notebook_infos(file, top_dir='..')
+        if file.endswith('.sh'):
+            about = get_txtfiles_infos(file, top_dir='..')
+        if about is None:
+              print(f'** Warning : File [{file}] have no tags infomations...')
+              
         id=about['id']
         catalog[id] = about
 
@@ -150,18 +194,21 @@ def get_ci_report():
 
     # ---- Add usefull html columns 
     #
-    df[ ['name','repo'] ]=''
+    for c in ['name','repo']: df[c]='-'
 
     for index, row in df.iterrows():
         id = row['id']
-        basename    = catalog[id]['basename']
-        dirname     = catalog[id]['dirname']
-        title       = catalog[id]['title']
-        description = catalog[id]['description']
-        row['id']   = f'<a href="../{dirname}/{basename}">{id}</a>'
-        row['name'] = f'<a href="../{dirname}/{basename}"><b>{basename}</b></a>'
-        row['repo'] = dirname
-    
+        if id in catalog:
+            basename    = catalog[id]['basename']
+            dirname     = catalog[id]['dirname']
+            title       = catalog[id]['title']
+            description = catalog[id]['description']
+            row['id']   = f'<a href="../{dirname}/{basename}">{id}</a>'
+            row['name'] = f'<a href="../{dirname}/{basename}"><b>{basename}</b></a>'
+            row['repo'] = dirname
+        else:
+            print(f'**Warning : id [{id}] not found in catalog...')
+            
     df=df[columns]
 
     # ---- Add styles to be nice

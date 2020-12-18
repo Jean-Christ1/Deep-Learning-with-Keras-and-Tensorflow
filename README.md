@@ -54,8 +54,8 @@ Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble
 |GTS3| [CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)<br>Episode 3 : Monitoring and analysing training, managing checkpoints|
 |GTS4| [CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)<br>Episode 4 : Improving the results with data augmentation|
 |GTS5| [CNN with GTSRB dataset - Full convolutions ](GTSRB/05-Full-convolutions.ipynb)<br>Episode 5 : A lot of models, a lot of datasets and a lot of results.|
-|GTS6| [CNN with GTSRB dataset - Full convolutions as a batch](GTSRB/06-Notebook-as-a-batch.ipynb)<br>Episode 6 : Run Full convolution notebook as a batch|
-|GTS7| [CNN with GTSRB dataset - Show reports](GTSRB/07-Show-report.ipynb)<br>Episode 7 : Displaying the reports of the different jobs|
+|GTS6| [Full convolutions as a batch](GTSRB/06-Notebook-as-a-batch.ipynb)<br>Episode 6 : Run Full convolution notebook as a batch|
+|GTS7| [CNN with GTSRB dataset - Show reports](GTSRB/07-Show-report.ipynb)<br>Episode 7 : Displaying a jobs report|
 |TSB1| [Tensorboard with/from Jupyter ](GTSRB/99-Scripts-Tensorboard.ipynb)<br>4 ways to use Tensorboard from the Jupyter environment|
 |IMDB1| [Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)<br>A very classical example of word embedding for text classification (sentiment analysis)|
 |IMDB2| [Text embedding with IMDB - Reloaded](IMDB/02-Prediction.ipynb)<br>Example of reusing a previously saved model|

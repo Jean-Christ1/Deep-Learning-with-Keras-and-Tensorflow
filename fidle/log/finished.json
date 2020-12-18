@@ -1,62 +1,44 @@
 {
-    "LINR1": {
-        "path": "/home/pjluc/dev/fidle/LinearReg",
-        "start": "Wednesday 16 December 2020, 16:30:42",
-        "end": "Wednesday 16 December 2020, 16:30:42",
-        "duration": "00:00:01 716ms"
+    "GTS2": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Thursday 17 December 2020, 17:05:29",
+        "end": "Thursday 17 December 2020, 17:05:50",
+        "duration": "00:00:20 263ms"
     },
-    "GRAD1": {
-        "path": "/home/pjluc/dev/fidle/LinearReg",
-        "start": "Wednesday 16 December 2020, 17:11:22",
-        "end": "Wednesday 16 December 2020, 17:11:26",
-        "duration": "00:00:04 240ms"
+    "GTS3": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Thursday 17 December 2020, 17:48:33",
+        "end": "Thursday 17 December 2020, 17:50:22",
+        "duration": "00:01:49 407ms"
     },
-    "POLR1": {
-        "path": "/home/pjluc/dev/fidle/LinearReg",
-        "start": "Wednesday 16 December 2020, 17:48:01",
-        "end": "Wednesday 16 December 2020, 17:48:03",
-        "duration": "00:00:01 491ms"
+    "GTS4": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Thursday 17 December 2020, 18:21:16",
+        "end": "Thursday 17 December 2020, 18:23:00",
+        "duration": "00:01:44 577ms"
     },
-    "LOGR1": {
-        "path": "/home/pjluc/dev/fidle/LinearReg",
-        "start": "Wednesday 16 December 2020, 12:52:18",
-        "end": "Wednesday 16 December 2020, 12:52:20",
-        "duration": "00:00:02 592ms"
+    "GTS5": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Thursday 17 December 2020, 22:07:09",
+        "end": "Thursday 17 December 2020, 22:08:26",
+        "duration": "00:01:17 312ms"
     },
-    "PER57": {
-        "path": "/home/pjluc/dev/fidle/IRIS",
-        "start": "Wednesday 16 December 2020, 21:01:59",
-        "end": "Wednesday 16 December 2020, 21:02:00",
-        "duration": "00:00:01 537ms"
+    "GTS6": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Friday 18 December 2020, 13:33:50",
+        "end": "Friday 18 December 2020, 13:34:12",
+        "duration": "00:00:22 377ms"
     },
-    "BHP1": {
-        "path": "/home/pjluc/dev/fidle/BHPD",
-        "start": "Wednesday 16 December 2020, 21:07:33",
-        "end": "Wednesday 16 December 2020, 21:12:10",
-        "duration": "00:04:37 856ms"
+    "GTS12": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Friday 18 December 2020, 13:48:06",
+        "end": "Friday 18 December 2020, 13:48:07",
+        "duration": "00:00:01 938ms"
     },
-    "BHP2": {
-        "path": "/home/pjluc/dev/fidle/BHPD",
-        "start": "Wednesday 16 December 2020, 21:13:48",
-        "end": "Wednesday 16 December 2020, 21:13:59",
-        "duration": "00:00:11 697ms"
-    },
-    "MNIST1": {
-        "path": "/home/pjluc/dev/fidle/MNIST",
-        "start": "Thursday 17 December 2020, 11:07:02",
-        "end": "Thursday 17 December 2020, 11:07:36",
-        "duration": "00:00:34 554ms"
-    },
-    "GTS1": {
-        "path": "/home/pjluc/dev/fidle/GTSRB",
-        "start": "Thursday 17 December 2020, 14:58:51",
-        "end": "Thursday 17 December 2020, 15:07:28",
-        "duration": "00:08:37 855ms"
-    },
-    "Fidle notebook": {
-        "path": "/home/pjluc/dev/fidle/GTSRB",
-        "start": "Thursday 17 December 2020, 15:34:34",
-        "end": "",
-        "duration": "Unfinished..."
+    "GTS7": {
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/GTSRB",
+        "start": "Friday 18 December 2020, 13:52:25",
+        "end": "Friday 18 December 2020, 13:52:25",
+        "duration": "00:00:01 541ms"
     }
 }

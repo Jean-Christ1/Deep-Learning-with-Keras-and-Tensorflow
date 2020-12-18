@@ -94,7 +94,7 @@
         "id": "GTS6",
         "dirname": "GTSRB",
         "basename": "06-Notebook-as-a-batch.ipynb",
-        "title": "CNN with GTSRB dataset - Full convolutions as a batch",
+        "title": "Full convolutions as a batch",
         "description": "Episode 6 : Run Full convolution notebook as a batch"
     },
     "GTS7": {
@@ -102,7 +102,7 @@
         "dirname": "GTSRB",
         "basename": "07-Show-report.ipynb",
         "title": "CNN with GTSRB dataset - Show reports",
-        "description": "Episode 7 : Displaying the reports of the different jobs"
+        "description": "Episode 7 : Displaying a jobs report"
     },
     "TSB1": {
         "id": "TSB1",
