@@ -637,9 +637,8 @@ def load_cssfile(cssfile):
     display(HTML(styles))
     
      
-        
-def np_print(*args, format={'float': '{:6.3f}'.format}):
-    with np.printoptions(formatter=format):
+def np_print(*args, precision=3, linewidth=120):
+    with np.printoptions(precision=precision, linewidth=linewidth):
         for a in args:
             print(a)
 

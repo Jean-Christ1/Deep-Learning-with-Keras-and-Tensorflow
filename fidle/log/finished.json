@@ -58,5 +58,23 @@
         "start": "Friday 18 December 2020, 19:52:57",
         "end": "Friday 18 December 2020, 19:53:06",
         "duration": "00:00:09 281ms"
+    },
+    "SYNOP1": {
+        "path": "/home/pjluc/dev/fidle/SYNOP",
+        "start": "Saturday 19 December 2020, 10:43:18",
+        "end": "Saturday 19 December 2020, 10:43:22",
+        "duration": "00:00:04 776ms"
+    },
+    "SYNOP2": {
+        "path": "/home/pjluc/dev/fidle/SYNOP",
+        "start": "Saturday 19 December 2020, 11:22:47",
+        "end": "Saturday 19 December 2020, 11:24:13",
+        "duration": "00:01:25 329ms"
+    },
+    "SYNOP3": {
+        "path": "/home/pjluc/dev/fidle/SYNOP",
+        "start": "Saturday 19 December 2020, 11:37:54",
+        "end": "Saturday 19 December 2020, 11:37:57",
+        "duration": "00:00:03 329ms"
     }
 }
