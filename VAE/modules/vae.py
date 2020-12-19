@@ -27,8 +27,8 @@ from tensorflow.keras.utils import plot_model
 from modules.callbacks      import ImagesCallback
 from modules.data_generator import DataGenerator
 
-
 import os, json, time, datetime
+from IPython.display import display,Image,Markdown,HTML
 
 
 
@@ -125,15 +125,15 @@ class VariationalAutoencoder():
 
         # ==== Verbosity ==============================================================
 
-        print('Model initialized.')
+        self.subtitle('Model initialized.')
         print(f'Outputs will be in  : {self.run_directory}')
         
         if verbose>0 :
-            print('\n','-'*10,'Encoder','-'*50,'\n')
+            self.subtitle('Encoder :')
             self.encoder.summary()
-            print('\n','-'*10,'Encoder','-'*50,'\n')
+            self.subtitle('Decoder :')
             self.decoder.summary()
-            self.plot_model()
+#             self.plot_model()
         
         
         
@@ -270,14 +270,14 @@ class VariationalAutoencoder():
             filename = self.run_directory+'/models/'+config
             with open(filename, 'w') as outfile:
                 json.dump(data, outfile)
-            print(f'Config saved in     : {filename}')
+            print(f'\nConfig saved in     : {filename}')
         
         # ---- Save model
         
         if model!=None:
             filename = self.run_directory+'/models/'+model
             self.model.save(filename)
-            print(f'Model saved in      : {filename}')
+            print(f'\nModel saved in      : {filename}')
 
         
         
@@ -302,6 +302,10 @@ class VariationalAutoencoder():
     
     @classmethod
     def about(cls):
-        print('\nFIDLE 2020 - Variational AutoEncoder (VAE)')
+        cls.subtitle('FIDLE 2020 - Variational AutoEncoder (VAE)')
         print('TensorFlow version   :',tf.__version__)
         print('VAE version          :', cls.version)
+        
+    @classmethod
+    def subtitle(cls,text):
+        display(Markdown(f'<br>**{text}**'))

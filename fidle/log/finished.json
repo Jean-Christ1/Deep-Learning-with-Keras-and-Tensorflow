@@ -76,5 +76,11 @@
         "start": "Saturday 19 December 2020, 11:37:54",
         "end": "Saturday 19 December 2020, 11:37:57",
         "duration": "00:00:03 329ms"
+    },
+    "VAE1": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Saturday 19 December 2020, 17:56:34",
+        "end": "Saturday 19 December 2020, 17:58:18",
+        "duration": "00:01:44 880ms"
     }
 }
