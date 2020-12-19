@@ -20,15 +20,16 @@
 #                              Fidle at IDRIS
 # -----------------------------------------------
 #
-# <!-- TITLE --> [BASH2] - SLURM batch script
-# <!-- DESC --> Bash script for SLURM batch submission of GTSRB notebooks 
+# <!-- TITLE --> [GTS9] - Slurm batch submission
+# <!-- DESC -->  Bash script Slurm batch submission of GTSRB notebook 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 MODULE_ENV="tensorflow-gpu/py3/2.2.0"
 RUN_DIR="$WORK/fidle/GTSRB"
 RUN_SCRIPT="./run/full_convolutions.py"
 
-# ---- Welcome...
+# ---- This is an example tested at IDRIS
+#      You have to adapt it to your computing environment
 
 echo '------------------------------------------------------------'
 echo "Start : $0"

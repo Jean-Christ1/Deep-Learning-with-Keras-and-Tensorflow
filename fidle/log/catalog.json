@@ -111,6 +111,20 @@
         "title": "Tensorboard with/from Jupyter ",
         "description": "4 ways to use Tensorboard from the Jupyter environment"
     },
+    "GTS8": {
+        "id": "GTS8",
+        "dirname": "GTSRB",
+        "basename": "batch_oar.sh",
+        "title": "OAR batch submission",
+        "description": "Bash script for OAR batch submission of GTSRB notebook "
+    },
+    "GTS9": {
+        "id": "GTS9",
+        "dirname": "GTSRB",
+        "basename": "batch_slurm.sh",
+        "title": "Slurm batch submission",
+        "description": "Bash script Slurm batch submission of GTSRB notebook "
+    },
     "IMDB1": {
         "id": "IMDB1",
         "dirname": "IMDB",
@@ -208,6 +222,20 @@
         "basename": "08-VAE-withCelebA-post.ipynb",
         "title": "Variational AutoEncoder (VAE) with CelebA - Analysis",
         "description": "Episode 8\u00a0: Exploring latent space of our trained models"
+    },
+    "BASH1": {
+        "id": "BASH1",
+        "dirname": "VAE",
+        "basename": "batch_oar.sh",
+        "title": "OAR batch script",
+        "description": "Bash script for OAR batch submission of VAE notebook "
+    },
+    "SH2": {
+        "id": "SH2",
+        "dirname": "VAE",
+        "basename": "batch_slurm.sh",
+        "title": "SLURM batch script",
+        "description": "Bash script for SLURM batch submission of VAE notebooks "
     },
     "ACTF1": {
         "id": "ACTF1",

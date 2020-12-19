@@ -57,6 +57,8 @@ Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble
 |GTS6| [Full convolutions as a batch](GTSRB/06-Notebook-as-a-batch.ipynb)<br>Episode 6 : Run Full convolution notebook as a batch|
 |GTS7| [CNN with GTSRB dataset - Show reports](GTSRB/07-Show-report.ipynb)<br>Episode 7 : Displaying a jobs report|
 |TSB1| [Tensorboard with/from Jupyter ](GTSRB/99-Scripts-Tensorboard.ipynb)<br>4 ways to use Tensorboard from the Jupyter environment|
+|GTS8| [OAR batch submission](GTSRB/batch_oar.sh)<br>Bash script for OAR batch submission of GTSRB notebook |
+|GTS9| [Slurm batch submission](GTSRB/batch_slurm.sh)<br>Bash script Slurm batch submission of GTSRB notebook |
 |IMDB1| [Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)<br>A very classical example of word embedding for text classification (sentiment analysis)|
 |IMDB2| [Text embedding with IMDB - Reloaded](IMDB/02-Prediction.ipynb)<br>Example of reusing a previously saved model|
 |IMDB3| [Text embedding/LSTM model with IMDB](IMDB/03-LSTM-Keras.ipynb)<br>Still the same problem, but with a network combining embedding and LSTM|
@@ -71,6 +73,8 @@ Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble
 |VAE6| [Variational AutoEncoder (VAE) with CelebA (small)](VAE/06-VAE-with-CelebA-s.nbconvert.ipynb)<br>Episode 6 : Variational AutoEncoder (VAE) with CelebA (small res.)|
 |VAE7| [Variational AutoEncoder (VAE) with CelebA (medium)](VAE/07-VAE-with-CelebA-m.nbconvert.ipynb)<br>Episode 7 : Variational AutoEncoder (VAE) with CelebA (medium res.)|
 |VAE8| [Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/08-VAE-withCelebA-post.ipynb)<br>Episode 8 : Exploring latent space of our trained models|
+|BASH1| [OAR batch script](VAE/batch_oar.sh)<br>Bash script for OAR batch submission of VAE notebook |
+|SH2| [SLURM batch script](VAE/batch_slurm.sh)<br>Bash script for SLURM batch submission of VAE notebooks |
 |ACTF1| [Activation functions](Misc/Activation-Functions.ipynb)<br>Some activation functions, with their derivatives.|
 |NP1| [A short introduction to Numpy](Misc/Numpy.ipynb)<br>Numpy is an essential tool for the Scientific Python.|
 <!-- INDEX_END -->

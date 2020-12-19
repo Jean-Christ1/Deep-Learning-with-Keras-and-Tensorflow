@@ -6,15 +6,9 @@
 #OAR --stderr full_convolutions_%jobid%.err
 #OAR --project fidle
 
-# <!-- TITLE --> [SH1] - OAR batch submission
-# <!-- DESC -->  Bash script example for OAR batch submission
-# <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
-
-#---- With cpu
-# use :
+#---- Note for cpu, set :
 # OAR -l /nodes=1/core=32,walltime=02:00:00
 # and add a 2>/dev/null to ipython xxx
-
 
 # -----------------------------------------------
 #         _           _       _
@@ -25,16 +19,17 @@
 #                             Fidle at GRICAD
 # -----------------------------------------------
 #
-# <!-- TITLE --> [BASH1] - OAR batch script
-# <!-- DESC --> Bash script for OAR batch submission of GTSRB notebook 
+# <!-- TITLE --> [GTS8] - OAR batch submission
+# <!-- DESC -->  Bash script for OAR batch submission of GTSRB notebook 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 CONDA_ENV=fidle
 RUN_DIR=~/fidle/GTSRB
 RUN_SCRIPT=./run/full_convolutions.py
 
-# ---- Cuda Conda initialization
-#
+# ---- This is an example tested at GRICAD
+#      You have to adapt it to your computing environment
+
 echo '------------------------------------------------------------'
 echo "Start : $0"
 echo '------------------------------------------------------------'

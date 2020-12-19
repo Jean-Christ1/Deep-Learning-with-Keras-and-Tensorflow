@@ -18,7 +18,7 @@ VERSION = '0.6.1 DEV'
 
 # ---- Default notebook name ---------------------------------------
 #
-DEFAULT_NOTEBOOK_NAME = "Fidle notebook"
+DEFAULT_NOTEBOOK_NAME = "Unknown"
 
 # ---- Styles ------------------------------------------------------
 #

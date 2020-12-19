@@ -51,7 +51,7 @@ def get_files(directories, top_dir='..'):
         files.extend(notebooks)
         files.extend(scripts)
 
-    files = [ x.replace(f'{top_dir}/','') for x in entries]
+    files = [ x.replace(f'{top_dir}/','') for x in files]
     return files
 
 
@@ -94,7 +94,7 @@ def get_notebook_infos(filename, top_dir='..'):
     return about
     
     
-def get_txt_file_infos(filename, top_dir='..'):
+def get_txtfile_infos(filename, top_dir='..'):
     '''
     Extract fidle  informations from a text file (script...).
     Informations are dirname, basename, id, title, description and are extracted from comments tags in document
@@ -113,15 +113,15 @@ def get_txt_file_infos(filename, top_dir='..'):
     
     # ---- Read file
     #
-    with open((f'{top_dir}/{filename}') af fp:
-        texte = fp.read()
+    with open(f'{top_dir}/{filename}') as fp:
+        text = fp.read()
 
-    find = re.findall(r'<\!-- TITLE -->\s*\[(.*)\]\s*-\s*(.*)\n',cell.source)
+    find = re.findall(r'<\!-- TITLE -->\s*\[(.*)\]\s*-\s*(.*)\n',text)
     if find:
         about['id']    = find[0][0]
         about['title'] = find[0][1]
 
-    find = re.findall(r'<\!-- DESC -->\s*(.*)\n',cell.source)
+    find = re.findall(r'<\!-- DESC -->\s*(.*)\n',text)
     if find:
         about['description']  = find[0]
 
@@ -143,13 +143,11 @@ def get_catalog(files_list, top_dir='..'):
 
     for file in files_list:
         about=None
-        if file.endswith('.ipynb'):
-            about = get_notebook_infos(file, top_dir='..')
-        if file.endswith('.sh'):
-            about = get_txtfiles_infos(file, top_dir='..')
+        if file.endswith('.ipynb'): about = get_notebook_infos(file, top_dir='..')
+        if file.endswith('.sh'):    about = get_txtfile_infos(file, top_dir='..')
         if about is None:
-              print(f'** Warning : File [{file}] have no tags infomations...')
-              
+            print(f'** Warning : File [{file}] have no tags infomations...')
+            continue
         id=about['id']
         catalog[id] = about
 
