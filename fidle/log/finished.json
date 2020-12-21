@@ -78,10 +78,10 @@
         "duration": "00:00:03 329ms"
     },
     "VAE1": {
-        "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Monday 21 December 2020, 21:56:36",
-        "end": "Monday 21 December 2020, 21:59:00",
-        "duration": "00:02:24 1000ms"
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
+        "start": "Monday 21 December 2020, 22:14:18",
+        "end": "",
+        "duration": "Unfinished..."
     },
     "MNIST1": {
         "path": "/home/pjluc/dev/fidle/MNIST",
@@ -90,8 +90,8 @@
         "duration": "00:00:32 930ms"
     },
     "VAE2": {
-        "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Monday 21 December 2020, 21:49:50",
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
+        "start": "Monday 21 December 2020, 22:18:12",
         "end": "",
         "duration": "Unfinished..."
     }
