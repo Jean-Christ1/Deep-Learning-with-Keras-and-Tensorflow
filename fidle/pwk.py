@@ -51,7 +51,7 @@ _end_time   = None
 # init_all
 # -------------------------------------------------------------
 #
-def init(name=None):
+def init(name=None, run_dir='./run'):
     global notebook_id
     global datasets_dir
     global running_mode
@@ -70,7 +70,7 @@ def init(name=None):
     
     # ---- Create subdirs
     #
-    mkdir('./run')
+    mkdir(run_dir)
     
     # ---- datasets location
     #
@@ -102,6 +102,7 @@ def init(name=None):
     print('TensorFlow version   :', tf.__version__)
     print('Keras version        :', tf.keras.__version__)
     print('Datasets dir         :', datasets_dir)
+    print('Run dir              :', run_dir)
     print('Running mode         :', running_mode)
     print('Update keras cache   :', updated)
 
@@ -109,7 +110,7 @@ def init(name=None):
     #
     save_figs = os.getenv('FIDLE_SAVE_FIGS', config.DEFAULT_SAVE_FIGS)
     if save_figs.lower() == 'yes':
-        set_save_fig(save=True, figs_dir='./run/figs', figs_name='fig_', figs_id=0)
+        set_save_fig(save=True, figs_dir=f'{run_dir}/figs', figs_name='fig_', figs_id=0)
     
     
     update_finished_file(start=True)

@@ -79,8 +79,20 @@
     },
     "VAE1": {
         "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Saturday 19 December 2020, 17:56:34",
-        "end": "Saturday 19 December 2020, 17:58:18",
-        "duration": "00:01:44 880ms"
+        "start": "Monday 21 December 2020, 21:56:36",
+        "end": "Monday 21 December 2020, 21:59:00",
+        "duration": "00:02:24 1000ms"
+    },
+    "MNIST1": {
+        "path": "/home/pjluc/dev/fidle/MNIST",
+        "start": "Monday 21 December 2020, 14:47:57",
+        "end": "Monday 21 December 2020, 14:48:29",
+        "duration": "00:00:32 930ms"
+    },
+    "VAE2": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Monday 21 December 2020, 21:49:50",
+        "end": "",
+        "duration": "Unfinished..."
     }
 }

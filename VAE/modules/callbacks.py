@@ -37,3 +37,21 @@ class ImagesCallback(Callback):
                 plt.imsave(filename, image, cmap='gray_r')
             else:
                 plt.imsave(filename, image)
+
+                
+                
+class BestModelCallback(Callback):
+
+    def __init__(self, filename= 'best-model' ):
+        self.filename = filename
+        self.loss     = np.Inf
+        
+    def on_train_begin(self, logs=None):
+        self.loss = np.Inf
+        
+    def on_epoch_end(self, epoch, logs=None):
+        current = logs.get("loss")
+        if current<self.loss:
+            self.loss = current
+            self.model.save(self.filename)
+            print(' '*10,'(saved) ', end='')

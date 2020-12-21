@@ -21,34 +21,35 @@ class Loader_MNIST():
     
     def __init__(self):
         pass
-
+   
     @classmethod
-    def about(cls):
-        print('\nFIDLE 2020 - Very basic MNIST dataset loader)')
-        print('TensorFlow version   :',tf.__version__)
-        print('Loader version       :', cls.version)
-    
-    @classmethod
-    def load(normalize=True, expand=True, verbose=1):
+    def get(normalize=True, expand=True, concatenate=True, verbose=1):
 
         # ---- Get data
-
+        #
         (x_train, y_train), (x_test, y_test) = mnist.load_data()
         if verbose>0: print('Dataset loaded.')
-
-
+           
         # ---- Normalization
-
+        #
         if normalize:
             x_train = x_train.astype('float32') / 255.
             x_test  = x_test.astype( 'float32') / 255.
             if verbose>0: print('Normalized.')
             
         # ---- Reshape : (28,28) -> (28,28,1)
-
+        #
         if expand:
-            x_train = np.expand_dims(x_train, axis=3)
-            x_test  = np.expand_dims(x_test,  axis=3)
+            x_train = np.expand_dims(x_train, axis=-1)
+            x_test  = np.expand_dims(x_test,  axis=-1)
             if verbose>0: print(f'Reshaped to {x_train.shape}')
 
+        # ---- Concatenate
+        #
+        if concatenate:
+            x = np.concatenate([x_train, x_test], axis=0)
+            y = np.concatenate([y_train, y_test])
+            print('Concatenate.')
+            return x,y
+        
         return (x_train,y_train),(x_test,y_test)
