@@ -79,9 +79,9 @@
     },
     "VAE1": {
         "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
-        "start": "Monday 21 December 2020, 22:14:18",
-        "end": "",
-        "duration": "Unfinished..."
+        "start": "Wednesday 23 December 2020, 22:58:02",
+        "end": "Wednesday 23 December 2020, 22:59:24",
+        "duration": "00:01:22 195ms"
     },
     "MNIST1": {
         "path": "/home/pjluc/dev/fidle/MNIST",
@@ -91,7 +91,7 @@
     },
     "VAE2": {
         "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
-        "start": "Monday 21 December 2020, 22:18:12",
+        "start": "Wednesday 23 December 2020, 23:00:15",
         "end": "",
         "duration": "Unfinished..."
     }

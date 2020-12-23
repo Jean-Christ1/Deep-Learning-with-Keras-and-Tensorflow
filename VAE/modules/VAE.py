@@ -23,10 +23,12 @@ class Sampling(layers.Layer):
 
 class VAE(keras.Model):
     
-    def __init__(self, encoder=None, decoder=None, **kwargs):
+    def __init__(self, encoder=None, decoder=None, r_loss_factor=1., **kwargs):
         super(VAE, self).__init__(**kwargs)
         self.encoder = encoder
         self.decoder = decoder
+        self.r_loss_factor = r_loss_factor
+        print('r_loss_factor=',self.r_loss_factor)
 
         
     def train_step(self, data):
@@ -42,7 +44,7 @@ class VAE(keras.Model):
             kl_loss = 1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var)
             kl_loss = tf.reduce_mean(kl_loss)
             kl_loss *= -0.5
-            total_loss = reconstruction_loss + kl_loss
+            total_loss = self.r_loss_factor*reconstruction_loss + (1-self.r_loss_factor)*kl_loss
             
         grads = tape.gradient(total_loss, self.trainable_weights)
         self.optimizer.apply_gradients(zip(grads, self.trainable_weights))
