@@ -42,7 +42,6 @@ class Loader_MNIST():
         if expand:
             x_train = np.expand_dims(x_train, axis=-1)
             x_test  = np.expand_dims(x_test,  axis=-1)
-            if verbose>0: print(f'Reshaped to {x_train.shape}')
 
         # ---- Concatenate
         #
@@ -52,4 +51,10 @@ class Loader_MNIST():
             print('Concatenate.')
             return x,y
         
-        return (x_train,y_train),(x_test,y_test)
+        if verbose:
+            print('x_train shape :', x_train.shape)
+            print('y_train shape :', y_train.shape)
+            print('x_test  shape :', x_test.shape)
+            print('y_test  shape :', y_test.shape)
+        
+        return x_train,y_train,x_test,y_test

@@ -3,14 +3,12 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-from modules.callbacks      import ImagesCallback
-from modules.data_generator import DataGenerator
-from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
-
 
 # Note : https://www.tensorflow.org/guide/keras/save_and_serialize#custom_objects
 
-class Sampling(layers.Layer):
+class Sampling(keras.layers.Layer):
+    '''
+    A layer that receive (z_mean, z_var) '''
     """Uses (z_mean, z_log_var) to sample z, the vector encoding a digit."""
 
     def call(self, inputs):
