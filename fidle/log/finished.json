@@ -96,9 +96,9 @@
         "duration": "Unfinished..."
     },
     "AE1": {
-        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
-        "start": "Saturday 26 December 2020, 12:22:43",
-        "end": "Saturday 26 December 2020, 12:24:33",
-        "duration": "00:01:49 341ms"
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Saturday 26 December 2020, 16:19:51",
+        "end": "Saturday 26 December 2020, 16:21:24",
+        "duration": "00:01:33 760ms"
     }
 }
