@@ -589,7 +589,8 @@ def save_fig(filename='auto', png=True, svg=False):
         svg      : Boolean. Save as svg if True (False)
     """
     global _save_figs, _figs_dir, _figs_name, _figs_id
-    if not _save_figs : return
+    if filename is None : return
+    if not _save_figs   : return
     mkdir(_figs_dir)
     if filename=='auto': 
         path=f'{_figs_dir}/{notebook_id}-{_figs_name}{_figs_id:02d}'
