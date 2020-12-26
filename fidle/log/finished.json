@@ -90,15 +90,15 @@
         "duration": "00:00:32 930ms"
     },
     "VAE2": {
-        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
-        "start": "Wednesday 23 December 2020, 23:00:15",
-        "end": "",
-        "duration": "Unfinished..."
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Saturday 26 December 2020, 23:48:17",
+        "end": "Saturday 26 December 2020, 23:48:31",
+        "duration": "00:00:15 643ms"
     },
     "AE1": {
         "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Saturday 26 December 2020, 16:19:51",
-        "end": "Saturday 26 December 2020, 16:21:24",
-        "duration": "00:01:33 760ms"
+        "start": "Saturday 26 December 2020, 19:47:54",
+        "end": "",
+        "duration": "Unfinished..."
     }
 }

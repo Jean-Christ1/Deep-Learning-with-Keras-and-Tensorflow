@@ -3,8 +3,8 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-   
-    
+# See : https://keras.io/api/models/model/
+# See :https://keras.io/guides/customizing_what_happens_in_fit/
     
 class AE(keras.Model):
     
@@ -12,10 +12,14 @@ class AE(keras.Model):
         super(AE, self).__init__(**kwargs)
         self.encoder = encoder
         self.decoder = decoder
-
+        
+    def call(self, inputs):
+        z = self.encoder(inputs)
+        y_pred = self.decoder(z)
+        return y_pred
+        
         
     def train_step(self, data):
-        # See :https://keras.io/guides/customizing_what_happens_in_fit/
         
         x, y = data
         
@@ -42,10 +46,11 @@ class AE(keras.Model):
         #
         return {m.name: m.result() for m in self.metrics}
 #         return {"loss":loss}
-    
+
+
     
     def reload(self,filename):
-        self.encoder = keras.models.load_model(f'{filename}-enc.h5', custom_objects={'Sampling': Sampling})
+        self.encoder = keras.models.load_model(f'{filename}-enc.h5')
         self.decoder = keras.models.load_model(f'{filename}-dec.h5')
         
     def save(self,filename):
