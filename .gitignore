@@ -6,9 +6,11 @@ stderr.txt
 stdout.txt
 run/
 figs/
+data/
 GTSRB/data
 IMDB/data
 MNIST/data
 SYNOP/data
 VAE/data
 BHPD/data
+AE/data
