@@ -96,15 +96,15 @@
         "duration": "00:00:10 263ms"
     },
     "AE1": {
-        "path": "/home/pjluc/dev/fidle/AE",
-        "start": "Monday 28 December 2020, 23:35:15",
-        "end": "Monday 28 December 2020, 23:36:32",
-        "duration": "00:01:17 839ms"
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/AE",
+        "start": "Monday 28 December 2020, 23:52:28",
+        "end": "Monday 28 December 2020, 23:56:09",
+        "duration": "00:03:41 536ms"
     },
     "AE2": {
-        "path": "/home/pjluc/dev/fidle/AE",
-        "start": "Monday 28 December 2020, 23:37:56",
-        "end": "",
-        "duration": "Unfinished..."
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/AE",
+        "start": "Monday 28 December 2020, 23:56:46",
+        "end": "Monday 28 December 2020, 23:59:16",
+        "duration": "00:02:31 652ms"
     }
 }
