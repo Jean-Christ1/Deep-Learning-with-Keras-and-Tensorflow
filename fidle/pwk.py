@@ -262,7 +262,7 @@ def rmin(l):
 #
 def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1,
-                fontsize=20, save_as='auto'):
+                fontsize=20, interpolation='lanczos', save_as='auto'):
     """
     Show some images in a grid, with legends
     args:
@@ -300,7 +300,7 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 xx=x[i].reshape(lx,ly)
             else:
                 xx=x[i]
-        img=axs.imshow(xx,   cmap = cm, interpolation='lanczos')
+        img=axs.imshow(xx,   cmap = cm, interpolation=interpolation)
         axs.spines['right'].set_visible(True)
         axs.spines['left'].set_visible(True)
         axs.spines['top'].set_visible(True)
@@ -325,7 +325,7 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
     plt.show()
 
     
-def plot_image(x,cm='binary', figsize=(4,4),save_as='auto'):
+def plot_image(x,cm='binary', figsize=(4,4),interpolation='lanczos', save_as='auto'):
     """
     Draw a single image.
     Image shape can be (lx,ly), (lx,ly,1) or (lx,ly,n)
@@ -346,7 +346,7 @@ def plot_image(x,cm='binary', figsize=(4,4),save_as='auto'):
             xx=x
     # ---- Draw it
     plt.figure(figsize=figsize)
-    plt.imshow(xx,   cmap = cm, interpolation='lanczos')
+    plt.imshow(xx,   cmap = cm, interpolation=interpolation)
     save_fig(save_as)
     plt.show()
 

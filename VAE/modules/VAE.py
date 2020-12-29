@@ -1,32 +1,44 @@
+# ------------------------------------------------------------------
+#     _____ _     _ _
+#    |  ___(_) __| | | ___
+#    | |_  | |/ _` | |/ _ \
+#    |  _| | | (_| | |  __/
+#    |_|   |_|\__,_|_|\___|                              VAE Example
+# ------------------------------------------------------------------
+# Formation Introduction au Deep Learning  (FIDLE)
+# CNRS/SARI/DEVLOG 2020 - S. Arias, E. Maldonado, JL. Parouty
+# ------------------------------------------------------------------
+# by JL Parouty (dec 2020), based on François Chollet example
+#
+# See : https://keras.io/examples/generative/vae
+
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-
 # Note : https://www.tensorflow.org/guide/keras/save_and_serialize#custom_objects
 
 class Sampling(keras.layers.Layer):
-    '''
-    A layer that receive (z_mean, z_var) '''
-    """Uses (z_mean, z_log_var) to sample z, the vector encoding a digit."""
+    '''A custom layer that receive (z_mean, z_var) and sample a z vector'''
 
     def call(self, inputs):
         z_mean, z_log_var = inputs
         batch = tf.shape(z_mean)[0]
-        dim = tf.shape(z_mean)[1]
+        dim   = tf.shape(z_mean)[1]
         epsilon = tf.keras.backend.random_normal(shape=(batch, dim))
         return z_mean + tf.exp(0.5 * z_log_var) * epsilon
     
 
 class VAE(keras.Model):
+    '''A VAE model, built from given encoder, decoder'''
     
-    def __init__(self, encoder=None, decoder=None, r_loss_factor=1., **kwargs):
+    def __init__(self, encoder=None, decoder=None, r_loss_factor=0.3, **kwargs):
         super(VAE, self).__init__(**kwargs)
         self.encoder = encoder
         self.decoder = decoder
         self.r_loss_factor = r_loss_factor
-        print('r_loss_factor=',self.r_loss_factor)
+        print('Init VAE, with r_loss_factor=',self.r_loss_factor)
 
         
     def train_step(self, data):
@@ -57,6 +69,7 @@ class VAE(keras.Model):
     def reload(self,filename):
         self.encoder = keras.models.load_model(f'{filename}-enc.h5', custom_objects={'Sampling': Sampling})
         self.decoder = keras.models.load_model(f'{filename}-dec.h5')
+        print('Reloaded.')
         
     def save(self,filename):
         self.encoder.save(f'{filename}-enc.h5')

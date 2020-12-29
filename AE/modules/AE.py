@@ -1,10 +1,23 @@
+# ------------------------------------------------------------------
+#     _____ _     _ _
+#    |  ___(_) __| | | ___
+#    | |_  | |/ _` | |/ _ \
+#    |  _| | | (_| | |  __/
+#    |_|   |_|\__,_|_|\___|                               AE Example
+# ------------------------------------------------------------------
+# Formation Introduction au Deep Learning  (FIDLE)
+# CNRS/SARI/DEVLOG 2020 - S. Arias, E. Maldonado, JL. Parouty
+# ------------------------------------------------------------------
+# by JL Parouty (dec 2020), based on François Chollet example
+#
+# See : https://keras.io/examples/generative/vae
+# See : https://keras.io/api/models/model/
+# See : https://keras.io/guides/customizing_what_happens_in_fit/
+
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
-
-# See : https://keras.io/api/models/model/
-# See :https://keras.io/guides/customizing_what_happens_in_fit/
     
 class AE(keras.Model):
     
