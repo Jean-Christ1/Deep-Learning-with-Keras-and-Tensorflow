@@ -106,5 +106,35 @@
         "start": "Tuesday 29 December 2020, 12:29:27",
         "end": "",
         "duration": "Unfinished..."
+    },
+    "Unknown": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Wednesday 30 December 2020, 10:04:37",
+        "end": "Wednesday 30 December 2020, 10:09:58",
+        "duration": "00:05:21 202ms"
+    },
+    "VAE3": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Wednesday 30 December 2020, 10:11:23",
+        "end": "Wednesday 30 December 2020, 10:11:33",
+        "duration": "00:00:10 358ms"
+    },
+    "VAE5": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Wednesday 30 December 2020, 10:14:25",
+        "end": "Wednesday 30 December 2020, 10:14:35",
+        "duration": "00:00:10 061ms"
+    },
+    "VAE6": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Wednesday 30 December 2020, 22:17:22",
+        "end": "Wednesday 30 December 2020, 22:18:34",
+        "duration": "00:01:12 199ms"
+    },
+    "GTS1": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Wednesday 30 December 2020, 22:06:55",
+        "end": "Wednesday 30 December 2020, 22:10:00",
+        "duration": "00:03:05 030ms"
     }
 }

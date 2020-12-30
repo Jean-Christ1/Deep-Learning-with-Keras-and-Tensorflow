@@ -39,13 +39,15 @@ datasets_dir  = None
 notebook_id   = None
 running_mode  = None
 
-_save_figs = False
-_figs_dir  = './figs'
-_figs_name = 'fig_'
-_figs_id   = 0
+_save_figs    = False
+_figs_dir     = './figs'
+_figs_name    = 'fig_'
+_figs_id      = 0
 
-_start_time = None
-_end_time   = None
+_start_time   = None
+_end_time     = None
+_chrono_start = None
+_chrono_stop  = None
 
 # -------------------------------------------------------------
 # init_all
@@ -103,7 +105,7 @@ def init(name=None, run_dir='./run'):
     print('Keras version        :', tf.keras.__version__)
     print('Datasets dir         :', datasets_dir)
     print('Run dir              :', run_dir)
-    print('Running mode         :', running_mode)
+    print('CI running mode      :', running_mode)
     print('Update keras cache   :', updated)
 
     # ---- Save figs or not
@@ -155,6 +157,21 @@ def error_datasets_not_found():
     display_md('----')
     assert False, 'datasets folder not found, please set FIDLE_DATASETS_DIR env var.'
 
+
+# -------------------------------------------------------------
+# param_override
+# -------------------------------------------------------------
+#
+def override(name, value, smart=None, full=None):
+    if running_mode=='smart': 
+        print(f'Running mode is [{running_mode}] - Override [{name}={value}] with [{smart}]')
+        return smart
+    if running_mode=='full' : 
+        print(f'Running mode is [{running_mode}] - Override [{name}={value}] with [{full}]')
+        return full
+    return value
+    
+    
 # -------------------------------------------------------------
 # Folder cooking
 # -------------------------------------------------------------
@@ -617,6 +634,15 @@ def display_img(img):
 def hdelay(sec):
     return str(datetime.timedelta(seconds=int(sec)))
 
+def chrono_start():
+    global _chrono_start, _chrono_stop
+    _chrono_start=time.time()
+
+def chrono_stop():
+    global _chrono_start, _chrono_stop
+    _chrono_stop=time.time()
+    return _chrono_stop - _chrono_start
+    
 # Return human delay like 01:14:28 543ms
 def hdelay_ms(td):
     sec = td.total_seconds()
