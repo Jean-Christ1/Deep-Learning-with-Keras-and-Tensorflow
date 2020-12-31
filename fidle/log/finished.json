@@ -127,14 +127,20 @@
     },
     "VAE6": {
         "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Wednesday 30 December 2020, 22:17:22",
-        "end": "Wednesday 30 December 2020, 22:18:34",
-        "duration": "00:01:12 199ms"
+        "start": "Thursday 31 December 2020, 12:49:25",
+        "end": "Thursday 31 December 2020, 12:50:38",
+        "duration": "00:01:13 121ms"
     },
     "GTS1": {
         "path": "/home/pjluc/dev/fidle/GTSRB",
         "start": "Wednesday 30 December 2020, 22:06:55",
         "end": "Wednesday 30 December 2020, 22:10:00",
         "duration": "00:03:05 030ms"
+    },
+    "GTSRB1": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Thursday 31 December 2020, 12:34:29",
+        "end": "Thursday 31 December 2020, 12:36:22",
+        "duration": "00:01:53 128ms"
     }
 }

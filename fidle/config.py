@@ -47,3 +47,17 @@ DEFAULT_RUNNING_MODE = 'none'
 #      Overided by env : FIDLE_SAVE_FIGS
 #      
 DEFAULT_SAVE_FIGS    = 'yes'
+
+# ---- CI Override parameters
+#
+GTSRB1_smart_scale      = 0.1
+GTSRB1_smart_output_dir = './data'
+GTSRB1_full_scale       = 1
+GTSRB1_full_output_dir  = '{datasets_dir}/GTSRB/enhanced'
+
+VAE6_smart_scale        = 0.05
+VAE6_smart_image_size   = (128,128)
+VAE6_smart_output_dir   = './data'
+VAE6_full_scale         = 1
+VAE6_full_image_size    = (192,160)
+VAE6_full_output_dir    = '{datasets_dir}/GTSRB/enhanced'

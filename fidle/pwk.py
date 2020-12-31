@@ -161,15 +161,20 @@ def error_datasets_not_found():
 # -------------------------------------------------------------
 # param_override
 # -------------------------------------------------------------
-#
-def override(name, value, smart=None, full=None):
-    if running_mode=='smart': 
-        print(f'Running mode is [{running_mode}] - Override [{name}={value}] with [{smart}]')
-        return smart
-    if running_mode=='full' : 
-        print(f'Running mode is [{running_mode}] - Override [{name}={value}] with [{full}]')
-        return full
-    return value
+# 
+def override(name, value):
+    # ---- Pas de mode override actif
+    if running_mode not in ['smart','full']: return value
+    # ---- Get entry name in config
+    entry=f'{notebook_id}_{running_mode}_{name}'
+    # ---- Get value
+    assert hasattr(config, entry), f'Override error : Cannot find entry [{entry}] in config.'
+    new_value=getattr(config,entry)
+    if isinstance(new_value, str) : 
+        new_value=new_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
+    # ---- Return 
+    print(f'Override : running mode is [{running_mode}] Parameter [{name}={value}] set to [{new_value}]')
+    return new_value
     
     
 # -------------------------------------------------------------
