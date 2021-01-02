@@ -25,6 +25,11 @@ DEFAULT_NOTEBOOK_NAME = "Unknown"
 FIDLE_MPLSTYLE = '../fidle/mplstyles/custom.mplstyle'
 FIDLE_CSSFILE  = '../fidle/css/custom.css'
 
+# ---- Save figs or not (yes|no)
+#      Overided by env : FIDLE_SAVE_FIGS
+#      
+DEFAULT_SAVE_FIGS    = 'yes'
+
 # ---- Catalog file, a json description of all notebooks
 #
 CATALOG_FILE   = '../fidle/log/catalog.json'
@@ -43,11 +48,6 @@ CI_REPORT      = '../fidle/log/ci_report.html'
 #
 DEFAULT_RUNNING_MODE = 'none'
 
-# ---- Save figs or not (yes|no)
-#      Overided by env : FIDLE_SAVE_FIGS
-#      
-DEFAULT_SAVE_FIGS    = 'yes'
-
 # ---- CI Override parameters
 #
 GTSRB1_smart_scale      = 0.1
@@ -60,4 +60,9 @@ VAE6_smart_image_size   = (128,128)
 VAE6_smart_output_dir   = './data'
 VAE6_full_scale         = 1
 VAE6_full_image_size    = (192,160)
-VAE6_full_output_dir    = '{datasets_dir}/GTSRB/enhanced'
+VAE6_full_output_dir    = '{datasets_dir}/celeba/enhanced'
+
+VAE7_smart_image_size   = (128,128)
+VAE7_smart_enhanced_dir = './data'
+VAE7_full_image_size    = (192,160)
+VAE7_full_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
