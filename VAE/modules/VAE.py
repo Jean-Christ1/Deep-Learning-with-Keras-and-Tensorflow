@@ -33,13 +33,20 @@ class Sampling(keras.layers.Layer):
 class VAE(keras.Model):
     '''A VAE model, built from given encoder, decoder'''
     
-    def __init__(self, encoder=None, decoder=None, r_loss_factor=0.3, **kwargs):
+    def __init__(self, encoder=None, decoder=None, r_loss_factor=0.3, image_size=(28,28), **kwargs):
         super(VAE, self).__init__(**kwargs)
         self.encoder = encoder
         self.decoder = decoder
         self.r_loss_factor = r_loss_factor
-        print('Init VAE, with r_loss_factor=',self.r_loss_factor)
+        self.nb_pixels     = np.prod(image_size)
+        print(f'Init VAE, with r_loss_factor={self.r_loss_factor} and image_size={image_size}')
 
+        
+    def call(self, inputs):
+        z = self.encoder(inputs)
+        y_pred = self.decoder(z)
+        return y_pred
+                
         
     def train_step(self, data):
         
@@ -50,7 +57,7 @@ class VAE(keras.Model):
             z_mean, z_log_var, z = self.encoder(data)
             reconstruction       = self.decoder(z)
             reconstruction_loss  = tf.reduce_mean( keras.losses.binary_crossentropy(data, reconstruction) )
-            reconstruction_loss *= 28*28
+            reconstruction_loss *= self.nb_pixels
             kl_loss = 1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var)
             kl_loss = tf.reduce_mean(kl_loss)
             kl_loss *= -0.5

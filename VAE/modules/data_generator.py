@@ -67,9 +67,13 @@ class DataGenerator(Sequence):
         #
         # ---- Read a first cluster
         #
-        self.cluster_i = clusters_size
+        self.rewind()
+    
+    
+    def rewind(self):
+        self.cluster_i = self.clusters_size
         self.read_next_cluster()
-        
+
         
     def __len__(self):
         return math.floor(self.dataset_size / self.batch_size)
@@ -106,8 +110,7 @@ class DataGenerator(Sequence):
     
     
     def on_epoch_end(self):
-        self.cluster_i = self.clusters_size
-        self.read_next_cluster()
+        self.rewind()
     
     
     def read_next_cluster(self):

@@ -66,3 +66,8 @@ VAE7_smart_image_size   = (128,128)
 VAE7_smart_enhanced_dir = './data'
 VAE7_full_image_size    = (192,160)
 VAE7_full_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
+
+VAE8_smart_image_size   = (128,128)
+VAE8_smart_enhanced_dir = './data'
+VAE8_full_image_size    = (192,160)
+VAE8_full_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
