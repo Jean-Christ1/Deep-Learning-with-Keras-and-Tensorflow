@@ -126,10 +126,10 @@
         "duration": "00:00:10 061ms"
     },
     "VAE6": {
-        "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Saturday 2 January 2021, 17:04:58",
-        "end": "Saturday 2 January 2021, 17:06:59",
-        "duration": "00:02:00 412ms"
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
+        "start": "Monday 4 January 2021, 21:17:51",
+        "end": "Monday 4 January 2021, 22:08:57",
+        "duration": "00:51:06 647ms"
     },
     "GTS1": {
         "path": "/home/pjluc/dev/fidle/GTSRB",
@@ -150,9 +150,9 @@
         "duration": "00:00:08 736ms"
     },
     "VAE8": {
-        "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Monday 4 January 2021, 18:43:15",
-        "end": "Monday 4 January 2021, 18:56:01",
-        "duration": "00:12:46 153ms"
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
+        "start": "Monday 4 January 2021, 22:27:20",
+        "end": "",
+        "duration": "Unfinished..."
     }
 }
