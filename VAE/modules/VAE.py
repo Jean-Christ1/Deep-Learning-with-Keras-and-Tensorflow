@@ -43,7 +43,7 @@ class VAE(keras.Model):
 
         
     def call(self, inputs):
-        z = self.encoder(inputs)
+        z_mean, z_log_var, z = self.encoder(inputs)
         y_pred = self.decoder(z)
         return y_pred
                 

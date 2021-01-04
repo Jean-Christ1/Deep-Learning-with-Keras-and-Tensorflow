@@ -31,6 +31,8 @@ class ImagesCallback(Callback):
         
     def on_epoch_end(self, epoch, logs={}):  
         
+        if epoch<1 : return
+        
         # ---- Get latent points
         #
         if self.x is None:
@@ -72,6 +74,7 @@ class BestModelCallback(Callback):
         self.loss = np.Inf
         
     def on_epoch_end(self, epoch, logs=None):
+        if epoch<1 : return
         current = logs.get("loss")
         if current<self.loss:
             self.loss = current
