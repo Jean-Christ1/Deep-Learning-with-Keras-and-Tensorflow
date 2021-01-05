@@ -648,6 +648,10 @@ def chrono_stop():
     _chrono_stop=time.time()
     return _chrono_stop - _chrono_start
     
+def chrono_show():
+    print('Duration : ',hdelay(time.time() - _chrono_start))
+    
+    
 # Return human delay like 01:14:28 543ms
 def hdelay_ms(td):
     sec = td.total_seconds()

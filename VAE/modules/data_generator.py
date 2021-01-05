@@ -16,8 +16,9 @@ import numpy as np
 import pandas as pd
 import math
 import os,glob
-
+import tensorflow as tf
 from tensorflow.keras.utils import Sequence
+from IPython.display import display,Markdown
 
 class DataGenerator(Sequence):
 
@@ -140,5 +141,7 @@ class DataGenerator(Sequence):
         
     @classmethod
     def about(cls):
-        print('\nFIDLE 2020 - DataGenerator')
+        display(Markdown('<br>**FIDLE 2020 - DataGenerator**'))
         print('Version              :', cls.version)
+        print('TensorFlow version   :', tf.__version__)
+        print('Keras version        :', tf.keras.__version__)

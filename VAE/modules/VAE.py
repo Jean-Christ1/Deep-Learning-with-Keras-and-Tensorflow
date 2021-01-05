@@ -16,6 +16,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+from IPython.display import display,Markdown
 
 # Note : https://www.tensorflow.org/guide/keras/save_and_serialize#custom_objects
 
@@ -32,14 +33,15 @@ class Sampling(keras.layers.Layer):
 
 class VAE(keras.Model):
     '''A VAE model, built from given encoder, decoder'''
-    
-    def __init__(self, encoder=None, decoder=None, r_loss_factor=0.3, image_size=(28,28), **kwargs):
+
+    version = '1.2'
+
+    def __init__(self, encoder=None, decoder=None, r_loss_factor=0.3, **kwargs):
         super(VAE, self).__init__(**kwargs)
         self.encoder = encoder
         self.decoder = decoder
         self.r_loss_factor = r_loss_factor
-        self.nb_pixels     = np.prod(image_size)
-        print(f'Init VAE, with r_loss_factor={self.r_loss_factor} and image_size={image_size}')
+        print(f'Init VAE, with r_loss_factor={self.r_loss_factor}')
 
         
     def call(self, inputs):
@@ -48,16 +50,15 @@ class VAE(keras.Model):
         return y_pred
                 
         
-    def train_step(self, data):
+    def train_step(self, input):
         
-        if isinstance(data, tuple):
-            data = data[0]
+        if isinstance(input, tuple):
+            input = input[0]
             
         with tf.GradientTape() as tape:
-            z_mean, z_log_var, z = self.encoder(data)
+            z_mean, z_log_var, z = self.encoder(input)
             reconstruction       = self.decoder(z)
-            reconstruction_loss  = tf.reduce_mean( keras.losses.binary_crossentropy(data, reconstruction) )
-            reconstruction_loss *= self.nb_pixels
+            reconstruction_loss  = tf.reduce_mean( keras.losses.binary_crossentropy(input, reconstruction) )
             kl_loss = 1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var)
             kl_loss = tf.reduce_mean(kl_loss)
             kl_loss *= -0.5
@@ -67,9 +68,9 @@ class VAE(keras.Model):
         self.optimizer.apply_gradients(zip(grads, self.trainable_weights))
         
         return {
-            "loss":                total_loss,
-            "reconstruction_loss": reconstruction_loss,
-            "kl_loss":             kl_loss,
+            "loss":     total_loss,
+            "r_loss":   reconstruction_loss,
+            "kl_loss":  kl_loss,
         }
     
     
@@ -81,3 +82,10 @@ class VAE(keras.Model):
     def save(self,filename):
         self.encoder.save(f'{filename}-enc.h5')
         self.decoder.save(f'{filename}-dec.h5')
+        
+    @classmethod
+    def about(cls):
+        display(Markdown('<br>**FIDLE 2021 - VAE**'))
+        print('Version              :', cls.version)
+        print('TensorFlow version   :', tf.__version__)
+        print('Keras version        :', tf.keras.__version__)
