@@ -93,7 +93,7 @@ def init(name=None, run_dir='./run'):
     
     # ---- Hello world
     #
-    display_md('**FIDLE 2020 - Practical Work Module**')
+    display_md('<br>**FIDLE 2020 - Practical Work Module**')
     print('Version              :', config.VERSION)
     print('Notebook id          :', notebook_id)
     print('Run time             :', _start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
@@ -210,7 +210,11 @@ def override(*names):
         #
         setattr(main,name,new_value)
         overrides[name]=new_value
-        print(f'Override : Attribute [{name}={value_old}] with [{new_value}]')        
+
+    if len(overrides)>0:
+        display_md('**\*\* Overrided parameters : \*\***')
+        for name,value in overrides.items():
+            print(f'{name:20s} : {value}')
     return overrides
       
     
@@ -765,22 +769,27 @@ def check_finished_file():
         print(f'** Finished file should be at : {config.FINISHED_FILE}\n')
         return False
     return True
+
     
-    
-def reset_finished_file():
-    if check_finished_file()==False : return
-    data={}
-    # ---- Save it
-    with open(config.FINISHED_FILE,'wt') as fp:
-        json.dump(data,fp,indent=4)
-    print(f'Finished file has been reset.\n')
+def reset_finished_file(verbose=False):
+    try:
+        data={}
+        with open(config.FINISHED_FILE,'wt') as fp:
+            json.dump(data,fp,indent=4)
+        if verbose : print(f'Finished file has been reset.\n')
+    except:
+        print(f'\n**Warning : cannot reset finished file ({config.FINISHED_FILE})\n')
+        return False
+    return True
     
     
 def update_finished_file(start=False, end=False):
       
     # ---- No writable finished file ?
-    if check_finished_file() is False : return
-    
+    if not os.access(config.FINISHED_FILE, os.W_OK): 
+        done = reset_finished_file()
+        if not done : return
+        
     # ---- Load it
     with open(config.FINISHED_FILE) as fp:
         data = json.load(fp)
