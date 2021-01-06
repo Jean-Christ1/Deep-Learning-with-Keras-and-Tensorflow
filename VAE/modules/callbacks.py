@@ -76,4 +76,4 @@ class BestModelCallback(Callback):
         if current < self.loss:
             self.loss = current
             self.model.save(self.filename)
-            print(' '*10,'(saved)')
+            print('Saved - loss=',current)

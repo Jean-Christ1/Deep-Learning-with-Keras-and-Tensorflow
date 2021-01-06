@@ -79,9 +79,9 @@
     },
     "VAE1": {
         "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
-        "start": "Tuesday 5 January 2021, 12:21:18",
-        "end": "Tuesday 5 January 2021, 12:22:25",
-        "duration": "00:01:07 486ms"
+        "start": "Wednesday 6 January 2021, 00:56:10",
+        "end": "Wednesday 6 January 2021, 00:57:24",
+        "duration": "00:01:14 918ms"
     },
     "MNIST1": {
         "path": "/home/pjluc/dev/fidle/MNIST",
@@ -151,9 +151,9 @@
     },
     "VAE8": {
         "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
-        "start": "Tuesday 5 January 2021, 14:49:56",
-        "end": "Tuesday 5 January 2021, 15:20:52",
-        "duration": "00:30:56 686ms"
+        "start": "Wednesday 6 January 2021, 01:06:17",
+        "end": "",
+        "duration": "Unfinished..."
     },
     "VAE9": {
         "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",

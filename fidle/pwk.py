@@ -38,6 +38,7 @@ import fidle.config as config
 datasets_dir  = None
 notebook_id   = None
 running_mode  = None
+run_dir       = None
 
 _save_figs    = False
 _figs_dir     = './figs'
