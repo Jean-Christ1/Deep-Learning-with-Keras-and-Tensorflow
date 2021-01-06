@@ -43,10 +43,10 @@ NOTEBOOK_DIR="$WORK/fidle/VAE"
 NOTEBOOK_SRC="08-VAE-with-CelebA.ipynb"
 #
 export FIDLE_OVERRIDE_VAE8_run_dir="./run/CelebA.$SLURM_JOB_ID"
-export FIDLE_OVERRIDE_VAE8_scale="0.05"
+export FIDLE_OVERRIDE_VAE8_scale="1"
 export FIDLE_OVERRIDE_VAE8_image_size="(128,128)"
 export FIDLE_OVERRIDE_VAE8_enhanced_dir='{datasets_dir}/celeba/enhanced'
-export FIDLE_OVERRIDE_VAZ8_r_loss_factor="0.5"
+export FIDLE_OVERRIDE_VAZ8_r_loss_factor="0.7"
 
 # ---- By default (no need to modify)
 #
