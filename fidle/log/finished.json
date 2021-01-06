@@ -150,10 +150,10 @@
         "duration": "00:00:08 736ms"
     },
     "VAE8": {
-        "path": "/home/pjluc/dev/fidle/VAE",
-        "start": "Wednesday 6 January 2021, 18:46:14",
-        "end": "",
-        "duration": "Unfinished..."
+        "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
+        "start": "Wednesday 6 January 2021, 19:04:30",
+        "end": "Wednesday 6 January 2021, 19:06:58",
+        "duration": "00:02:28 261ms"
     },
     "VAE9": {
         "path": "/gpfsdswork/projects/rech/mlh/uja62cb/fidle/VAE",
