@@ -80,7 +80,7 @@ def init(name=None, run_dir='./run'):
         
     # ---- run_dir
     #
-    override('run_dir')
+    run_dir = override('run_dir')['run_dir']
     mkdir(run_dir)
     
     # ---- Update Keras cache
@@ -165,7 +165,7 @@ def override(*names):
        names : list of attributes names as a str list
                if empty, all attributes can be override
     return :
-       nothing
+       dict {name=new value}
     '''
     # ---- Where to override
     #
@@ -183,6 +183,7 @@ def override(*names):
             
     # ---- Search for names
     #
+    overrides={}
     for name in names:
         
         # ---- Environment variable name
@@ -208,8 +209,9 @@ def override(*names):
         # ---- Override value
         #
         setattr(main,name,new_value)
+        overrides[name]=new_value
         print(f'Override : Attribute [{name}={value_old}] with [{new_value}]')        
-    
+    return overrides
       
     
 

@@ -5,6 +5,7 @@ __pycache__
 *==[0-9]*==.ipynb
 stderr.txt
 stdout.txt
+fidle/log/finished.json
 run/
 figs/
 data/
