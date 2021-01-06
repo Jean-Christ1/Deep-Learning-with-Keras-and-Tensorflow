@@ -10,7 +10,7 @@
 # A simple module to host some common functions for practical work
 # Jean-Luc Parouty 2020
 
-import os
+import os,sys
 import glob
 import shutil
 from datetime import datetime
@@ -80,7 +80,7 @@ def init(name=None, run_dir='./run'):
         
     # ---- run_dir
     #
-    run_dir = override('run_dir',run_dir)
+    override('run_dir')
     mkdir(run_dir)
     
     # ---- Update Keras cache
@@ -152,46 +152,106 @@ def error_datasets_not_found():
     display_md('----')
     assert False, 'datasets folder not found, please set FIDLE_DATASETS_DIR env var.'
 
+    
+    
+def override(*names):
+    '''
+    Try to override attributes given par name with environment variables.
+    Environment variables name must be : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
+    If no env variable is available for a given name, nothing is change.
+    If type is str, substitution is done with 'notebook_id' and 'datasets_dir'
+    Example : override('image_size','nb_epochs')
+    params:
+       names : list of attributes names as a str list
+               if empty, all attributes can be override
+    return :
+       nothing
+    '''
+    # ---- Where to override
+    #
+    main=sys.modules['__main__']
+    
+    # ---- No names : mean all
+    #
+    if len(names)==0:
+        names=[]
+        for name in dir(main):
+            if name.startswith('_'): continue
+            v=getattr(main,name)
+            if type(v) not in [str, int, float, bool, tuple, list, dict]: continue
+            names.append(name)
+            
+    # ---- Search for names
+    #
+    for name in names:
+        
+        # ---- Environment variable name
+        #
+        env_name  = f'FIDLE_OVERRIDE_{notebook_id}_{name}'
+        env_value = os.environ.get(env_name) 
+
+        # ---- Environment variable : Doesn't exist
+        #
+        if env_value is None: continue
+
+        # ---- Environment variable : Exist
+        #
+        value_old  = getattr(main,name)
+        value_type = type(value_old)
+        
+        if value_type in [ str ] : 
+            new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
+
+        if value_type in [ int, float, bool, tuple, list, dict]:
+            new_value = eval(env_value)
+    
+        # ---- Override value
+        #
+        setattr(main,name,new_value)
+        print(f'Override : Attribute [{name}={value_old}] with [{new_value}]')        
+    
+      
+    
 
 # -------------------------------------------------------------
 # param_override
 # -------------------------------------------------------------
 # Try to override a given parameter 'param'.
 #
-def override(name, value):
-    '''
-    Try to override a given parameter (name,value) with an environment variable.
-    Env variable name is : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
-    If no env variable is available, return the given value.
-    If type is str, substitution is done with notebook_id and datasets_dir
-    params:
-       name : parameter name
-       value: parameter value
-    return :
-       eval(env variable), if it env variable exist, or given value
-    '''
-    # ---- Environment variable name
-    #
-    env_name  = f'FIDLE_OVERRIDE_{notebook_id}_{name}'
-    env_value = os.environ.get(env_name) 
+# def override(name, value):
+#     '''
+#     Try to override a given parameter (name,value) with an environment variable.
+#     Env variable name is : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
+#     If no env variable is available, return the given value.
+#     If type is str, substitution is done with notebook_id and datasets_dir
+#     params:
+#        name : parameter name
+#        value: parameter value
+#     return :
+#        eval(env variable), if it env variable exist, or given value
+#     '''
+#     # ---- Environment variable name
+#     #
+#     env_name  = f'FIDLE_OVERRIDE_{notebook_id}_{name}'
+#     env_value = os.environ.get(env_name) 
     
-    # ---- Doesn't exist ?
-    #
-    if env_value is None:
-        return value
+#     # ---- Doesn't exist ?
+#     #
+#     if env_value is None:
+#         return value
     
-    # ---- Exist
-    #
-    if isinstance(value, str) : 
-        new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
+#     # ---- Exist
+#     #
+#     if isinstance(value, str) : 
+#         new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
         
-    if type(value) in [ tuple, int, float]:
-        new_value = eval(env_value)
+#     if type(value) in [ tuple, int, float]:
+#         new_value = eval(env_value)
     
-    # ---- Return 
-    #
-    print(f'Override : Parameter [{name}={value}] set to [{new_value}]')
-    return new_value
+#     # ---- Return 
+#     #
+#     print(f'Override : Parameter [{name}={value}] set to [{new_value}]')
+#     return new_value
     
     
 # -------------------------------------------------------------
