@@ -35,8 +35,13 @@ NOTEBOOK_DIR="$WORK/fidle/VAE"
 # NOTEBOOK_SRC="01-VAE-with-MNIST.ipynb"
 # FIDLE_RUN_DIR="./run/MNIST.$SLURM_JOB_ID"
 
+
 NOTEBOOK_SRC="08-VAE-with-CelebA.ipynb"
-FIDLE_RUN_DIR="./run/CelebA.$SLURM_JOB_ID"
+
+FIDLE_OVERRIDE_VAE8_run_dir="./run/CelebA.$SLURM_JOB_ID"
+FIDLE_OVERRIDE_VAE8_scale="0.05"
+FIDLE_OVERRIDE_VAE8_image_size="(128,128)"
+FIDLE_OVERRIDE_VAE8_enhanced_dir='{datasets_dir}/celeba/enhanced'
 
 NOTEBOOK_OUT="${NOTEBOOK_SRC%.*}==${SLURM_JOB_ID}==.ipynb"
 
@@ -52,7 +57,7 @@ echo '------------------------------------------------------------'
 echo "Notebook dir  : $NOTEBOOK_DIR"
 echo "Notebook src  : $NOTEBOOK_SRC"
 echo "Notebook out  : $NOTEBOOK_OUT"
-echo "Run dir       : $FIDLE_RUN_DIR"
+echo "Run dir       : $FIDLE_OVERRIDE_VAE8_run_dir"
 echo "Environment   : $MODULE_ENV"
 echo '------------------------------------------------------------'
 

@@ -57,7 +57,6 @@ _chrono_stop  = None
 def init(name=None, run_dir='./run'):
     global notebook_id
     global datasets_dir
-    global running_mode
     global _start_time
     
     # ---- Parameters from config.py
@@ -71,10 +70,6 @@ def init(name=None, run_dir='./run'):
     matplotlib.style.use(mplstyle)
     load_cssfile(cssfile)
     
-    # ---- Create subdirs
-    #
-    mkdir(run_dir)
-    
     # ---- datasets location
     #
     datasets_dir = os.getenv('FIDLE_DATASETS_DIR', False)
@@ -82,11 +77,11 @@ def init(name=None, run_dir='./run'):
         error_datasets_not_found()
     # Resolve tilde...
     datasets_dir=os.path.expanduser(datasets_dir)
-    
-    # ---- Running mode
+        
+    # ---- run_dir
     #
-    running_mode = os.getenv('FIDLE_RUNNING_MODE', config.DEFAULT_RUNNING_MODE)
-    running_mode = running_mode.lower()
+    run_dir = override('run_dir',run_dir)
+    mkdir(run_dir)
     
     # ---- Update Keras cache
     #
@@ -106,7 +101,6 @@ def init(name=None, run_dir='./run'):
     print('Keras version        :', tf.keras.__version__)
     print('Datasets dir         :', datasets_dir)
     print('Run dir              :', run_dir)
-    print('CI running mode      :', running_mode)
     print('Update keras cache   :', updated)
 
     # ---- Save figs or not
@@ -162,19 +156,41 @@ def error_datasets_not_found():
 # -------------------------------------------------------------
 # param_override
 # -------------------------------------------------------------
-# 
+# Try to override a given parameter 'param'.
+#
 def override(name, value):
-    # ---- Pas de mode override actif
-    if running_mode not in ['smart','full']: return value
-    # ---- Get entry name in config
-    entry=f'{notebook_id}_{running_mode}_{name}'
-    # ---- Get value
-    assert hasattr(config, entry), f'Override error : Cannot find entry [{entry}] in config.'
-    new_value=getattr(config,entry)
-    if isinstance(new_value, str) : 
-        new_value=new_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
+    '''
+    Try to override a given parameter (name,value) with an environment variable.
+    Env variable name is : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
+    If no env variable is available, return the given value.
+    If type is str, substitution is done with notebook_id and datasets_dir
+    params:
+       name : parameter name
+       value: parameter value
+    return :
+       eval(env variable), if it env variable exist, or given value
+    '''
+    # ---- Environment variable name
+    #
+    env_name  = f'FIDLE_OVERRIDE_{notebook_id}_{name}'
+    env_value = os.environ.get(env_name) 
+    
+    # ---- Doesn't exist ?
+    #
+    if env_value is None:
+        return value
+    
+    # ---- Exist
+    #
+    if isinstance(value, str) : 
+        new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
+        
+    if type(value) in [ tuple, int, float]:
+        new_value = eval(env_value)
+    
     # ---- Return 
-    print(f'Override : running mode is [{running_mode}] Parameter [{name}={value}] set to [{new_value}]')
+    #
+    print(f'Override : Parameter [{name}={value}] set to [{new_value}]')
     return new_value
     
     

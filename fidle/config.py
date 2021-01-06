@@ -43,37 +43,32 @@ FINISHED_FILE  = '../fidle/log/finished.json'
 #
 CI_REPORT      = '../fidle/log/ci_report.html'
 
-# ---- Defaul mode (free|full|smart) --------------------------------
-#      Overrided by env : FIDLE_RUNNING_MODE
-#
-DEFAULT_RUNNING_MODE = 'none'
-
-# ---- CI Override parameters --------------------------------------
+# ---- CI Override parameters examples -----------------------------
 #
 # ---- Preparation of GTSRB dataset
-GTSRB1_smart_scale      = 0.1
-GTSRB1_smart_output_dir = './data'
-GTSRB1_full_scale       = 1
-GTSRB1_full_output_dir  = '{datasets_dir}/GTSRB/enhanced'
+# FIDLE_OVERRIDE_GTSRB1_scale      = 0.1
+# FIDLE_OVERRIDE_GTSRB1_output_dir = './data'
+# FIDLE_OVERRIDE_GTSRB1_scale       = 1
+# FIDLE_OVERRIDE_GTSRB1_output_dir  = '{datasets_dir}/GTSRB/enhanced'
 
-# ---- Preparation of CelebA dataset
-VAE6_smart_scale        = 0.2
-VAE6_smart_image_size   = (128,128)
-VAE6_smart_output_dir   = './data'
-VAE6_full_scale         = 1
-VAE6_full_image_size    = (192,160)
-VAE6_full_output_dir    = '{datasets_dir}/celeba/enhanced'
+# # ---- Preparation of CelebA dataset
+# FIDLE_OVERRIDE_VAE6_scale        = 0.2
+# FIDLE_OVERRIDE_VAE6_image_size   = (128,128)
+# FIDLE_OVERRIDE_VAE6_output_dir   = './data'
+# FIDLE_OVERRIDE_VAE6_scale         = 1
+# FIDLE_OVERRIDE_VAE6_image_size    = (192,160)
+# FIDLE_OVERRIDE_VAE6_output_dir    = '{datasets_dir}/celeba/enhanced'
 
-# ---- Check CelebA dataset
-VAE7_smart_image_size   = (128,128)
-VAE7_smart_enhanced_dir = './data'
-VAE7_full_image_size    = (192,160)
-VAE7_full_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
+# # ---- Check CelebA dataset
+# FIDLE_OVERRIDE_VAE7_image_size   = (128,128)
+# FIDLE_OVERRIDE_VAE7_enhanced_dir = './data'
+# FIDLE_OVERRIDE_VAE7_image_size    = (192,160)
+# FIDLE_OVERRIDE_VAE7_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
 
-# ---- VAE with CelebA
-VAE8_smart_scale        = 1.
-VAE8_smart_image_size   = (128,128)
-VAE8_smart_enhanced_dir = './data'
-VAE8_full_scale         = 1.
-VAE8_full_image_size    = (192,160)
-VAE8_full_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
+# # ---- VAE with CelebA
+# FIDLE_OVERRIDE_VAE8_scale        = 1.
+# FIDLE_OVERRIDE_VAE8_image_size   = (128,128)
+# FIDLE_OVERRIDE_VAE8_enhanced_dir = './data'
+# FIDLE_OVERRIDE_VAE8_scale         = 1.
+# FIDLE_OVERRIDE_VAE8_image_size    = (192,160)
+# FIDLE_OVERRIDE_VAE8_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
