@@ -19,21 +19,39 @@
 #                             Fidle at GRICAD
 # -----------------------------------------------
 #
-# <!-- TITLE --> [GTS8] - OAR batch submission
+# <!-- TITLE --> [GTSRB10] - OAR batch submission
 # <!-- DESC -->  Bash script for OAR batch submission of GTSRB notebook 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
-CONDA_ENV=fidle
-RUN_DIR=~/fidle/GTSRB
-RUN_SCRIPT=./run/full_convolutions.py
+# ==== Notebook parameters =========================================
 
-# ---- This is an example tested at GRICAD
-#      You have to adapt it to your computing environment
+CONDA_ENV='fidle'
+NOTEBOOK_DIR="~/fidle/GTSRB"
+
+SCRIPT_IPY="05-Full-convolutions.py"
+
+# ---- Environment vars used to override notebook/script parameters
+#
+export FIDLE_OVERRIDE_GTSRB5_run_dir="./run/GTSRB5"
+export FIDLE_OVERRIDE_GTSRB5_datasets='["set-24x24-L", "set-24x24-RGB", "set-48x48-RGB"]'
+export FIDLE_OVERRIDE_GTSRB5_models='{"v1":"get_model_v1", "v2":"get_model_v2", "v3":"get_model_v3"}'
+export FIDLE_OVERRIDE_GTSRB5_batch_size=64
+export FIDLE_OVERRIDE_GTSRB5_epochs=5
+export FIDLE_OVERRIDE_GTSRB5_scale=0.01
+export FIDLE_OVERRIDE_GTSRB5_scalewith_datagen=False
+
+# ==================================================================
 
 echo '------------------------------------------------------------'
 echo "Start : $0"
 echo '------------------------------------------------------------'
-#
+echo "Notebook dir  : $NOTEBOOK_DIR"
+echo "Script        : $SCRIPT_IPY"
+echo "Environment   : $MODULE_ENV"
+echo '------------------------------------------------------------'
+env | grep FIDLE_OVERRIDE | awk 'BEGIN { FS = "=" } ; { printf("%-35s : %s\n",$1,$2) }'
+echo '------------------------------------------------------------'
+
 source /applis/environments/cuda_env.sh dahu 10.0
 source /applis/environments/conda.sh
 #
@@ -41,5 +59,8 @@ conda activate "$CONDA_ENV"
 
 # ---- Run it...
 #
-cd $RUN_DIR
-ipython $RUN_SCRIPT
+cd $NOTEBOOK_DIR
+
+ipython "$SCRIPT_IPY"
+
+echo 'Done.'IPT

@@ -311,6 +311,16 @@ def shuffle_np_dataset(x, y):
     p = np.random.permutation(len(x))
     return x[p], y[p]
 
+def rescale_dataset(*data, scale=1):
+    '''
+    Rescale numpy array with 'scale' factor
+    args:
+        *data : arrays
+        scale : scale factor
+    return:
+        arrays of rescaled data
+    '''
+    return [ d[:int(scale*len(d))] for d in data ]
 
 def update_progress(what,i,imax, redraw=False):
     """
@@ -728,26 +738,31 @@ def display_html(text):
     
 def display_img(img):
     display(Image(img))
-    
-def hdelay(sec):
-    return str(datetime.timedelta(seconds=int(sec)))
 
 def chrono_start():
     global _chrono_start, _chrono_stop
     _chrono_start=time.time()
 
-def chrono_stop():
+# return delay in seconds or in humain format
+def chrono_stop(hdelay=False):
     global _chrono_start, _chrono_stop
-    _chrono_stop=time.time()
-    return _chrono_stop - _chrono_start
+    _chrono_stop = time.time()
+    sec = _chrono_stop - _chrono_start
+    if hdelay : return hdelay_ms(sec)
+    return sec
     
 def chrono_show():
-    print('Duration : ',hdelay(time.time() - _chrono_start))
+    print('\nDuration : ', hdelay_ms(time.time() - _chrono_start))
     
+def hdelay(sec):
+    return str(datetime.timedelta(seconds=int(sec)))    
     
 # Return human delay like 01:14:28 543ms
-def hdelay_ms(td):
-    sec = td.total_seconds()
+# delay can be timedelta or seconds
+def hdelay_ms(delay):
+    if type(delay) is not datetime.timedelta:
+        delay=datetime.timedelta(seconds=delay)
+    sec = delay.total_seconds()
     hh = sec // 3600
     mm = (sec // 60) - (hh * 60)
     ss = sec - hh*3600 - mm*60

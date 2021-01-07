@@ -42,15 +42,17 @@ def get_files(directories, top_dir='..'):
         files : filenames list (without top_dir prefix)
     '''
     files = []
-    
-    for d in directories:
+    regex = re.compile('.*==\d+==.*')
+
+    for d in directories:       
         notebooks = glob.glob( f'{top_dir}/{d}/*.ipynb')
-        scripts   = glob.glob( f'{top_dir}/{d}/*.sh')
         notebooks.sort()
+        scripts   = glob.glob( f'{top_dir}/{d}/*.sh')
         scripts.sort()
         files.extend(notebooks)
         files.extend(scripts)
-
+        
+    files = [x for x in files if not regex.match(x)]
     files = [ x.replace(f'{top_dir}/','') for x in files]
     return files
 
@@ -141,6 +143,7 @@ def get_catalog(files_list, top_dir='..'):
     
     catalog = OrderedDict()
 
+    # ---- Build catalog
     for file in files_list:
         about=None
         if file.endswith('.ipynb'): about = get_notebook_infos(file, top_dir='..')
@@ -150,7 +153,7 @@ def get_catalog(files_list, top_dir='..'):
             continue
         id=about['id']
         catalog[id] = about
-
+        
     return catalog
         
 

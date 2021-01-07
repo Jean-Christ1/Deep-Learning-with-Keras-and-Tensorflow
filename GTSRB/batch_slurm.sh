@@ -1,16 +1,4 @@
 #!/bin/bash
-
-#SBATCH --job-name="GTSRB Full conv."                  # nom du job
-#SBATCH --ntasks=1                                     # nombre de tâche (un unique processus ici)
-#SBATCH --gres=gpu:1                                   # nombre de GPU à réserver (un unique GPU ici)
-#SBATCH --cpus-per-task=10                             # nombre de coeurs à réserver (un quart du noeud)
-#SBATCH --hint=nomultithread                           # on réserve des coeurs physiques et non logiques
-#SBATCH --time=03:00:00                                # temps exécution maximum demande (HH:MM:SS)
-#SBATCH --output="_batch/GTSRB_%j.out"                 # nom du fichier de sortie
-#SBATCH --error="_batch/GTSRB_%j.err"                  # nom du fichier d'erreur (ici commun avec la sortie)
-#SBATCH --mail-user=Jean-Luc.Parouty@grenoble-inp.fr
-#SBATCH --mail-type=ALL
-
 # -----------------------------------------------
 #         _           _       _
 #        | |__   __ _| |_ ___| |__
@@ -20,16 +8,44 @@
 #                              Fidle at IDRIS
 # -----------------------------------------------
 #
-# <!-- TITLE --> [GTS9] - Slurm batch submission
-# <!-- DESC -->  Bash script Slurm batch submission of GTSRB notebook 
+# <!-- TITLE --> [GTSRB11] - SLURM batch script
+# <!-- DESC --> Bash script for SLURM batch submission of GTSRB notebooks 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
+#
+# Soumission :  sbatch  /(...)/fidle/GTSRB/batch_slurm.sh
+# Suivi      :  squeue -u $USER
 
-MODULE_ENV="tensorflow-gpu/py3/2.2.0"
-RUN_DIR="$WORK/fidle/GTSRB"
-RUN_SCRIPT="./run/full_convolutions.py"
+# ==== Job parameters ==============================================
 
-# ---- This is an example tested at IDRIS
-#      You have to adapt it to your computing environment
+#SBATCH --job-name="GTSRB"                             # nom du job
+#SBATCH --ntasks=1                                     # nombre de tâche (un unique processus ici)
+#SBATCH --gres=gpu:1                                   # nombre de GPU à réserver (un unique GPU ici)
+#SBATCH --cpus-per-task=10                             # nombre de coeurs à réserver (un quart du noeud)
+#SBATCH --hint=nomultithread                           # on réserve des coeurs physiques et non logiques
+#SBATCH --time=01:00:00                                # temps exécution maximum demande (HH:MM:SS)
+#SBATCH --output="GTSRB_%j.out"                        # nom du fichier de sortie
+#SBATCH --error="GTSRB_%j.err"                         # nom du fichier d'erreur (ici commun avec la sortie)
+#SBATCH --mail-user=Jean-Luc.Parouty@grenoble-inp.fr
+#SBATCH --mail-type=ALL
+
+# ==== Notebook parameters =========================================
+
+MODULE_ENV="tensorflow-gpu/py3/2.4.0"
+NOTEBOOK_DIR="$WORK/fidle/GTSRB"
+
+SCRIPT_IPY="05-Full-convolutions.py"
+
+# ---- Environment vars used to override notebook/script parameters
+#
+export FIDLE_OVERRIDE_GTSRB5_run_dir="./run/GTSRB5"
+export FIDLE_OVERRIDE_GTSRB5_datasets='["set-24x24-L", "set-24x24-RGB", "set-48x48-RGB"]'
+export FIDLE_OVERRIDE_GTSRB5_models='{"v1":"get_model_v1", "v2":"get_model_v2", "v3":"get_model_v3"}'
+export FIDLE_OVERRIDE_GTSRB5_batch_size=64
+export FIDLE_OVERRIDE_GTSRB5_epochs=5
+export FIDLE_OVERRIDE_GTSRB5_scale=0.01
+export FIDLE_OVERRIDE_GTSRB5_scalewith_datagen=False
+
+# ==================================================================
 
 echo '------------------------------------------------------------'
 echo "Start : $0"
@@ -38,11 +54,12 @@ echo "Job id        : $SLURM_JOB_ID"
 echo "Job name      : $SLURM_JOB_NAME"
 echo "Job node list : $SLURM_JOB_NODELIST"
 echo '------------------------------------------------------------'
-echo "Script        : $RUN_SCRIPT"
-echo "Run in        : $RUN_DIR"
-echo "With env.     : $MODULE_ENV"
+echo "Notebook dir  : $NOTEBOOK_DIR"
+echo "Script        : $SCRIPT_IPY"
+echo "Environment   : $MODULE_ENV"
 echo '------------------------------------------------------------'
-
+env | grep FIDLE_OVERRIDE | awk 'BEGIN { FS = "=" } ; { printf("%-35s : %s\n",$1,$2) }'
+echo '------------------------------------------------------------'
 
 # ---- Module
 
@@ -50,6 +67,9 @@ module purge
 module load "$MODULE_ENV"
 
 # ---- Run it...
-#
-cd "$RUN_DIR"
-ipython "$RUN_SCRIPT"
+
+cd $NOTEBOOK_DIR
+
+ipython "$SCRIPT_IPY"
+
+echo 'Done.'

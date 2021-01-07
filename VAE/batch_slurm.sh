@@ -8,7 +8,7 @@
 #                              Fidle at IDRIS
 # -----------------------------------------------
 #
-# <!-- TITLE --> [SH2] - SLURM batch script
+# <!-- TITLE --> [VAE10] - SLURM batch script
 # <!-- DESC --> Bash script for SLURM batch submission of VAE notebooks 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 #

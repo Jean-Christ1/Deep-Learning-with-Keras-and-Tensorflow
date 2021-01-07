@@ -10,6 +10,7 @@ run/
 figs/
 data/
 GTSRB/data
+GTSRB/05-full_convolutions.py
 IMDB/data
 MNIST/data
 SYNOP/data

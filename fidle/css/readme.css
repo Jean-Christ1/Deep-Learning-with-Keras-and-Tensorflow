@@ -1,0 +1,29 @@
+<style>
+
+.fid_id {    
+    font-size:1.em;
+    color:black;
+    font-weight: bold; 
+    padding:0px;
+    padding-left: 0px;
+    display: inline-block;
+    width: 60px;
+    }
+
+.fid_desc {    
+    font-size:1.em;
+    padding:0px;
+    padding-left: 60px;
+    display: inline-block;
+    width: 400px;
+    }
+
+
+
+div.fid_section {    
+    font-size:1.4em;
+    color:darkgray;
+    padding: 1.em;!important;
+    }
+
+</style>
