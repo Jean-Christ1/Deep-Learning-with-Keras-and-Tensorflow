@@ -54,9 +54,10 @@ _chrono_stop  = None
 # init_all
 # -------------------------------------------------------------
 #
-def init(name=None, run_dir='./run'):
+def init(name=None, run_directory='./run'):
     global notebook_id
     global datasets_dir
+    global run_dir
     global _start_time
     
     # ---- Parameters from config.py
@@ -80,7 +81,14 @@ def init(name=None, run_dir='./run'):
         
     # ---- run_dir
     #
-    run_dir = override('run_dir')['run_dir']
+    attrs   = override('run_dir', return_attributes=True)
+    run_dir = attrs.get('run_dir', run_directory)
+
+    # Solution 2, for fun ;-)
+    # run_dir = run_directory
+    # override('run_dir', module_name='__main__')
+    # override('run_dir', module_name=__name__, verbose=False)
+
     mkdir(run_dir)
     
     # ---- Update Keras cache
@@ -154,7 +162,7 @@ def error_datasets_not_found():
 
     
     
-def override(*names):
+def override(*names, module_name='__main__', verbose=True, return_attributes=False):
     '''
     Try to override attributes given par name with environment variables.
     Environment variables name must be : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
@@ -169,15 +177,15 @@ def override(*names):
     '''
     # ---- Where to override
     #
-    main=sys.modules['__main__']
+    module=sys.modules[module_name]
     
     # ---- No names : mean all
     #
     if len(names)==0:
         names=[]
-        for name in dir(main):
+        for name in dir(module):
             if name.startswith('_'): continue
-            v=getattr(main,name)
+            v=getattr(module,name)
             if type(v) not in [str, int, float, bool, tuple, list, dict]: continue
             names.append(name)
             
@@ -197,7 +205,7 @@ def override(*names):
 
         # ---- Environment variable : Exist
         #
-        value_old  = getattr(main,name)
+        value_old  = getattr(module,name)
         value_type = type(value_old)
         
         if value_type in [ str ] : 
@@ -208,14 +216,16 @@ def override(*names):
     
         # ---- Override value
         #
-        setattr(main,name,new_value)
+        setattr(module,name,new_value)
         overrides[name]=new_value
 
-    if len(overrides)>0:
+    if verbose and len(overrides)>0:
         display_md('**\*\* Overrided parameters : \*\***')
         for name,value in overrides.items():
             print(f'{name:20s} : {value}')
-    return overrides
+            
+    if return_attributes:
+        return overrides
       
     
 
