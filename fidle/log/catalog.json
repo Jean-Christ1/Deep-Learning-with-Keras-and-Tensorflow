@@ -4,14 +4,14 @@
         "dirname": "LinearReg",
         "basename": "01-Linear-Regression.ipynb",
         "title": "Linear regression with direct resolution",
-        "description": "Direct determination of linear regression "
+        "description": "Low-level implementation, using numpy, of a direct resolution for a linear regression"
     },
     "GRAD1": {
         "id": "GRAD1",
         "dirname": "LinearReg",
         "basename": "02-Gradient-descent.ipynb",
         "title": "Linear regression with gradient descent",
-        "description": "An example of gradient descent in the simple case of a linear regression."
+        "description": "Low level implementation of a solution by gradient descent. Basic and stochastic approach."
     },
     "POLR1": {
         "id": "POLR1",
@@ -24,36 +24,36 @@
         "id": "LOGR1",
         "dirname": "LinearReg",
         "basename": "04-Logistic-Regression.ipynb",
-        "title": "Logistic regression, with sklearn",
-        "description": "Logistic Regression using Sklearn"
+        "title": "Logistic regression",
+        "description": "Simple example of logistic regression with a sklearn solution"
     },
     "PER57": {
         "id": "PER57",
         "dirname": "IRIS",
         "basename": "01-Simple-Perceptron.ipynb",
         "title": "Perceptron Model 1957",
-        "description": "A simple perceptron, with the IRIS dataset."
+        "description": "Example of use of a Perceptron, with sklearn and IRIS dataset of 1936 !"
     },
     "BHPD1": {
         "id": "BHPD1",
         "dirname": "BHPD",
         "basename": "01-DNN-Regression.ipynb",
         "title": "Regression with a Dense Network (DNN)",
-        "description": "A Simple regression with a Dense Neural Network (DNN) - BHPD dataset"
+        "description": "Simple example of a regression with the dataset Boston Housing Prices Dataset (BHPD)"
     },
     "BHPD2": {
         "id": "BHPD2",
         "dirname": "BHPD",
         "basename": "02-DNN-Regression-Premium.ipynb",
         "title": "Regression with a Dense Network (DNN) - Advanced code",
-        "description": "More advanced example of DNN network code - BHPD dataset"
+        "description": "A more advanced implementation of the precedent example"
     },
     "MNIST1": {
         "id": "MNIST1",
         "dirname": "MNIST",
         "basename": "01-DNN-MNIST.ipynb",
         "title": "Simple classification with DNN",
-        "description": "Example of classification with a fully connected neural network"
+        "description": "An example of classification using a dense neural network for the famous MNIST dataset"
     },
     "GTSRB1": {
         "id": "GTSRB1",
