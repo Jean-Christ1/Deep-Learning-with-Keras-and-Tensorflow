@@ -44,7 +44,7 @@ def get_files(directories, top_dir='..'):
     files = []
     regex = re.compile('.*==\d+==.*')
 
-    for d in directories:       
+    for d in directories:
         notebooks = glob.glob( f'{top_dir}/{d}/*.ipynb')
         notebooks.sort()
         scripts   = glob.glob( f'{top_dir}/{d}/*.sh')
@@ -52,7 +52,7 @@ def get_files(directories, top_dir='..'):
         files.extend(notebooks)
         files.extend(scripts)
         
-    files = [x for x in files if not regex.match(x)]
+#     files = [x for x in files if not regex.match(x)]
     files = [ x.replace(f'{top_dir}/','') for x in files]
     return files
 
