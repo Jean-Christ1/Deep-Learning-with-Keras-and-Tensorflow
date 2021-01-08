@@ -39,7 +39,7 @@ Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble
 ## Jupyter notebooks
 
 <!-- INDEX_BEGIN -->
-<style>
+<style  type="text/css">
 
 .fid_line{
     padding-top: 10px
