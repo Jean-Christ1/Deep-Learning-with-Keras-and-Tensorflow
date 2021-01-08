@@ -65,31 +65,31 @@ A more advanced implementation of the precedent example
 An example of classification using a dense neural network for the famous MNIST dataset
 
 ### Images classification with Convolutional Neural Networks (CNN)
-- **[GTSRB1](GTSRB/01-Preparation-of-data.ipynb)** - [CNN with GTSRB dataset - Data analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  
-Episode 1 : Data analysis and creation of a usable dataset
-- **[GTSRB2](GTSRB/02-First-convolutions.ipynb)** - [CNN with GTSRB dataset - First convolutions](GTSRB/02-First-convolutions.ipynb)  
-Episode 2 : First convolutions and first results
-- **[GTSRB3](GTSRB/03-Tracking-and-visualizing.ipynb)** - [CNN with GTSRB dataset - Monitoring ](GTSRB/03-Tracking-and-visualizing.ipynb)  
-Episode 3 : Monitoring and analysing training, managing checkpoints
-- **[GTSRB4](GTSRB/04-Data-augmentation.ipynb)** - [CNN with GTSRB dataset - Data augmentation ](GTSRB/04-Data-augmentation.ipynb)  
-Episode 4 : Improving the results with data augmentation
-- **[GTSRB5](GTSRB/05-Full-convolutions.ipynb)** - [CNN with GTSRB dataset - Full convolutions ](GTSRB/05-Full-convolutions.ipynb)  
+- **[GTSRB1](GTSRB/01-Preparation-of-data.ipynb)** - [Dataset analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  
+Episode 1 : Analysis of the GTSRB dataset and creation of an enhanced dataset
+- **[GTSRB2](GTSRB/02-First-convolutions.ipynb)** - [First convolutions](GTSRB/02-First-convolutions.ipynb)  
+Episode 2 : First convolutions and first classification of our traffic signs
+- **[GTSRB3](GTSRB/03-Tracking-and-visualizing.ipynb)** - [Training monitoring](GTSRB/03-Tracking-and-visualizing.ipynb)  
+Episode 3 : Monitoring, analysis and check points during a training session
+- **[GTSRB4](GTSRB/04-Data-augmentation.ipynb)** - [Data augmentation ](GTSRB/04-Data-augmentation.ipynb)  
+Episode 4 : Adding data by data augmentation when we lack it, to improve our results
+- **[GTSRB5](GTSRB/05-Full-convolutions.ipynb)** - [Full convolutions](GTSRB/05-Full-convolutions.ipynb)  
 Episode 5 : A lot of models, a lot of datasets and a lot of results.
 - **[GTSRB6](GTSRB/06-Notebook-as-a-batch.ipynb)** - [Full convolutions as a batch](GTSRB/06-Notebook-as-a-batch.ipynb)  
-Episode 6 : Run Full convolution notebook as a batch
-- **[GTSRB7](GTSRB/07-Show-report.ipynb)** - [CNN with GTSRB dataset - Show reports](GTSRB/07-Show-report.ipynb)  
-Episode 7 : Displaying a jobs report
-- **[GTSRB10](GTSRB/batch_oar.sh)** - [OAR batch submission](GTSRB/batch_oar.sh)  
-Bash script for OAR batch submission of GTSRB notebook 
+Episode 6 : To compute bigger, use your notebook in batch mode
+- **[GTSRB7](GTSRB/07-Show-report.ipynb)** - [Batch reportss](GTSRB/07-Show-report.ipynb)  
+Episode 7 : Displaying our jobs report, and the winner is...
+- **[GTSRB10](GTSRB/batch_oar.sh)** - [OAR batch script submission](GTSRB/batch_oar.sh)  
+Bash script for an OAR batch submission of an ipython code
 - **[GTSRB11](GTSRB/batch_slurm.sh)** - [SLURM batch script](GTSRB/batch_slurm.sh)  
-Bash script for SLURM batch submission of GTSRB notebooks 
+Bash script for a Slurm batch submission of an ipython code
 
 ### Sentiment analysis with word embedding
-- **[IMDB1](IMDB/01-Embedding-Keras.ipynb)** - [Text embedding with IMDB](IMDB/01-Embedding-Keras.ipynb)  
-A very classical example of word embedding for text classification (sentiment analysis)
-- **[IMDB2](IMDB/02-Prediction.ipynb)** - [Text embedding with IMDB - Reloaded](IMDB/02-Prediction.ipynb)  
-Example of reusing a previously saved model
-- **[IMDB3](IMDB/03-LSTM-Keras.ipynb)** - [Text embedding/LSTM model with IMDB](IMDB/03-LSTM-Keras.ipynb)  
+- **[IMDB1](IMDB/01-Embedding-Keras.ipynb)** - [Sentiment alalysis with text embedding](IMDB/01-Embedding-Keras.ipynb)  
+A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)
+- **[IMDB2](IMDB/02-Prediction.ipynb)** - [Reload and reuse a saved model](IMDB/02-Prediction.ipynb)  
+Retrieving a saved model to perform a sentiment analysis (movie review)
+- **[IMDB3](IMDB/03-LSTM-Keras.ipynb)** - [Sentiment analysis with a LSTM network](IMDB/03-LSTM-Keras.ipynb)  
 Still the same problem, but with a network combining embedding and LSTM
 
 ### Time series with Recurrent Neural Network (RNN)

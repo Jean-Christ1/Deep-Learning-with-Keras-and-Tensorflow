@@ -9,7 +9,7 @@
 # -----------------------------------------------
 #
 # <!-- TITLE --> [GTSRB11] - SLURM batch script
-# <!-- DESC --> Bash script for SLURM batch submission of GTSRB notebooks 
+# <!-- DESC --> Bash script for a Slurm batch submission of an ipython code
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 #
 # Soumission :  sbatch  /(...)/fidle/GTSRB/batch_slurm.sh

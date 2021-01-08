@@ -19,8 +19,8 @@
 #                             Fidle at GRICAD
 # -----------------------------------------------
 #
-# <!-- TITLE --> [GTSRB10] - OAR batch submission
-# <!-- DESC -->  Bash script for OAR batch submission of GTSRB notebook 
+# <!-- TITLE --> [GTSRB10] - OAR batch script submission
+# <!-- DESC -->  Bash script for an OAR batch submission of an ipython code
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 
 # ==== Notebook parameters =========================================

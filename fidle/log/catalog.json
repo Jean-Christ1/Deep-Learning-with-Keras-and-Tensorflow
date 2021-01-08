@@ -59,35 +59,35 @@
         "id": "GTSRB1",
         "dirname": "GTSRB",
         "basename": "01-Preparation-of-data.ipynb",
-        "title": "CNN with GTSRB dataset - Data analysis and preparation",
-        "description": "Episode 1 : Data analysis and creation of a usable dataset"
+        "title": "Dataset analysis and preparation",
+        "description": "Episode 1 : Analysis of the GTSRB dataset and creation of an enhanced dataset"
     },
     "GTSRB2": {
         "id": "GTSRB2",
         "dirname": "GTSRB",
         "basename": "02-First-convolutions.ipynb",
-        "title": "CNN with GTSRB dataset - First convolutions",
-        "description": "Episode 2 : First convolutions and first results"
+        "title": "First convolutions",
+        "description": "Episode 2 : First convolutions and first classification of our traffic signs"
     },
     "GTSRB3": {
         "id": "GTSRB3",
         "dirname": "GTSRB",
         "basename": "03-Tracking-and-visualizing.ipynb",
-        "title": "CNN with GTSRB dataset - Monitoring ",
-        "description": "Episode 3 : Monitoring and analysing training, managing checkpoints"
+        "title": "Training monitoring",
+        "description": "Episode 3 : Monitoring, analysis and check points during a training session"
     },
     "GTSRB4": {
         "id": "GTSRB4",
         "dirname": "GTSRB",
         "basename": "04-Data-augmentation.ipynb",
-        "title": "CNN with GTSRB dataset - Data augmentation ",
-        "description": "Episode 4 : Improving the results with data augmentation"
+        "title": "Data augmentation ",
+        "description": "Episode 4 : Adding data by data augmentation when we lack it, to improve our results"
     },
     "GTSRB5": {
         "id": "GTSRB5",
         "dirname": "GTSRB",
         "basename": "05-Full-convolutions.ipynb",
-        "title": "CNN with GTSRB dataset - Full convolutions ",
+        "title": "Full convolutions",
         "description": "Episode 5 : A lot of models, a lot of datasets and a lot of results."
     },
     "GTSRB6": {
@@ -95,48 +95,48 @@
         "dirname": "GTSRB",
         "basename": "06-Notebook-as-a-batch.ipynb",
         "title": "Full convolutions as a batch",
-        "description": "Episode 6 : Run Full convolution notebook as a batch"
+        "description": "Episode 6 : To compute bigger, use your notebook in batch mode"
     },
     "GTSRB7": {
         "id": "GTSRB7",
         "dirname": "GTSRB",
         "basename": "07-Show-report.ipynb",
-        "title": "CNN with GTSRB dataset - Show reports",
-        "description": "Episode 7 : Displaying a jobs report"
+        "title": "Batch reportss",
+        "description": "Episode 7 : Displaying our jobs report, and the winner is..."
     },
     "GTSRB10": {
         "id": "GTSRB10",
         "dirname": "GTSRB",
         "basename": "batch_oar.sh",
-        "title": "OAR batch submission",
-        "description": "Bash script for OAR batch submission of GTSRB notebook "
+        "title": "OAR batch script submission",
+        "description": "Bash script for an OAR batch submission of an ipython code"
     },
     "GTSRB11": {
         "id": "GTSRB11",
         "dirname": "GTSRB",
         "basename": "batch_slurm.sh",
         "title": "SLURM batch script",
-        "description": "Bash script for SLURM batch submission of GTSRB notebooks "
+        "description": "Bash script for a Slurm batch submission of an ipython code"
     },
     "IMDB1": {
         "id": "IMDB1",
         "dirname": "IMDB",
         "basename": "01-Embedding-Keras.ipynb",
-        "title": "Text embedding with IMDB",
-        "description": "A very classical example of word embedding for text classification (sentiment analysis)"
+        "title": "Sentiment alalysis with text embedding",
+        "description": "A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)"
     },
     "IMDB2": {
         "id": "IMDB2",
         "dirname": "IMDB",
         "basename": "02-Prediction.ipynb",
-        "title": "Text embedding with IMDB - Reloaded",
-        "description": "Example of reusing a previously saved model"
+        "title": "Reload and reuse a saved model",
+        "description": "Retrieving a saved model to perform a sentiment analysis (movie review)"
     },
     "IMDB3": {
         "id": "IMDB3",
         "dirname": "IMDB",
         "basename": "03-LSTM-Keras.ipynb",
-        "title": "Text embedding/LSTM model with IMDB",
+        "title": "Sentiment analysis with a LSTM network",
         "description": "Still the same problem, but with a network combining embedding and LSTM"
     },
     "SYNOP1": {
