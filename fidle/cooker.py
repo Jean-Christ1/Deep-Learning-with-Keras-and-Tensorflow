@@ -20,6 +20,7 @@ import sys, os, glob
 import json
 from datetime import datetime
 from collections import OrderedDict
+from IPython.display import display
 
 sys.path.append('..')
 import fidle.config as config
@@ -196,9 +197,7 @@ def read_catalog():
 # -----------------------------------------------------------------------------
 
 
-def get_ci_report():
-
-    columns=['id','repo','name','start','end','duration']
+def build_finished_report(display_output=True, save_html=True):
     
     # ---- Load catalog (notebooks descriptions)
     #
@@ -208,33 +207,25 @@ def get_ci_report():
     # ---- Load finished file
     #
     with open(config.FINISHED_FILE) as infile:
-        dict_finished = json.load( infile )
+        finished_files = json.load( infile )
 
-    if dict_finished == {}:
-        df=pd.DataFrame({}, columns=columns)
-    else:
-        df=pd.DataFrame(dict_finished).transpose()
-        df.reset_index(inplace=True)
-        df.rename(columns = {'index':'id'}, inplace=True)
-
-    # ---- Add usefull html columns 
+    # ---- For each entry
     #
-    for c in ['name','repo']: df[c]='-'
-
-    for index, row in df.iterrows():
-        id = row['id']
-        if id in catalog:
-            basename    = catalog[id]['basename']
-            dirname     = catalog[id]['dirname']
-            title       = catalog[id]['title']
-            description = catalog[id]['description']
-            row['id']   = f'<a href="../{dirname}/{basename}">{id}</a>'
-            row['name'] = f'<a href="../{dirname}/{basename}"><b>{basename}</b></a>'
-            row['repo'] = dirname
-        else:
-            print(f'**Warning : id [{id}] not found in catalog...')
+    col_id, col_repo, col_name, col_start, col_end, col_dur = [],[],[],[],[],[]
+    for id,about in catalog.items():
+        if id in finished_files.keys():
+            finished  = finished_files[id]
+            dirname   = about['dirname'] 
+            basename  = about['basename'] 
             
-    df=df[columns]
+            col_id.append(   f'<a href="../{dirname}/{basename}">{id}</a>'               )
+            col_repo.append( dirname )
+            col_name.append( f'<a href="../{dirname}/{basename}"><b>{basename}</b></a>'  )
+            col_start.append( finished['start'] )
+            col_end.append(   finished['end']   )
+            col_dur.append(   finished['duration']   )
+                   
+    df = pd.DataFrame( {'id':col_id, 'Repo':col_repo, 'Name':col_name, 'Start':col_start, 'End':col_end, 'Duration':col_dur} )
 
     # ---- Add styles to be nice
     #
@@ -245,13 +236,20 @@ def get_ci_report():
     def still_pending(v):
         return 'background-color: OrangeRed; color:white' if v == 'Unfinished...' else ''
 
-    output = df[columns].style.set_table_styles(styles).hide_index().applymap(still_pending)
+    output = df[df.columns.values].style.set_table_styles(styles).hide_index().applymap(still_pending)
 
-    # ---- Get mail report 
+    # ---- html report 
     #
-    html = _get_html_report(output)
+    if save_html:
+        html = _get_html_report(output)
+        with open(config.FINISHED_REPORT, "wt") as fp:
+            fp.write(html)
+
+    # ---- display output
+    #
+    if display_output:
+        display(output)
     
-    return df, output, html
 
 
 

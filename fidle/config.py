@@ -32,43 +32,14 @@ SAVE_FIGS    = False
 
 # ---- Catalog file, a json description of all notebooks ------------
 #
-CATALOG_FILE   = '../fidle/log/catalog.json'
+CATALOG_FILE    = '../fidle/log/catalog.json'
 
 # ---- CI Done files, to keep track of finished notebooks -----------
 # Used for continous integration
 #
-FINISHED_FILE  = '../fidle/log/finished.json'
+FINISHED_FILE   = '../fidle/log/finished.json'
 
 # ---- CI Report ----------------------------------------------------
 #
-CI_REPORT      = '../fidle/log/ci_report.html'
+FINISHED_REPORT = '../fidle/log/finished_report.html'
 
-# ---- CI Override parameters examples -----------------------------
-#
-# ---- Preparation of GTSRB dataset
-# FIDLE_OVERRIDE_GTSRB1_scale      = 0.1
-# FIDLE_OVERRIDE_GTSRB1_output_dir = './data'
-# FIDLE_OVERRIDE_GTSRB1_scale       = 1
-# FIDLE_OVERRIDE_GTSRB1_output_dir  = '{datasets_dir}/GTSRB/enhanced'
-
-# # ---- Preparation of CelebA dataset
-# FIDLE_OVERRIDE_VAE6_scale        = 0.2
-# FIDLE_OVERRIDE_VAE6_image_size   = (128,128)
-# FIDLE_OVERRIDE_VAE6_output_dir   = './data'
-# FIDLE_OVERRIDE_VAE6_scale         = 1
-# FIDLE_OVERRIDE_VAE6_image_size    = (192,160)
-# FIDLE_OVERRIDE_VAE6_output_dir    = '{datasets_dir}/celeba/enhanced'
-
-# # ---- Check CelebA dataset
-# FIDLE_OVERRIDE_VAE7_image_size   = (128,128)
-# FIDLE_OVERRIDE_VAE7_enhanced_dir = './data'
-# FIDLE_OVERRIDE_VAE7_image_size    = (192,160)
-# FIDLE_OVERRIDE_VAE7_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
-
-# # ---- VAE with CelebA
-# FIDLE_OVERRIDE_VAE8_scale        = 1.
-# FIDLE_OVERRIDE_VAE8_image_size   = (128,128)
-# FIDLE_OVERRIDE_VAE8_enhanced_dir = './data'
-# FIDLE_OVERRIDE_VAE8_scale         = 1.
-# FIDLE_OVERRIDE_VAE8_image_size    = (192,160)
-# FIDLE_OVERRIDE_VAE8_enhanced_dir  = '{datasets_dir}/celeba/enhanced'
