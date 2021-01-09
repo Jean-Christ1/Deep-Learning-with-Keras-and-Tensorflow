@@ -65,6 +65,8 @@ A more advanced implementation of the precedent example
 An example of classification using a dense neural network for the famous MNIST dataset
 
 ### Images classification with Convolutional Neural Networks (CNN)
+- **[??](GTSRB/00-Test.ipynb)** - [??](GTSRB/00-Test.ipynb)  
+??
 - **[GTSRB1](GTSRB/01-Preparation-of-data.ipynb)** - [Dataset analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  
 Episode 1 : Analysis of the GTSRB dataset and creation of an enhanced dataset
 - **[GTSRB2](GTSRB/02-First-convolutions.ipynb)** - [First convolutions](GTSRB/02-First-convolutions.ipynb)  
@@ -93,36 +95,36 @@ Retrieving a saved model to perform a sentiment analysis (movie review)
 Still the same problem, but with a network combining embedding and LSTM
 
 ### Time series with Recurrent Neural Network (RNN)
-- **[SYNOP1](SYNOP/01-Preparation-of-data.ipynb)** - [Time series with RNN - Preparation of data](SYNOP/01-Preparation-of-data.ipynb)  
-Episode 1 : Data analysis and creation of a usable dataset
-- **[SYNOP2](SYNOP/02-First-predictions.ipynb)** - [Time series with RNN - Try a prediction](SYNOP/02-First-predictions.ipynb)  
-Episode 2 : Training session and first predictions
-- **[SYNOP3](SYNOP/03-12h-predictions.ipynb)** - [Time series with RNN - 12h predictions](SYNOP/03-12h-predictions.ipynb)  
-Episode 3: Attempt to predict in the longer term 
+- **[SYNOP1](SYNOP/01-Preparation-of-data.ipynb)** - [Preparation of data](SYNOP/01-Preparation-of-data.ipynb)  
+Episode 1 : Data analysis and preparation of a meteorological dataset (SYNOP)
+- **[SYNOP2](SYNOP/02-First-predictions.ipynb)** - [First predictions at 3h](SYNOP/02-First-predictions.ipynb)  
+Episode 2 : Learning session and weather prediction attempt at 3h
+- **[SYNOP3](SYNOP/03-12h-predictions.ipynb)** - [12h predictions](SYNOP/03-12h-predictions.ipynb)  
+Episode 3: Attempt to predict in a more longer term 
 
 ### Unsupervised learning with an autoencoder neural network (AE)
-- **[AE1](AE/01-AE-with-MNIST.ipynb)** - [AutoEncoder (AE) with MNIST](AE/01-AE-with-MNIST.ipynb)  
-Episode 1 : Model construction and Training
-- **[AE2](AE/02-AE-with-MNIST-post.ipynb)** - [AutoEncoder (AE) with MNIST - Analysis](AE/02-AE-with-MNIST-post.ipynb)  
-Episode 2 : Exploring our denoiser
+- **[AE1](AE/01-AE-with-MNIST.ipynb)** - [Building and training an AE denoiser model](AE/01-AE-with-MNIST.ipynb)  
+Episode 1 : After construction, the model is trained with noisy data from the MNIST dataset.
+- **[AE2](AE/02-AE-with-MNIST-post.ipynb)** - [Exploring our denoiser model](AE/02-AE-with-MNIST-post.ipynb)  
+Episode 2 : Using the previously trained autoencoder to denoise data
 
 ### Generative network with Variational Autoencoder (VAE)
-- **[VAE1](VAE/01-VAE-with-MNIST.ipynb)** - [Variational AutoEncoder (VAE) with MNIST](VAE/01-VAE-with-MNIST.ipynb)  
-Building a simple model with the MNIST dataset
-- **[VAE2](VAE/02-VAE-with-MNIST-post.ipynb)** - [Variational AutoEncoder (VAE) with MNIST - Analysis](VAE/02-VAE-with-MNIST-post.ipynb)  
-Visualization and analysis of latent space
-- **[VAE3](VAE/05-About-CelebA.ipynb)** - [About the CelebA dataset](VAE/05-About-CelebA.ipynb)  
-Presentation of the CelebA dataset and problems related to its size
-- **[VAE6](VAE/06-Prepare-CelebA-datasets.ipynb)** - [Preparation of the CelebA dataset](VAE/06-Prepare-CelebA-datasets.ipynb)  
-Preparation of a clustered dataset, batchable
-- **[VAE7](VAE/07-Check-CelebA.ipynb)** - [Checking the clustered CelebA dataset](VAE/07-Check-CelebA.ipynb)  
-Check the clustered dataset
-- **[VAE8](VAE/08-VAE-with-CelebA==1090048==.ipynb)** - [Variational AutoEncoder (VAE) with CelebA (small)](VAE/08-VAE-with-CelebA==1090048==.ipynb)  
-Variational AutoEncoder (VAE) with CelebA (small res. 128x128)
-- **[VAE9](VAE/09-VAE-withCelebA-post.ipynb)** - [Variational AutoEncoder (VAE) with CelebA - Analysis](VAE/09-VAE-withCelebA-post.ipynb)  
-Exploring latent space of our trained models
+- **[VAE1](VAE/01-VAE-with-MNIST.ipynb)** - [First VAE, with a small dataset (MNIST)](VAE/01-VAE-with-MNIST.ipynb)  
+Construction and training of a VAE with a latent space of small dimension.
+- **[VAE2](VAE/02-VAE-with-MNIST-post.ipynb)** - [Analysis of the associated latent space](VAE/02-VAE-with-MNIST-post.ipynb)  
+Visualization and analysis of the VAE's latent space
+- **[VAE5](VAE/05-About-CelebA.ipynb)** - [Another game play : About the CelebA dataset](VAE/05-About-CelebA.ipynb)  
+Episode 1 : Presentation of the CelebA dataset and problems related to its size
+- **[VAE6](VAE/06-Prepare-CelebA-datasets.ipynb)** - [Generation of a clustered dataset](VAE/06-Prepare-CelebA-datasets.ipynb)  
+Episode 2 : Analysis of the CelebA dataset and creation of an clustered and usable dataset
+- **[VAE7](VAE/07-Check-CelebA.ipynb)** - [Checking the clustered dataset](VAE/07-Check-CelebA.ipynb)  
+Episode : 3 Clustered dataset verification and testing of our datagenerator
+- **[VAE8](VAE/08-VAE-with-CelebA.ipynb)** - [Training session for our VAE](VAE/08-VAE-with-CelebA.ipynb)  
+Episode 4 : Training with our clustered datasets in notebook or batch mode
+- **[VAE9](VAE/09-VAE-withCelebA-post.ipynb)** - [Data generation from latent space](VAE/09-VAE-withCelebA-post.ipynb)  
+Episode 5 : Exploring latent space to generate new data
 - **[VAE10](VAE/batch_slurm.sh)** - [SLURM batch script](VAE/batch_slurm.sh)  
-Bash script for SLURM batch submission of VAE notebooks 
+Bash script for SLURM batch submission of VAE8 notebooks 
 
 ### Miscellaneous
 - **[ACTF1](Misc/Activation-Functions.ipynb)** - [Activation functions](Misc/Activation-Functions.ipynb)  

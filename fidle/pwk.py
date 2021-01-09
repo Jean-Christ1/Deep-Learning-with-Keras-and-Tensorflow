@@ -113,8 +113,8 @@ def init(name=None, run_directory='./run'):
 
     # ---- Save figs or not
     #
-    save_figs = os.getenv('FIDLE_SAVE_FIGS', config.DEFAULT_SAVE_FIGS)
-    if save_figs.lower() == 'yes':
+    save_figs = os.getenv('FIDLE_SAVE_FIGS', str(config.SAVE_FIGS) )
+    if save_figs.lower() == 'true':
         set_save_fig(save=True, figs_dir=f'{run_dir}/figs', figs_name='fig_', figs_id=0)
     
     
@@ -226,49 +226,7 @@ def override(*names, module_name='__main__', verbose=True, return_attributes=Fal
             
     if return_attributes:
         return overrides
-      
-    
-
-# -------------------------------------------------------------
-# param_override
-# -------------------------------------------------------------
-# Try to override a given parameter 'param'.
-#
-# def override(name, value):
-#     '''
-#     Try to override a given parameter (name,value) with an environment variable.
-#     Env variable name is : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
-#     If no env variable is available, return the given value.
-#     If type is str, substitution is done with notebook_id and datasets_dir
-#     params:
-#        name : parameter name
-#        value: parameter value
-#     return :
-#        eval(env variable), if it env variable exist, or given value
-#     '''
-#     # ---- Environment variable name
-#     #
-#     env_name  = f'FIDLE_OVERRIDE_{notebook_id}_{name}'
-#     env_value = os.environ.get(env_name) 
-    
-#     # ---- Doesn't exist ?
-#     #
-#     if env_value is None:
-#         return value
-    
-#     # ---- Exist
-#     #
-#     if isinstance(value, str) : 
-#         new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
-        
-#     if type(value) in [ tuple, int, float]:
-#         new_value = eval(env_value)
-    
-#     # ---- Return 
-#     #
-#     print(f'Override : Parameter [{name}={value}] set to [{new_value}]')
-#     return new_value
-    
+       
     
 # -------------------------------------------------------------
 # Folder cooking

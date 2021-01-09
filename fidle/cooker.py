@@ -42,7 +42,7 @@ def get_files(directories, top_dir='..'):
         files : filenames list (without top_dir prefix)
     '''
     files = []
-    regex = re.compile('.*==\d+==.*')
+    regex = re.compile('.*==.+?==.*')
 
     for d in directories:
         notebooks = glob.glob( f'{top_dir}/{d}/*.ipynb')
@@ -52,7 +52,7 @@ def get_files(directories, top_dir='..'):
         files.extend(notebooks)
         files.extend(scripts)
         
-#     files = [x for x in files if not regex.match(x)]
+    files = [x for x in files if not regex.match(x)]
     files = [ x.replace(f'{top_dir}/','') for x in files]
     return files
 
@@ -73,6 +73,7 @@ def get_notebook_infos(filename, top_dir='..'):
     about['basename']    = os.path.basename(filename)
     about['title']       = '??'
     about['description'] = '??'
+    about['overrides']   = None
     
     # ---- Read notebook
     #
@@ -80,8 +81,11 @@ def get_notebook_infos(filename, top_dir='..'):
     
     # ---- Get id, title and desc tags
     #
+    overrides=[]
     for cell in notebook.cells:
-
+     
+        # ---- Find Index informations
+        #
         if cell['cell_type'] == 'markdown':
 
             find = re.findall(r'<\!-- TITLE -->\s*\[(.*)\]\s*-\s*(.*)\n',cell.source)
@@ -93,7 +97,21 @@ def get_notebook_infos(filename, top_dir='..'):
             if find:
                 about['description']  = find[0]
 
+        # ---- Find override informations
+        #
+        if cell['cell_type'] == 'code':
+            
+            # Try to find : override(...) call
+            for m in re.finditer('override\((.+?)\)', cell.source):
+                overrides.extend ( re.findall(r'\w+', m.group(1)) )
+
+            # Try to find : run_dir=
+            if re.search(r"\s*run_dir\s*?=", cell.source):
+                overrides.append('run_dir')
+                
+    about['overrides']=overrides
     return about
+
     
     
 def get_txtfile_infos(filename, top_dir='..'):
@@ -112,6 +130,7 @@ def get_txtfile_infos(filename, top_dir='..'):
     about['basename']    = os.path.basename(filename)
     about['title']       = '??'
     about['description'] = '??'
+    about['overrides']   = []
     
     # ---- Read file
     #
@@ -130,7 +149,7 @@ def get_txtfile_infos(filename, top_dir='..'):
     return about
 
               
-def get_catalog(files_list, top_dir='..'):
+def get_catalog(files_list=None, top_dir='..'):
     '''
     Return an OrderedDict of files attributes.
     Keys are file id.
@@ -140,7 +159,7 @@ def get_catalog(files_list, top_dir='..'):
     return:
         OrderedDict : {<file id> : { description} }
     '''
-    
+       
     catalog = OrderedDict()
 
     # ---- Build catalog
@@ -164,6 +183,11 @@ def tag(tag, text, document):
     output = re.sub(f'{debut}.*{fin}',f'{debut}\n{text}\n{fin}',document, flags=re.DOTALL)
     return output
 
+
+def read_catalog():
+    with open(config.CATALOG_FILE) as fp:
+        catalog = json.load(fp)
+    return catalog
 
 # -----------------------------------------------------------------------------
 # To built : CI Report

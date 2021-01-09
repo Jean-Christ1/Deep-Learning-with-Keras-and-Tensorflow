@@ -9,7 +9,7 @@
 # -----------------------------------------------
 #
 # <!-- TITLE --> [VAE10] - SLURM batch script
-# <!-- DESC --> Bash script for SLURM batch submission of VAE notebooks 
+# <!-- DESC --> Bash script for SLURM batch submission of VAE8 notebooks 
 # <!-- AUTHOR : Jean-Luc Parouty (CNRS/SIMaP) -->
 #
 # Soumission :  sbatch  /(...)/fidle/VAE/batch_slurm.sh

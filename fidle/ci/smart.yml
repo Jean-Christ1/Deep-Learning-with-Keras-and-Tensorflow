@@ -1,0 +1,33 @@
+config:
+  version: '1.0'
+  output_tag: ==done==
+  save_figs: true
+LINR1:
+  notebook_dir: LinearReg
+  notebook_src: 01-Linear-Regression.ipynb
+  notebook_out: default
+GTSRB0:
+  notebook_dir: GTSRB
+  notebook_src: 00-Test.ipynb
+  notebook_out: default
+  overrides:
+    scale: 0.7
+    output_dir: ./data/foobar
+    run_dir: ./run/xxx
+GTSRB1:
+  notebook_dir: GTSRB
+  notebook_src: 01-Preparation-of-data.ipynb
+  notebook_out: default
+  overrides:
+    scale: 0.1
+    output_dir: ./data
+GTSRB2:
+  notebook_dir: GTSRB
+  notebook_src: 02-First-convolutions.ipynb
+  notebook_out: default
+  overrides:
+    run_dir: ./run/GTSRB2_ci
+    dataset_name: set-24x24-L
+    batch_size: 32
+    epochs: 3
+    scale: 1

@@ -28,7 +28,7 @@ FIDLE_CSSFILE  = '../fidle/css/custom.css'
 # ---- Save figs or not (yes|no)
 #      Overided by env : FIDLE_SAVE_FIGS
 #      
-DEFAULT_SAVE_FIGS    = 'yes'
+SAVE_FIGS    = False
 
 # ---- Catalog file, a json description of all notebooks ------------
 #
