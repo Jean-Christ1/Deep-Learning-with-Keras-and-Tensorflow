@@ -6,14 +6,6 @@ LINR1:
   notebook_dir: LinearReg
   notebook_src: 01-Linear-Regression.ipynb
   notebook_out: default
-GTSRB0:
-  notebook_dir: GTSRB
-  notebook_src: 00-Test.ipynb
-  notebook_out: default
-  overrides:
-    scale: 0.7
-    output_dir: ./data/foobar
-    run_dir: ./run/xxx
 GTSRB1:
   notebook_dir: GTSRB
   notebook_src: 01-Preparation-of-data.ipynb
@@ -30,4 +22,4 @@ GTSRB2:
     dataset_name: set-24x24-L
     batch_size: 32
     epochs: 3
-    scale: 1
+    scale: 0.1

@@ -5,7 +5,7 @@
 # | |_) | '__/ _` |/ __| __| |/ __/ _` | |  \ \ /\ / / _ \| '__| |/ /
 # |  __/| | | (_| | (__| |_| | (_| (_| | |   \ V  V / (_) | |  |   <
 # |_|   |_|  \__,_|\___|\__|_|\___\__,_|_|    \_/\_/ \___/|_|  |_|\_\
-#                                                        module pwk                                   
+#                                                   Fidle module pwk                                   
 # ==================================================================
 # A simple module to host some common functions for practical work
 # Jean-Luc Parouty 2020
@@ -116,9 +116,6 @@ def init(name=None, run_directory='./run'):
     save_figs = os.getenv('FIDLE_SAVE_FIGS', str(config.SAVE_FIGS) )
     if save_figs.lower() == 'true':
         set_save_fig(save=True, figs_dir=f'{run_dir}/figs', figs_name='fig_', figs_id=0)
-    
-    
-    update_finished_file(start=True)
 
     return datasets_dir
 
@@ -744,63 +741,12 @@ def np_print(*args, precision=3, linewidth=120):
     with np.printoptions(precision=precision, linewidth=linewidth):
         for a in args:
             print(a)
-
-            
-def check_finished_file():
-    if not os.access(config.FINISHED_FILE, os.W_OK):
-        print("\n** Error : Cannot access finished file in write mode for reset...")
-        print(f'** Finished file should be at : {config.FINISHED_FILE}\n')
-        return False
-    return True
-
-    
-def reset_finished_file(verbose=False):
-    try:
-        data={}
-        with open(config.FINISHED_FILE,'wt') as fp:
-            json.dump(data,fp,indent=4)
-        if verbose : print(f'Finished file has been reset.\n')
-    except:
-        print(f'\n**Warning : cannot reset finished file ({config.FINISHED_FILE})\n')
-        return False
-    return True
-    
-    
-def update_finished_file(start=False, end=False):
-      
-    # ---- No writable finished file ?
-    if not os.access(config.FINISHED_FILE, os.W_OK): 
-        done = reset_finished_file()
-        if not done : return
-        
-    # ---- Load it
-    with open(config.FINISHED_FILE) as fp:
-        data = json.load(fp)
-        
-    # ---- Update as a start
-    if start is True:
-        data[notebook_id]             = {}
-        data[notebook_id]['path']     = os.getcwd()
-        data[notebook_id]['start']    = _start_time.strftime("%A %-d %B %Y, %H:%M:%S")
-        data[notebook_id]['end']      = ''
-        data[notebook_id]['duration'] = 'Unfinished...'
-
-    # ---- Update as an end
-    if end is True:
-        data[notebook_id]['end']      = _end_time.strftime("%A %-d %B %Y, %H:%M:%S")
-        data[notebook_id]['duration'] = hdelay_ms(_end_time - _start_time)
-
-    # ---- Save it
-    with open(config.FINISHED_FILE,'wt') as fp:
-        json.dump(data,fp,indent=4)
     
      
 def end():
     global _end_time
     _end_time = datetime.datetime.now()
-    
-    update_finished_file(end=True)
-    
+        
     print('End time is :', time.strftime("%A %-d %B %Y, %H:%M:%S"))
     print('Duration is :', hdelay_ms(_end_time - _start_time))
     print('This notebook ends here')

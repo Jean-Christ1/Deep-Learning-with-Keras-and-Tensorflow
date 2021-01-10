@@ -65,8 +65,6 @@ A more advanced implementation of the precedent example
 An example of classification using a dense neural network for the famous MNIST dataset
 
 ### Images classification with Convolutional Neural Networks (CNN)
-- **[??](GTSRB/00-Test.ipynb)** - [??](GTSRB/00-Test.ipynb)  
-??
 - **[GTSRB1](GTSRB/01-Preparation-of-data.ipynb)** - [Dataset analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  
 Episode 1 : Analysis of the GTSRB dataset and creation of an enhanced dataset
 - **[GTSRB2](GTSRB/02-First-convolutions.ipynb)** - [First convolutions](GTSRB/02-First-convolutions.ipynb)  

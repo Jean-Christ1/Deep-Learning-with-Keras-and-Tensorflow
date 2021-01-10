@@ -63,18 +63,6 @@
         "description": "An example of classification using a dense neural network for the famous MNIST dataset",
         "overrides": []
     },
-    "??": {
-        "id": "??",
-        "dirname": "GTSRB",
-        "basename": "00-Test.ipynb",
-        "title": "??",
-        "description": "??",
-        "overrides": [
-            "run_dir",
-            "scale",
-            "output_dir"
-        ]
-    },
     "GTSRB1": {
         "id": "GTSRB1",
         "dirname": "GTSRB",

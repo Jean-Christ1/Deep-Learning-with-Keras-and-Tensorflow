@@ -4,7 +4,7 @@ config:
   save_figs: true
 LINR1:
   notebook_dir: LinearReg
-  notebook_src: 01-Linear-Regression==ci==.ipynb
+  notebook_src: 01-Linear-Regression.ipynb
   notebook_out: default
 GRAD1:
   notebook_dir: LinearReg
@@ -34,17 +34,9 @@ MNIST1:
   notebook_dir: MNIST
   notebook_src: 01-DNN-MNIST.ipynb
   notebook_out: default
-??:
-  notebook_dir: GTSRB
-  notebook_src: 00-Test==done==.ipynb
-  notebook_out: default
-  overrides:
-    run_dir: default
-    scale: default
-    output_dir: default
 GTSRB1:
   notebook_dir: GTSRB
-  notebook_src: 01-Preparation-of-data==ci==.ipynb
+  notebook_src: 01-Preparation-of-data.ipynb
   notebook_out: default
   overrides:
     scale: default

@@ -1,0 +1,98 @@
+{
+    "VAE8": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Wednesday 6 January 2021, 22:17:12",
+        "end": "",
+        "duration": "Unfinished..."
+    },
+    "VAE1": {
+        "path": "/home/pjluc/dev/fidle/VAE",
+        "start": "Thursday 7 January 2021, 09:37:44",
+        "end": "",
+        "duration": "Unfinished..."
+    },
+    "GTSRB1": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Sunday 10 January 2021, 22:54:53",
+        "end": "Sunday 10 January 2021, 22:56:54",
+        "duration": "0:02:00"
+    },
+    "GTSRB2": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Sunday 10 January 2021, 22:56:54",
+        "end": "",
+        "duration": "Unfinished..."
+    },
+    "GTSRB3": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Thursday 7 January 2021, 12:15:52",
+        "end": "Thursday 7 January 2021, 12:20:01",
+        "duration": "00:04:09 711ms"
+    },
+    "GTSRB4": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Thursday 7 January 2021, 13:40:52",
+        "end": "Thursday 7 January 2021, 13:41:31",
+        "duration": "00:00:39 161ms"
+    },
+    "GTSRB5": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Thursday 7 January 2021, 14:47:12",
+        "end": "Thursday 7 January 2021, 14:48:44",
+        "duration": "00:01:32 269ms"
+    },
+    "GTSRB6": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Thursday 7 January 2021, 15:41:17",
+        "end": "Thursday 7 January 2021, 15:41:18",
+        "duration": "00:00:01 101ms"
+    },
+    "GTSRB7": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Thursday 7 January 2021, 15:16:05",
+        "end": "Thursday 7 January 2021, 15:16:06",
+        "duration": "00:00:00 116ms"
+    },
+    "BHPD1": {
+        "path": "/home/pjluc/dev/fidle/BHPD ",
+        "start": "Friday 8 January 2021, 01:09:13",
+        "end": "Friday 8 January 2021, 01:09:24",
+        "duration": "00:00:11 984ms"
+    },
+    "BHPD2": {
+        "path": "/home/pjluc/dev/fidle/BHPD ",
+        "start": "Friday 8 January 2021, 01:10:28",
+        "end": "Friday 8 January 2021, 01:10:39",
+        "duration": "00:00:12 582ms"
+    },
+    "SYNOP1": {
+        "path": "/home/pjluc/dev/fidle/SYNOP",
+        "start": "Saturday 9 January 2021, 10:04:28",
+        "end": "Saturday 9 January 2021, 10:04:34",
+        "duration": "00:00:05 236ms"
+    },
+    "SYNOP2": {
+        "path": "/home/pjluc/dev/fidle/SYNOP",
+        "start": "Saturday 9 January 2021, 10:30:55",
+        "end": "Saturday 9 January 2021, 10:31:11",
+        "duration": "00:00:16 248ms"
+    },
+    "SYNOP3": {
+        "path": "/home/pjluc/dev/fidle/SYNOP",
+        "start": "Saturday 9 January 2021, 10:27:54",
+        "end": "Saturday 9 January 2021, 10:27:59",
+        "duration": "00:00:05 249ms"
+    },
+    "LINR1": {
+        "path": "/home/pjluc/dev/fidle/LinearReg",
+        "start": "Sunday 10 January 2021, 22:54:49",
+        "end": "Sunday 10 January 2021, 22:54:53",
+        "duration": "0:00:04"
+    },
+    "GTSRB0": {
+        "path": "/home/pjluc/dev/fidle/GTSRB",
+        "start": "Saturday 9 January 2021, 19:34:14",
+        "end": "",
+        "duration": "Unfinished..."
+    }
+}
