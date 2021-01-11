@@ -20,15 +20,17 @@ from nbconvert.preprocessors import ExecutePreprocessor
 import re
 import yaml
 from collections import OrderedDict
-from IPython.display import display
+from IPython.display import display,Image,Markdown,HTML
 import pandas as pd
 
 sys.path.append('..')
 import fidle.config as config
 import fidle.cookindex as cookindex
 
-start_time = None
-end_time   = None
+VERSION = '1.0'
+
+start_time = {}
+end_time   = {}
 
 def get_ci_profile(catalog=None, output_tag='==done==', save_figs=True):
     '''
@@ -47,8 +49,11 @@ def get_ci_profile(catalog=None, output_tag='==done==', save_figs=True):
     if catalog is None:
         catalog = cookindex.read_catalog()
 
-    config   = {'version':'1.0', 'output_tag':output_tag, 'save_figs':save_figs}
-    profile  = { 'config':config }
+    metadata   = { 'version'     : '1.0', 
+                   'output_tag'  : output_tag, 
+                   'save_figs'   : save_figs, 
+                   'description' : 'Default generated profile'}
+    profile  = { '_metadata_':metadata }
     for id, about in catalog.items():
         
         id        = about['id']
@@ -73,7 +78,7 @@ def save_profile(profile, filename):
     '''Save profile in yaml format'''
     with open(filename,'wt') as fp:
         yaml.dump(profile, fp, sort_keys=False)
-        print(f'Catalog saved as {filename}')
+        print(f'Profile saved as {filename}')
         print('Entries : ',len(profile)-1)
 
         
@@ -81,12 +86,12 @@ def load_profile(filename):
     '''Load yaml profile'''
     with open(filename,'r') as fp:
         profile=yaml.load(fp, Loader=yaml.FullLoader)
-        print(f'{filename} loaded.')
-        print('Entries : ',len(profile)-1)
+        print(f'\nLoad profile :{filename}')
+        print('    Entries : ',len(profile)-1)
         return profile
     
     
-def run_profile(profile, top_dir='..'):
+def run_profile(profile_name, report_name=None, top_dir='..'):
     '''
     Récupère la liste des notebooks et des paramètres associés,
     décrit dans le profile, et pour chaque notebook :
@@ -95,20 +100,37 @@ def run_profile(profile, top_dir='..'):
     Exécuter celui-ci
     Sauvegarder le notebook résultat, avec son nom taggé.
     Params:
-        profile : dict, profile d'éxécution
+        profile_name : nom du profile d'éxécution
+        report_name : Nom du rapport json généré
         top_dir : chemin relatif vers la racine fidle (..)
     '''
 
+    print('\nRun profile session - FIDLE 2021')
+    print(f'Version : {VERSION}')
+    
+    chrono_start('main')
+    
+    # ---- Retrieve profile
+    #
+    profile   = load_profile(profile_name)
+    config    = profile['_metadata_']
+    notebooks = profile
+    del notebooks['_metadata_']   
+    
+    # ---- Create new ci_report
+    #
+    metadata = config
+    metadata['host']    = os.uname()[1]
+    metadata['profile'] = profile_name
+    if report_name is None:
+        report_name = config.CI_REPORT_JSON
+    report_name = os.path.abspath(report_name)
+    create_ci_report(report_name, metadata)
+    
     # ---- My place
     #
     home = os.getcwd()
-    
-    # ---- Read profile
-    #
-    config    = profile['config']
-    notebooks = profile
-    del notebooks['config']
-    
+        
     # ---- Save figs or not ?
     #
     os.environ['FIDLE_SAVE_FIGS']=str(config['save_figs'])
@@ -157,9 +179,9 @@ def run_profile(profile, top_dir='..'):
 
         # ---- Top chrono
         #
-        chrono_start()
-        update_ci_report(id, notebook_dir, notebook_src, notebook_out, start=True)
-
+        chrono_start('nb')
+        update_ci_report(report_name, id, notebook_dir, notebook_src, notebook_out, start=True)
+        
         # ---- Try to run...
         #
         print('    Run notebook...',end='')
@@ -179,9 +201,9 @@ def run_profile(profile, top_dir='..'):
 
         # ---- Top chrono
         #
-        chrono_stop()        
-        update_ci_report(id, notebook_dir, notebook_src, notebook_out, end=True, happy_end=happy_end)
-        print('    Duration : ',chrono_delay() )
+        chrono_stop('nb')        
+        update_ci_report(report_name, id, notebook_dir, notebook_src, notebook_out, end=True, happy_end=happy_end)
+        print('    Duration : ',chrono_get_delay('nb') )
     
         # ---- Save notebook
         #
@@ -193,43 +215,66 @@ def run_profile(profile, top_dir='..'):
         #
         os.chdir(home)
         for env_name in to_unset:
-            del os.environ[env_name] 
+            del os.environ[env_name]
+
+    # ---- End of running
+    chrono_stop('main')
+    print('\nEnd of running process')
+    print('    Duration :', chrono_get_delay('main'))
+    complete_ci_report(report_name)
     
     
-def chrono_start():
+def chrono_start(id='default'):
     global start_time
-    start_time = datetime.datetime.now()
-
-def chrono_stop():
+    start_time[id] = datetime.datetime.now()
+        
+def chrono_stop(id='default'):
     global end_time
-    end_time = datetime.datetime.now()
+    end_time[id] = datetime.datetime.now()
 
-def chrono_delay(in_seconds=False):
+def chrono_get_delay(id='default', in_seconds=False):
     global start_time, end_time
-    delta = end_time - start_time
+    delta = end_time[id] - start_time[id]
     if in_seconds:
         return round(delta.total_seconds(),2)
     else:
         delta = delta - datetime.timedelta(microseconds=delta.microseconds)
         return str(delta)
 
+def chrono_get_start(id='default'):
+    global start_time
+    return start_time[id].strftime("%d/%m/%y %H:%M:%S")
 
+def chrono_get_end(id='default'):
+    global end_time
+    return end_time[id].strftime("%d/%m/%y %H:%M:%S")
 
-def reset_ci_report(verbose=True):
-    data={}
-    with open(config.CI_REPORT_JSON,'wt') as fp:
-        json.dump(data,fp,indent=4)
-    if verbose : print(f'Finished file has been reset.\n')
-    
-    
-def update_ci_report(notebook_id, notebook_dir, notebook_src, notebook_out, start=False, end=False, happy_end=True):
+def reset_chrono():
     global start_time, end_time
+    start_time, end_time = {},{}
+    
 
-    if not os.access(config.CI_REPORT_JSON, os.W_OK):
-        reset_ci_report(verbose=True)
+def create_ci_report(filename, metadata, verbose=True):
+    metadata['start']=chrono_get_start('main')
+    data={ '_metadata_':metadata }
+    with open(filename,'wt') as fp:
+        json.dump(data,fp,indent=4)
+    if verbose : print(f'\nCreate new ci report : {filename}')
+    
+def complete_ci_report(filename, verbose=True):
+    with open(filename) as fp:
+        report = json.load(fp)
+    report['_metadata_']['end']      = chrono_get_end('main')
+    report['_metadata_']['duration'] = chrono_get_delay('main')
+    with open(filename,'wt') as fp:
+        json.dump(report,fp,indent=4)
+    if verbose : print(f'\nComplete ci report : {filename}')
+        
+def update_ci_report(filename, notebook_id, notebook_dir, notebook_src, notebook_out, start=False, end=False, happy_end=True):
+    global start_time, end_time
     
     # ---- Load it
-    with open(config.CI_REPORT_JSON) as fp:
+    with open(filename) as fp:
         report = json.load(fp)
         
     # ---- Update as a start
@@ -238,44 +283,51 @@ def update_ci_report(notebook_id, notebook_dir, notebook_src, notebook_out, star
         report[notebook_id]['dir']      = notebook_dir
         report[notebook_id]['src']      = notebook_src
         report[notebook_id]['out']      = notebook_out
-        report[notebook_id]['start']    = start_time.strftime("%d/%m/%y %H:%M:%S")
+        report[notebook_id]['start']    = chrono_get_start('nb')
         report[notebook_id]['end']      = ''
         report[notebook_id]['duration'] = 'Unfinished...'
         report[notebook_id]['state']    = 'Unfinished...'
 
     # ---- Update as an end
     if end is True:
-        report[notebook_id]['end']      = end_time.strftime("%d/%m/%y %H:%M:%S")
-        report[notebook_id]['duration'] = chrono_delay()
+        report[notebook_id]['end']      = chrono_get_end('nb')
+        report[notebook_id]['duration'] = chrono_get_delay('nb')
         report[notebook_id]['state']    = 'ok' if happy_end else 'ERROR'
         report[notebook_id]['out']      = notebook_out     # changeg in case of error
 
     # ---- Save it
-    with open(config.CI_REPORT_JSON,'wt') as fp:
+    with open(filename,'wt') as fp:
         json.dump(report,fp,indent=4)
 
 
 
-def build_ci_report(display_output=True, save_html=True):
+def build_ci_report(report_name=None, display_output=True, save_html=True):
     
     # ---- Load ci report
     #
-    with open(config.CI_REPORT_JSON) as infile:
+    if report_name is None:
+        report_name = config.CI_REPORT_JSON
+    with open(report_name) as infile:
         ci_report = json.load( infile )
 
+    # ---- metadata
+    #
+    metadata=ci_report['_metadata_']
+    del ci_report['_metadata_']
+    
+    metadata_md=''
+    metadata_html=''
+    for name,value in metadata.items():
+        metadata_md   += f'**{name.title()}** : {value}  \n'
+        metadata_html += f'<b>{name.title()}</b> : {value}  <br>\n'
+    
     # ---- Create a nice DataFrame
     #
     df=pd.DataFrame(ci_report)
     df=df.transpose()
     df = df.rename_axis('id').reset_index()
-    
-    # ---- Change text columns, for nice html links
-    #
-    df['id']  = df.apply(lambda r: f"<a href='../{r['dir']}/{r['src']}'>{r['id']}</a>", axis=1)
-    df['src'] = df.apply(lambda r: f"<a href='../{r['dir']}/{r['src']}'>{r['src']}</a>", axis=1)
-    df['out'] = df.apply(lambda r: f"<a href='../{r['dir']}/{r['out']}'>{r['out']}</a>", axis=1)
-        
-    # ---- Add styles to be nice
+
+    # ---- Few styles to be nice
     #
     styles = [
         dict(selector="td", props=[("font-size", "110%"), ("text-align", "left")]),
@@ -284,42 +336,60 @@ def build_ci_report(display_output=True, save_html=True):
     def still_pending(v):
         return 'background-color: OrangeRed; color:white' if v == 'ERROR' else ''
 
-    output = df[df.columns.values].style.set_table_styles(styles).hide_index().applymap(still_pending)
-
-    # ---- html report 
-    #
-    if save_html:
-        html = _get_html_report(output)
-        with open(config.CI_REPORT_HTML, "wt") as fp:
-            fp.write(html)
-
-    # ---- display output
+    # ---- Links version : display
     #
     if display_output:
+        
+        ddf=df.copy()
+        ddf['id']  = ddf.apply(lambda r: f"<a href='../{r['dir']}/{r['src']}'>{r['id']}</a>", axis=1)
+        ddf['src'] = ddf.apply(lambda r: f"<a href='../{r['dir']}/{r['src']}'>{r['src']}</a>", axis=1)
+        ddf['out'] = ddf.apply(lambda r: f"<a href='../{r['dir']}/{r['out']}'>{r['out']}</a>", axis=1)
+        ddf.columns = [x.title() for x in ddf.columns]
+
+        output = ddf[ddf.columns.values].style.set_table_styles(styles).hide_index().applymap(still_pending)
+        display(Markdown('### About :'))
+        display(Markdown(metadata_md))
+        display(Markdown('### Details :'))
         display(output)
-    
+
+    # ---- Basic version : html report 
+    #
+    if save_html:
+        
+        df.columns = [x.title() for x in df.columns]
+        output = df[df.columns.values].style.set_table_styles(styles).hide_index().applymap(still_pending)
+
+        html = _get_html_report(metadata_html, output)
+        with open(config.CI_REPORT_HTML, "wt") as fp:
+            fp.write(html)
+        display(Markdown('<br>HTML report saved as : [./logs/ci_report.html](./logs/ci_report.html)'))
+            
 
 
 
-def _get_html_report(output):
+def _get_html_report(metadata_html, output):
     with open('./img/00-Fidle-logo-01-80px.svg','r') as fp:
         logo = fp.read()
 
-    now    = datetime.datetime.now().strftime("%A %-d %B %Y, %H:%M:%S")
     html = f"""\
     <html>
         <head><title>FIDLE - CI Report</title></head>
+        <body>
         <style>
             body{{
                   font-family: sans-serif;
             }}
+            div.title{{ 
+                font-size: 1.2em;
+                font-weight: bold;
+                padding: 15px 0px 10px 0px; }}
             a{{
                 color: SteelBlue;
                 text-decoration:none;
             }}
             table{{      
                   border-collapse : collapse;
-                  font-size : 80%
+                  font-size : 0.9em;
             }}
             td{{
                   border-style: solid;
@@ -327,16 +397,15 @@ def _get_html_report(output):
                   border-color:  lightgrey;
                   padding: 5px;
             }}
-            .header{{ padding:20px 0px 0px 30px; }}
-            .result{{ padding:10px 0px 20px 30px; }}
+            .metadata{{ padding: 10px 0px 10px 30px; font-size: 0.9em; }}
+            .result{{ padding: 10px 0px 10px 30px; }}
         </style>
-        <body>
             <br>Hi,
             <p>Below is the result of the continuous integration tests of the Fidle project:</p>
-            <div class="header"><b>Report date :</b> {now}</div>
-            <div class="result">   
-                {output.render()}
-            </div>
+            <div class='title'>About :</div>
+            <div class="metadata">{metadata_html}</div>
+            <div class='title'>Details :</div>
+            <div class="result">{output.render()}</div>
 
             {logo}
 

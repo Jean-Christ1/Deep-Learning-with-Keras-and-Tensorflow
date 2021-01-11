@@ -1,0 +1,98 @@
+_metadata_:
+  version: '1.0'
+  output_tag: ==done==
+  save_figs: true
+  description: Smart profile, for cpu
+LINR1:
+  notebook_dir: LinearReg
+  notebook_src: 01-Linear-Regression.ipynb
+  notebook_out: default
+GRAD1:
+  notebook_dir: LinearReg
+  notebook_src: 02-Gradient-descent.ipynb
+  notebook_out: default
+POLR1:
+  notebook_dir: LinearReg
+  notebook_src: 03-Polynomial-Regression.ipynb
+  notebook_out: default
+LOGR1:
+  notebook_dir: LinearReg
+  notebook_src: 04-Logistic-Regression.ipynb
+  notebook_out: default
+PER57:
+  notebook_dir: IRIS
+  notebook_src: 01-Simple-Perceptron.ipynb
+  notebook_out: default
+BHPD1:
+  notebook_dir: BHPD
+  notebook_src: 01-DNN-Regression.ipynb
+  notebook_out: default
+BHPD2:
+  notebook_dir: BHPD
+  notebook_src: 02-DNN-Regression-Premium.ipynb
+  notebook_out: default
+MNIST1:
+  notebook_dir: MNIST
+  notebook_src: 01-DNN-MNIST.ipynb
+  notebook_out: default
+GTSRB1:
+  notebook_dir: GTSRB
+  notebook_src: 01-Preparation-of-data.ipynb
+  notebook_out: default
+  overrides:
+    scale: 0.05
+    output_dir: ./data
+GTSRB2:
+  notebook_dir: GTSRB
+  notebook_src: 02-First-convolutions.ipynb
+  notebook_out: default
+  overrides:
+    run_dir: ./run/GTSRB2_ci
+    dataset_name: set-24x24-L
+    batch_size: 64
+    epochs: 5
+    scale: 1
+GTSRB3:
+  notebook_dir: GTSRB
+  notebook_src: 03-Tracking-and-visualizing.ipynb
+  notebook_out: default
+  overrides:
+    run_dir: ./run/GTSRB3_ci
+    dataset_name: set-24x24-L
+    batch_size: 64
+    epochs: 5
+    scale: 1
+GTSRB4:
+  notebook_dir: GTSRB
+  notebook_src: 04-Data-augmentation.ipynb
+  notebook_out: default
+  overrides:
+    run_dir: ./run/GTSRB4_ci
+    dataset_name: set-24x24-L
+    batch_size: 64
+    epochs: 5
+    scale: 0.5
+GTSRB5:
+  notebook_dir: GTSRB
+  notebook_src: 05-Full-convolutions.ipynb
+  notebook_out: default
+  overrides:
+    run_dir: ./run/GTSRB5_ci
+    datasets: "['set-24x24-L', 'set-24x24-RGB', 'set-48x48-RGB']"
+    models: "{'v1':'get_model_v1', 'v2':'get_model_v2', 'v3':'get_model_v3'}"
+    batch_size: 64
+    epochs: 5
+    scale: 0.1
+    with_datagen: True
+    verbose: 0
+GTSRB6:
+  notebook_dir: GTSRB
+  notebook_src: 06-Notebook-as-a-batch.ipynb
+  notebook_out: default
+GTSRB7:
+  notebook_dir: GTSRB
+  notebook_src: 07-Show-report.ipynb
+  notebook_out: default
+  overrides:
+    run_dir: ./run/GTSRB7_ci
+    report_dir: ./run/GTSRB5

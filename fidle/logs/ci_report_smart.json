@@ -1,0 +1,148 @@
+{
+    "_metadata_": {
+        "version": "1.0",
+        "output_tag": "==done==",
+        "save_figs": true,
+        "description": "Smart profile, for cpu",
+        "host": "Oban",
+        "profile": "./ci/smart_cpu.yml",
+        "start": "11/01/21 16:38:18",
+        "end": "11/01/21 16:51:47",
+        "duration": "0:13:29"
+    },
+    "LINR1": {
+        "dir": "LinearReg",
+        "src": "01-Linear-Regression.ipynb",
+        "out": "01-Linear-Regression==done==.ipynb",
+        "start": "11/01/21 16:38:18",
+        "end": "11/01/21 16:38:21",
+        "duration": "0:00:03",
+        "state": "ok"
+    },
+    "GRAD1": {
+        "dir": "LinearReg",
+        "src": "02-Gradient-descent.ipynb",
+        "out": "02-Gradient-descent==done==.ipynb",
+        "start": "11/01/21 16:38:21",
+        "end": "11/01/21 16:38:28",
+        "duration": "0:00:06",
+        "state": "ok"
+    },
+    "POLR1": {
+        "dir": "LinearReg",
+        "src": "03-Polynomial-Regression.ipynb",
+        "out": "03-Polynomial-Regression==done==.ipynb",
+        "start": "11/01/21 16:38:28",
+        "end": "11/01/21 16:38:31",
+        "duration": "0:00:03",
+        "state": "ok"
+    },
+    "LOGR1": {
+        "dir": "LinearReg",
+        "src": "04-Logistic-Regression.ipynb",
+        "out": "04-Logistic-Regression==done==.ipynb",
+        "start": "11/01/21 16:38:31",
+        "end": "11/01/21 16:38:35",
+        "duration": "0:00:03",
+        "state": "ok"
+    },
+    "PER57": {
+        "dir": "IRIS",
+        "src": "01-Simple-Perceptron.ipynb",
+        "out": "01-Simple-Perceptron==done==.ipynb",
+        "start": "11/01/21 16:38:35",
+        "end": "11/01/21 16:38:38",
+        "duration": "0:00:02",
+        "state": "ok"
+    },
+    "BHPD1": {
+        "dir": "BHPD",
+        "src": "01-DNN-Regression.ipynb",
+        "out": "01-DNN-Regression==done==.ipynb",
+        "start": "11/01/21 16:38:38",
+        "end": "11/01/21 16:38:51",
+        "duration": "0:00:13",
+        "state": "ok"
+    },
+    "BHPD2": {
+        "dir": "BHPD",
+        "src": "02-DNN-Regression-Premium.ipynb",
+        "out": "02-DNN-Regression-Premium==done==.ipynb",
+        "start": "11/01/21 16:38:51",
+        "end": "11/01/21 16:39:04",
+        "duration": "0:00:13",
+        "state": "ok"
+    },
+    "MNIST1": {
+        "dir": "MNIST",
+        "src": "01-DNN-MNIST.ipynb",
+        "out": "01-DNN-MNIST==done==.ipynb",
+        "start": "11/01/21 16:39:04",
+        "end": "11/01/21 16:39:42",
+        "duration": "0:00:37",
+        "state": "ok"
+    },
+    "GTSRB1": {
+        "dir": "GTSRB",
+        "src": "01-Preparation-of-data.ipynb",
+        "out": "01-Preparation-of-data==done==.ipynb",
+        "start": "11/01/21 16:39:42",
+        "end": "11/01/21 16:41:06",
+        "duration": "0:01:24",
+        "state": "ok"
+    },
+    "GTSRB2": {
+        "dir": "GTSRB",
+        "src": "02-First-convolutions.ipynb",
+        "out": "02-First-convolutions==done==.ipynb",
+        "start": "11/01/21 16:41:06",
+        "end": "11/01/21 16:45:02",
+        "duration": "0:03:55",
+        "state": "ok"
+    },
+    "GTSRB3": {
+        "dir": "GTSRB",
+        "src": "03-Tracking-and-visualizing.ipynb",
+        "out": "03-Tracking-and-visualizing==done==.ipynb",
+        "start": "11/01/21 16:45:02",
+        "end": "11/01/21 16:49:25",
+        "duration": "0:04:22",
+        "state": "ok"
+    },
+    "GTSRB4": {
+        "dir": "GTSRB",
+        "src": "04-Data-augmentation.ipynb",
+        "out": "04-Data-augmentation==ERROR==.ipynb",
+        "start": "11/01/21 16:49:26",
+        "end": "11/01/21 16:51:38",
+        "duration": "0:02:12",
+        "state": "ERROR"
+    },
+    "GTSRB5": {
+        "dir": "GTSRB",
+        "src": "05-Full-convolutions.ipynb",
+        "out": "05-Full-convolutions==ERROR==.ipynb",
+        "start": "11/01/21 16:51:39",
+        "end": "11/01/21 16:51:42",
+        "duration": "0:00:02",
+        "state": "ERROR"
+    },
+    "GTSRB6": {
+        "dir": "GTSRB",
+        "src": "06-Notebook-as-a-batch.ipynb",
+        "out": "06-Notebook-as-a-batch==done==.ipynb",
+        "start": "11/01/21 16:51:42",
+        "end": "11/01/21 16:51:45",
+        "duration": "0:00:03",
+        "state": "ok"
+    },
+    "GTSRB7": {
+        "dir": "GTSRB",
+        "src": "07-Show-report.ipynb",
+        "out": "07-Show-report==done==.ipynb",
+        "start": "11/01/21 16:51:45",
+        "end": "11/01/21 16:51:47",
+        "duration": "0:00:02",
+        "state": "ok"
+    }
+}

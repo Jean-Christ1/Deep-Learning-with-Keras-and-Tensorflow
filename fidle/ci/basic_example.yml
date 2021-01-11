@@ -1,7 +1,8 @@
-config:
+_metadata_:
   version: '1.0'
   output_tag: ==done==
-  save_figs: true
+  save_figs: false
+  description: A basic profile example
 LINR1:
   notebook_dir: LinearReg
   notebook_src: 01-Linear-Regression.ipynb
@@ -17,13 +18,13 @@ PER57:
 #   overrides:
 #     scale: 0.1
 #     output_dir: ./data
-GTSRB2:
-  notebook_dir: GTSRB
-  notebook_src: 02-First-convolutions.ipynb
-  notebook_out: default
-  overrides:
-    run_dir: ./run/GTSRB2_ci
-    dataset_name: set-24x24-L
-    batch_size: 32
-    epochs: 3
-    scale: 0.1
+# GTSRB2:
+#   notebook_dir: GTSRB
+#   notebook_src: 02-First-convolutions.ipynb
+#   notebook_out: default
+#   overrides:
+#     run_dir: ./run/GTSRB2_ci
+#     dataset_name: set-24x24-L
+#     batch_size: 32
+#     epochs: 3
+#     scale: 0.1
