@@ -1,6 +1,6 @@
 _metadata_:
   version: '1.0'
-  output_tag: ==done==
+  output_tag: ==ci==
   save_figs: true
   description: Smart profile, for cpu
 LINR1:
@@ -48,6 +48,7 @@ GTSRB2:
   notebook_out: default
   overrides:
     run_dir: ./run/GTSRB2_ci
+    enhanced_dir: ./data
     dataset_name: set-24x24-L
     batch_size: 64
     epochs: 5
@@ -58,6 +59,7 @@ GTSRB3:
   notebook_out: default
   overrides:
     run_dir: ./run/GTSRB3_ci
+    enhanced_dir: ./data
     dataset_name: set-24x24-L
     batch_size: 64
     epochs: 5
@@ -68,16 +70,18 @@ GTSRB4:
   notebook_out: default
   overrides:
     run_dir: ./run/GTSRB4_ci
+    enhanced_dir: ./data
     dataset_name: set-24x24-L
     batch_size: 64
     epochs: 5
-    scale: 0.5
+    scale: 1
 GTSRB5:
   notebook_dir: GTSRB
   notebook_src: 05-Full-convolutions.ipynb
   notebook_out: default
   overrides:
     run_dir: ./run/GTSRB5_ci
+    enhanced_dir: ./data
     datasets: "['set-24x24-L', 'set-24x24-RGB', 'set-48x48-RGB']"
     models: "{'v1':'get_model_v1', 'v2':'get_model_v2', 'v3':'get_model_v3'}"
     batch_size: 64

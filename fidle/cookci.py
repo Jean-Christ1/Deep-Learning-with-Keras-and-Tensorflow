@@ -16,7 +16,8 @@ import sys,os
 import json
 import datetime, time
 import nbformat
-from nbconvert.preprocessors import ExecutePreprocessor
+from nbconvert.preprocessors import ExecutePreprocessor, CellExecutionError
+from asyncio import CancelledError
 import re
 import yaml
 from collections import OrderedDict
@@ -188,7 +189,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         try:
             ep = ExecutePreprocessor(timeout=600, kernel_name="python3")
             ep.preprocess(notebook)
-        except Exception as e:
+        except CellExecutionError as e:
             happy_end = False
             notebook_out = notebook_src.replace('.ipynb', '==ERROR==.ipynb')
             print('\n   ','*'*60)
@@ -279,21 +280,24 @@ def update_ci_report(filename, notebook_id, notebook_dir, notebook_src, notebook
         
     # ---- Update as a start
     if start is True:
-        report[notebook_id]             = {}
-        report[notebook_id]['dir']      = notebook_dir
-        report[notebook_id]['src']      = notebook_src
-        report[notebook_id]['out']      = notebook_out
-        report[notebook_id]['start']    = chrono_get_start('nb')
-        report[notebook_id]['end']      = ''
-        report[notebook_id]['duration'] = 'Unfinished...'
-        report[notebook_id]['state']    = 'Unfinished...'
+        report[notebook_id]              = {}
+        report[notebook_id]['dir']       = notebook_dir
+        report[notebook_id]['src']       = notebook_src
+        report[notebook_id]['out']       = notebook_out
+        report[notebook_id]['start']     = chrono_get_start('nb')
+        report[notebook_id]['end']       = ''
+        report[notebook_id]['duration']  = 'Unfinished...'
+        report[notebook_id]['state']     = 'Unfinished...'
+        report['_metadata_']['end']      = 'Unfinished...'
+        report['_metadata_']['duration'] = 'Unfinished...'
+
 
     # ---- Update as an end
     if end is True:
-        report[notebook_id]['end']      = chrono_get_end('nb')
-        report[notebook_id]['duration'] = chrono_get_delay('nb')
-        report[notebook_id]['state']    = 'ok' if happy_end else 'ERROR'
-        report[notebook_id]['out']      = notebook_out     # changeg in case of error
+        report[notebook_id]['end']       = chrono_get_end('nb')
+        report[notebook_id]['duration']  = chrono_get_delay('nb')
+        report[notebook_id]['state']     = 'ok' if happy_end else 'ERROR'
+        report[notebook_id]['out']       = notebook_out     # changeg in case of error
 
     # ---- Save it
     with open(filename,'wt') as fp:
