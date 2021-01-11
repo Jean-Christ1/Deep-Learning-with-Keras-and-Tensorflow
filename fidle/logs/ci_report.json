@@ -1,0 +1,22 @@
+{
+    "_metadata_": {
+        "version": "1.0",
+        "output_tag": "==full==",
+        "save_figs": true,
+        "description": "Full profile for GPU",
+        "host": "r10i1n1",
+        "profile": "./ci/full_gpu.yml",
+        "start": "12/01/21 00:40:34",
+        "end": "12/01/21 00:41:02",
+        "duration": "0:00:27"
+    },
+    "GTSRB2": {
+        "dir": "GTSRB",
+        "src": "02-First-convolutions.ipynb",
+        "out": "02-First-convolutions==full==.ipynb",
+        "start": "12/01/21 00:40:35",
+        "end": "12/01/21 00:41:02",
+        "duration": "0:00:27",
+        "state": "ok"
+    }
+}

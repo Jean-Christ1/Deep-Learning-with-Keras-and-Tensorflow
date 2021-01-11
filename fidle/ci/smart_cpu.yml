@@ -99,4 +99,4 @@ GTSRB7:
   notebook_out: default
   overrides:
     run_dir: ./run/GTSRB7_ci
-    report_dir: ./run/GTSRB5
+    report_dir: ./run/GTSRB5_ci
