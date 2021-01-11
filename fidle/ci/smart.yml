@@ -6,13 +6,17 @@ LINR1:
   notebook_dir: LinearReg
   notebook_src: 01-Linear-Regression.ipynb
   notebook_out: default
-GTSRB1:
-  notebook_dir: GTSRB
-  notebook_src: 01-Preparation-of-data.ipynb
+PER57:
+  notebook_dir: IRIS
+  notebook_src: 01-Simple-Perceptron.ipynb
   notebook_out: default
-  overrides:
-    scale: 0.1
-    output_dir: ./data
+# GTSRB1:
+#   notebook_dir: GTSRB
+#   notebook_src: 01-Preparation-of-data.ipynb
+#   notebook_out: default
+#   overrides:
+#     scale: 0.1
+#     output_dir: ./data
 GTSRB2:
   notebook_dir: GTSRB
   notebook_src: 02-First-convolutions.ipynb
