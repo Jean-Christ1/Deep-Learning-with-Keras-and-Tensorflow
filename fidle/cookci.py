@@ -187,7 +187,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         #
         print('    Run notebook...',end='')
         try:
-            ep = ExecutePreprocessor(timeout=600, kernel_name="python3")
+            ep = ExecutePreprocessor(timeout=6000, kernel_name="python3")
             ep.preprocess(notebook)
         except CellExecutionError as e:
             happy_end = False

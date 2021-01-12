@@ -82,6 +82,7 @@
         "description": "Episode 2 : First convolutions and first classification of our traffic signs",
         "overrides": [
             "run_dir",
+            "enhanced_dir",
             "dataset_name",
             "batch_size",
             "epochs",
@@ -96,6 +97,7 @@
         "description": "Episode 3 : Monitoring, analysis and check points during a training session",
         "overrides": [
             "run_dir",
+            "enhanced_dir",
             "dataset_name",
             "batch_size",
             "epochs",
@@ -110,6 +112,7 @@
         "description": "Episode 4 : Adding data by data augmentation when we lack it, to improve our results",
         "overrides": [
             "run_dir",
+            "enhanced_dir",
             "dataset_name",
             "batch_size",
             "epochs",
@@ -124,6 +127,7 @@
         "description": "Episode 5 : A lot of models, a lot of datasets and a lot of results.",
         "overrides": [
             "run_dir",
+            "enhanced_dir",
             "datasets",
             "models",
             "batch_size",
@@ -145,7 +149,7 @@
         "id": "GTSRB7",
         "dirname": "GTSRB",
         "basename": "07-Show-report.ipynb",
-        "title": "Batch reportss",
+        "title": "Batch reports",
         "description": "Episode 7 : Displaying our jobs report, and the winner is...",
         "overrides": [
             "run_dir",
