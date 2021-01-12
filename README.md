@@ -77,7 +77,7 @@ Episode 4 : Adding data by data augmentation when we lack it, to improve our res
 Episode 5 : A lot of models, a lot of datasets and a lot of results.
 - **[GTSRB6](GTSRB/06-Notebook-as-a-batch.ipynb)** - [Full convolutions as a batch](GTSRB/06-Notebook-as-a-batch.ipynb)  
 Episode 6 : To compute bigger, use your notebook in batch mode
-- **[GTSRB7](GTSRB/07-Show-report.ipynb)** - [Batch reportss](GTSRB/07-Show-report.ipynb)  
+- **[GTSRB7](GTSRB/07-Show-report.ipynb)** - [Batch reports](GTSRB/07-Show-report.ipynb)  
 Episode 7 : Displaying our jobs report, and the winner is...
 - **[GTSRB10](GTSRB/batch_oar.sh)** - [OAR batch script submission](GTSRB/batch_oar.sh)  
 Bash script for an OAR batch submission of an ipython code
