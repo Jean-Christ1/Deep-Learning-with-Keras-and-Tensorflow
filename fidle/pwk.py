@@ -5,17 +5,18 @@
 # | |_) | '__/ _` |/ __| __| |/ __/ _` | |  \ \ /\ / / _ \| '__| |/ /
 # |  __/| | | (_| | (__| |_| | (_| (_| | |   \ V  V / (_) | |  |   <
 # |_|   |_|  \__,_|\___|\__|_|\___\__,_|_|    \_/\_/ \___/|_|  |_|\_\
-#                                                        module pwk                                   
+#                                                   Fidle module pwk                                   
 # ==================================================================
 # A simple module to host some common functions for practical work
 # Jean-Luc Parouty 2020
 
-import os
+import os,sys
 import glob
 import shutil
 from datetime import datetime
 import itertools
 import datetime, time
+import json
 
 import math
 import numpy as np
@@ -28,49 +29,106 @@ from sklearn.metrics import confusion_matrix
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
-import seaborn as sn     #IDRIS : module en cours d'installation
 
 from IPython.display import display,Image,Markdown,HTML
 
 import fidle.config as config
 
-_save_figs = False
-_figs_dir  = './figs'
-_figs_name = 'fig_'
-_figs_id   = 0
+
+datasets_dir  = None
+notebook_id   = None
+running_mode  = None
+run_dir       = None
+
+_save_figs    = False
+_figs_dir     = './figs'
+_figs_name    = 'fig_'
+_figs_id      = 0
+
+_start_time   = None
+_end_time     = None
+_chrono_start = None
+_chrono_stop  = None
 
 # -------------------------------------------------------------
 # init_all
 # -------------------------------------------------------------
 #
-def init( mplstyle='../fidle/mplstyles/custom.mplstyle', 
-          cssfile='../fidle/css/custom.css',
-          places={ 'SOMEWHERE' : '/path/to/datasets'}):
+def init(name=None, run_directory='./run'):
+    global notebook_id
+    global datasets_dir
+    global run_dir
+    global _start_time
     
-    update_keras_cache=False
- 
-    # ---- Predifined places
+    # ---- Parameters from config.py
     #
-    predefined_places = config.locations
+    notebook_id = config.DEFAULT_NOTEBOOK_NAME if name is None else name
+    mplstyle    = config.FIDLE_MPLSTYLE
+    cssfile     = config.FIDLE_CSSFILE
     
     # ---- Load matplotlib style and css
     #
     matplotlib.style.use(mplstyle)
     load_cssfile(cssfile)
     
-    # ---- Create subdirs
+    # ---- datasets location
     #
-    mkdir('./run')
-    
-    # ---- Try to find where we are
+    datasets_dir = os.getenv('FIDLE_DATASETS_DIR', False)
+    if datasets_dir is False:
+        error_datasets_not_found()
+    # Resolve tilde...
+    datasets_dir=os.path.expanduser(datasets_dir)
+        
+    # ---- run_dir
     #
-    place_name, dataset_dir = where_we_are({**places, **predefined_places})
+    attrs   = override('run_dir', return_attributes=True)
+    run_dir = attrs.get('run_dir', run_directory)
+
+    # Solution 2, for fun ;-)
+    # run_dir = run_directory
+    # override('run_dir', module_name='__main__')
+    # override('run_dir', module_name=__name__, verbose=False)
+
+    mkdir(run_dir)
     
-    
-    # ---- If we are at IDRIS, we need to copy datasets/keras_cache to keras cache...
+    # ---- Update Keras cache
     #
-    if place_name=='Fidle at IDRIS':
-        from_dir = f'{dataset_dir}/keras_cache/*.*'
+    updated = update_keras_cache()
+    
+    # ---- Today and now
+    #
+    _start_time = datetime.datetime.now()
+    
+    # ---- Hello world
+    #
+    display_md('<br>**FIDLE 2020 - Practical Work Module**')
+    print('Version              :', config.VERSION)
+    print('Notebook id          :', notebook_id)
+    print('Run time             :', _start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('TensorFlow version   :', tf.__version__)
+    print('Keras version        :', tf.keras.__version__)
+    print('Datasets dir         :', datasets_dir)
+    print('Run dir              :', run_dir)
+    print('Update keras cache   :', updated)
+
+    # ---- Save figs or not
+    #
+    save_figs = os.getenv('FIDLE_SAVE_FIGS', str(config.SAVE_FIGS) )
+    if save_figs.lower() == 'true':
+        set_save_fig(save=True, figs_dir=f'{run_dir}/figs', figs_name='fig_', figs_id=0)
+
+    return datasets_dir
+
+# ------------------------------------------------------------------
+# Update keras cache
+# ------------------------------------------------------------------
+# Try to sync ~/.keras/cache with datasets/keras_cache
+# because sometime, we cannot access to internet... (IDRIS..)
+#
+def update_keras_cache():
+    updated = False
+    if os.path.isdir(f'{datasets_dir}/keras_cache'):
+        from_dir = f'{datasets_dir}/keras_cache/*.*'
         to_dir   = os.path.expanduser('~/.keras/datasets')
         mkdir(to_dir)
         for pathname in glob.glob(from_dir):
@@ -78,21 +136,95 @@ def init( mplstyle='../fidle/mplstyles/custom.mplstyle',
             destname=f'{to_dir}/{filename}'
             if not os.path.isfile(destname):
                 shutil.copy(pathname, destname)
-        update_keras_cache=True
-    
-    # ---- Hello world
-    print('\nFIDLE 2020 - Practical Work Module')
-    print('Version              :', config.VERSION)
-    print('Run time             : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
-    print('TensorFlow version   :',tf.__version__)
-    print('Keras version        :',tf.keras.__version__)
-    print('Current place        :',place_name )
-    print('Datasets dir         :',dataset_dir)
-    if update_keras_cache:
-        print('Update keras cache   : Done')
-    
-    return place_name, dataset_dir
+                updated=True
+    return updated
 
+# ------------------------------------------------------------------
+# Where are my datasets ?
+# ------------------------------------------------------------------
+#
+def error_datasets_not_found():        
+    display_md('## ATTENTION !!\n----')
+    print('Le dossier contenant les datasets est introuvable\n')
+    print('Pour que les notebooks puissent les localiser, vous devez :\n')
+    print('         1/ Récupérer le dossier datasets')
+    print('            Une archive (datasets.tar) est disponible via le repository Fidle.\n')
+    print("         2/ Préciser la localisation de ce dossier datasets via la variable")
+    print("            d'environnement : FIDLE_DATASETS_DIR.\n")
+    print('Exemple :')
+    print("   Dans votre fichier .bashrc :")
+    print('   export FIDLE_DATASETS_DIR=~/datasets')
+    display_md('----')
+    assert False, 'datasets folder not found, please set FIDLE_DATASETS_DIR env var.'
+
+    
+    
+def override(*names, module_name='__main__', verbose=True, return_attributes=False):
+    '''
+    Try to override attributes given par name with environment variables.
+    Environment variables name must be : FIDLE_OVERRIDE_<NOTEBOOK-ID>_<NAME>
+    If no env variable is available for a given name, nothing is change.
+    If type is str, substitution is done with 'notebook_id' and 'datasets_dir'
+    Example : override('image_size','nb_epochs')
+    params:
+       names : list of attributes names as a str list
+               if empty, all attributes can be override
+    return :
+       dict {name=new value}
+    '''
+    # ---- Where to override
+    #
+    module=sys.modules[module_name]
+    
+    # ---- No names : mean all
+    #
+    if len(names)==0:
+        names=[]
+        for name in dir(module):
+            if name.startswith('_'): continue
+            v=getattr(module,name)
+            if type(v) not in [str, int, float, bool, tuple, list, dict]: continue
+            names.append(name)
+            
+    # ---- Search for names
+    #
+    overrides={}
+    for name in names:
+        
+        # ---- Environment variable name
+        #
+        env_name  = f'FIDLE_OVERRIDE_{notebook_id}_{name}'
+        env_value = os.environ.get(env_name) 
+
+        # ---- Environment variable : Doesn't exist
+        #
+        if env_value is None: continue
+
+        # ---- Environment variable : Exist
+        #
+        value_old  = getattr(module,name)
+        value_type = type(value_old)
+        
+        if value_type in [ str ] : 
+            new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
+
+        if value_type in [ int, float, bool, tuple, list, dict]:
+            new_value = eval(env_value)
+    
+        # ---- Override value
+        #
+        setattr(module,name,new_value)
+        overrides[name]=new_value
+
+    if verbose and len(overrides)>0:
+        display_md('**\*\* Overrided parameters : \*\***')
+        for name,value in overrides.items():
+            print(f'{name:20s} : {value}')
+            
+    if return_attributes:
+        return overrides
+       
+    
 # -------------------------------------------------------------
 # Folder cooking
 # -------------------------------------------------------------
@@ -117,28 +249,6 @@ def get_directory_size(path):
             size+=os.path.getsize(path+'/'+f)
     return size/(1024*1024)
 
-# ------------------------------------------------------------------
-# Where we are ?
-# ------------------------------------------------------------------
-#
-def where_we_are(places):
-        
-    for place_name, place_dir in places.items():
-        if os.path.isdir(place_dir):
-            return place_name,place_dir
-
-    print('** ERROR ** : Le dossier datasets est introuvable\n')
-    print('              Vous devez :\n')
-    print('                 1/ Récupérer le dossier datasets')
-    print('                    Une archive (datasets.tar) est disponible via le repo Fidle.\n')
-    print("                 2/ Préciser la localisation de ce dossier datasets")
-    print("                    Soit dans le fichier fidle/config.py (préférable)")
-    print("                    Soit via un paramètre à la fonction ooo.init()\n")
-    print('   Par exemple :')
-    print("         ooo.init( places={ 'Chez-moi':'/tmp/datasets',  'Sur-mon-cluster':'/tests/datasets'}')\n")
-    print('   Note : Vous pouvez également déposer le dossier datasets directement dans votre home : ~/datasets\n\n')
-    assert False, 'datasets folder not found : Abort all.'
-
 
 # -------------------------------------------------------------
 # shuffle_dataset
@@ -156,6 +266,16 @@ def shuffle_np_dataset(x, y):
     p = np.random.permutation(len(x))
     return x[p], y[p]
 
+def rescale_dataset(*data, scale=1):
+    '''
+    Rescale numpy array with 'scale' factor
+    args:
+        *data : arrays
+        scale : scale factor
+    return:
+        arrays of rescaled data
+    '''
+    return [ d[:int(scale*len(d))] for d in data ]
 
 def update_progress(what,i,imax, redraw=False):
     """
@@ -222,7 +342,7 @@ def rmin(l):
 #
 def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1,
-                fontsize=20, save_as='auto'):
+                fontsize=20, interpolation='lanczos', save_as='auto'):
     """
     Show some images in a grid, with legends
     args:
@@ -260,7 +380,7 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 xx=x[i].reshape(lx,ly)
             else:
                 xx=x[i]
-        img=axs.imshow(xx,   cmap = cm, interpolation='lanczos')
+        img=axs.imshow(xx,   cmap = cm, interpolation=interpolation)
         axs.spines['right'].set_visible(True)
         axs.spines['left'].set_visible(True)
         axs.spines['top'].set_visible(True)
@@ -285,7 +405,7 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
     plt.show()
 
     
-def plot_image(x,cm='binary', figsize=(4,4),save_as='auto'):
+def plot_image(x,cm='binary', figsize=(4,4),interpolation='lanczos', save_as='auto'):
     """
     Draw a single image.
     Image shape can be (lx,ly), (lx,ly,1) or (lx,ly,n)
@@ -306,7 +426,7 @@ def plot_image(x,cm='binary', figsize=(4,4),save_as='auto'):
             xx=x
     # ---- Draw it
     plt.figure(figsize=figsize)
-    plt.imshow(xx,   cmap = cm, interpolation='lanczos')
+    plt.imshow(xx,   cmap = cm, interpolation=interpolation)
     save_fig(save_as)
     plt.show()
 
@@ -344,41 +464,72 @@ def plot_history(history, figsize=(8,6),
 
     
     
-# -------------------------------------------------------------
-# plot_confusion_matrix
-# -------------------------------------------------------------
-# Bug in Matplotlib 3.1.1
-#
-def plot_confusion_matrix(cm,
+def plot_confusion_matrix(y_true,y_pred,
+                          target_names,
                           title='Confusion matrix',
-                          figsize=(12,8),
-                          cmap="gist_heat_r",
-                          vmin=0,
-                          vmax=1,
-                          xticks=5,yticks=5,
-                          annot=True,
+                          cmap=None,
+                          normalize=True,
+                          figsize=(10, 8),
+                          digit_format='{:0.2f}',
                           save_as='auto'):
     """
     given a sklearn confusion matrix (cm), make a nice plot
-    Note:bug in matplotlib 3.1.1
 
-    Args:
-        cm:           confusion matrix from sklearn.metrics.confusion_matrix
-        title:        the text to display at the top of the matrix
-        figsize:      Figure size (12,8)
-        cmap:         color map (gist_heat_r)
-        vmi,vmax:     Min/max 0 and 1
-        annot:        Annotation or just colors (True)
-        
+    Arguments
+    ---------
+    cm:           confusion matrix from sklearn.metrics.confusion_matrix
+
+    target_names: given classification classes such as [0, 1, 2]
+                  the class names, for example: ['high', 'medium', 'low']
+
+    title:        the text to display at the top of the matrix
+
+    cmap:         the gradient of the values displayed from matplotlib.pyplot.cm
+                  see http://matplotlib.org/examples/color/colormaps_reference.html
+                  plt.get_cmap('jet') or plt.cm.Blues
+
+    normalize:    If False, plot the raw numbers
+                  If True, plot the proportions
+
+    Citiation
+    ---------
+    http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
+
     """
- 
+    cm = confusion_matrix( y_true,y_pred, normalize=None, labels=target_names)
+    
     accuracy = np.trace(cm) / float(np.sum(cm))
     misclass = 1 - accuracy
 
+    if cmap is None:
+        cmap = plt.get_cmap('Blues')
+
     plt.figure(figsize=figsize)
-    sn.heatmap(cm, linewidths=1, linecolor="#ffffff",square=True, 
-               cmap=cmap, xticklabels=xticks, yticklabels=yticks,
-               vmin=vmin,vmax=vmax,annot=annot)
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+
+    if target_names is not None:
+        tick_marks = np.arange(len(target_names))
+        plt.xticks(tick_marks, target_names, rotation=90)
+        plt.yticks(tick_marks, target_names)
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+
+
+    thresh = cm.max() / 1.5 if normalize else cm.max() / 2
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        if normalize:
+            plt.text(j, i, digit_format.format(cm[i, j]),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+        else:
+            plt.text(j, i, "{:,}".format(cm[i, j]),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
     save_fig(save_as)
@@ -407,7 +558,12 @@ def display_confusion_matrix(y_true,y_pred,labels=None,color='green',
     cm = confusion_matrix( y_true,y_pred, normalize="true", labels=labels)
     df=pd.DataFrame(cm)
 
-    cmap = sn.light_palette(color, as_cmap=True)
+#     cmap = sn.light_palette(color, as_cmap=True)
+
+    colorsList = ['whitesmoke','bisque']
+    cmap = matplotlib.colors.ListedColormap(colorsList)
+    cmap = matplotlib.colors.ListedColormap(cmap(np.linspace(0, 1, 256)))
+
     df.style.set_properties(**{'font-size': '20pt'})
     display(df.style.format('{:.2f}') \
             .background_gradient(cmap=cmap)
@@ -485,7 +641,7 @@ def plot_multivariate_serie(sequence, labels=None, predictions=None, only_featur
     
     
     
-def set_save_fig(save=True, figs_dir='./figs', figs_name='fig_', figs_id=0):
+def set_save_fig(save=True, figs_dir='./run/figs', figs_name='fig_', figs_id=0):
     """
     Set save_fig parameters
     Default figs name is <figs_name><figs_id>.{png|svg}
@@ -513,28 +669,60 @@ def save_fig(filename='auto', png=True, svg=False):
         svg      : Boolean. Save as svg if True (False)
     """
     global _save_figs, _figs_dir, _figs_name, _figs_id
-    if not _save_figs : return
+    if filename is None : return
+    if not _save_figs   : return
     mkdir(_figs_dir)
     if filename=='auto': 
-        path=f'{_figs_dir}/{_figs_name}{_figs_id:02d}'
+        path=f'{_figs_dir}/{notebook_id}-{_figs_name}{_figs_id:02d}'
     else:
-        path=f'{_figs_dir}/{filename}'
+        path=f'{_figs_dir}/{notebook_id}-{filename}'
     if png : plt.savefig( f'{path}.png')
     if svg : plt.savefig( f'{path}.png')
     if filename=='auto': _figs_id+=1
+    display_html(f'<div class="comment">Saved: {path}</div>')
     
 
 def subtitle(t):
     display(Markdown(f'<br>**{t}**'))
     
-def display_md(md_text):
-    display(Markdown(md_text))
+def display_md(text):
+    display(Markdown(text))
+
+def display_html(text):
+    display(HTML(text))
     
 def display_img(img):
     display(Image(img))
+
+def chrono_start():
+    global _chrono_start, _chrono_stop
+    _chrono_start=time.time()
+
+# return delay in seconds or in humain format
+def chrono_stop(hdelay=False):
+    global _chrono_start, _chrono_stop
+    _chrono_stop = time.time()
+    sec = _chrono_stop - _chrono_start
+    if hdelay : return hdelay_ms(sec)
+    return sec
+    
+def chrono_show():
+    print('\nDuration : ', hdelay_ms(time.time() - _chrono_start))
     
 def hdelay(sec):
-    return str(datetime.timedelta(seconds=int(sec)))
+    return str(datetime.timedelta(seconds=int(sec)))    
+    
+# Return human delay like 01:14:28 543ms
+# delay can be timedelta or seconds
+def hdelay_ms(delay):
+    if type(delay) is not datetime.timedelta:
+        delay=datetime.timedelta(seconds=delay)
+    sec = delay.total_seconds()
+    hh = sec // 3600
+    mm = (sec // 60) - (hh * 60)
+    ss = sec - hh*3600 - mm*60
+    ms = (sec - int(sec))*1000
+    return f'{hh:02.0f}:{mm:02.0f}:{ss:02.0f} {ms:03.0f}ms'
 
 def hsize(num, suffix='o'):
     for unit in ['','K','M','G','T','P','E','Z']:
@@ -549,14 +737,18 @@ def load_cssfile(cssfile):
     display(HTML(styles))
     
      
-        
-def np_print(*args, format={'float': '{:6.3f}'.format}):
-    with np.printoptions(formatter=format):
+def np_print(*args, precision=3, linewidth=120):
+    with np.printoptions(precision=precision, linewidth=linewidth):
         for a in args:
             print(a)
+    
      
-     
-     
-     
+def end():
+    global _end_time
+    _end_time = datetime.datetime.now()
+        
+    print('End time is :', time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('Duration is :', hdelay_ms(_end_time - _start_time))
+    print('This notebook ends here')
      
      

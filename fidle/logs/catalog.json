@@ -1,0 +1,378 @@
+{
+    "LINR1": {
+        "id": "LINR1",
+        "dirname": "LinearReg",
+        "basename": "01-Linear-Regression.ipynb",
+        "title": "Linear regression with direct resolution",
+        "description": "Low-level implementation, using numpy, of a direct resolution for a linear regression",
+        "overrides": []
+    },
+    "GRAD1": {
+        "id": "GRAD1",
+        "dirname": "LinearReg",
+        "basename": "02-Gradient-descent.ipynb",
+        "title": "Linear regression with gradient descent",
+        "description": "Low level implementation of a solution by gradient descent. Basic and stochastic approach.",
+        "overrides": []
+    },
+    "POLR1": {
+        "id": "POLR1",
+        "dirname": "LinearReg",
+        "basename": "03-Polynomial-Regression.ipynb",
+        "title": "Complexity Syndrome",
+        "description": "Illustration of the problem of complexity with the polynomial regression",
+        "overrides": []
+    },
+    "LOGR1": {
+        "id": "LOGR1",
+        "dirname": "LinearReg",
+        "basename": "04-Logistic-Regression.ipynb",
+        "title": "Logistic regression",
+        "description": "Simple example of logistic regression with a sklearn solution",
+        "overrides": []
+    },
+    "PER57": {
+        "id": "PER57",
+        "dirname": "IRIS",
+        "basename": "01-Simple-Perceptron.ipynb",
+        "title": "Perceptron Model 1957",
+        "description": "Example of use of a Perceptron, with sklearn and IRIS dataset of 1936 !",
+        "overrides": []
+    },
+    "BHPD1": {
+        "id": "BHPD1",
+        "dirname": "BHPD",
+        "basename": "01-DNN-Regression.ipynb",
+        "title": "Regression with a Dense Network (DNN)",
+        "description": "Simple example of a regression with the dataset Boston Housing Prices Dataset (BHPD)",
+        "overrides": []
+    },
+    "BHPD2": {
+        "id": "BHPD2",
+        "dirname": "BHPD",
+        "basename": "02-DNN-Regression-Premium.ipynb",
+        "title": "Regression with a Dense Network (DNN) - Advanced code",
+        "description": "A more advanced implementation of the precedent example",
+        "overrides": []
+    },
+    "MNIST1": {
+        "id": "MNIST1",
+        "dirname": "MNIST",
+        "basename": "01-DNN-MNIST.ipynb",
+        "title": "Simple classification with DNN",
+        "description": "An example of classification using a dense neural network for the famous MNIST dataset",
+        "overrides": []
+    },
+    "GTSRB1": {
+        "id": "GTSRB1",
+        "dirname": "GTSRB",
+        "basename": "01-Preparation-of-data.ipynb",
+        "title": "Dataset analysis and preparation",
+        "description": "Episode 1 : Analysis of the GTSRB dataset and creation of an enhanced dataset",
+        "overrides": [
+            "scale",
+            "output_dir"
+        ]
+    },
+    "GTSRB2": {
+        "id": "GTSRB2",
+        "dirname": "GTSRB",
+        "basename": "02-First-convolutions.ipynb",
+        "title": "First convolutions",
+        "description": "Episode 2 : First convolutions and first classification of our traffic signs",
+        "overrides": [
+            "run_dir",
+            "enhanced_dir",
+            "dataset_name",
+            "batch_size",
+            "epochs",
+            "scale"
+        ]
+    },
+    "GTSRB3": {
+        "id": "GTSRB3",
+        "dirname": "GTSRB",
+        "basename": "03-Tracking-and-visualizing.ipynb",
+        "title": "Training monitoring",
+        "description": "Episode 3 : Monitoring, analysis and check points during a training session",
+        "overrides": [
+            "run_dir",
+            "enhanced_dir",
+            "dataset_name",
+            "batch_size",
+            "epochs",
+            "scale"
+        ]
+    },
+    "GTSRB4": {
+        "id": "GTSRB4",
+        "dirname": "GTSRB",
+        "basename": "04-Data-augmentation.ipynb",
+        "title": "Data augmentation ",
+        "description": "Episode 4 : Adding data by data augmentation when we lack it, to improve our results",
+        "overrides": [
+            "run_dir",
+            "enhanced_dir",
+            "dataset_name",
+            "batch_size",
+            "epochs",
+            "scale"
+        ]
+    },
+    "GTSRB5": {
+        "id": "GTSRB5",
+        "dirname": "GTSRB",
+        "basename": "05-Full-convolutions.ipynb",
+        "title": "Full convolutions",
+        "description": "Episode 5 : A lot of models, a lot of datasets and a lot of results.",
+        "overrides": [
+            "run_dir",
+            "enhanced_dir",
+            "datasets",
+            "models",
+            "batch_size",
+            "epochs",
+            "scale",
+            "with_datagen",
+            "verbose"
+        ]
+    },
+    "GTSRB6": {
+        "id": "GTSRB6",
+        "dirname": "GTSRB",
+        "basename": "06-Notebook-as-a-batch.ipynb",
+        "title": "Full convolutions as a batch",
+        "description": "Episode 6 : To compute bigger, use your notebook in batch mode",
+        "overrides": []
+    },
+    "GTSRB7": {
+        "id": "GTSRB7",
+        "dirname": "GTSRB",
+        "basename": "07-Show-report.ipynb",
+        "title": "Batch reports",
+        "description": "Episode 7 : Displaying our jobs report, and the winner is...",
+        "overrides": [
+            "run_dir",
+            "report_dir"
+        ]
+    },
+    "GTSRB10": {
+        "id": "GTSRB10",
+        "dirname": "GTSRB",
+        "basename": "batch_oar.sh",
+        "title": "OAR batch script submission",
+        "description": "Bash script for an OAR batch submission of an ipython code",
+        "overrides": []
+    },
+    "GTSRB11": {
+        "id": "GTSRB11",
+        "dirname": "GTSRB",
+        "basename": "batch_slurm.sh",
+        "title": "SLURM batch script",
+        "description": "Bash script for a Slurm batch submission of an ipython code",
+        "overrides": []
+    },
+    "IMDB1": {
+        "id": "IMDB1",
+        "dirname": "IMDB",
+        "basename": "01-Embedding-Keras.ipynb",
+        "title": "Sentiment alalysis with text embedding",
+        "description": "A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)",
+        "overrides": []
+    },
+    "IMDB2": {
+        "id": "IMDB2",
+        "dirname": "IMDB",
+        "basename": "02-Prediction.ipynb",
+        "title": "Reload and reuse a saved model",
+        "description": "Retrieving a saved model to perform a sentiment analysis (movie review)",
+        "overrides": []
+    },
+    "IMDB3": {
+        "id": "IMDB3",
+        "dirname": "IMDB",
+        "basename": "03-LSTM-Keras.ipynb",
+        "title": "Sentiment analysis with a LSTM network",
+        "description": "Still the same problem, but with a network combining embedding and LSTM",
+        "overrides": []
+    },
+    "SYNOP1": {
+        "id": "SYNOP1",
+        "dirname": "SYNOP",
+        "basename": "01-Preparation-of-data.ipynb",
+        "title": "Preparation of data",
+        "description": "Episode 1 : Data analysis and preparation of a meteorological dataset (SYNOP)",
+        "overrides": []
+    },
+    "SYNOP2": {
+        "id": "SYNOP2",
+        "dirname": "SYNOP",
+        "basename": "02-First-predictions.ipynb",
+        "title": "First predictions at 3h",
+        "description": "Episode 2 : Learning session and weather prediction attempt at 3h",
+        "overrides": [
+            "scale",
+            "train_prop",
+            "sequence_len",
+            "batch_size",
+            "epochs"
+        ]
+    },
+    "SYNOP3": {
+        "id": "SYNOP3",
+        "dirname": "SYNOP",
+        "basename": "03-12h-predictions.ipynb",
+        "title": "12h predictions",
+        "description": "Episode 3: Attempt to predict in a more longer term ",
+        "overrides": [
+            "iterations",
+            "scale",
+            "train_prop",
+            "sequence_len",
+            "batch_size",
+            "epochs"
+        ]
+    },
+    "AE1": {
+        "id": "AE1",
+        "dirname": "AE",
+        "basename": "01-AE-with-MNIST.ipynb",
+        "title": "Building and training an AE denoiser model",
+        "description": "Episode 1 : After construction, the model is trained with noisy data from the MNIST dataset.",
+        "overrides": []
+    },
+    "AE2": {
+        "id": "AE2",
+        "dirname": "AE",
+        "basename": "02-AE-with-MNIST-post.ipynb",
+        "title": "Exploring our denoiser model",
+        "description": "Episode 2 : Using the previously trained autoencoder to denoise data",
+        "overrides": []
+    },
+    "VAE1": {
+        "id": "VAE1",
+        "dirname": "VAE",
+        "basename": "01-VAE-with-MNIST.ipynb",
+        "title": "First VAE, with a small dataset (MNIST)",
+        "description": "Construction and training of a VAE with a latent space of small dimension.",
+        "overrides": [
+            "run_dir",
+            "scale",
+            "latent_dim",
+            "r_loss_factor",
+            "batch_size",
+            "epochs"
+        ]
+    },
+    "VAE2": {
+        "id": "VAE2",
+        "dirname": "VAE",
+        "basename": "02-VAE-with-MNIST-post.ipynb",
+        "title": "Analysis of the associated latent space",
+        "description": "Visualization and analysis of the VAE's latent space",
+        "overrides": [
+            "run_dir"
+        ]
+    },
+    "VAE5": {
+        "id": "VAE5",
+        "dirname": "VAE",
+        "basename": "05-About-CelebA.ipynb",
+        "title": "Another game play : About the CelebA dataset",
+        "description": "Episode 1 : Presentation of the CelebA dataset and problems related to its size",
+        "overrides": []
+    },
+    "VAE6": {
+        "id": "VAE6",
+        "dirname": "VAE",
+        "basename": "06-Prepare-CelebA-datasets.ipynb",
+        "title": "Generation of a clustered dataset",
+        "description": "Episode 2 : Analysis of the CelebA dataset and creation of an clustered and usable dataset",
+        "overrides": [
+            "scale",
+            "scale",
+            "image_size",
+            "image_size",
+            "output_dir",
+            "output_dir"
+        ]
+    },
+    "VAE7": {
+        "id": "VAE7",
+        "dirname": "VAE",
+        "basename": "07-Check-CelebA.ipynb",
+        "title": "Checking the clustered dataset",
+        "description": "Episode : 3 Clustered dataset verification and testing of our datagenerator",
+        "overrides": [
+            "image_size",
+            "image_size",
+            "enhanced_dir",
+            "enhanced_dir"
+        ]
+    },
+    "VAE8": {
+        "id": "VAE8",
+        "dirname": "VAE",
+        "basename": "08-VAE-with-CelebA.ipynb",
+        "title": "Training session for our VAE",
+        "description": "Episode 4 : Training with our clustered datasets in notebook or batch mode",
+        "overrides": [
+            "run_dir",
+            "scale",
+            "image_size",
+            "enhanced_dir",
+            "latent_dim",
+            "r_loss_factor",
+            "batch_size",
+            "epochs"
+        ]
+    },
+    "VAE9": {
+        "id": "VAE9",
+        "dirname": "VAE",
+        "basename": "09-VAE-withCelebA-post.ipynb",
+        "title": "Data generation from latent space",
+        "description": "Episode 5 : Exploring latent space to generate new data",
+        "overrides": [
+            "run_dir",
+            "scale",
+            "scale",
+            "image_size",
+            "image_size",
+            "enhanced_dir",
+            "enhanced_dir"
+        ]
+    },
+    "VAE10": {
+        "id": "VAE10",
+        "dirname": "VAE",
+        "basename": "batch_slurm.sh",
+        "title": "SLURM batch script",
+        "description": "Bash script for SLURM batch submission of VAE8 notebooks ",
+        "overrides": []
+    },
+    "ACTF1": {
+        "id": "ACTF1",
+        "dirname": "Misc",
+        "basename": "Activation-Functions.ipynb",
+        "title": "Activation functions",
+        "description": "Some activation functions, with their derivatives.",
+        "overrides": []
+    },
+    "NP1": {
+        "id": "NP1",
+        "dirname": "Misc",
+        "basename": "Numpy.ipynb",
+        "title": "A short introduction to Numpy",
+        "description": "Numpy is an essential tool for the Scientific Python.",
+        "overrides": []
+    },
+    "TSB1": {
+        "id": "TSB1",
+        "dirname": "Misc",
+        "basename": "Using-Tensorboard.ipynb",
+        "title": "Tensorboard with/from Jupyter ",
+        "description": "4 ways to use Tensorboard from the Jupyter environment",
+        "overrides": []
+    }
+}

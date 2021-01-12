@@ -11,28 +11,32 @@
 # Few configuration stuffs for the Fidle practical work notebooks
 # Jean-Luc Parouty 2020
 
-import os
 
-# ---- Current version ---------------------------------------------
+# ---- Version -----------------------------------------------------
 #
-VERSION = '0.58'
+VERSION = '2.0'
 
-# ---- Locations ---------------------------------------------------
+# ---- Default notebook name ---------------------------------------
 #
-# A list of locations where this notebooks can be executed, with the
-# location of the datasets folder.
-# You can complete this list by adding specifics locations.
+DEFAULT_NOTEBOOK_NAME = "Unknown"
+
+# ---- Styles ------------------------------------------------------
 #
-# Syntax is : 
-#   locations = {  <location name>:<datasets path> , ...}
+FIDLE_MPLSTYLE = '../fidle/mplstyles/custom.mplstyle'
+FIDLE_CSSFILE  = '../fidle/css/custom.css'
+
+# ---- Save figs or not (yes|no)
+#      Overided by env : FIDLE_SAVE_FIGS
+#      
+SAVE_FIGS    = False
+
+# ---- Catalog file, a json description of all notebooks ------------
 #
-# Example : 
-#   locations = { 'My laptop':'/usr/local/datasets' }
+CATALOG_FILE    = '../fidle/logs/catalog.json'
+
+# ---- CI report files ----------------------------------------------
 #
-# This locations are defaults locations :
-#
-locations = { 'Fidle at GRICAD' : f"{os.getenv('SCRATCH_DIR',   'nowhere' )}/PROJECTS/pr-fidle/datasets",
-              'Fidle at IDRIS'  : "/gpfswork/rech/mlh/uja62cb/datasets",
-              'Fidle at HOME'   : f"{os.getenv('HOME',          'nowhere' )}/datasets"}
+CI_REPORT_JSON = '../fidle/logs/ci_report.json'
+CI_REPORT_HTML = '../fidle/logs/ci_report.html'
 
 # ------------------------------------------------------------------

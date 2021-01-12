@@ -14,23 +14,25 @@
 import numpy as np
 import math
 import random
-import datetime, time
+import datetime, time, sys
 
 import matplotlib
 import matplotlib.pyplot as plt
 from IPython.display import display,Markdown,HTML
 
+sys.path.append('..')
+import fidle.pwk as pwk
 
 class RegressionCooker():
     
-    __version__ = '0.1'
+    pwk     = None
+    version = '0.1'
     
-    def __init__(self, mplstyle='../fidle/mplstyles/custom.mplstyle'):
-        print('\nFIDLE 2020 - Regression Cooker')
-        print('Version      :', self.__version__)
+    def __init__(self, pwk):
+        self.pwk = pwk
+        pwk.subtitle('FIDLE 2020 - Regression Cooker')
+        print('Version      :', self.version)
         print('Run time     : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
-        if mplstyle is not None:
-            matplotlib.style.use(mplstyle)
         
 
     @classmethod
@@ -99,6 +101,7 @@ class RegressionCooker():
         print(f"X shape : {X.shape}  Y shape : {Y.shape}  plot : {nb_viz} points")
         plt.figure(figsize=(width, height))
         plt.plot(X[:nb_viz], Y[:nb_viz], '.')
+        self.pwk.save_fig('01-dataset')
         plt.show()
         self.vector_infos('X',X)
         self.vector_infos('Y',Y)
@@ -111,7 +114,9 @@ class RegressionCooker():
         if i<0:
             print( "    #i   Loss       Gradient         Theta")
         else:
-            print("  {:3d}  {:+7.3f}  {:+7.3f} {:+7.3f}  {:+7.3f} {:+7.3f}".format(i,loss,gradient.item(0),gradient.item(1),theta.item(0),theta.item(1)))
+            print("  {:3d}  {:+7.3f}  {:+7.3f} {:+7.3f}  {:+7.3f} {:+7.3f}".format(i,loss,gradient.item(0),
+                                                                                   gradient.item(1),theta.item(0),
+                                                                                   theta.item(1)))
 
             
     def __plot_XY(self, X,Y,width=12,height=6):
@@ -184,10 +189,13 @@ class RegressionCooker():
 
         # ---- Visualization
 
-        display(Markdown(f'**Visualization :**  '))
+        pwk.subtitle('Visualization :')
+        self.pwk.save_fig('02-basic_descent')
         plt.show()
-        display(Markdown(f'**Loss :**  '))
+
+        pwk.subtitle('Loss :')
         self.__plot_loss(loss)
+        self.pwk.save_fig('03-basic_descent_loss')
         plt.show()
         
         return theta
@@ -257,13 +265,17 @@ class RegressionCooker():
 #             draw_theta(epoch,mse,gradients, theta,0.1+epoch/(n_epochs+1))
 
 #         draw_theta(epoch,mse,gradients,theta,1)
-
+        
         # ---- Visualization
 
-        display(Markdown(f'**Visualization :**  '))
+        pwk.subtitle('Visualization :')
+        self.pwk.save_fig('04-minibatch_descent')
         plt.show()
-        display(Markdown(f'**Loss :**  '))
+
+        pwk.subtitle('Loss :')
         self.__plot_loss(loss)
+        self.pwk.save_fig('05-minibatch_descent_loss')
         plt.show()
+        
         
         return theta
