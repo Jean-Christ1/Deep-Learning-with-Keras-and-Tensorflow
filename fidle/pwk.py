@@ -1,4 +1,3 @@
-
 # ==================================================================
 #  ____                 _   _           _  __        __         _
 # |  _ \ _ __ __ _  ___| |_(_) ___ __ _| | \ \      / /__  _ __| | __
@@ -104,7 +103,7 @@ def init(name=None, run_directory='./run'):
     display_md('<br>**FIDLE 2020 - Practical Work Module**')
     print('Version              :', config.VERSION)
     print('Notebook id          :', notebook_id)
-    print('Run time             :', _start_time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('Run time             :', _start_time.strftime("%A %d %B %Y, %H:%M:%S"))
     print('TensorFlow version   :', tf.__version__)
     print('Keras version        :', tf.keras.__version__)
     print('Datasets dir         :', datasets_dir)
