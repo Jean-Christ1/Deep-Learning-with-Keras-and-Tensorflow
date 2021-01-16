@@ -14,7 +14,7 @@
 
 # ---- Version -----------------------------------------------------
 #
-VERSION = '2.0'
+VERSION = '2.0.1'
 
 # ---- Default notebook name ---------------------------------------
 #
@@ -39,3 +39,4 @@ CATALOG_FILE    = '../fidle/logs/catalog.json'
 CI_REPORT_JSON = '../fidle/logs/ci_report.json'
 CI_REPORT_HTML = '../fidle/logs/ci_report.html'
 
+# ------------------------------------------------------------------

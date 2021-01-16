@@ -70,7 +70,7 @@ def get_notebook_infos(filename, top_dir='..'):
     return:
         dict : with infos.
     '''
-
+    print('Read : ',filename)
     about={}
     about['id']          = '??'
     about['dirname']     = os.path.dirname(filename)
