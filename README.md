@@ -7,12 +7,27 @@
 <!-- Open the notebook: README.ipynb!                    -->
 <!-- --------------------------------------------------- -->
 
+## Session Fidle à distance (NEW !)
 
-## A propos
+Faute de pouvoir organiser des sessions en présentiel,\
+nous vous proposons une **session à distance** :-)
+
+**- Prochain rendez-vous -**
+
+|[<img width="100px" src="fidle/img/00-Fidle-a-distance-01.svg"></img>](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)<br>**Jeudi 4 févier, 14h :**<br>Episode 1 : **Introduction du cycle, Historique et concepts fondamentaux**|
+|:---|
+|Fonction de perte - Descente de gradient - Optimisation - Hyperparamètres<br>Préparation des données - Apprentissage - Validation - Sous et sur apprentissage<br>Fonctions d’activation - softmax<br>Travaux pratiques : Régression et Classification avec des DNN|
+|Durée : 3h - Paramètres de diffusion précisés 2 jours avant|
+
+A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
+Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)
+
+
+## About Fidle
 
 This repository contains all the documents and links of the **Fidle Training** .   
 Fidle (for Formation Introduction au Deep Learning) is a 2-day training session  
-co-organized by the Formation Permanente CNRS and the SARI and DEVLOG networks.  
+co-organized by the Formation Permanente CNRS and the Resinfo/SARI and DevLOG CNRS networks.  
 
 The objectives of this training are :
  - Understanding the **bases of Deep Learning** neural networks
