@@ -41,7 +41,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-2.0.4
+2.0.5
 <!-- VERSION_END -->
 
 
