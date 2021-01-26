@@ -176,7 +176,7 @@
         "id": "IMDB1",
         "dirname": "IMDB",
         "basename": "01-Embedding-Keras.ipynb",
-        "title": "Sentiment alalysis with text embedding",
+        "title": "Sentiment analysis with text embedding",
         "description": "A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)",
         "overrides": []
     },

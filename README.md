@@ -41,7 +41,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-2.0.6
+2.0.7
 <!-- VERSION_END -->
 
 
@@ -103,7 +103,7 @@ Bash script for an OAR batch submission of an ipython code
 Bash script for a Slurm batch submission of an ipython code
 
 ### Sentiment analysis with word embedding
-- **[IMDB1](IMDB/01-Embedding-Keras.ipynb)** - [Sentiment alalysis with text embedding](IMDB/01-Embedding-Keras.ipynb)  
+- **[IMDB1](IMDB/01-Embedding-Keras.ipynb)** - [Sentiment analysis with text embedding](IMDB/01-Embedding-Keras.ipynb)  
 A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)
 - **[IMDB2](IMDB/02-Prediction.ipynb)** - [Reload and reuse a saved model](IMDB/02-Prediction.ipynb)  
 Retrieving a saved model to perform a sentiment analysis (movie review)

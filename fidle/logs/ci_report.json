@@ -6,16 +6,16 @@
         "description": "Runned notebooks (done)",
         "host": "Oban",
         "profile": "./ci/full_fad_s01.yml",
-        "start": "26/01/21 16:10:38",
-        "end": "26/01/21 16:12:04",
-        "duration": "0:01:26"
+        "start": "26/01/21 19:54:16",
+        "end": "26/01/21 19:55:41",
+        "duration": "0:01:24"
     },
     "LINR1": {
         "dir": "LinearReg",
         "src": "01-Linear-Regression.ipynb",
         "out": "01-Linear-Regression==done==.ipynb",
-        "start": "26/01/21 16:10:38",
-        "end": "26/01/21 16:10:42",
+        "start": "26/01/21 19:54:16",
+        "end": "26/01/21 19:54:20",
         "duration": "0:00:04",
         "state": "ok"
     },
@@ -23,8 +23,8 @@
         "dir": "LinearReg",
         "src": "02-Gradient-descent.ipynb",
         "out": "02-Gradient-descent==done==.ipynb",
-        "start": "26/01/21 16:10:42",
-        "end": "26/01/21 16:10:50",
+        "start": "26/01/21 19:54:20",
+        "end": "26/01/21 19:54:28",
         "duration": "0:00:08",
         "state": "ok"
     },
@@ -32,8 +32,8 @@
         "dir": "LinearReg",
         "src": "03-Polynomial-Regression.ipynb",
         "out": "03-Polynomial-Regression==done==.ipynb",
-        "start": "26/01/21 16:10:50",
-        "end": "26/01/21 16:10:55",
+        "start": "26/01/21 19:54:28",
+        "end": "26/01/21 19:54:33",
         "duration": "0:00:04",
         "state": "ok"
     },
@@ -41,8 +41,8 @@
         "dir": "LinearReg",
         "src": "04-Logistic-Regression.ipynb",
         "out": "04-Logistic-Regression==done==.ipynb",
-        "start": "26/01/21 16:10:55",
-        "end": "26/01/21 16:10:59",
+        "start": "26/01/21 19:54:33",
+        "end": "26/01/21 19:54:37",
         "duration": "0:00:03",
         "state": "ok"
     },
@@ -50,8 +50,8 @@
         "dir": "IRIS",
         "src": "01-Simple-Perceptron.ipynb",
         "out": "01-Simple-Perceptron==done==.ipynb",
-        "start": "26/01/21 16:10:59",
-        "end": "26/01/21 16:11:02",
+        "start": "26/01/21 19:54:37",
+        "end": "26/01/21 19:54:40",
         "duration": "0:00:02",
         "state": "ok"
     },
@@ -59,8 +59,8 @@
         "dir": "BHPD",
         "src": "01-DNN-Regression.ipynb",
         "out": "01-DNN-Regression==done==.ipynb",
-        "start": "26/01/21 16:11:02",
-        "end": "26/01/21 16:11:11",
+        "start": "26/01/21 19:54:40",
+        "end": "26/01/21 19:54:49",
         "duration": "0:00:09",
         "state": "ok"
     },
@@ -68,18 +68,18 @@
         "dir": "BHPD",
         "src": "02-DNN-Regression-Premium.ipynb",
         "out": "02-DNN-Regression-Premium==done==.ipynb",
-        "start": "26/01/21 16:11:11",
-        "end": "26/01/21 16:11:24",
-        "duration": "0:00:13",
+        "start": "26/01/21 19:54:49",
+        "end": "26/01/21 19:55:01",
+        "duration": "0:00:11",
         "state": "ok"
     },
     "MNIST1": {
         "dir": "MNIST",
         "src": "01-DNN-MNIST.ipynb",
         "out": "01-DNN-MNIST==done==.ipynb",
-        "start": "26/01/21 16:11:24",
-        "end": "26/01/21 16:12:04",
-        "duration": "0:00:40",
+        "start": "26/01/21 19:55:01",
+        "end": "26/01/21 19:55:40",
+        "duration": "0:00:39",
         "state": "ok"
     }
 }

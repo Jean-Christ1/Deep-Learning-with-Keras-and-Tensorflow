@@ -32,7 +32,7 @@ class RegressionCooker():
         self.pwk = pwk
         pwk.subtitle('FIDLE 2020 - Regression Cooker')
         print('Version      :', self.version)
-        print('Run time     : {}'.format(time.strftime("%A %-d %B %Y, %H:%M:%S")))
+        print('Run time     : {}'.format(time.strftime("%A %d %B %Y, %H:%M:%S")))
         
 
     @classmethod
