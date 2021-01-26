@@ -746,7 +746,7 @@ def end():
     global _end_time
     _end_time = datetime.datetime.now()
         
-    print('End time is :', time.strftime("%A %-d %B %Y, %H:%M:%S"))
+    print('End time is :', time.strftime("%A %d %B %Y, %H:%M:%S"))
     print('Duration is :', hdelay_ms(_end_time - _start_time))
     print('This notebook ends here')
      
