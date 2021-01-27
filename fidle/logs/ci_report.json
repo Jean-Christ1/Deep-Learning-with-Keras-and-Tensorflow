@@ -3,83 +3,351 @@
         "version": "1.0",
         "output_tag": "==done==",
         "save_figs": true,
-        "description": "Runned notebooks (done)",
-        "host": "Oban",
-        "profile": "./ci/full_fad_s01.yml",
-        "start": "26/01/21 19:54:16",
-        "end": "26/01/21 19:55:41",
-        "duration": "0:01:24"
+        "description": "Full profile for GPU",
+        "host": "r11i2n4",
+        "profile": "./ci/full_gpu.yml",
+        "start": "27/01/21 18:20:51",
+        "end": "27/01/21 20:34:28",
+        "duration": "2:13:37"
     },
     "LINR1": {
+        "id": "LINR1",
         "dir": "LinearReg",
         "src": "01-Linear-Regression.ipynb",
         "out": "01-Linear-Regression==done==.ipynb",
-        "start": "26/01/21 19:54:16",
-        "end": "26/01/21 19:54:20",
-        "duration": "0:00:04",
+        "start": "27/01/21 18:20:51",
+        "end": "27/01/21 18:21:10",
+        "duration": "0:00:18",
         "state": "ok"
     },
     "GRAD1": {
+        "id": "GRAD1",
         "dir": "LinearReg",
         "src": "02-Gradient-descent.ipynb",
         "out": "02-Gradient-descent==done==.ipynb",
-        "start": "26/01/21 19:54:20",
-        "end": "26/01/21 19:54:28",
-        "duration": "0:00:08",
-        "state": "ok"
-    },
-    "POLR1": {
-        "dir": "LinearReg",
-        "src": "03-Polynomial-Regression.ipynb",
-        "out": "03-Polynomial-Regression==done==.ipynb",
-        "start": "26/01/21 19:54:28",
-        "end": "26/01/21 19:54:33",
-        "duration": "0:00:04",
-        "state": "ok"
-    },
-    "LOGR1": {
-        "dir": "LinearReg",
-        "src": "04-Logistic-Regression.ipynb",
-        "out": "04-Logistic-Regression==done==.ipynb",
-        "start": "26/01/21 19:54:33",
-        "end": "26/01/21 19:54:37",
-        "duration": "0:00:03",
-        "state": "ok"
-    },
-    "PER57": {
-        "dir": "IRIS",
-        "src": "01-Simple-Perceptron.ipynb",
-        "out": "01-Simple-Perceptron==done==.ipynb",
-        "start": "26/01/21 19:54:37",
-        "end": "26/01/21 19:54:40",
-        "duration": "0:00:02",
-        "state": "ok"
-    },
-    "BHPD1": {
-        "dir": "BHPD",
-        "src": "01-DNN-Regression.ipynb",
-        "out": "01-DNN-Regression==done==.ipynb",
-        "start": "26/01/21 19:54:40",
-        "end": "26/01/21 19:54:49",
-        "duration": "0:00:09",
-        "state": "ok"
-    },
-    "BHPD2": {
-        "dir": "BHPD",
-        "src": "02-DNN-Regression-Premium.ipynb",
-        "out": "02-DNN-Regression-Premium==done==.ipynb",
-        "start": "26/01/21 19:54:49",
-        "end": "26/01/21 19:55:01",
+        "start": "27/01/21 18:21:10",
+        "end": "27/01/21 18:21:22",
         "duration": "0:00:11",
         "state": "ok"
     },
+    "POLR1": {
+        "id": "POLR1",
+        "dir": "LinearReg",
+        "src": "03-Polynomial-Regression.ipynb",
+        "out": "03-Polynomial-Regression==done==.ipynb",
+        "start": "27/01/21 18:21:22",
+        "end": "27/01/21 18:21:30",
+        "duration": "0:00:08",
+        "state": "ok"
+    },
+    "LOGR1": {
+        "id": "LOGR1",
+        "dir": "LinearReg",
+        "src": "04-Logistic-Regression.ipynb",
+        "out": "04-Logistic-Regression==done==.ipynb",
+        "start": "27/01/21 18:21:30",
+        "end": "27/01/21 18:21:36",
+        "duration": "0:00:06",
+        "state": "ok"
+    },
+    "PER57": {
+        "id": "PER57",
+        "dir": "IRIS",
+        "src": "01-Simple-Perceptron.ipynb",
+        "out": "01-Simple-Perceptron==done==.ipynb",
+        "start": "27/01/21 18:21:37",
+        "end": "27/01/21 18:21:42",
+        "duration": "0:00:05",
+        "state": "ok"
+    },
+    "BHPD1": {
+        "id": "BHPD1",
+        "dir": "BHPD",
+        "src": "01-DNN-Regression.ipynb",
+        "out": "01-DNN-Regression==done==.ipynb",
+        "start": "27/01/21 18:21:42",
+        "end": "27/01/21 18:21:56",
+        "duration": "0:00:14",
+        "state": "ok"
+    },
+    "BHPD2": {
+        "id": "BHPD2",
+        "dir": "BHPD",
+        "src": "02-DNN-Regression-Premium.ipynb",
+        "out": "02-DNN-Regression-Premium==done==.ipynb",
+        "start": "27/01/21 18:21:56",
+        "end": "27/01/21 18:22:18",
+        "duration": "0:00:21",
+        "state": "ok"
+    },
     "MNIST1": {
+        "id": "MNIST1",
         "dir": "MNIST",
         "src": "01-DNN-MNIST.ipynb",
         "out": "01-DNN-MNIST==done==.ipynb",
-        "start": "26/01/21 19:55:01",
-        "end": "26/01/21 19:55:40",
-        "duration": "0:00:39",
+        "start": "27/01/21 18:22:18",
+        "end": "27/01/21 18:23:06",
+        "duration": "0:00:47",
+        "state": "ok"
+    },
+    "GTSRB1": {
+        "id": "GTSRB1",
+        "dir": "GTSRB",
+        "src": "01-Preparation-of-data.ipynb",
+        "out": "01-Preparation-of-data==done==.ipynb",
+        "start": "27/01/21 18:23:06",
+        "end": "27/01/21 18:27:28",
+        "duration": "0:04:22",
+        "state": "ok"
+    },
+    "GTSRB2": {
+        "id": "GTSRB2",
+        "dir": "GTSRB",
+        "src": "02-First-convolutions.ipynb",
+        "out": "02-First-convolutions==done==.ipynb",
+        "start": "27/01/21 18:27:29",
+        "end": "27/01/21 18:27:59",
+        "duration": "0:00:29",
+        "state": "ok"
+    },
+    "GTSRB3": {
+        "id": "GTSRB3",
+        "dir": "GTSRB",
+        "src": "03-Tracking-and-visualizing.ipynb",
+        "out": "03-Tracking-and-visualizing==done==.ipynb",
+        "start": "27/01/21 18:27:59",
+        "end": "27/01/21 18:28:51",
+        "duration": "0:00:52",
+        "state": "ok"
+    },
+    "GTSRB4": {
+        "id": "GTSRB4",
+        "dir": "GTSRB",
+        "src": "04-Data-augmentation.ipynb",
+        "out": "04-Data-augmentation==done==.ipynb",
+        "start": "27/01/21 18:28:51",
+        "end": "27/01/21 18:30:10",
+        "duration": "0:01:19",
+        "state": "ok"
+    },
+    "GTSRB5_r1": {
+        "id": "GTSRB5",
+        "dir": "GTSRB",
+        "src": "05-Full-convolutions.ipynb",
+        "out": "05-Full-convolutions=1==done==.ipynb",
+        "start": "27/01/21 18:30:11",
+        "end": "27/01/21 19:03:51",
+        "duration": "0:33:39",
+        "state": "ok"
+    },
+    "GTSRB5_r2": {
+        "id": "GTSRB5",
+        "dir": "GTSRB",
+        "src": "05-Full-convolutions.ipynb",
+        "out": "05-Full-convolutions=2==done==.ipynb",
+        "start": "27/01/21 19:03:51",
+        "end": "27/01/21 19:11:10",
+        "duration": "0:07:19",
+        "state": "ok"
+    },
+    "GTSRB6": {
+        "id": "GTSRB6",
+        "dir": "GTSRB",
+        "src": "06-Notebook-as-a-batch.ipynb",
+        "out": "06-Notebook-as-a-batch==done==.ipynb",
+        "start": "27/01/21 19:11:10",
+        "end": "27/01/21 19:11:16",
+        "duration": "0:00:05",
+        "state": "ok"
+    },
+    "GTSRB7": {
+        "id": "GTSRB7",
+        "dir": "GTSRB",
+        "src": "07-Show-report.ipynb",
+        "out": "07-Show-report==done==.ipynb",
+        "start": "27/01/21 19:11:16",
+        "end": "27/01/21 19:11:19",
+        "duration": "0:00:03",
+        "state": "ok"
+    },
+    "IMDB1": {
+        "id": "IMDB1",
+        "dir": "IMDB",
+        "src": "01-Embedding-Keras.ipynb",
+        "out": "01-Embedding-Keras==done==.ipynb",
+        "start": "27/01/21 19:11:19",
+        "end": "27/01/21 19:12:09",
+        "duration": "0:00:49",
+        "state": "ok"
+    },
+    "IMDB2": {
+        "id": "IMDB1",
+        "dir": "IMDB",
+        "src": "02-Prediction.ipynb",
+        "out": "02-Prediction==done==.ipynb",
+        "start": "27/01/21 19:12:09",
+        "end": "27/01/21 19:12:14",
+        "duration": "0:00:05",
+        "state": "ok"
+    },
+    "IMDB3": {
+        "id": "IMDB1",
+        "dir": "IMDB",
+        "src": "03-LSTM-Keras.ipynb",
+        "out": "03-LSTM-Keras==done==.ipynb",
+        "start": "27/01/21 19:12:14",
+        "end": "27/01/21 19:19:52",
+        "duration": "0:07:37",
+        "state": "ok"
+    },
+    "SYNOP1": {
+        "id": "SYNOP1",
+        "dir": "SYNOP",
+        "src": "01-Preparation-of-data.ipynb",
+        "out": "01-Preparation-of-data==done==.ipynb",
+        "start": "27/01/21 19:19:53",
+        "end": "27/01/21 19:20:08",
+        "duration": "0:00:15",
+        "state": "ok"
+    },
+    "SYNOP2": {
+        "id": "SYNOP2",
+        "dir": "SYNOP",
+        "src": "02-First-predictions.ipynb",
+        "out": "02-First-predictions==done==.ipynb",
+        "start": "27/01/21 19:20:08",
+        "end": "27/01/21 19:22:26",
+        "duration": "0:02:17",
+        "state": "ok"
+    },
+    "SYNOP3": {
+        "id": "SYNOP3",
+        "dir": "SYNOP",
+        "src": "03-12h-predictions.ipynb",
+        "out": "03-12h-predictions==done==.ipynb",
+        "start": "27/01/21 19:22:26",
+        "end": "27/01/21 19:22:46",
+        "duration": "0:00:19",
+        "state": "ok"
+    },
+    "AE1": {
+        "id": "AE1",
+        "dir": "AE",
+        "src": "01-AE-with-MNIST.ipynb",
+        "out": "01-AE-with-MNIST==done==.ipynb",
+        "start": "27/01/21 19:22:46",
+        "end": "27/01/21 19:25:05",
+        "duration": "0:02:18",
+        "state": "ok"
+    },
+    "AE2": {
+        "id": "AE2",
+        "dir": "AE",
+        "src": "02-AE-with-MNIST-post.ipynb",
+        "out": "02-AE-with-MNIST-post==done==.ipynb",
+        "start": "27/01/21 19:25:05",
+        "end": "27/01/21 19:25:15",
+        "duration": "0:00:10",
+        "state": "ok"
+    },
+    "VAE1": {
+        "id": "VAE1",
+        "dir": "VAE",
+        "src": "01-VAE-with-MNIST.ipynb",
+        "out": "01-VAE-with-MNIST==done==.ipynb",
+        "start": "27/01/21 19:25:15",
+        "end": "27/01/21 19:26:32",
+        "duration": "0:01:16",
+        "state": "ok"
+    },
+    "VAE2": {
+        "id": "VAE2",
+        "dir": "VAE",
+        "src": "02-VAE-with-MNIST-post.ipynb",
+        "out": "02-VAE-with-MNIST-post==done==.ipynb",
+        "start": "27/01/21 19:26:32",
+        "end": "27/01/21 19:27:26",
+        "duration": "0:00:53",
+        "state": "ok"
+    },
+    "VAE5": {
+        "id": "VAE5",
+        "dir": "VAE",
+        "src": "05-About-CelebA.ipynb",
+        "out": "05-About-CelebA==done==.ipynb",
+        "start": "27/01/21 19:27:26",
+        "end": "27/01/21 19:27:53",
+        "duration": "0:00:26",
+        "state": "ok"
+    },
+    "VAE6": {
+        "id": "VAE6",
+        "dir": "VAE",
+        "src": "06-Prepare-CelebA-datasets.ipynb",
+        "out": "06-Prepare-CelebA-datasets==done==.ipynb",
+        "start": "27/01/21 19:27:53",
+        "end": "27/01/21 19:29:09",
+        "duration": "0:01:15",
+        "state": "ok"
+    },
+    "VAE7": {
+        "id": "VAE7",
+        "dir": "VAE",
+        "src": "07-Check-CelebA.ipynb",
+        "out": "07-Check-CelebA==done==.ipynb",
+        "start": "27/01/21 19:29:09",
+        "end": "27/01/21 19:30:24",
+        "duration": "0:01:15",
+        "state": "ok"
+    },
+    "VAE8": {
+        "id": "VAE8",
+        "dir": "VAE",
+        "src": "08-VAE-with-CelebA.ipynb",
+        "out": "08-VAE-with-CelebA==done==.ipynb",
+        "start": "27/01/21 19:30:24",
+        "end": "27/01/21 20:32:31",
+        "duration": "1:02:06",
+        "state": "ok"
+    },
+    "VAE9": {
+        "id": "VAE9",
+        "dir": "VAE",
+        "src": "09-VAE-with-CelebA-post.ipynb",
+        "out": "09-VAE-with-CelebA-post==done==.ipynb",
+        "start": "27/01/21 20:32:36",
+        "end": "27/01/21 20:34:14",
+        "duration": "0:01:37",
+        "state": "ok"
+    },
+    "ACTF1": {
+        "id": "ACTF1",
+        "dir": "Misc",
+        "src": "Activation-Functions.ipynb",
+        "out": "Activation-Functions==done==.ipynb",
+        "start": "27/01/21 20:34:14",
+        "end": "27/01/21 20:34:26",
+        "duration": "0:00:12",
+        "state": "ok"
+    },
+    "NP1": {
+        "id": "NP1",
+        "dir": "Misc",
+        "src": "Numpy.ipynb",
+        "out": "Numpy==done==.ipynb",
+        "start": "27/01/21 20:34:26",
+        "end": "27/01/21 20:34:27",
+        "duration": "0:00:01",
+        "state": "ok"
+    },
+    "TSB1": {
+        "id": "TSB1",
+        "dir": "Misc",
+        "src": "Using-Tensorboard.ipynb",
+        "out": "Using-Tensorboard==done==.ipynb",
+        "start": "27/01/21 20:34:27",
+        "end": "27/01/21 20:34:28",
+        "duration": "0:00:00",
         "state": "ok"
     }
 }

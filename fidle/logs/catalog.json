@@ -290,11 +290,10 @@
         "description": "Episode 2 : Analysis of the CelebA dataset and creation of an clustered and usable dataset",
         "overrides": [
             "scale",
-            "scale",
-            "image_size",
+            "cluster_size",
             "image_size",
             "output_dir",
-            "output_dir"
+            "exit_if_exist"
         ]
     },
     "VAE7": {
@@ -305,8 +304,6 @@
         "description": "Episode : 3 Clustered dataset verification and testing of our datagenerator",
         "overrides": [
             "image_size",
-            "image_size",
-            "enhanced_dir",
             "enhanced_dir"
         ]
     },
@@ -330,16 +327,12 @@
     "VAE9": {
         "id": "VAE9",
         "dirname": "VAE",
-        "basename": "09-VAE-withCelebA-post.ipynb",
+        "basename": "09-VAE-with-CelebA-post.ipynb",
         "title": "Data generation from latent space",
         "description": "Episode 5 : Exploring latent space to generate new data",
         "overrides": [
             "run_dir",
-            "scale",
-            "scale",
             "image_size",
-            "image_size",
-            "enhanced_dir",
             "enhanced_dir"
         ]
     },

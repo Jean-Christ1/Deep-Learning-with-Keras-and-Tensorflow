@@ -33,9 +33,9 @@ VERSION = '1.0'
 start_time = {}
 end_time   = {}
 
-def get_ci_profile(catalog=None, output_tag='==done==', save_figs=True):
+def get_default_profile(catalog=None, output_tag='==done==', save_figs=True):
     '''
-    Return a profile for continous integration.
+    Return a default profile for continous integration.
     Ce profile contient une liste des notebooks avec les paramètres modifiables.
     Il peut être modifié et sauvegardé, puis être utilisé pour lancer l'éxécution
     des notebooks.
@@ -64,13 +64,14 @@ def get_ci_profile(catalog=None, output_tag='==done==', save_figs=True):
         overrides = about.get('overrides',None)
     
         notebook = {}
+        notebook['notebook_id']  = id
         notebook['notebook_dir'] = dirname
         notebook['notebook_src'] = basename
-        notebook['notebook_out'] = 'default'
+        notebook['notebook_tag'] = 'default'
         if len(overrides)>0:
             notebook['overrides']={ name:'default' for name in overrides }
                     
-        profile[id]=notebook
+        profile[f'Nb_{id}']=notebook
         
     return profile
 
@@ -138,21 +139,24 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
 
     # ---- For each notebook
     #
-    for id,about in notebooks.items():
+    for run_id,about in notebooks.items():
         
-        print(f'\nNotebook : {id}')
+        print(f'\nRun : {run_id}')
 
         # ---- Get notebook infos ---------------------------------------------
         #
+        notebook_id  = about['notebook_id']
         notebook_dir = about['notebook_dir']
         notebook_src = about['notebook_src']
-        notebook_out = about['notebook_out']
+        notebook_tag = about['notebook_tag']
         overrides    = about.get('overrides',None)
 
-        # ---- notebook_out (Default)
+        # ---- notebook_out
         #
-        if notebook_out=='default':
+        if notebook_tag=='default':
             notebook_out = notebook_src.replace('.ipynb', config['output_tag']+'.ipynb')
+        else:
+            notebook_out = notebook_src.replace('.ipynb', notebook_tag+'.ipynb')
                 
         # ---- Override ------------------------------------------------------- 
         
@@ -163,7 +167,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
                 # ---- Default : no nothing
                 if value=='default' : continue
                 #  ---- Set env
-                env_name  = f'FIDLE_OVERRIDE_{id.upper()}_{name}'
+                env_name  = f'FIDLE_OVERRIDE_{notebook_id.upper()}_{name}'
                 env_value = str(value)
                 os.environ[env_name] = env_value
                 # ---- For cleaning
@@ -181,7 +185,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         # ---- Top chrono
         #
         chrono_start('nb')
-        update_ci_report(report_name, id, notebook_dir, notebook_src, notebook_out, start=True)
+        update_ci_report(report_name, run_id, notebook_id, notebook_dir, notebook_src, notebook_out, start=True)
         
         # ---- Try to run...
         #
@@ -203,7 +207,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         # ---- Top chrono
         #
         chrono_stop('nb')        
-        update_ci_report(report_name, id, notebook_dir, notebook_src, notebook_out, end=True, happy_end=happy_end)
+        update_ci_report(report_name, run_id, notebook_id, notebook_dir, notebook_src, notebook_out, end=True, happy_end=happy_end)
         print('    Duration : ',chrono_get_delay('nb') )
     
         # ---- Save notebook
@@ -271,7 +275,7 @@ def complete_ci_report(filename, verbose=True):
         json.dump(report,fp,indent=4)
     if verbose : print(f'\nComplete ci report : {filename}')
         
-def update_ci_report(filename, notebook_id, notebook_dir, notebook_src, notebook_out, start=False, end=False, happy_end=True):
+def update_ci_report(filename, run_id, notebook_id, notebook_dir, notebook_src, notebook_out, start=False, end=False, happy_end=True):
     global start_time, end_time
     
     # ---- Load it
@@ -280,24 +284,25 @@ def update_ci_report(filename, notebook_id, notebook_dir, notebook_src, notebook
         
     # ---- Update as a start
     if start is True:
-        report[notebook_id]              = {}
-        report[notebook_id]['dir']       = notebook_dir
-        report[notebook_id]['src']       = notebook_src
-        report[notebook_id]['out']       = notebook_out
-        report[notebook_id]['start']     = chrono_get_start('nb')
-        report[notebook_id]['end']       = ''
-        report[notebook_id]['duration']  = 'Unfinished...'
-        report[notebook_id]['state']     = 'Unfinished...'
+        report[run_id]              = {}
+        report[run_id]['id']        = notebook_id
+        report[run_id]['dir']       = notebook_dir
+        report[run_id]['src']       = notebook_src
+        report[run_id]['out']       = notebook_out
+        report[run_id]['start']     = chrono_get_start('nb')
+        report[run_id]['end']       = ''
+        report[run_id]['duration']  = 'Unfinished...'
+        report[run_id]['state']     = 'Unfinished...'
         report['_metadata_']['end']      = 'Unfinished...'
         report['_metadata_']['duration'] = 'Unfinished...'
 
 
     # ---- Update as an end
     if end is True:
-        report[notebook_id]['end']       = chrono_get_end('nb')
-        report[notebook_id]['duration']  = chrono_get_delay('nb')
-        report[notebook_id]['state']     = 'ok' if happy_end else 'ERROR'
-        report[notebook_id]['out']       = notebook_out     # changeg in case of error
+        report[run_id]['end']       = chrono_get_end('nb')
+        report[run_id]['duration']  = chrono_get_delay('nb')
+        report[run_id]['state']     = 'ok' if happy_end else 'ERROR'
+        report[run_id]['out']       = notebook_out     # changeg in case of error
 
     # ---- Save it
     with open(filename,'wt') as fp:
@@ -329,7 +334,7 @@ def build_ci_report(report_name=None, display_output=True, save_html=True):
     #
     df=pd.DataFrame(ci_report)
     df=df.transpose()
-    df = df.rename_axis('id').reset_index()
+    df = df.rename_axis('Run').reset_index()
 
     # ---- Few styles to be nice
     #

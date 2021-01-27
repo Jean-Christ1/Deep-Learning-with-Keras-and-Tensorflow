@@ -4,48 +4,58 @@ _metadata_:
   save_figs: true
   description: Smart profile, for cpu
 LINR1:
+  notebook_id: LINR1
   notebook_dir: LinearReg
   notebook_src: 01-Linear-Regression.ipynb
-  notebook_out: default
+  notebook_tag: default
 GRAD1:
+  notebook_id: GRAD1
   notebook_dir: LinearReg
   notebook_src: 02-Gradient-descent.ipynb
-  notebook_out: default
+  notebook_tag: default
 POLR1:
+  notebook_id: POLR1
   notebook_dir: LinearReg
   notebook_src: 03-Polynomial-Regression.ipynb
-  notebook_out: default
+  notebook_tag: default
 LOGR1:
+  notebook_id: LOGR1
   notebook_dir: LinearReg
   notebook_src: 04-Logistic-Regression.ipynb
-  notebook_out: default
+  notebook_tag: default
 PER57:
+  notebook_id: PER57
   notebook_dir: IRIS
   notebook_src: 01-Simple-Perceptron.ipynb
-  notebook_out: default
+  notebook_tag: default
 BHPD1:
+  notebook_id: BHPD1
   notebook_dir: BHPD
   notebook_src: 01-DNN-Regression.ipynb
-  notebook_out: default
+  notebook_tag: default
 BHPD2:
+  notebook_id: BHPH2
   notebook_dir: BHPD
   notebook_src: 02-DNN-Regression-Premium.ipynb
-  notebook_out: default
+  notebook_tag: default
 MNIST1:
+  notebook_id: MNIST1
   notebook_dir: MNIST
   notebook_src: 01-DNN-MNIST.ipynb
-  notebook_out: default
+  notebook_tag: default
 GTSRB1:
+  notebook_id: GTSRG1
   notebook_dir: GTSRB
   notebook_src: 01-Preparation-of-data.ipynb
-  notebook_out: default
+  notebook_tag: default
   overrides:
     scale: 0.05
     output_dir: ./data
 GTSRB2:
+  notebook_id: GTSRB2
   notebook_dir: GTSRB
   notebook_src: 02-First-convolutions.ipynb
-  notebook_out: default
+  notebook_tag: default
   overrides:
     run_dir: ./run/GTSRB2_ci
     enhanced_dir: ./data
@@ -54,9 +64,10 @@ GTSRB2:
     epochs: 5
     scale: 1
 GTSRB3:
+  notebook_id: GTSRB3
   notebook_dir: GTSRB
   notebook_src: 03-Tracking-and-visualizing.ipynb
-  notebook_out: default
+  notebook_tag: default
   overrides:
     run_dir: ./run/GTSRB3_ci
     enhanced_dir: ./data
@@ -65,9 +76,10 @@ GTSRB3:
     epochs: 5
     scale: 1
 GTSRB4:
+  notebook_id: GTSRB4
   notebook_dir: GTSRB
   notebook_src: 04-Data-augmentation.ipynb
-  notebook_out: default
+  notebook_tag: default
   overrides:
     run_dir: ./run/GTSRB4_ci
     enhanced_dir: ./data
@@ -76,9 +88,10 @@ GTSRB4:
     epochs: 5
     scale: 1
 GTSRB5:
+  notebook_id: GTSRB5
   notebook_dir: GTSRB
   notebook_src: 05-Full-convolutions.ipynb
-  notebook_out: default
+  notebook_tag: default
   overrides:
     run_dir: ./run/GTSRB5_ci
     enhanced_dir: ./data
@@ -90,13 +103,15 @@ GTSRB5:
     with_datagen: True
     verbose: 0
 GTSRB6:
+  notebook_id: GTSRB6
   notebook_dir: GTSRB
   notebook_src: 06-Notebook-as-a-batch.ipynb
-  notebook_out: default
+  notebook_tag: default
 GTSRB7:
+  notebook_id: GTSRB7
   notebook_dir: GTSRB
   notebook_src: 07-Show-report.ipynb
-  notebook_out: default
+  notebook_tag: default
   overrides:
     run_dir: ./run/GTSRB7_ci
     report_dir: ./run/GTSRB5_ci
