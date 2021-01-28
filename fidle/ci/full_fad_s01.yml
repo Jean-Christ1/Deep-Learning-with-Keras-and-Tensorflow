@@ -1,6 +1,6 @@
 _metadata_:
   version: '1.0'
-  output_tag: ==done==
+  output_tag: ==ci==
   save_figs: true
   description: Runned notebooks (done)
 LINR1:
@@ -8,16 +8,11 @@ LINR1:
   notebook_dir: LinearReg
   notebook_src: 01-Linear-Regression.ipynb
   notebook_tag: default
-GRAD1_r1:
+GRAD1:
   notebook_id: GRAD1
   notebook_dir: LinearReg
   notebook_src: 02-Gradient-descent.ipynb
-  notebook_tag: =1==done==
-GRAD1_r2:
-  notebook_id: GRAD1
-  notebook_dir: LinearReg
-  notebook_src: 02-Gradient-descent.ipynb
-  notebook_tag: =2==done==
+  notebook_tag: default
 POLR1:
   notebook_id: POLR1
   notebook_dir: LinearReg

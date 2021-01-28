@@ -33,6 +33,10 @@ VERSION = '1.0'
 start_time = {}
 end_time   = {}
 
+_report_filename = None
+_error_filename  = None
+
+
 def get_default_profile(catalog=None, output_tag='==done==', save_figs=True):
     '''
     Return a default profile for continous integration.
@@ -93,7 +97,7 @@ def load_profile(filename):
         return profile
     
     
-def run_profile(profile_name, report_name=None, top_dir='..'):
+def run_profile(profile_name, report_name=None, error_name=None, top_dir='..'):
     '''
     Récupère la liste des notebooks et des paramètres associés,
     décrit dans le profile, et pour chaque notebook :
@@ -106,7 +110,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         report_name : Nom du rapport json généré
         top_dir : chemin relatif vers la racine fidle (..)
     '''
-
+    
     print('\nRun profile session - FIDLE 2021')
     print(f'Version : {VERSION}')
     
@@ -119,15 +123,12 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
     notebooks = profile
     del notebooks['_metadata_']   
     
-    # ---- Create new ci_report
+    # ---- Report file
     #
     metadata = config
     metadata['host']    = os.uname()[1]
     metadata['profile'] = profile_name
-    if report_name is None:
-        report_name = config.CI_REPORT_JSON
-    report_name = os.path.abspath(report_name)
-    create_ci_report(report_name, metadata)
+    init_ci_report(report_name, error_name, metadata)
     
     # ---- My place
     #
@@ -185,7 +186,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         # ---- Top chrono
         #
         chrono_start('nb')
-        update_ci_report(report_name, run_id, notebook_id, notebook_dir, notebook_src, notebook_out, start=True)
+        update_ci_report(run_id, notebook_id, notebook_dir, notebook_src, notebook_out, start=True)
         
         # ---- Try to run...
         #
@@ -207,7 +208,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
         # ---- Top chrono
         #
         chrono_stop('nb')        
-        update_ci_report(report_name, run_id, notebook_id, notebook_dir, notebook_src, notebook_out, end=True, happy_end=happy_end)
+        update_ci_report(run_id, notebook_id, notebook_dir, notebook_src, notebook_out, end=True, happy_end=happy_end)
         print('    Duration : ',chrono_get_delay('nb') )
     
         # ---- Save notebook
@@ -226,7 +227,7 @@ def run_profile(profile_name, report_name=None, top_dir='..'):
     chrono_stop('main')
     print('\nEnd of running process')
     print('    Duration :', chrono_get_delay('main'))
-    complete_ci_report(report_name)
+    complete_ci_report()
     
     
 def chrono_start(id='default'):
@@ -259,27 +260,59 @@ def reset_chrono():
     start_time, end_time = {},{}
     
 
-def create_ci_report(filename, metadata, verbose=True):
+def init_ci_report(report_filename, error_filename, metadata, verbose=True):
+    
+    global _report_filename, _error_filename
+    
+    # ---- Report filename
+    #
+    if report_filename is None:
+        report_filename = config.CI_REPORT_JSON
+    _report_filename = os.path.abspath(report_filename)
+    
+    # ---- Error_filename
+    #
+    if error_filename is None:
+        error_filename = config.CI_ERROR_FILE
+    _error_filename = os.path.abspath(error_filename)
+    
+    # ---- Create report
+    #
     metadata['start']=chrono_get_start('main')
     data={ '_metadata_':metadata }
-    with open(filename,'wt') as fp:
+    with open(_report_filename,'wt') as fp:
         json.dump(data,fp,indent=4)
-    if verbose : print(f'\nCreate new ci report : {filename}')
+    if verbose : print(f'\nCreate new ci report : {_report_filename}')
     
-def complete_ci_report(filename, verbose=True):
-    with open(filename) as fp:
+    # ---- Reset error
+    #
+    if os.path.exists(_error_filename):
+        os.remove(_error_filename)
+    if verbose : print(f'Remove error file    : {_error_filename}')
+
+    
+def complete_ci_report(verbose=True):
+
+    global _report_filename, _error_filename
+
+    with open(_report_filename) as fp:
         report = json.load(fp)
+        
     report['_metadata_']['end']      = chrono_get_end('main')
     report['_metadata_']['duration'] = chrono_get_delay('main')
-    with open(filename,'wt') as fp:
+    
+    with open(_report_filename,'wt') as fp:
         json.dump(report,fp,indent=4)
-    if verbose : print(f'\nComplete ci report : {filename}')
         
-def update_ci_report(filename, run_id, notebook_id, notebook_dir, notebook_src, notebook_out, start=False, end=False, happy_end=True):
+    if verbose : print(f'\nComplete ci report : {_report_filename}')
+    
+    
+def update_ci_report(run_id, notebook_id, notebook_dir, notebook_src, notebook_out, start=False, end=False, happy_end=True):
     global start_time, end_time
+    global _report_filename, _error_filename
     
     # ---- Load it
-    with open(filename) as fp:
+    with open(_report_filename) as fp:
         report = json.load(fp)
         
     # ---- Update as a start
@@ -304,10 +337,15 @@ def update_ci_report(filename, run_id, notebook_id, notebook_dir, notebook_src, 
         report[run_id]['state']     = 'ok' if happy_end else 'ERROR'
         report[run_id]['out']       = notebook_out     # changeg in case of error
 
-    # ---- Save it
-    with open(filename,'wt') as fp:
+    # ---- Save report
+    with open(_report_filename,'wt') as fp:
         json.dump(report,fp,indent=4)
 
+    if not happy_end:
+        with open(_error_filename, 'a') as fp:
+            print(f"See : {notebook_dir}/{notebook_out} ", file=fp)
+        
+        
 
 
 def build_ci_report(report_name=None, display_output=True, save_html=True):
@@ -316,6 +354,7 @@ def build_ci_report(report_name=None, display_output=True, save_html=True):
     #
     if report_name is None:
         report_name = config.CI_REPORT_JSON
+        
     with open(report_name) as infile:
         ci_report = json.load( infile )
 
