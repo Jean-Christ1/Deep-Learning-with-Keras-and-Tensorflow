@@ -209,8 +209,10 @@ Nb_VAE6:
   notebook_tag: default
   overrides:
     scale: default
+    cluster_size: default
     image_size: default
     output_dir: default
+    exit_if_exist: default
 Nb_VAE7:
   notebook_id: VAE7
   notebook_dir: VAE
@@ -240,7 +242,6 @@ Nb_VAE9:
   notebook_tag: default
   overrides:
     run_dir: default
-    scale: default
     image_size: default
     enhanced_dir: default
 Nb_VAE10:

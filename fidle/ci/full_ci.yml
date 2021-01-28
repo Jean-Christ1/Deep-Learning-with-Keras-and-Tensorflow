@@ -61,7 +61,7 @@ GTSRB1:
   notebook_src: 01-Preparation-of-data.ipynb
   notebook_tag: default
   overrides:
-    scale: 0.02
+    scale: 0.01
     output_dir: './data'
 GTSRB2:
   notebook_id: GTSRB2
