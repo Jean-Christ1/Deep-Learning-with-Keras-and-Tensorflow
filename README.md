@@ -45,7 +45,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-2.0.11
+2.0.12
 <!-- VERSION_END -->
 
 
@@ -85,6 +85,8 @@ A more advanced implementation of the precedent example
 ### Basic classification using a DNN
 - **[MNIST1](MNIST/01-DNN-MNIST.ipynb)** - [Simple classification with DNN](MNIST/01-DNN-MNIST.ipynb)  
 An example of classification using a dense neural network for the famous MNIST dataset
+- **[MNIST2](MNIST/02-CNN-MNIST.ipynb)** - [Simple classification with CNN](MNIST/02-CNN-MNIST.ipynb)  
+An example of classification using a convolutional neural network for the famous MNIST dataset
 
 ### Images classification with Convolutional Neural Networks (CNN)
 - **[GTSRB1](GTSRB/01-Preparation-of-data.ipynb)** - [Dataset analysis and preparation](GTSRB/01-Preparation-of-data.ipynb)  

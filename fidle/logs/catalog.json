@@ -63,6 +63,14 @@
         "description": "An example of classification using a dense neural network for the famous MNIST dataset",
         "overrides": []
     },
+    "MNIST2": {
+        "id": "MNIST2",
+        "dirname": "MNIST",
+        "basename": "02-CNN-MNIST.ipynb",
+        "title": "Simple classification with CNN",
+        "description": "An example of classification using a convolutional neural network for the famous MNIST dataset",
+        "overrides": []
+    },
     "GTSRB1": {
         "id": "GTSRB1",
         "dirname": "GTSRB",

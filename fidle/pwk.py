@@ -340,19 +340,20 @@ def rmin(l):
 # -------------------------------------------------------------
 #
 def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
-                colorbar=False, y_pred=None, cm='binary',y_padding=0.35, spines_alpha=1,
+                colorbar=False, y_pred=None, cm='binary', norm=None, y_padding=0.35, spines_alpha=1,
                 fontsize=20, interpolation='lanczos', save_as='auto'):
     """
     Show some images in a grid, with legends
     args:
         x             : images - Shapes must be (-1,lx,ly) (-1,lx,ly,1) or (-1,lx,ly,3)
         y             : real classes or labels or None (None)
-        indices       : indices of images to show or None for all (None)
+        indices       : indices of images to show or 'all' for all ('all')
         columns       : number of columns (12)
         x_size,y_size : figure size (1), (1)
         colorbar      : show colorbar (False)
         y_pred        : predicted classes (None)
         cm            : Matplotlib color map (binary)
+        norm          : Matplotlib imshow normalization (None)
         y_padding     : Padding / rows (0.35)
         spines_alpha  : Spines alpha (1.)
         font_size     : Font size in px (20)
@@ -361,6 +362,7 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
         nothing
     """
     if indices=='all': indices=range(len(x))
+    if norm and len(norm) == 2: norm = matplotlib.colors.Normalize(vmin=norm[0], vmax=norm[1])
     draw_labels = (y is not None)
     draw_pred   = (y_pred is not None)
     rows        = math.ceil(len(indices)/columns)
@@ -379,7 +381,8 @@ def plot_images(x,y=None, indices='all', columns=12, x_size=1, y_size=1,
                 xx=x[i].reshape(lx,ly)
             else:
                 xx=x[i]
-        img=axs.imshow(xx,   cmap = cm, interpolation=interpolation)
+        img=axs.imshow(xx,   cmap = cm, norm=norm, interpolation=interpolation)
+#         img=axs.imshow(xx,   cmap = cm, interpolation=interpolation)
         axs.spines['right'].set_visible(True)
         axs.spines['left'].set_visible(True)
         axs.spines['top'].set_visible(True)

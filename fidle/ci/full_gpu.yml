@@ -127,7 +127,7 @@ GTSRB5_r2:
     batch_size: 64
     epochs: 16
     scale: 1
-    with_datagen: False
+    with_datagen: True
     verbose: 0
 GTSRB6:
   notebook_id: GTSRB6
