@@ -43,6 +43,11 @@ Nb_MNIST1:
   notebook_dir: MNIST
   notebook_src: 01-DNN-MNIST.ipynb
   notebook_tag: default
+Nb_MNIST2:
+  notebook_id: MNIST2
+  notebook_dir: MNIST
+  notebook_src: 02-CNN-MNIST.ipynb
+  notebook_tag: default
 Nb_GTSRB1:
   notebook_id: GTSRB1
   notebook_dir: GTSRB

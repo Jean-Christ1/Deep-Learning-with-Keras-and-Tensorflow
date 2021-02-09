@@ -27,10 +27,10 @@
 
 # ==== Notebook parameters =========================================
 
-MODULE_ENV="tensorflow-gpu/py3/2.2.0"
+MODULE_ENV="tensorflow-gpu/py3/2.4.0"
 NOTEBOOK_DIR="$WORK/fidle/fidle"
 
-FIDLE_OVERRIDE_PROFILE="./ci/full_ci.yml"
+FIDLE_OVERRIDE_PROFILE="./ci/full_gpu.yml"
 
 NOTEBOOK_SRC1="02-running-ci-tests.ipynb"
 NOTEBOOK_SRC2="03-ci-report.ipynb"
