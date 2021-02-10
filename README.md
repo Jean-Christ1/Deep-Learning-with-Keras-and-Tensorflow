@@ -21,7 +21,7 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 |**Jeudi 11 févier, 14h. Episode 2 :**<br> **Principes et concepts des réseaux convolutifs (CNN), Problématiques liées aux données**|
 |--|
 |Convolutions - Dropout - Pooling - Monitoring et Tensorboard - Augmentation de données <br>Passage à l'échelle (du notebook au batch) - Points de reprise (checkpoint), ...<br>Travaux pratiques : Classification de chiffres manuscrits et de panneaux routiers|
-|Durée : 2h - Les paramètres de diffusion seront précisés la veille|
+|Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
 Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)
@@ -45,7 +45,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-2.0.12
+2.0.14
 <!-- VERSION_END -->
 
 
