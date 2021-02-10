@@ -52,6 +52,11 @@ MNIST1:
   notebook_dir: MNIST
   notebook_src: 01-DNN-MNIST.ipynb
   notebook_tag: default
+MNIST2:
+  notebook_id: MNIST2
+  notebook_dir: MNIST
+  notebook_src: 02-CNN-MNIST.ipynb
+  notebook_tag: default
 #
 # ------ GTSRB -----------------------------------------------------
 #
@@ -119,6 +124,21 @@ GTSRB5_r2:
   notebook_dir: GTSRB
   notebook_src: 05-Full-convolutions.ipynb
   notebook_tag: =2==done==
+  overrides:
+    run_dir: ./run/GTSRB5_done
+    enhanced_dir: '{datasets_dir}/GTSRB/enhanced'
+    datasets: "['set-24x24-L', 'set-24x24-RGB', 'set-48x48-L', 'set-48x48-RGB', 'set-24x24-L-LHE', 'set-24x24-RGB-HE', 'set-48x48-L-LHE', 'set-48x48-RGB-HE']"
+    models: "{'v1':'get_model_v1', 'v2':'get_model_v2', 'v3':'get_model_v3'}"
+    batch_size: 64
+    epochs: 16
+    scale: 1
+    with_datagen: False
+    verbose: 0
+GTSRB5_r3:
+  notebook_id: GTSRB5
+  notebook_dir: GTSRB
+  notebook_src: 05-Full-convolutions.ipynb
+  notebook_tag: =3==done==
   overrides:
     run_dir: ./run/GTSRB5_done
     enhanced_dir: '{datasets_dir}/GTSRB/enhanced'
