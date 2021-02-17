@@ -63,4 +63,4 @@ cd $NOTEBOOK_DIR
 
 ipython "$SCRIPT_IPY"
 
-echo 'Done.'IPT
+echo 'Done.'
