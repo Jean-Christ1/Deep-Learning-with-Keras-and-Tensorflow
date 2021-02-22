@@ -16,16 +16,16 @@ nous vous proposons une **session à distance** :-)
 
 https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 
-**- Prochain rendez-vous -**
+**- Prochain rendez-vous -**  
 
-|**Jeudi 18 févier, 14h, suite et fin de l'épisode 2:**<br> **Principes et concepts des réseaux convolutifs (CNN), Problématiques liées aux données**|
+|Jeudi 4 mars, 14h, Séquence 3 : <br>Problématique des données creuses de dimensions variables, l'exemple des données textuelles.<br>Stratégies d'évaluation des modèles.|
 |--|
-|Convolutions - Dropout - Pooling - Monitoring et Tensorboard - Augmentation de données <br>Passage à l'échelle (du notebook au batch) - Points de reprise (checkpoint), ...<br>Travaux pratiques : Classification d'images de panneaux routiers en conditions réelles.|
+|Spécificités et traitement des données creuses/textuelles. <br>Principes de l'Embedding (Keras, CBOW, Skip-Gram) <br>Nous reviendrons également sur les stratégies d'évaluation des modèles. <br>Validation simple, croisée (K-fold), itérative, randomisée. <br>Exemple proposé :<br>Analyse de sentiment avec une analyse de critiques de films.|
 |Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
-Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)
-
+Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
+Voir ou revoir les [vidéos](https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ)
 
 ## About Fidle
 
