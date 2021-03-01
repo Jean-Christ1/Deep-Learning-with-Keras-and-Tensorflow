@@ -6,27 +6,27 @@ _metadata_:
 #
 # ------ LinearReg -------------------------------------------------
 #
-LINR1:
+Nb_LINR1:
   notebook_id: LINR1
   notebook_dir: LinearReg
   notebook_src: 01-Linear-Regression.ipynb
   notebook_tag: default
-GRAD1:
+Nb_GRAD1:
   notebook_id: GRAD1
   notebook_dir: LinearReg
   notebook_src: 02-Gradient-descent.ipynb
   notebook_tag: default
-POLR1:
+Nb_POLR1:
   notebook_id: POLR1
   notebook_dir: LinearReg
   notebook_src: 03-Polynomial-Regression.ipynb
   notebook_tag: default
-LOGR1:
+Nb_LOGR1:
   notebook_id: LOGR1
   notebook_dir: LinearReg
   notebook_src: 04-Logistic-Regression.ipynb
   notebook_tag: default
-PER57:
+Nb_PER57:
   notebook_id: PER57
   notebook_dir: IRIS
   notebook_src: 01-Simple-Perceptron.ipynb
@@ -34,12 +34,12 @@ PER57:
 #
 # ------ BHPD ------------------------------------------------------
 #
-BHPD1:
+Nb_BHPD1:
   notebook_id: BHPD1
   notebook_dir: BHPD
   notebook_src: 01-DNN-Regression.ipynb
   notebook_tag: default
-BHPD2:
+Nb_BHPD2:
   notebook_id: BHPD2
   notebook_dir: BHPD
   notebook_src: 02-DNN-Regression-Premium.ipynb
@@ -47,12 +47,12 @@ BHPD2:
 #
 # ------ MNIST -----------------------------------------------------
 #
-MNIST1:
+Nb_MNIST1:
   notebook_id: MNIST1
   notebook_dir: MNIST
   notebook_src: 01-DNN-MNIST.ipynb
   notebook_tag: default
-MNIST2:
+Nb_MNIST2:
   notebook_id: MNIST2
   notebook_dir: MNIST
   notebook_src: 02-CNN-MNIST.ipynb
@@ -60,7 +60,7 @@ MNIST2:
 #
 # ------ GTSRB -----------------------------------------------------
 #
-GTSRB1:
+Nb_GTSRB1:
   notebook_id: GTSRB1
   notebook_dir: GTSRB
   notebook_src: 01-Preparation-of-data.ipynb
@@ -68,7 +68,7 @@ GTSRB1:
   overrides:
     scale: 0.05
     output_dir: ./data
-GTSRB2:
+Nb_GTSRB2:
   notebook_id: GTSRB2
   notebook_dir: GTSRB
   notebook_src: 02-First-convolutions.ipynb
@@ -80,7 +80,7 @@ GTSRB2:
     batch_size: 64
     epochs: 5
     scale: 1
-GTSRB3:
+Nb_GTSRB3:
   notebook_id: GTSRB3
   notebook_dir: GTSRB
   notebook_src: 03-Tracking-and-visualizing.ipynb
@@ -92,7 +92,7 @@ GTSRB3:
     batch_size: 64
     epochs: 5
     scale: 1
-GTSRB4:
+Nb_GTSRB4:
   notebook_id: GTSRB4
   notebook_dir: GTSRB
   notebook_src: 04-Data-augmentation.ipynb
@@ -104,7 +104,7 @@ GTSRB4:
     batch_size: 64
     epochs: 5
     scale: 1
-GTSRB5_r1:
+Nb_GTSRB5_r1:
   notebook_id: GTSRB5
   notebook_dir: GTSRB
   notebook_src: 05-Full-convolutions.ipynb
@@ -119,7 +119,7 @@ GTSRB5_r1:
     scale: 1
     with_datagen: False
     verbose: 0
-GTSRB5_r2:
+Nb_GTSRB5_r2:
   notebook_id: GTSRB5
   notebook_dir: GTSRB
   notebook_src: 05-Full-convolutions.ipynb
@@ -134,7 +134,7 @@ GTSRB5_r2:
     scale: 1
     with_datagen: False
     verbose: 0
-GTSRB5_r3:
+Nb_GTSRB5_r3:
   notebook_id: GTSRB5
   notebook_dir: GTSRB
   notebook_src: 05-Full-convolutions.ipynb
@@ -149,12 +149,12 @@ GTSRB5_r3:
     scale: 1
     with_datagen: True
     verbose: 0
-GTSRB6:
+Nb_GTSRB6:
   notebook_id: GTSRB6
   notebook_dir: GTSRB
   notebook_src: 06-Notebook-as-a-batch.ipynb
   notebook_tag: default
-GTSRB7:
+Nb_GTSRB7:
   notebook_id: GTSRB7
   notebook_dir: GTSRB
   notebook_src: 07-Show-report.ipynb
@@ -165,30 +165,65 @@ GTSRB7:
 #
 # ------ IMDB ------------------------------------------------------
 #
-IMDB1:
+Nb_IMDB1:
   notebook_id: IMDB1
   notebook_dir: IMDB
-  notebook_src: 01-Embedding-Keras.ipynb
+  notebook_src: 01-One-hot-encoding.ipynb
   notebook_tag: default
-IMDB2:
-  notebook_id: IMDB1
+  overrides:
+    run_dir: default
+    vocab_size: default
+    hide_most_frequently: default
+    batch_size: default
+    epochs: default
+Nb_IMDB2:
+  notebook_id: IMDB2
   notebook_dir: IMDB
-  notebook_src: 02-Prediction.ipynb
+  notebook_src: 02-Keras-embedding.ipynb
   notebook_tag: default
-IMDB3:
-  notebook_id: IMDB1
+  overrides:
+    run_dir: default
+    vocab_size: default
+    hide_most_frequently: default
+    review_len: default
+    dense_vector_size: default
+    batch_size: default
+    epochs: default
+    output_dir: default
+Nb_IMDB3:
+  notebook_id: IMDB3
   notebook_dir: IMDB
-  notebook_src: 03-LSTM-Keras.ipynb
+  notebook_src: 03-Prediction.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    vocab_size: default
+    review_len: default
+    dictionaries_dir: default
+Nb_IMDB4:
+  notebook_id: IMDB4
+  notebook_dir: IMDB
+  notebook_src: 04-Show-vectors.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    vocab_size: default
+    review_len: default
+    dictionaries_dir: default
+Nb_IMDB5:
+  notebook_id: IMDB5
+  notebook_dir: IMDB
+  notebook_src: 05-LSTM-Keras.ipynb
   notebook_tag: default
 #
 # ------ SYNOP -----------------------------------------------------
 #
-SYNOP1:
+Nb_SYNOP1:
   notebook_id: SYNOP1
   notebook_dir: SYNOP
   notebook_src: 01-Preparation-of-data.ipynb
   notebook_tag: default
-SYNOP2:
+Nb_SYNOP2:
   notebook_id: SYNOP2
   notebook_dir: SYNOP
   notebook_src: 02-First-predictions.ipynb
@@ -199,7 +234,7 @@ SYNOP2:
     sequence_len: 16
     batch_size: 32
     epochs: 10
-SYNOP3:
+Nb_SYNOP3:
   notebook_id: SYNOP3
   notebook_dir: SYNOP
   notebook_src: 03-12h-predictions.ipynb
@@ -214,12 +249,12 @@ SYNOP3:
 #
 # ------ AE --------------------------------------------------------
 #
-AE1:
+Nb_AE1:
   notebook_id: AE1
   notebook_dir: AE
   notebook_src: 01-AE-with-MNIST.ipynb
   notebook_tag: default
-AE2:
+Nb_AE2:
   notebook_id: AE2
   notebook_dir: AE
   notebook_src: 02-AE-with-MNIST-post.ipynb
@@ -227,7 +262,7 @@ AE2:
 #
 # ------ VAE -------------------------------------------------------
 #
-VAE1:
+Nb_VAE1:
   notebook_id: VAE1
   notebook_dir: VAE
   notebook_src: 01-VAE-with-MNIST.ipynb
@@ -239,19 +274,19 @@ VAE1:
     r_loss_factor: 0.994
     batch_size: 64
     epochs: 10
-VAE2:
+Nb_VAE2:
   notebook_id: VAE2
   notebook_dir: VAE
   notebook_src: 02-VAE-with-MNIST-post.ipynb
   notebook_tag: default
   overrides:
     run_dir: ./run/VAE1_done
-VAE5:
+Nb_VAE5:
   notebook_id: VAE5
   notebook_dir: VAE
   notebook_src: 05-About-CelebA.ipynb
   notebook_tag: default
-VAE6:
+Nb_VAE6:
   notebook_id: VAE6
   notebook_dir: VAE
   notebook_src: 06-Prepare-CelebA-datasets.ipynb
@@ -261,7 +296,7 @@ VAE6:
     image_size: '(192,160)'
     output_dir: ./data
     exit_if_exist: False
-VAE7:
+Nb_VAE7:
   notebook_id: VAE7
   notebook_dir: VAE
   notebook_src: 07-Check-CelebA.ipynb
@@ -269,7 +304,7 @@ VAE7:
   overrides:
     image_size: '(192,160)'
     enhanced_dir: '{datasets_dir}/celeba/enhanced'
-VAE8:
+Nb_VAE8:
   notebook_id: VAE8
   notebook_dir: VAE
   notebook_src: 08-VAE-with-CelebA.ipynb
@@ -283,7 +318,7 @@ VAE8:
     r_loss_factor: 0.6
     batch_size: 64
     epochs: 15
-VAE9:
+Nb_VAE9:
   notebook_id: VAE9
   notebook_dir: VAE
   notebook_src: 09-VAE-with-CelebA-post.ipynb
@@ -295,17 +330,17 @@ VAE9:
 #
 # ------ Misc ------------------------------------------------------
 #
-ACTF1:
+Nb_ACTF1:
   notebook_id: ACTF1
   notebook_dir: Misc
   notebook_src: Activation-Functions.ipynb
   notebook_tag: default
-NP1:
+Nb_NP1:
   notebook_id: NP1
   notebook_dir: Misc
   notebook_src: Numpy.ipynb
   notebook_tag: default
-TSB1:
+Nb_TSB1:
   notebook_id: TSB1
   notebook_dir: Misc
   notebook_src: Using-Tensorboard.ipynb

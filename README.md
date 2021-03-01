@@ -45,7 +45,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-**2.0.16**
+**2.0.17**
 <!-- VERSION_END -->
 
 
@@ -109,11 +109,15 @@ Bash script for an OAR batch submission of an ipython code
 Bash script for a Slurm batch submission of an ipython code
 
 ### Sentiment analysis with word embedding
-- **[IMDB1](IMDB/01-Embedding-Keras.ipynb)** - [Sentiment analysis with text embedding](IMDB/01-Embedding-Keras.ipynb)  
+- **[IMDB1](IMDB/01-One-hot-encoding.ipynb)** - [Sentiment analysis with hot-one encoding](IMDB/01-One-hot-encoding.ipynb)  
+A basic example of sentiment analysis with sparse encoding, using a dataset from Internet Movie Database (IMDB)
+- **[IMDB2](IMDB/02-Keras-embedding.ipynb)** - [Sentiment analysis with text embedding](IMDB/02-Keras-embedding.ipynb)  
 A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)
-- **[IMDB2](IMDB/02-Prediction.ipynb)** - [Reload and reuse a saved model](IMDB/02-Prediction.ipynb)  
+- **[IMDB3](IMDB/03-Prediction.ipynb)** - [Reload and reuse a saved model](IMDB/03-Prediction.ipynb)  
 Retrieving a saved model to perform a sentiment analysis (movie review)
-- **[IMDB3](IMDB/03-LSTM-Keras.ipynb)** - [Sentiment analysis with a LSTM network](IMDB/03-LSTM-Keras.ipynb)  
+- **[IMDB4](IMDB/04-Show-vectors.ipynb)** - [Reload embedded vectors](IMDB/04-Show-vectors.ipynb)  
+Retrieving embedded vectors from our trained model
+- **[IMDB5](IMDB/05-LSTM-Keras.ipynb)** - [Sentiment analysis with a LSTM network](IMDB/05-LSTM-Keras.ipynb)  
 Still the same problem, but with a network combining embedding and LSTM
 
 ### Time series with Recurrent Neural Network (RNN)

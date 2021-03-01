@@ -133,17 +133,52 @@ Nb_GTSRB11:
 Nb_IMDB1:
   notebook_id: IMDB1
   notebook_dir: IMDB
-  notebook_src: 01-Embedding-Keras.ipynb
+  notebook_src: 01-One-hot-encoding.ipynb
   notebook_tag: default
+  overrides:
+    run_dir: default
+    vocab_size: default
+    hide_most_frequently: default
+    batch_size: default
+    epochs: default
 Nb_IMDB2:
   notebook_id: IMDB2
   notebook_dir: IMDB
-  notebook_src: 02-Prediction.ipynb
+  notebook_src: 02-Keras-embedding.ipynb
   notebook_tag: default
+  overrides:
+    run_dir: default
+    vocab_size: default
+    hide_most_frequently: default
+    review_len: default
+    dense_vector_size: default
+    batch_size: default
+    epochs: default
+    output_dir: default
 Nb_IMDB3:
   notebook_id: IMDB3
   notebook_dir: IMDB
-  notebook_src: 03-LSTM-Keras.ipynb
+  notebook_src: 03-Prediction.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    vocab_size: default
+    review_len: default
+    dictionaries_dir: default
+Nb_IMDB4:
+  notebook_id: IMDB4
+  notebook_dir: IMDB
+  notebook_src: 04-Show-vectors.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    vocab_size: default
+    review_len: default
+    dictionaries_dir: default
+Nb_IMDB5:
+  notebook_id: IMDB5
+  notebook_dir: IMDB
+  notebook_src: 05-LSTM-Keras.ipynb
   notebook_tag: default
 Nb_SYNOP1:
   notebook_id: SYNOP1

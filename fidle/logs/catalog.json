@@ -183,23 +183,64 @@
     "IMDB1": {
         "id": "IMDB1",
         "dirname": "IMDB",
-        "basename": "01-Embedding-Keras.ipynb",
-        "title": "Sentiment analysis with text embedding",
-        "description": "A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)",
-        "overrides": []
+        "basename": "01-One-hot-encoding.ipynb",
+        "title": "Sentiment analysis with hot-one encoding",
+        "description": "A basic example of sentiment analysis with sparse encoding, using a dataset from Internet Movie Database (IMDB)",
+        "overrides": [
+            "run_dir",
+            "vocab_size",
+            "hide_most_frequently",
+            "batch_size",
+            "epochs"
+        ]
     },
     "IMDB2": {
         "id": "IMDB2",
         "dirname": "IMDB",
-        "basename": "02-Prediction.ipynb",
-        "title": "Reload and reuse a saved model",
-        "description": "Retrieving a saved model to perform a sentiment analysis (movie review)",
-        "overrides": []
+        "basename": "02-Keras-embedding.ipynb",
+        "title": "Sentiment analysis with text embedding",
+        "description": "A very classical example of word embedding with a dataset from Internet Movie Database (IMDB)",
+        "overrides": [
+            "run_dir",
+            "vocab_size",
+            "hide_most_frequently",
+            "review_len",
+            "dense_vector_size",
+            "batch_size",
+            "epochs",
+            "output_dir"
+        ]
     },
     "IMDB3": {
         "id": "IMDB3",
         "dirname": "IMDB",
-        "basename": "03-LSTM-Keras.ipynb",
+        "basename": "03-Prediction.ipynb",
+        "title": "Reload and reuse a saved model",
+        "description": "Retrieving a saved model to perform a sentiment analysis (movie review)",
+        "overrides": [
+            "run_dir",
+            "vocab_size",
+            "review_len",
+            "dictionaries_dir"
+        ]
+    },
+    "IMDB4": {
+        "id": "IMDB4",
+        "dirname": "IMDB",
+        "basename": "04-Show-vectors.ipynb",
+        "title": "Reload embedded vectors",
+        "description": "Retrieving embedded vectors from our trained model",
+        "overrides": [
+            "run_dir",
+            "vocab_size",
+            "review_len",
+            "dictionaries_dir"
+        ]
+    },
+    "IMDB5": {
+        "id": "IMDB5",
+        "dirname": "IMDB",
+        "basename": "05-LSTM-Keras.ipynb",
         "title": "Sentiment analysis with a LSTM network",
         "description": "Still the same problem, but with a network combining embedding and LSTM",
         "overrides": []
