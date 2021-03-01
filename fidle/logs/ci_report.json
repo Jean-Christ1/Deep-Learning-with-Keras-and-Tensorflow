@@ -4,370 +4,390 @@
         "output_tag": "==done==",
         "save_figs": true,
         "description": "Full profile for GPU",
-        "host": "r10i3n4",
+        "host": "r7i0n6",
         "profile": "./ci/full_gpu.yml",
-        "start": "10/02/21 09:08:04",
-        "end": "10/02/21 12:11:52",
-        "duration": "3:03:48"
+        "start": "01/03/21 18:40:12",
+        "end": "01/03/21 21:45:30",
+        "duration": "3:05:17"
     },
-    "LINR1": {
+    "Nb_LINR1": {
         "id": "LINR1",
         "dir": "LinearReg",
         "src": "01-Linear-Regression.ipynb",
         "out": "01-Linear-Regression==done==.ipynb",
-        "start": "10/02/21 09:08:04",
-        "end": "10/02/21 09:08:50",
-        "duration": "0:00:45",
+        "start": "01/03/21 18:40:13",
+        "end": "01/03/21 18:40:42",
+        "duration": "0:00:29",
         "state": "ok"
     },
-    "GRAD1": {
+    "Nb_GRAD1": {
         "id": "GRAD1",
         "dir": "LinearReg",
         "src": "02-Gradient-descent.ipynb",
         "out": "02-Gradient-descent==done==.ipynb",
-        "start": "10/02/21 09:08:50",
-        "end": "10/02/21 09:09:00",
-        "duration": "0:00:10",
+        "start": "01/03/21 18:40:42",
+        "end": "01/03/21 18:40:52",
+        "duration": "0:00:09",
         "state": "ok"
     },
-    "POLR1": {
+    "Nb_POLR1": {
         "id": "POLR1",
         "dir": "LinearReg",
         "src": "03-Polynomial-Regression.ipynb",
         "out": "03-Polynomial-Regression==done==.ipynb",
-        "start": "10/02/21 09:09:00",
-        "end": "10/02/21 09:09:07",
+        "start": "01/03/21 18:40:52",
+        "end": "01/03/21 18:40:59",
         "duration": "0:00:07",
         "state": "ok"
     },
-    "LOGR1": {
+    "Nb_LOGR1": {
         "id": "LOGR1",
         "dir": "LinearReg",
         "src": "04-Logistic-Regression.ipynb",
         "out": "04-Logistic-Regression==done==.ipynb",
-        "start": "10/02/21 09:09:07",
-        "end": "10/02/21 09:09:14",
-        "duration": "0:00:07",
+        "start": "01/03/21 18:40:59",
+        "end": "01/03/21 18:41:06",
+        "duration": "0:00:06",
         "state": "ok"
     },
-    "PER57": {
+    "Nb_PER57": {
         "id": "PER57",
         "dir": "IRIS",
         "src": "01-Simple-Perceptron.ipynb",
         "out": "01-Simple-Perceptron==done==.ipynb",
-        "start": "10/02/21 09:09:14",
-        "end": "10/02/21 09:09:20",
+        "start": "01/03/21 18:41:06",
+        "end": "01/03/21 18:41:12",
         "duration": "0:00:06",
         "state": "ok"
     },
-    "BHPD1": {
+    "Nb_BHPD1": {
         "id": "BHPD1",
         "dir": "BHPD",
         "src": "01-DNN-Regression.ipynb",
         "out": "01-DNN-Regression==done==.ipynb",
-        "start": "10/02/21 09:09:20",
-        "end": "10/02/21 09:09:37",
+        "start": "01/03/21 18:41:12",
+        "end": "01/03/21 18:41:29",
         "duration": "0:00:16",
         "state": "ok"
     },
-    "BHPD2": {
+    "Nb_BHPD2": {
         "id": "BHPD2",
         "dir": "BHPD",
         "src": "02-DNN-Regression-Premium.ipynb",
         "out": "02-DNN-Regression-Premium==done==.ipynb",
-        "start": "10/02/21 09:09:37",
-        "end": "10/02/21 09:10:01",
-        "duration": "0:00:23",
+        "start": "01/03/21 18:41:29",
+        "end": "01/03/21 18:41:54",
+        "duration": "0:00:24",
         "state": "ok"
     },
-    "MNIST1": {
+    "Nb_MNIST1": {
         "id": "MNIST1",
         "dir": "MNIST",
         "src": "01-DNN-MNIST.ipynb",
         "out": "01-DNN-MNIST==done==.ipynb",
-        "start": "10/02/21 09:10:01",
-        "end": "10/02/21 09:10:48",
-        "duration": "0:00:47",
+        "start": "01/03/21 18:41:54",
+        "end": "01/03/21 18:42:42",
+        "duration": "0:00:48",
         "state": "ok"
     },
-    "MNIST2": {
+    "Nb_MNIST2": {
         "id": "MNIST2",
         "dir": "MNIST",
         "src": "02-CNN-MNIST.ipynb",
         "out": "02-CNN-MNIST==done==.ipynb",
-        "start": "10/02/21 09:10:48",
-        "end": "10/02/21 09:11:46",
-        "duration": "0:00:58",
+        "start": "01/03/21 18:42:42",
+        "end": "01/03/21 18:43:34",
+        "duration": "0:00:52",
         "state": "ok"
     },
-    "GTSRB1": {
+    "Nb_GTSRB1": {
         "id": "GTSRB1",
         "dir": "GTSRB",
         "src": "01-Preparation-of-data.ipynb",
         "out": "01-Preparation-of-data==done==.ipynb",
-        "start": "10/02/21 09:11:47",
-        "end": "10/02/21 09:16:46",
-        "duration": "0:04:59",
+        "start": "01/03/21 18:43:34",
+        "end": "01/03/21 18:48:18",
+        "duration": "0:04:43",
         "state": "ok"
     },
-    "GTSRB2": {
+    "Nb_GTSRB2": {
         "id": "GTSRB2",
         "dir": "GTSRB",
         "src": "02-First-convolutions.ipynb",
         "out": "02-First-convolutions==done==.ipynb",
-        "start": "10/02/21 09:16:47",
-        "end": "10/02/21 09:17:15",
-        "duration": "0:00:27",
+        "start": "01/03/21 18:48:18",
+        "end": "01/03/21 18:48:49",
+        "duration": "0:00:31",
         "state": "ok"
     },
-    "GTSRB3": {
+    "Nb_GTSRB3": {
         "id": "GTSRB3",
         "dir": "GTSRB",
         "src": "03-Tracking-and-visualizing.ipynb",
         "out": "03-Tracking-and-visualizing==done==.ipynb",
-        "start": "10/02/21 09:17:15",
-        "end": "10/02/21 09:18:19",
-        "duration": "0:01:03",
+        "start": "01/03/21 18:48:49",
+        "end": "01/03/21 18:49:55",
+        "duration": "0:01:06",
         "state": "ok"
     },
-    "GTSRB4": {
+    "Nb_GTSRB4": {
         "id": "GTSRB4",
         "dir": "GTSRB",
         "src": "04-Data-augmentation.ipynb",
         "out": "04-Data-augmentation==done==.ipynb",
-        "start": "10/02/21 09:18:19",
-        "end": "10/02/21 09:19:57",
-        "duration": "0:01:38",
+        "start": "01/03/21 18:49:55",
+        "end": "01/03/21 18:51:31",
+        "duration": "0:01:36",
         "state": "ok"
     },
-    "GTSRB5_r1": {
+    "Nb_GTSRB5_r1": {
         "id": "GTSRB5",
         "dir": "GTSRB",
         "src": "05-Full-convolutions.ipynb",
         "out": "05-Full-convolutions=1==done==.ipynb",
-        "start": "10/02/21 09:19:57",
-        "end": "10/02/21 09:50:47",
-        "duration": "0:30:50",
+        "start": "01/03/21 18:51:32",
+        "end": "01/03/21 19:23:13",
+        "duration": "0:31:41",
         "state": "ok"
     },
-    "GTSRB5_r2": {
+    "Nb_GTSRB5_r2": {
         "id": "GTSRB5",
         "dir": "GTSRB",
         "src": "05-Full-convolutions.ipynb",
         "out": "05-Full-convolutions=2==done==.ipynb",
-        "start": "10/02/21 09:50:48",
-        "end": "10/02/21 10:22:00",
-        "duration": "0:31:12",
+        "start": "01/03/21 19:23:13",
+        "end": "01/03/21 19:54:55",
+        "duration": "0:31:42",
         "state": "ok"
     },
-    "GTSRB5_r3": {
+    "Nb_GTSRB5_r3": {
         "id": "GTSRB5",
         "dir": "GTSRB",
         "src": "05-Full-convolutions.ipynb",
         "out": "05-Full-convolutions=3==done==.ipynb",
-        "start": "10/02/21 10:22:00",
-        "end": "10/02/21 10:46:34",
-        "duration": "0:24:34",
+        "start": "01/03/21 19:54:55",
+        "end": "01/03/21 20:19:35",
+        "duration": "0:24:39",
         "state": "ok"
     },
-    "GTSRB6": {
+    "Nb_GTSRB6": {
         "id": "GTSRB6",
         "dir": "GTSRB",
         "src": "06-Notebook-as-a-batch.ipynb",
         "out": "06-Notebook-as-a-batch==done==.ipynb",
-        "start": "10/02/21 10:46:35",
-        "end": "10/02/21 10:46:39",
+        "start": "01/03/21 20:19:35",
+        "end": "01/03/21 20:19:39",
         "duration": "0:00:04",
         "state": "ok"
     },
-    "GTSRB7": {
+    "Nb_GTSRB7": {
         "id": "GTSRB7",
         "dir": "GTSRB",
         "src": "07-Show-report.ipynb",
         "out": "07-Show-report==done==.ipynb",
-        "start": "10/02/21 10:46:39",
-        "end": "10/02/21 10:46:43",
-        "duration": "0:00:04",
-        "state": "ok"
-    },
-    "IMDB1": {
-        "id": "IMDB1",
-        "dir": "IMDB",
-        "src": "01-Embedding-Keras.ipynb",
-        "out": "01-Embedding-Keras==done==.ipynb",
-        "start": "10/02/21 10:46:43",
-        "end": "10/02/21 10:47:33",
-        "duration": "0:00:50",
-        "state": "ok"
-    },
-    "IMDB2": {
-        "id": "IMDB1",
-        "dir": "IMDB",
-        "src": "02-Prediction.ipynb",
-        "out": "02-Prediction==done==.ipynb",
-        "start": "10/02/21 10:47:34",
-        "end": "10/02/21 10:47:39",
+        "start": "01/03/21 20:19:39",
+        "end": "01/03/21 20:19:45",
         "duration": "0:00:05",
         "state": "ok"
     },
-    "IMDB3": {
+    "Nb_IMDB1": {
         "id": "IMDB1",
         "dir": "IMDB",
-        "src": "03-LSTM-Keras.ipynb",
-        "out": "03-LSTM-Keras==done==.ipynb",
-        "start": "10/02/21 10:47:39",
-        "end": "10/02/21 10:55:17",
-        "duration": "0:07:38",
+        "src": "01-One-hot-encoding.ipynb",
+        "out": "01-One-hot-encoding==done==.ipynb",
+        "start": "01/03/21 20:19:45",
+        "end": "01/03/21 20:20:31",
+        "duration": "0:00:46",
         "state": "ok"
     },
-    "SYNOP1": {
+    "Nb_IMDB2": {
+        "id": "IMDB2",
+        "dir": "IMDB",
+        "src": "02-Keras-embedding.ipynb",
+        "out": "02-Keras-embedding==done==.ipynb",
+        "start": "01/03/21 20:20:31",
+        "end": "01/03/21 20:21:19",
+        "duration": "0:00:48",
+        "state": "ok"
+    },
+    "Nb_IMDB3": {
+        "id": "IMDB3",
+        "dir": "IMDB",
+        "src": "03-Prediction.ipynb",
+        "out": "03-Prediction==done==.ipynb",
+        "start": "01/03/21 20:21:19",
+        "end": "01/03/21 20:21:25",
+        "duration": "0:00:05",
+        "state": "ok"
+    },
+    "Nb_IMDB4": {
+        "id": "IMDB4",
+        "dir": "IMDB",
+        "src": "04-Show-vectors.ipynb",
+        "out": "04-Show-vectors==done==.ipynb",
+        "start": "01/03/21 20:21:25",
+        "end": "01/03/21 20:21:31",
+        "duration": "0:00:06",
+        "state": "ok"
+    },
+    "Nb_IMDB5": {
+        "id": "IMDB5",
+        "dir": "IMDB",
+        "src": "05-LSTM-Keras.ipynb",
+        "out": "05-LSTM-Keras==done==.ipynb",
+        "start": "01/03/21 20:21:31",
+        "end": "01/03/21 20:29:54",
+        "duration": "0:08:23",
+        "state": "ok"
+    },
+    "Nb_SYNOP1": {
         "id": "SYNOP1",
         "dir": "SYNOP",
         "src": "01-Preparation-of-data.ipynb",
         "out": "01-Preparation-of-data==done==.ipynb",
-        "start": "10/02/21 10:55:17",
-        "end": "10/02/21 10:55:27",
+        "start": "01/03/21 20:29:55",
+        "end": "01/03/21 20:30:05",
         "duration": "0:00:09",
         "state": "ok"
     },
-    "SYNOP2": {
+    "Nb_SYNOP2": {
         "id": "SYNOP2",
         "dir": "SYNOP",
         "src": "02-First-predictions.ipynb",
         "out": "02-First-predictions==done==.ipynb",
-        "start": "10/02/21 10:55:27",
-        "end": "10/02/21 10:57:40",
-        "duration": "0:02:13",
+        "start": "01/03/21 20:30:05",
+        "end": "01/03/21 20:32:25",
+        "duration": "0:02:20",
         "state": "ok"
     },
-    "SYNOP3": {
+    "Nb_SYNOP3": {
         "id": "SYNOP3",
         "dir": "SYNOP",
         "src": "03-12h-predictions.ipynb",
         "out": "03-12h-predictions==done==.ipynb",
-        "start": "10/02/21 10:57:41",
-        "end": "10/02/21 10:57:52",
-        "duration": "0:00:10",
+        "start": "01/03/21 20:32:26",
+        "end": "01/03/21 20:32:37",
+        "duration": "0:00:11",
         "state": "ok"
     },
-    "AE1": {
+    "Nb_AE1": {
         "id": "AE1",
         "dir": "AE",
         "src": "01-AE-with-MNIST.ipynb",
         "out": "01-AE-with-MNIST==done==.ipynb",
-        "start": "10/02/21 10:57:52",
-        "end": "10/02/21 11:00:08",
-        "duration": "0:02:16",
+        "start": "01/03/21 20:32:37",
+        "end": "01/03/21 20:34:55",
+        "duration": "0:02:18",
         "state": "ok"
     },
-    "AE2": {
+    "Nb_AE2": {
         "id": "AE2",
         "dir": "AE",
         "src": "02-AE-with-MNIST-post.ipynb",
         "out": "02-AE-with-MNIST-post==done==.ipynb",
-        "start": "10/02/21 11:00:09",
-        "end": "10/02/21 11:00:20",
+        "start": "01/03/21 20:34:55",
+        "end": "01/03/21 20:35:06",
         "duration": "0:00:11",
         "state": "ok"
     },
-    "VAE1": {
+    "Nb_VAE1": {
         "id": "VAE1",
         "dir": "VAE",
         "src": "01-VAE-with-MNIST.ipynb",
         "out": "01-VAE-with-MNIST==done==.ipynb",
-        "start": "10/02/21 11:00:20",
-        "end": "10/02/21 11:01:39",
-        "duration": "0:01:19",
+        "start": "01/03/21 20:35:07",
+        "end": "01/03/21 20:36:27",
+        "duration": "0:01:20",
         "state": "ok"
     },
-    "VAE2": {
+    "Nb_VAE2": {
         "id": "VAE2",
         "dir": "VAE",
         "src": "02-VAE-with-MNIST-post.ipynb",
         "out": "02-VAE-with-MNIST-post==done==.ipynb",
-        "start": "10/02/21 11:01:40",
-        "end": "10/02/21 11:02:36",
-        "duration": "0:00:56",
+        "start": "01/03/21 20:36:27",
+        "end": "01/03/21 20:37:25",
+        "duration": "0:00:58",
         "state": "ok"
     },
-    "VAE5": {
+    "Nb_VAE5": {
         "id": "VAE5",
         "dir": "VAE",
         "src": "05-About-CelebA.ipynb",
         "out": "05-About-CelebA==done==.ipynb",
-        "start": "10/02/21 11:02:36",
-        "end": "10/02/21 11:03:06",
-        "duration": "0:00:29",
+        "start": "01/03/21 20:37:25",
+        "end": "01/03/21 20:37:50",
+        "duration": "0:00:25",
         "state": "ok"
     },
-    "VAE6": {
+    "Nb_VAE6": {
         "id": "VAE6",
         "dir": "VAE",
         "src": "06-Prepare-CelebA-datasets.ipynb",
         "out": "06-Prepare-CelebA-datasets==done==.ipynb",
-        "start": "10/02/21 11:03:06",
-        "end": "10/02/21 11:04:39",
-        "duration": "0:01:33",
+        "start": "01/03/21 20:37:50",
+        "end": "01/03/21 20:39:29",
+        "duration": "0:01:38",
         "state": "ok"
     },
-    "VAE7": {
+    "Nb_VAE7": {
         "id": "VAE7",
         "dir": "VAE",
         "src": "07-Check-CelebA.ipynb",
         "out": "07-Check-CelebA==done==.ipynb",
-        "start": "10/02/21 11:04:39",
-        "end": "10/02/21 11:06:33",
-        "duration": "0:01:54",
+        "start": "01/03/21 20:39:29",
+        "end": "01/03/21 20:40:59",
+        "duration": "0:01:29",
         "state": "ok"
     },
-    "VAE8": {
+    "Nb_VAE8": {
         "id": "VAE8",
         "dir": "VAE",
         "src": "08-VAE-with-CelebA.ipynb",
         "out": "08-VAE-with-CelebA==done==.ipynb",
-        "start": "10/02/21 11:06:33",
-        "end": "10/02/21 12:09:05",
-        "duration": "1:02:31",
+        "start": "01/03/21 20:40:59",
+        "end": "01/03/21 21:42:45",
+        "duration": "1:01:46",
         "state": "ok"
     },
-    "VAE9": {
+    "Nb_VAE9": {
         "id": "VAE9",
         "dir": "VAE",
         "src": "09-VAE-with-CelebA-post.ipynb",
         "out": "09-VAE-with-CelebA-post==done==.ipynb",
-        "start": "10/02/21 12:09:17",
-        "end": "10/02/21 12:11:21",
-        "duration": "0:02:03",
+        "start": "01/03/21 21:42:58",
+        "end": "01/03/21 21:45:06",
+        "duration": "0:02:08",
         "state": "ok"
     },
-    "ACTF1": {
+    "Nb_ACTF1": {
         "id": "ACTF1",
         "dir": "Misc",
         "src": "Activation-Functions.ipynb",
         "out": "Activation-Functions==done==.ipynb",
-        "start": "10/02/21 12:11:21",
-        "end": "10/02/21 12:11:50",
-        "duration": "0:00:29",
+        "start": "01/03/21 21:45:07",
+        "end": "01/03/21 21:45:27",
+        "duration": "0:00:20",
         "state": "ok"
     },
-    "NP1": {
+    "Nb_NP1": {
         "id": "NP1",
         "dir": "Misc",
         "src": "Numpy.ipynb",
         "out": "Numpy==done==.ipynb",
-        "start": "10/02/21 12:11:50",
-        "end": "10/02/21 12:11:51",
+        "start": "01/03/21 21:45:28",
+        "end": "01/03/21 21:45:29",
         "duration": "0:00:01",
         "state": "ok"
     },
-    "TSB1": {
+    "Nb_TSB1": {
         "id": "TSB1",
         "dir": "Misc",
         "src": "Using-Tensorboard.ipynb",
         "out": "Using-Tensorboard==done==.ipynb",
-        "start": "10/02/21 12:11:51",
-        "end": "10/02/21 12:11:52",
-        "duration": "0:00:00",
+        "start": "01/03/21 21:45:29",
+        "end": "01/03/21 21:45:30",
+        "duration": "0:00:01",
         "state": "ok"
     }
 }
