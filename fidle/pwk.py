@@ -546,9 +546,9 @@ def display_confusion_matrix(y_true,y_pred,labels=None,color='green',
     see : sklearn.metrics.confusion_matrix
 
     Args:
-        y_true        Real classes
-        y_pred        Predicted classes
-        labels        List of classes to show in the cm
+        y_true:       Real classes
+        y_pred:       Predicted classes
+        labels:       List of classes to show in the cm
         color:        Color for the palette (green)
         font_size:    Values font size 
         title:        the text to display at the top of the matrix        
@@ -606,7 +606,7 @@ def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6),
     
 def plot_multivariate_serie(sequence, labels=None, predictions=None, only_features=None,
                             columns=3, width=5,height=4,wspace=0.3,hspace=0.2,
-                            save_as='auto', time_dt=1):
+                            save_as='auto', time_dt=1, hide_ticks=False):
     
     sequence_len = len(sequence)
     features_len = sequence.shape[1]
@@ -634,14 +634,118 @@ def plot_multivariate_serie(sequence, labels=None, predictions=None, only_featur
             ax.plot(t[-dt-1:],     sequence_with_pred[-dt-1:,i],     '--',  linewidth=1, fillstyle='full',  markersize=6, color='red')
             ax.plot(t[-dt:],       predictions[:,i],     'o',  linewidth=1, fillstyle='full',  markersize=6, color='red')
 
+        if hide_ticks:
+            ax.set_yticks([])
+            ax.set_xticks([])
+        
         ax.legend(loc="upper left")
         n+=1
     save_fig(save_as)
     plt.show()
 
+    
+# -------------------------------------------------------------
+# Show 2d series and segments
+# -------------------------------------------------------------
+#
+
+def plot_2d_serie(data, figsize=(10,8), monocolor=False, hide_ticks=True, save_as='auto'):
+    """
+    Plot a 2d dataset as a trajectory
+    args:
+        data:      Dataset to plot
+        figsize:   Figure size ( (10,8))
+        monocolor: Monocolor line or not. (False)
+    return:
+        nothing
+    """
+    # ---- Get x,y, min and max
+    #
+    n     = len(data)
+    k     = int(n/100)
+    x,y   = data[:,0], data[:,1]
  
+    # ---- Draw it
+    #
+    fig = plt.figure(figsize=figsize)
+    ax = plt.axes()
+
+    # ---- Monocolor or gray gradient
+    #
+    if monocolor:
+        ax.plot(x,y)
+    else:
+        for i in range(0,100):
+            a= (200-i)/200
+            ax.plot(x[i*k:(i+1)*k+1], y[i*k:(i+1)*k+1], '-', color=(a,a,a),lw='2')
+
+    # ---- Last point
+    #
+    ax.plot(x[n-1], y[n-1], 'o', color='#e12229',ms='4')
+    
+    ax.set_aspect('equal', 'box')
+    ax.set_xlabel('axis=0')
+    ax.set_ylabel('axis=1')
+    
+    if hide_ticks:
+        ax.set_yticks([])
+        ax.set_xticks([])
+
+    save_fig(save_as)
+    plt.show()
     
     
+
+    
+def plot_2d_segment(sequence_real, sequence_pred, figsize=(10,8), ms=6, hide_ticks=True, save_as='auto'):
+    """
+    Plot a 2d segment real and predicted
+    args:
+        sequence_real: Real sequence
+        sequence_pred: Predicted sequence
+        figsize:       Figure size ( (10,8) )
+        ms:            Marker size (6)
+    return:
+        nothing
+    """
+    k = len(sequence_pred)
+    x,y = sequence_real[:,0],sequence_real[:,1]
+    u,v = sequence_pred[:,0],sequence_pred[:,1]
+    
+    fig = plt.figure(figsize=figsize)
+
+    ax = plt.axes()
+    
+    # ---- Draw real sequence without prediction
+    #
+    ax.plot(x[:-k], y[:-k], 'o', ms=ms, markeredgecolor='C0', markerfacecolor='white', zorder=2)
+    ax.plot(x, y,'-', alpha=0.5, color='C0', lw=1, zorder=1)
+    
+    # ---- What we expect
+    #
+    ax.plot(x[-k:], y[-k:], 'o', ms=ms, markeredgecolor='C0', markerfacecolor='white', zorder=2)
+
+    # ---- What we have
+    #
+    ax.plot(u, v,'o', ms=ms, markeredgecolor='C1', markerfacecolor='white', zorder=2)
+    ax.plot( [x[-1-k],u[0]], [y[-1-k],v[0]], '--',alpha=1., color='C1',lw=1, zorder=1)
+    ax.plot(u, v,'--', alpha=0.5, color='C1',lw=1, zorder=1)
+
+    ax.set_aspect('equal', 'box')
+    ax.set_xlabel('axis=0')
+    ax.set_ylabel('axis=1')
+    
+    if hide_ticks:
+        ax.set_yticks([])
+        ax.set_xticks([])
+
+    save_fig(save_as)
+    plt.show()
+
+    
+    
+    
+
     
 def set_save_fig(save=True, figs_dir='./run/figs', figs_name='fig_', figs_id=0):
     """
