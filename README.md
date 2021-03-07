@@ -18,9 +18,10 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 
 **- Prochain rendez-vous -**  
 
-|Jeudi 4 mars, 14h, Séquence 3 : <br>Problématique des données creuses de dimensions variables, l'exemple des données textuelles.<br>Stratégies d'évaluation des modèles.|
+
+|**Jeudi 11 mars, 14h, Séquence 4 : <br>Réseaux de Neurones Récurrents (RNN)<br>Gestion des données séquentielles et/ou temporelles.**|
 |--|
-|Spécificités et traitement des données creuses/textuelles. <br>Principes de l'Embedding (Keras, CBOW, Skip-Gram) <br>Nous reviendrons également sur les stratégies d'évaluation des modèles. <br>Validation simple, croisée (K-fold), itérative, randomisée. <br>Exemple proposé :<br>Analyse de sentiment avec une analyse de critiques de films.|
+|Principes et concepts des réseaux de neurones récurrents.<br>Préparation et gestion d'un dataset réel de type séquence. Mise en œuvre et utilisation des RNN.<br>Long short-term memory (LSTM), Gated recurrent unit (GRU), cellules récurrentes, Générateur de séquences.<br>Exemple proposé :<br>Prédiction de trajectoires d'une coccinelle virtuelle ;-)<br>Prévisions météorologique à 3h et 12h, à partir de données réelles, issues des messages internationaux d’observation en surface (SYNOP) de l’Organisation Météorologique Mondiale (OMM).|
 |Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
@@ -45,7 +46,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-**2.0.17**
+**2.0.18**
 <!-- VERSION_END -->
 
 
@@ -117,15 +118,17 @@ A very classical example of word embedding with a dataset from Internet Movie Da
 Retrieving a saved model to perform a sentiment analysis (movie review)
 - **[IMDB4](IMDB/04-Show-vectors.ipynb)** - [Reload embedded vectors](IMDB/04-Show-vectors.ipynb)  
 Retrieving embedded vectors from our trained model
-- **[IMDB5](IMDB/05-LSTM-Keras.ipynb)** - [Sentiment analysis with a LSTM network](IMDB/05-LSTM-Keras.ipynb)  
-Still the same problem, but with a network combining embedding and LSTM
+- **[IMDB5](IMDB/05-LSTM-Keras.ipynb)** - [Sentiment analysis with a RNN network](IMDB/05-LSTM-Keras.ipynb)  
+Still the same problem, but with a network combining embedding and RNN
 
 ### Time series with Recurrent Neural Network (RNN)
-- **[SYNOP1](SYNOP/01-Preparation-of-data.ipynb)** - [Preparation of data](SYNOP/01-Preparation-of-data.ipynb)  
+- **[LADYB1](SYNOP/LADYB1-Ladybug.ipynb)** - [Prediction of a 2D trajectory via RNN](SYNOP/LADYB1-Ladybug.ipynb)  
+Artificial dataset generation and prediction attempt via a recurrent network
+- **[SYNOP1](SYNOP/SYNOP1-Preparation-of-data.ipynb)** - [Preparation of data](SYNOP/SYNOP1-Preparation-of-data.ipynb)  
 Episode 1 : Data analysis and preparation of a meteorological dataset (SYNOP)
-- **[SYNOP2](SYNOP/02-First-predictions.ipynb)** - [First predictions at 3h](SYNOP/02-First-predictions.ipynb)  
+- **[SYNOP2](SYNOP/SYNOP2-First-predictions.ipynb)** - [First predictions at 3h](SYNOP/SYNOP2-First-predictions.ipynb)  
 Episode 2 : Learning session and weather prediction attempt at 3h
-- **[SYNOP3](SYNOP/03-12h-predictions.ipynb)** - [12h predictions](SYNOP/03-12h-predictions.ipynb)  
+- **[SYNOP3](SYNOP/SYNOP3-12h-predictions.ipynb)** - [12h predictions](SYNOP/SYNOP3-12h-predictions.ipynb)  
 Episode 3: Attempt to predict in a more longer term 
 
 ### Unsupervised learning with an autoencoder neural network (AE)

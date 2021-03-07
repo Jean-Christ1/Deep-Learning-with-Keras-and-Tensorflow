@@ -241,22 +241,48 @@
         "id": "IMDB5",
         "dirname": "IMDB",
         "basename": "05-LSTM-Keras.ipynb",
-        "title": "Sentiment analysis with a LSTM network",
-        "description": "Still the same problem, but with a network combining embedding and LSTM",
-        "overrides": []
+        "title": "Sentiment analysis with a RNN network",
+        "description": "Still the same problem, but with a network combining embedding and RNN",
+        "overrides": [
+            "vocab_size",
+            "hide_most_frequently",
+            "review_len",
+            "dense_vector_size",
+            "batch_size",
+            "epochs",
+            "output_dir"
+        ]
+    },
+    "LADYB1": {
+        "id": "LADYB1",
+        "dirname": "SYNOP",
+        "basename": "LADYB1-Ladybug.ipynb",
+        "title": "Prediction of a 2D trajectory via RNN",
+        "description": "Artificial dataset generation and prediction attempt via a recurrent network",
+        "overrides": [
+            "run_dir",
+            "scale",
+            "train_prop",
+            "sequence_len",
+            "predict_len",
+            "batch_size",
+            "epochs"
+        ]
     },
     "SYNOP1": {
         "id": "SYNOP1",
         "dirname": "SYNOP",
-        "basename": "01-Preparation-of-data.ipynb",
+        "basename": "SYNOP1-Preparation-of-data.ipynb",
         "title": "Preparation of data",
         "description": "Episode 1 : Data analysis and preparation of a meteorological dataset (SYNOP)",
-        "overrides": []
+        "overrides": [
+            "output_dir"
+        ]
     },
     "SYNOP2": {
         "id": "SYNOP2",
         "dirname": "SYNOP",
-        "basename": "02-First-predictions.ipynb",
+        "basename": "SYNOP2-First-predictions.ipynb",
         "title": "First predictions at 3h",
         "description": "Episode 2 : Learning session and weather prediction attempt at 3h",
         "overrides": [
@@ -270,7 +296,7 @@
     "SYNOP3": {
         "id": "SYNOP3",
         "dirname": "SYNOP",
-        "basename": "03-12h-predictions.ipynb",
+        "basename": "SYNOP3-12h-predictions.ipynb",
         "title": "12h predictions",
         "description": "Episode 3: Attempt to predict in a more longer term ",
         "overrides": [

@@ -1,0 +1,51 @@
+_metadata_:
+  version: '1.0'
+  output_tag: ==done==
+  save_figs: true
+  description: Light profile for S04 with CPU
+#
+# ------ SYNOP -----------------------------------------------------
+#
+Nb_LADYB1:
+  notebook_id: LADYB1
+  notebook_dir: SYNOP
+  notebook_src: LADYB1-Ladybug.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    scale: default
+    train_prop: default
+    sequence_len: default
+    predict_len: default
+    batch_size: default
+    epochs: default
+Nb_SYNOP1:
+  notebook_id: SYNOP1
+  notebook_dir: SYNOP
+  notebook_src: SYNOP1-Preparation-of-data.ipynb
+  notebook_tag: default
+  overrides:
+    output_dir: default
+Nb_SYNOP2:
+  notebook_id: SYNOP2
+  notebook_dir: SYNOP
+  notebook_src: SYNOP2-First-predictions.ipynb
+  notebook_tag: default
+  overrides:
+    scale: default
+    train_prop: default
+    sequence_len: default
+    batch_size: default
+    epochs: default
+Nb_SYNOP3:
+  notebook_id: SYNOP3
+  notebook_dir: SYNOP
+  notebook_src: SYNOP3-12h-predictions.ipynb
+  notebook_tag: default
+  overrides:
+    iterations: default
+    scale: default
+    train_prop: default
+    sequence_len: default
+    batch_size: default
+    epochs: default

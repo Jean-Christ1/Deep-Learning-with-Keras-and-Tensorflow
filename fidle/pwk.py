@@ -605,7 +605,7 @@ def plot_donut(values, labels, colors=["lightsteelblue","coral"], figsize=(6,6),
 
     
 def plot_multivariate_serie(sequence, labels=None, predictions=None, only_features=None,
-                            columns=3, width=5,height=4,wspace=0.3,hspace=0.2,
+                            columns=3, width=5,height=4,wspace=0.3,hspace=0.2,ms=6,lw=1,
                             save_as='auto', time_dt=1, hide_ticks=False):
     
     sequence_len = len(sequence)
@@ -627,12 +627,19 @@ def plot_multivariate_serie(sequence, labels=None, predictions=None, only_featur
     n=1
     for i in only_features:
         ax=fig.add_subplot(rows, columns, n)
-        ax.plot(t[:-dt],       sequence[:-dt,i],    '-',  linewidth=1,  color='steelblue', label=labels[i])
-        ax.plot(t[:-dt],       sequence[:-dt,i],    'o',  markersize=4, color='steelblue')
-        ax.plot(t[-dt-1:], sequence[-dt-1:,i],'--o', linewidth=1, fillstyle='none',  markersize=6, color='steelblue')
+        
+        # ---- Real sequence without prediction
+        #
+        ax.plot( t[:-dt],sequence[:-dt,i], 'o',  markersize=ms, color='C0', zorder=2)
+        ax.plot( t,sequence[:,i],          '-',  linewidth=lw,  color='C0', label=labels[i],zorder=1)
+
+        # ---- What we expect
+        #
+        ax.plot(t[-dt:], sequence[-dt:,i], 'o', markeredgecolor='C0',markerfacecolor='white',ms=6)
+        
         if predictions is not None:
-            ax.plot(t[-dt-1:],     sequence_with_pred[-dt-1:,i],     '--',  linewidth=1, fillstyle='full',  markersize=6, color='red')
-            ax.plot(t[-dt:],       predictions[:,i],     'o',  linewidth=1, fillstyle='full',  markersize=6, color='red')
+            ax.plot(t[-dt-1:], sequence_with_pred[-dt-1:,i], '--',  lw=lw, fillstyle='full',  ms=ms, color='C1',zorder=1)
+            ax.plot(t[-dt:],   predictions[:,i],             'o',   lw=lw, fillstyle='full',  ms=ms, color='C1',zorder=2)
 
         if hide_ticks:
             ax.set_yticks([])
@@ -649,7 +656,7 @@ def plot_multivariate_serie(sequence, labels=None, predictions=None, only_featur
 # -------------------------------------------------------------
 #
 
-def plot_2d_serie(data, figsize=(10,8), monocolor=False, hide_ticks=True, save_as='auto'):
+def plot_2d_serie(data, figsize=(10,8), monocolor=False, hide_ticks=True, lw=2, ms=4, save_as='auto'):
     """
     Plot a 2d dataset as a trajectory
     args:
@@ -677,11 +684,11 @@ def plot_2d_serie(data, figsize=(10,8), monocolor=False, hide_ticks=True, save_a
     else:
         for i in range(0,100):
             a= (200-i)/200
-            ax.plot(x[i*k:(i+1)*k+1], y[i*k:(i+1)*k+1], '-', color=(a,a,a),lw='2')
+            ax.plot(x[i*k:(i+1)*k+1], y[i*k:(i+1)*k+1], '-', color=(a,a,a),lw=lw,zorder=1)
 
     # ---- Last point
     #
-    ax.plot(x[n-1], y[n-1], 'o', color='#e12229',ms='4')
+    ax.plot(x[n-1], y[n-1], 'o', color='C1',ms=ms,zorder=2)
     
     ax.set_aspect('equal', 'box')
     ax.set_xlabel('axis=0')
@@ -697,7 +704,7 @@ def plot_2d_serie(data, figsize=(10,8), monocolor=False, hide_ticks=True, save_a
     
 
     
-def plot_2d_segment(sequence_real, sequence_pred, figsize=(10,8), ms=6, hide_ticks=True, save_as='auto'):
+def plot_2d_segment(sequence_real, sequence_pred, figsize=(10,8), ms=6, lw=1, hide_ticks=True, save_as='auto'):
     """
     Plot a 2d segment real and predicted
     args:
@@ -718,8 +725,8 @@ def plot_2d_segment(sequence_real, sequence_pred, figsize=(10,8), ms=6, hide_tic
     
     # ---- Draw real sequence without prediction
     #
-    ax.plot(x[:-k], y[:-k], 'o', ms=ms, markeredgecolor='C0', markerfacecolor='white', zorder=2)
-    ax.plot(x, y,'-', alpha=0.5, color='C0', lw=1, zorder=1)
+    ax.plot(x[:-k], y[:-k],   'o', color='C0', fillstyle='full', zorder=2, ms=ms)
+    ax.plot(x, y,             '-', color='C0', lw=lw, zorder=1)
     
     # ---- What we expect
     #
@@ -727,9 +734,9 @@ def plot_2d_segment(sequence_real, sequence_pred, figsize=(10,8), ms=6, hide_tic
 
     # ---- What we have
     #
-    ax.plot(u, v,'o', ms=ms, markeredgecolor='C1', markerfacecolor='white', zorder=2)
-    ax.plot( [x[-1-k],u[0]], [y[-1-k],v[0]], '--',alpha=1., color='C1',lw=1, zorder=1)
-    ax.plot(u, v,'--', alpha=0.5, color='C1',lw=1, zorder=1)
+    ax.plot(u, v,                            'o',  color='C1',fillstyle='full',zorder=2, ms=ms)
+    ax.plot( [x[-1-k],u[0]], [y[-1-k],v[0]], '--', color='C1',lw=lw, zorder=1)
+    ax.plot(u, v,                            '--', color='C1',lw=lw, zorder=1)
 
     ax.set_aspect('equal', 'box')
     ax.set_xlabel('axis=0')
