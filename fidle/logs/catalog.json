@@ -274,8 +274,9 @@
         "dirname": "SYNOP",
         "basename": "SYNOP1-Preparation-of-data.ipynb",
         "title": "Preparation of data",
-        "description": "Episode 1 : Data analysis and preparation of a meteorological dataset (SYNOP)",
+        "description": "Episode 1 : Data analysis and preparation of a usuable meteorological dataset (SYNOP)",
         "overrides": [
+            "run_dir",
             "output_dir"
         ]
     },
@@ -284,8 +285,9 @@
         "dirname": "SYNOP",
         "basename": "SYNOP2-First-predictions.ipynb",
         "title": "First predictions at 3h",
-        "description": "Episode 2 : Learning session and weather prediction attempt at 3h",
+        "description": "Episode 2 : RNN training session for weather prediction attempt at 3h",
         "overrides": [
+            "run_dir",
             "scale",
             "train_prop",
             "sequence_len",
@@ -300,6 +302,7 @@
         "title": "12h predictions",
         "description": "Episode 3: Attempt to predict in a more longer term ",
         "overrides": [
+            "run_dir",
             "iterations",
             "scale",
             "train_prop",
@@ -433,6 +436,14 @@
         "basename": "Numpy.ipynb",
         "title": "A short introduction to Numpy",
         "description": "Numpy is an essential tool for the Scientific Python.",
+        "overrides": []
+    },
+    "SCRATCH1": {
+        "id": "SCRATCH1",
+        "dirname": "Misc",
+        "basename": "Scratchbook.ipynb",
+        "title": "Scratchbook",
+        "description": "A scratchbook for small examples",
         "overrides": []
     },
     "TSB1": {

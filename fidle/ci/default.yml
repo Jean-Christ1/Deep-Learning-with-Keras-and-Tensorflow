@@ -207,6 +207,7 @@ Nb_SYNOP1:
   notebook_src: SYNOP1-Preparation-of-data.ipynb
   notebook_tag: default
   overrides:
+    run_dir: default
     output_dir: default
 Nb_SYNOP2:
   notebook_id: SYNOP2
@@ -214,6 +215,7 @@ Nb_SYNOP2:
   notebook_src: SYNOP2-First-predictions.ipynb
   notebook_tag: default
   overrides:
+    run_dir: default
     scale: default
     train_prop: default
     sequence_len: default
@@ -225,6 +227,7 @@ Nb_SYNOP3:
   notebook_src: SYNOP3-12h-predictions.ipynb
   notebook_tag: default
   overrides:
+    run_dir: default
     iterations: default
     scale: default
     train_prop: default
@@ -321,6 +324,11 @@ Nb_NP1:
   notebook_id: NP1
   notebook_dir: Misc
   notebook_src: Numpy.ipynb
+  notebook_tag: default
+Nb_SCRATCH1:
+  notebook_id: SCRATCH1
+  notebook_dir: Misc
+  notebook_src: Scratchbook.ipynb
   notebook_tag: default
 Nb_TSB1:
   notebook_id: TSB1

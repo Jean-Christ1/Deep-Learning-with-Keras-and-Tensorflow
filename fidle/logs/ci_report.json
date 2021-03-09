@@ -6,18 +6,18 @@
         "description": "Light profile for S04 with CPU",
         "host": "Oban",
         "profile": "./ci/fidle-ad_s04.yml",
-        "start": "07/03/21 21:13:23",
-        "end": "07/03/21 21:18:10",
-        "duration": "0:04:47"
+        "start": "09/03/21 22:32:44",
+        "end": "09/03/21 22:38:07",
+        "duration": "0:05:23"
     },
     "Nb_LADYB1": {
         "id": "LADYB1",
         "dir": "SYNOP",
         "src": "LADYB1-Ladybug.ipynb",
         "out": "LADYB1-Ladybug==done==.ipynb",
-        "start": "07/03/21 21:13:23",
-        "end": "07/03/21 21:15:55",
-        "duration": "0:02:32",
+        "start": "09/03/21 22:32:44",
+        "end": "09/03/21 22:35:43",
+        "duration": "0:02:59",
         "state": "ok"
     },
     "Nb_SYNOP1": {
@@ -25,9 +25,9 @@
         "dir": "SYNOP",
         "src": "SYNOP1-Preparation-of-data.ipynb",
         "out": "SYNOP1-Preparation-of-data==done==.ipynb",
-        "start": "07/03/21 21:15:56",
-        "end": "07/03/21 21:16:01",
-        "duration": "0:00:05",
+        "start": "09/03/21 22:35:43",
+        "end": "09/03/21 22:35:50",
+        "duration": "0:00:07",
         "state": "ok"
     },
     "Nb_SYNOP2": {
@@ -35,9 +35,9 @@
         "dir": "SYNOP",
         "src": "SYNOP2-First-predictions.ipynb",
         "out": "SYNOP2-First-predictions==done==.ipynb",
-        "start": "07/03/21 21:16:01",
-        "end": "07/03/21 21:18:02",
-        "duration": "0:02:01",
+        "start": "09/03/21 22:35:50",
+        "end": "09/03/21 22:38:01",
+        "duration": "0:02:10",
         "state": "ok"
     },
     "Nb_SYNOP3": {
@@ -45,9 +45,9 @@
         "dir": "SYNOP",
         "src": "SYNOP3-12h-predictions.ipynb",
         "out": "SYNOP3-12h-predictions==done==.ipynb",
-        "start": "07/03/21 21:18:03",
-        "end": "07/03/21 21:18:10",
-        "duration": "0:00:07",
+        "start": "09/03/21 22:38:01",
+        "end": "09/03/21 22:38:07",
+        "duration": "0:00:05",
         "state": "ok"
     }
 }

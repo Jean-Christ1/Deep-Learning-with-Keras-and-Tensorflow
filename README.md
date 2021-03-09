@@ -46,7 +46,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-**2.0.18**
+**2.0.19**
 <!-- VERSION_END -->
 
 
@@ -125,9 +125,9 @@ Still the same problem, but with a network combining embedding and RNN
 - **[LADYB1](SYNOP/LADYB1-Ladybug.ipynb)** - [Prediction of a 2D trajectory via RNN](SYNOP/LADYB1-Ladybug.ipynb)  
 Artificial dataset generation and prediction attempt via a recurrent network
 - **[SYNOP1](SYNOP/SYNOP1-Preparation-of-data.ipynb)** - [Preparation of data](SYNOP/SYNOP1-Preparation-of-data.ipynb)  
-Episode 1 : Data analysis and preparation of a meteorological dataset (SYNOP)
+Episode 1 : Data analysis and preparation of a usuable meteorological dataset (SYNOP)
 - **[SYNOP2](SYNOP/SYNOP2-First-predictions.ipynb)** - [First predictions at 3h](SYNOP/SYNOP2-First-predictions.ipynb)  
-Episode 2 : Learning session and weather prediction attempt at 3h
+Episode 2 : RNN training session for weather prediction attempt at 3h
 - **[SYNOP3](SYNOP/SYNOP3-12h-predictions.ipynb)** - [12h predictions](SYNOP/SYNOP3-12h-predictions.ipynb)  
 Episode 3: Attempt to predict in a more longer term 
 
@@ -160,6 +160,8 @@ Bash script for SLURM batch submission of VAE8 notebooks
 Some activation functions, with their derivatives.
 - **[NP1](Misc/Numpy.ipynb)** - [A short introduction to Numpy](Misc/Numpy.ipynb)  
 Numpy is an essential tool for the Scientific Python.
+- **[SCRATCH1](Misc/Scratchbook.ipynb)** - [Scratchbook](Misc/Scratchbook.ipynb)  
+A scratchbook for small examples
 - **[TSB1](Misc/Using-Tensorboard.ipynb)** - [Tensorboard with/from Jupyter ](Misc/Using-Tensorboard.ipynb)  
 4 ways to use Tensorboard from the Jupyter environment
 <!-- INDEX_END -->
