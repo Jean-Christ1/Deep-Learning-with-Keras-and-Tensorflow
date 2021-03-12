@@ -10,7 +10,7 @@
 ## Session Fidle à distance (NEW !)
 
 Faute de pouvoir organiser des sessions en présentiel,\
-nous vous proposons une **session à distance** :-)
+nous vous proposons une version **Fidle à distance** :-)
 
 **- Voir ou revoir en ligne -**
 
@@ -19,9 +19,9 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 **- Prochain rendez-vous -**  
 
 
-|**Jeudi 11 mars, 14h, Séquence 4 : <br>Réseaux de Neurones Récurrents (RNN)<br>Gestion des données séquentielles et/ou temporelles.**|
+|**Jeudi 18 mars, 14h, Séquence 5 : <br>Les réseaux autoencodeurs (AE), un exemple d'apprentissage non supervisé.**|
 |--|
-|Principes et concepts des réseaux de neurones récurrents.<br>Préparation et gestion d'un dataset réel de type séquence. Mise en œuvre et utilisation des RNN.<br>Long short-term memory (LSTM), Gated recurrent unit (GRU), cellules récurrentes, Générateur de séquences.<br>Exemple proposé :<br>Prédiction de trajectoires d'une coccinelle virtuelle ;-)<br>Prévisions météorologique à 3h et 12h, à partir de données réelles, issues des messages internationaux d’observation en surface (SYNOP) de l’Organisation Météorologique Mondiale (OMM).|
+|Principes et architecture des réseaux autoencodeurs.<br> Convolutions classiques et transposées - Espaces latents.<br> Programmation procédurale avec Keras - GPU et batch.<br>Exemple proposé :<br>Débruitage d'images fortement bruitées.<br>Où, comment à partir de ces image :<br> ![AE2-07-test-noisy-xs](./fidle/img/AE2-noisy.png)<br> Il est possible de retrouver  celles-ci !<br>![AE2-08-test-predict-xs](./fidle/img/AE2-predict.png) |
 |Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
