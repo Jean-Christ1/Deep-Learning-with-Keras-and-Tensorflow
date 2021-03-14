@@ -46,7 +46,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-**2.0.19**
+**2.0.20**
 <!-- VERSION_END -->
 
 
@@ -132,10 +132,16 @@ Episode 2 : RNN training session for weather prediction attempt at 3h
 Episode 3: Attempt to predict in a more longer term 
 
 ### Unsupervised learning with an autoencoder neural network (AE)
-- **[AE1](AE/01-AE-with-MNIST.ipynb)** - [Building and training an AE denoiser model](AE/01-AE-with-MNIST.ipynb)  
-Episode 1 : After construction, the model is trained with noisy data from the MNIST dataset.
-- **[AE2](AE/02-AE-with-MNIST-post.ipynb)** - [Exploring our denoiser model](AE/02-AE-with-MNIST-post.ipynb)  
+- **[AE1](AE/01-Prepare-MNIST-dataset.ipynb)** - [Prepare a noisy MNIST dataset](AE/01-Prepare-MNIST-dataset.ipynb)  
+Episode 1: Preparation of a noisy MNIST dataset
+- **[AE2](AE/02-AE-with-MNIST.ipynb)** - [Building and training an AE denoiser model](AE/02-AE-with-MNIST.ipynb)  
+Episode 1 : Construction of a denoising autoencoder and training of it with a noisy MNIST dataset.
+- **[AE3](AE/03-AE-with-MNIST-post.ipynb)** - [Playing with our denoiser model](AE/03-AE-with-MNIST-post.ipynb)  
 Episode 2 : Using the previously trained autoencoder to denoise data
+- **[AE4](AE/04-ExtAE-with-MNIST.ipynb)** - [Denoiser and classifier model](AE/04-ExtAE-with-MNIST.ipynb)  
+Episode 4 : Construction of a denoiser and classifier model
+- **[AE5](AE/05-ExtAE-with-MNIST.ipynb)** - [Advanced denoiser and classifier model](AE/05-ExtAE-with-MNIST.ipynb)  
+Episode 5 : Construction of an advanced denoiser and classifier model
 
 ### Generative network with Variational Autoencoder (VAE)
 - **[VAE1](VAE/01-VAE-with-MNIST.ipynb)** - [First VAE, with a small dataset (MNIST)](VAE/01-VAE-with-MNIST.ipynb)  

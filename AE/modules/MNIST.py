@@ -18,6 +18,13 @@ from hashlib import blake2b
 import tensorflow as tf
 import tensorflow.keras.datasets.mnist as mnist
 
+
+# ------------------------------------------------------------------
+#   A usefull class to manage our MNIST dataset
+#   This class allows to manage datasets derived from the original MNIST
+# ------------------------------------------------------------------
+
+
 class MNIST():
     
     version = '0.1'
@@ -98,14 +105,14 @@ class MNIST():
             
             
     @classmethod    
-    def reload_prepared_dataset(cls, scale=1., train_prop=0.8, shuffle=True, seed=None, filename='./data/mnist-noisy.h5'):
+    def reload_prepared_dataset(cls, scale=1., train_prop=0.8, shuffle=True, seed=False, filename='./data/mnist-noisy.h5'):
         """
         Reload a saved dataset
         args:
             scale      : Scale of dataset to use. 1. mean 100% (1.)
             train_prop : Ratio of train/test
             shuffle    : Shuffle data if True
-            seed       : Random seed value (no seed if None) (None)
+            seed       : Random seed value. False mean no seed, None mean using /dev/urandom (None)
             filename   : filename of the prepared dataset
         returns:
             clean_train,clean_test, noisy_train,noisy_test, class_train,class_test
@@ -126,7 +133,7 @@ class MNIST():
         
         # ---- Seed
         #
-        if seed is not None:
+        if seed is not False:
             np.random.seed(seed)
             print(f'Seeded ({seed})')
         

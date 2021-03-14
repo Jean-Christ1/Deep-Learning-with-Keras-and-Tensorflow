@@ -314,18 +314,77 @@
     "AE1": {
         "id": "AE1",
         "dirname": "AE",
-        "basename": "01-AE-with-MNIST.ipynb",
-        "title": "Building and training an AE denoiser model",
-        "description": "Episode 1 : After construction, the model is trained with noisy data from the MNIST dataset.",
-        "overrides": []
+        "basename": "01-Prepare-MNIST-dataset.ipynb",
+        "title": "Prepare a noisy MNIST dataset",
+        "description": "Episode 1: Preparation of a noisy MNIST dataset",
+        "overrides": [
+            "run_dir"
+        ]
     },
     "AE2": {
         "id": "AE2",
         "dirname": "AE",
-        "basename": "02-AE-with-MNIST-post.ipynb",
-        "title": "Exploring our denoiser model",
+        "basename": "02-AE-with-MNIST.ipynb",
+        "title": "Building and training an AE denoiser model",
+        "description": "Episode 1 : Construction of a denoising autoencoder and training of it with a noisy MNIST dataset.",
+        "overrides": [
+            "run_dir",
+            "prepared_dataset",
+            "dataset_seed",
+            "scale",
+            "latent_dim",
+            "train_prop",
+            "batch_size",
+            "epochs"
+        ]
+    },
+    "AE3": {
+        "id": "AE3",
+        "dirname": "AE",
+        "basename": "03-AE-with-MNIST-post.ipynb",
+        "title": "Playing with our denoiser model",
         "description": "Episode 2 : Using the previously trained autoencoder to denoise data",
-        "overrides": []
+        "overrides": [
+            "run_dir",
+            "prepared_dataset",
+            "dataset_seed",
+            "scale",
+            "train_prop"
+        ]
+    },
+    "AE4": {
+        "id": "AE4",
+        "dirname": "AE",
+        "basename": "04-ExtAE-with-MNIST.ipynb",
+        "title": "Denoiser and classifier model",
+        "description": "Episode 4 : Construction of a denoiser and classifier model",
+        "overrides": [
+            "run_dir",
+            "prepared_dataset",
+            "dataset_seed",
+            "scale",
+            "latent_dim",
+            "train_prop",
+            "batch_size",
+            "epochs"
+        ]
+    },
+    "AE5": {
+        "id": "AE5",
+        "dirname": "AE",
+        "basename": "05-ExtAE-with-MNIST.ipynb",
+        "title": "Advanced denoiser and classifier model",
+        "description": "Episode 5 : Construction of an advanced denoiser and classifier model",
+        "overrides": [
+            "run_dir",
+            "prepared_dataset",
+            "dataset_seed",
+            "scale",
+            "latent_dim",
+            "train_prop",
+            "batch_size",
+            "epochs"
+        ]
     },
     "VAE1": {
         "id": "VAE1",

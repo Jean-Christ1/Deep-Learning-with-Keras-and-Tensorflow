@@ -237,13 +237,63 @@ Nb_SYNOP3:
 Nb_AE1:
   notebook_id: AE1
   notebook_dir: AE
-  notebook_src: 01-AE-with-MNIST.ipynb
+  notebook_src: 01-Prepare-MNIST-dataset.ipynb
   notebook_tag: default
+  overrides:
+    run_dir: default
 Nb_AE2:
   notebook_id: AE2
   notebook_dir: AE
-  notebook_src: 02-AE-with-MNIST-post.ipynb
+  notebook_src: 02-AE-with-MNIST.ipynb
   notebook_tag: default
+  overrides:
+    run_dir: default
+    prepared_dataset: default
+    dataset_seed: default
+    scale: default
+    latent_dim: default
+    train_prop: default
+    batch_size: default
+    epochs: default
+Nb_AE3:
+  notebook_id: AE3
+  notebook_dir: AE
+  notebook_src: 03-AE-with-MNIST-post.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    prepared_dataset: default
+    dataset_seed: default
+    scale: default
+    train_prop: default
+Nb_AE4:
+  notebook_id: AE4
+  notebook_dir: AE
+  notebook_src: 04-ExtAE-with-MNIST.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    prepared_dataset: default
+    dataset_seed: default
+    scale: default
+    latent_dim: default
+    train_prop: default
+    batch_size: default
+    epochs: default
+Nb_AE5:
+  notebook_id: AE5
+  notebook_dir: AE
+  notebook_src: 05-ExtAE-with-MNIST.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    prepared_dataset: default
+    dataset_seed: default
+    scale: default
+    latent_dim: default
+    train_prop: default
+    batch_size: default
+    epochs: default
 Nb_VAE1:
   notebook_id: VAE1
   notebook_dir: VAE
