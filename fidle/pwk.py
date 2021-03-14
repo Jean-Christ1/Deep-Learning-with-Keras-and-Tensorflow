@@ -207,7 +207,7 @@ def override(*names, module_name='__main__', verbose=True, return_attributes=Fal
         if value_type in [ str ] : 
             new_value = env_value.format(datasets_dir=datasets_dir, notebook_id=notebook_id)
 
-        if value_type in [ int, float, bool, tuple, list, dict]:
+        if value_type in [ int, float, bool, tuple, list, dict, type(None)]:
             new_value = eval(env_value)
     
         # ---- Override value
