@@ -19,9 +19,9 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 **- Prochain rendez-vous -**  
 
 
-|**Jeudi 18 mars, 14h, Séquence 5 : <br>Les réseaux autoencodeurs (AE), un exemple d'apprentissage non supervisé.**|
+|**Jeudi 25 mars, 14h, Séquence 6 : <br>Du réseau autoencodeur (AE) au Variational Autoencoder (VAE)<br>ou comment parcourir l'imagination de nos réseaux.**|
 |--|
-|Principes et architecture des réseaux autoencodeurs.<br> Convolutions classiques et transposées - Espaces latents.<br> Programmation procédurale avec Keras - GPU et batch.<br>Exemple proposé :<br>Débruitage d'images fortement bruitées.<br>Où, comment à partir de ces image :<br> ![AE2-07-test-noisy-xs](./fidle/img/AE2-noisy.png)<br> Il est possible de retrouver  celles-ci !<br>![AE2-08-test-predict-xs](./fidle/img/AE2-predict.png) |
+|Principes et architecture d'un Variational Autoencoder (VAE).<br>Problématiques liées à la gestion de "gros" datasets.<br>Projection gaussienne - Génération de données - Morphing dans l'espace latent.<br>Programmation avancée avec Keras - Datasets clusterisés.<br>Exemple proposé :<br>Mise en œuvre d'un VAE, génération de données et morphing dans l'espace latent.<br>![VAE](./fidle/img/VAE.jpg )|
 |Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
