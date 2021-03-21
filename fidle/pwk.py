@@ -276,6 +276,12 @@ def rescale_dataset(*data, scale=1):
     '''
     return [ d[:int(scale*len(d))] for d in data ]
 
+def pick_dataset(*data,n=5):
+    '''Return random subsets of n elements'''
+    ii = np.random.choice(range(len(data[0])), n)
+    out = [ d[ii] for d in data ]
+    return out[0] if len(out)==1 else out
+
 def update_progress(what,i,imax, redraw=False):
     """
     Display a text progress bar, as :
