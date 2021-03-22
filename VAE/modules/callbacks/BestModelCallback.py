@@ -17,7 +17,7 @@ import os
                 
 class BestModelCallback(Callback):
 
-    def __init__(self, filename= './run_dir/best-model', verbose=0 ):
+    def __init__(self, filename= './run_dir/best-model.h5', verbose=0 ):
         self.filename = filename
         self.verbose  = verbose
         self.loss     = np.Inf

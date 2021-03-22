@@ -17,6 +17,9 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from IPython.display import display,Markdown
+from modules.layers    import SamplingLayer
+import os
+
 
 # Note : https://keras.io/guides/making_new_layers_and_models_via_subclassing/
 
@@ -29,7 +32,7 @@ class VAE(keras.Model):
 
     version = '1.4'
 
-    def __init__(self, encoder=None, decoder=None, loss_weights=[3,7], **kwargs):
+    def __init__(self, encoder=None, decoder=None, loss_weights=[1,1], **kwargs):
         '''
         VAE instantiation with encoder, decoder and r_loss_factor
         args :
@@ -44,8 +47,8 @@ class VAE(keras.Model):
         self.encoder      = encoder
         self.decoder      = decoder
         self.loss_weights = loss_weights
-        print(f'Init VAE, with loss_weights={list(self.loss_weights)}')
-
+        print(f'Fidle VAE is ready :-)  loss_weights={list(self.loss_weights)}')
+       
         
     def call(self, inputs):
         '''
@@ -119,18 +122,27 @@ class VAE(keras.Model):
         }
     
     
-    def reload(self,filename):
-        '''Reload a 2 part saved model.'''
-        self.encoder = keras.models.load_model(f'{filename}-enc.h5', custom_objects={'Sampling': Sampling})
-        self.decoder = keras.models.load_model(f'{filename}-dec.h5')
-        print('Reloaded.')
-        
+    def predict(self,inputs):
+        '''Our predict function...'''
+        z_mean, z_var, z  = self.encoder.predict(inputs)
+        outputs           = self.decoder.predict(z)
+        return outputs
+
         
     def save(self,filename):
         '''Save model in 2 part'''
-        self.encoder.save(f'{filename}-enc.h5')
-        self.decoder.save(f'{filename}-dec.h5')
+        filename, extension = os.path.splitext(filename)
+        self.encoder.save(f'{filename}-encoder.h5')
+        self.decoder.save(f'{filename}-decoder.h5')
+
     
+    def reload(self,filename):
+        '''Reload a 2 part saved model.'''
+        filename, extension = os.path.splitext(filename)
+        self.encoder = keras.models.load_model(f'{filename}-encoder.h5', custom_objects={'SamplingLayer': SamplingLayer})
+        self.decoder = keras.models.load_model(f'{filename}-decoder.h5')
+        print('Reloaded.')
+                
         
     @classmethod
     def about(cls):

@@ -4,30 +4,120 @@
         "output_tag": "==done==",
         "save_figs": true,
         "description": "Heavy profile for S05 with GPU",
-        "host": "r10i7n1",
-        "profile": "./ci/fidle-ad_s05.yml",
-        "start": "14/03/21 22:35:36",
-        "end": "14/03/21 22:40:55",
-        "duration": "0:05:19"
+        "host": "r10i7n7",
+        "profile": "./ci/fidle-ad_s06.yml",
+        "start": "22/03/21 14:39:05",
+        "end": "22/03/21 15:58:24",
+        "duration": "1:19:19"
     },
-    "Nb_AE4": {
-        "id": "AE4",
-        "dir": "AE",
-        "src": "04-ExtAE-with-MNIST.ipynb",
-        "out": "04-ExtAE-with-MNIST==done==.ipynb",
-        "start": "14/03/21 22:35:36",
-        "end": "14/03/21 22:38:04",
-        "duration": "0:02:28",
+    "Nb_VAE1": {
+        "id": "VAE1",
+        "dir": "VAE",
+        "src": "01-VAE-with-MNIST.ipynb",
+        "out": "01-VAE-with-MNIST==done==.ipynb",
+        "start": "22/03/21 14:39:05",
+        "end": "22/03/21 14:41:08",
+        "duration": "0:02:03",
         "state": "ok"
     },
-    "Nb_AE5": {
-        "id": "AE5",
-        "dir": "AE",
-        "src": "05-ExtAE-with-MNIST.ipynb",
-        "out": "05-ExtAE-with-MNIST==done==.ipynb",
-        "start": "14/03/21 22:38:05",
-        "end": "14/03/21 22:40:55",
-        "duration": "0:02:50",
+    "Nb_VAE2_r0": {
+        "id": "VAE2",
+        "dir": "VAE",
+        "src": "02-VAE-with-MNIST.ipynb",
+        "out": "02-VAE-with-MNIST=0==done==.ipynb",
+        "start": "22/03/21 14:41:09",
+        "end": "22/03/21 14:43:04",
+        "duration": "0:01:55",
+        "state": "ok"
+    },
+    "Nb_VAE2_r1": {
+        "id": "VAE2",
+        "dir": "VAE",
+        "src": "02-VAE-with-MNIST.ipynb",
+        "out": "02-VAE-with-MNIST=1==done==.ipynb",
+        "start": "22/03/21 14:43:04",
+        "end": "22/03/21 14:44:59",
+        "duration": "0:01:55",
+        "state": "ok"
+    },
+    "Nb_VAE2_r2": {
+        "id": "VAE2",
+        "dir": "VAE",
+        "src": "02-VAE-with-MNIST.ipynb",
+        "out": "02-VAE-with-MNIST=2==done==.ipynb",
+        "start": "22/03/21 14:45:00",
+        "end": "22/03/21 14:46:56",
+        "duration": "0:01:56",
+        "state": "ok"
+    },
+    "Nb_VAE2_r3": {
+        "id": "VAE2",
+        "dir": "VAE",
+        "src": "02-VAE-with-MNIST.ipynb",
+        "out": "02-VAE-with-MNIST=3==done==.ipynb",
+        "start": "22/03/21 14:46:56",
+        "end": "22/03/21 14:48:51",
+        "duration": "0:01:55",
+        "state": "ok"
+    },
+    "Nb_VAE3": {
+        "id": "VAE3",
+        "dir": "VAE",
+        "src": "03-VAE-with-MNIST-post.ipynb",
+        "out": "03-VAE-with-MNIST-post==done==.ipynb",
+        "start": "22/03/21 14:48:51",
+        "end": "22/03/21 14:49:26",
+        "duration": "0:00:35",
+        "state": "ok"
+    },
+    "Nb_VAE5": {
+        "id": "VAE5",
+        "dir": "VAE",
+        "src": "05-About-CelebA.ipynb",
+        "out": "05-About-CelebA==done==.ipynb",
+        "start": "22/03/21 14:49:27",
+        "end": "22/03/21 14:49:54",
+        "duration": "0:00:26",
+        "state": "ok"
+    },
+    "Nb_VAE6": {
+        "id": "VAE6",
+        "dir": "VAE",
+        "src": "06-Prepare-CelebA-datasets.ipynb",
+        "out": "06-Prepare-CelebA-datasets==done==.ipynb",
+        "start": "22/03/21 14:49:54",
+        "end": "22/03/21 14:51:44",
+        "duration": "0:01:50",
+        "state": "ok"
+    },
+    "Nb_VAE7": {
+        "id": "VAE7",
+        "dir": "VAE",
+        "src": "07-Check-CelebA.ipynb",
+        "out": "07-Check-CelebA==done==.ipynb",
+        "start": "22/03/21 14:51:44",
+        "end": "22/03/21 14:52:01",
+        "duration": "0:00:17",
+        "state": "ok"
+    },
+    "Nb_VAE8": {
+        "id": "VAE8",
+        "dir": "VAE",
+        "src": "08-VAE-with-CelebA.ipynb",
+        "out": "08-VAE-with-CelebA==done==.ipynb",
+        "start": "22/03/21 14:52:01",
+        "end": "22/03/21 15:56:33",
+        "duration": "1:04:31",
+        "state": "ok"
+    },
+    "Nb_VAE9": {
+        "id": "VAE9",
+        "dir": "VAE",
+        "src": "09-VAE-with-CelebA-post.ipynb",
+        "out": "09-VAE-with-CelebA-post==done==.ipynb",
+        "start": "22/03/21 15:56:45",
+        "end": "22/03/21 15:58:24",
+        "duration": "0:01:39",
         "state": "ok"
     }
 }

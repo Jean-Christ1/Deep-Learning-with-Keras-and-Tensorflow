@@ -1,0 +1,144 @@
+_metadata_:
+  version: '1.0'
+  output_tag: ==done==
+  save_figs: true
+  description: Heavy profile for S05 with GPU
+#
+# ------ VAE --------------------------------------------------------
+#
+Nb_VAE1:
+  notebook_id: VAE1
+  notebook_dir: VAE
+  notebook_src: 01-VAE-with-MNIST.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE1_done
+    latent_dim: 2
+    loss_weights: [1,0.0001]
+    scale: 1
+    seed: 123
+    batch_size: 64
+    epochs: 10
+    
+Nb_VAE2_r0:
+  notebook_id: VAE2
+  notebook_dir: VAE
+  notebook_src: 02-VAE-with-MNIST.ipynb
+  notebook_tag: =0==done==
+  overrides:
+    run_dir: ./run/VAE2_done_0001
+    latent_dim: 2
+    loss_weights: [1,0.0001]
+    scale: 1
+    seed: 123
+    batch_size: 64
+    epochs: 10
+    
+Nb_VAE2_r1:
+  notebook_id: VAE2
+  notebook_dir: VAE
+  notebook_src: 02-VAE-with-MNIST.ipynb
+  notebook_tag: =1==done==
+  overrides:
+    run_dir: ./run/VAE2_done_01
+    latent_dim: 2
+    loss_weights: [1,0.01]
+    scale: 1
+    seed: 123
+    batch_size: 64
+    epochs: 10
+    
+Nb_VAE2_r2:
+  notebook_id: VAE2
+  notebook_dir: VAE
+  notebook_src: 02-VAE-with-MNIST.ipynb
+  notebook_tag: =2==done==
+  overrides:
+    run_dir: ./run/VAE2_done_001
+    latent_dim: 2
+    loss_weights: [1,0.001]
+    scale: 1
+    seed: 123
+    batch_size: 64
+    epochs: 10
+    
+Nb_VAE2_r3:
+  notebook_id: VAE2
+  notebook_dir: VAE
+  notebook_src: 02-VAE-with-MNIST.ipynb
+  notebook_tag: =3==done==
+  overrides:
+    run_dir: ./run/VAE2_done_005
+    latent_dim: 2
+    loss_weights: [1,0.005]
+    scale: 1
+    seed: 123
+    batch_size: 64
+    epochs: 10
+    
+Nb_VAE3:
+  notebook_id: VAE3
+  notebook_dir: VAE
+  notebook_src: 03-VAE-with-MNIST-post.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE2_done_0001
+    scale: 1
+    seed: 123
+    
+Nb_VAE5:
+  notebook_id: VAE5
+  notebook_dir: VAE
+  notebook_src: 05-About-CelebA.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE5_done
+    
+Nb_VAE6:
+  notebook_id: VAE6
+  notebook_dir: VAE
+  notebook_src: 06-Prepare-CelebA-datasets.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE6_done
+    scale: 0.02
+    seed: 123
+    cluster_size: 10000
+    image_size: '(128,128)'
+    output_dir: ./data
+    exit_if_exist: False
+    
+Nb_VAE7:
+  notebook_id: VAE7
+  notebook_dir: VAE
+  notebook_src: 07-Check-CelebA.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE7_done
+    image_size: '(128,128)'
+    enhanced_dir: ./data
+    
+Nb_VAE8:
+  notebook_id: VAE8
+  notebook_dir: VAE
+  notebook_src: 08-VAE-with-CelebA.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE8_done
+    scale: 1
+    image_size: '(192,160)'
+    enhanced_dir: '{datasets_dir}/celeba/enhanced'
+    latent_dim: 300
+    loss_weights: [0.6,0.4]
+    batch_size: 64
+    epochs: 15
+    
+Nb_VAE9:
+  notebook_id: VAE9
+  notebook_dir: VAE
+  notebook_src: 09-VAE-with-CelebA-post.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: ./run/VAE8_done
+    image_size: '(192,160)'
+    enhanced_dir: '{datasets_dir}/celeba/enhanced'

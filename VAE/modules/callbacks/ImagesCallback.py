@@ -20,8 +20,6 @@ class ImagesCallback(Callback):
     '''
     Save generated (random mode) or encoded/decoded (z mode) images on epoch end.
     params:
-        encoder     : encoder
-        decoder     : decoder
         x           : input images, for z mode (None)
         z_dim       : size of the latent space, for random mode (None)
         nb_images   : number of images to save
@@ -32,9 +30,7 @@ class ImagesCallback(Callback):
     '''
     
    
-    def __init__(self, encoder     = None, 
-                       decoder     = None,
-                       x           = None,
+    def __init__(self, x           = None,
                        z_dim       = None,
                        nb_images   = 5,
                        from_z      = False, 
@@ -44,7 +40,8 @@ class ImagesCallback(Callback):
         
         # ---- Parameters
         #
-        self.x           = x[:nb_images]
+        
+        self.x = None if x is None else x[:nb_images]
         self.z_dim       = z_dim
         
         self.nb_images   = nb_images
@@ -54,9 +51,6 @@ class ImagesCallback(Callback):
         self.filename_z       = run_dir + '/images-z/'      + filename
         self.filename_random  = run_dir + '/images-random/' + filename
         
-        self.encoder     = encoder
-        self.decoder     = decoder
-                       
         if from_z:      os.makedirs( run_dir + '/images-z/',     mode=0o750, exist_ok=True)
         if from_random: os.makedirs( run_dir + '/images-random/', mode=0o750, exist_ok=True)
         
@@ -81,14 +75,17 @@ class ImagesCallback(Callback):
     def on_epoch_end(self, epoch, logs={}):
         '''Called at the end of each epoch'''
         
+        encoder     = self.model.get_layer('encoder')
+        decoder     = self.model.get_layer('decoder')
+
         if self.from_random:
             z      = np.random.normal( size=(self.nb_images,self.z_dim) )
-            images = self.decoder.predict(z)
+            images = decoder.predict(z)
             self.save_images(images, self.filename_random, epoch)
             
         if self.from_z:
-            z_mean, z_var, z  = self.encoder.predict(self.x)
-            images            = self.decoder.predict(z)
+            z_mean, z_var, z  = encoder.predict(self.x)
+            images            = decoder.predict(z)
             self.save_images(images, self.filename_z, epoch)
 
 

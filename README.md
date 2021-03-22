@@ -46,7 +46,7 @@ Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/
 
 
 Current Version : <!-- VERSION_BEGIN -->
-**2.0.20**
+**2.0.22**
 <!-- VERSION_END -->
 
 
@@ -144,10 +144,12 @@ Episode 4 : Construction of a denoiser and classifier model
 Episode 5 : Construction of an advanced denoiser and classifier model
 
 ### Generative network with Variational Autoencoder (VAE)
-- **[VAE1](VAE/01-VAE-with-MNIST.ipynb)** - [First VAE, with a small dataset (MNIST)](VAE/01-VAE-with-MNIST.ipynb)  
-Construction and training of a VAE with a latent space of small dimension.
-- **[VAE2](VAE/02-VAE-with-MNIST-post.ipynb)** - [Analysis of the associated latent space](VAE/02-VAE-with-MNIST-post.ipynb)  
-Visualization and analysis of the VAE's latent space
+- **[VAE1](VAE/01-VAE-with-MNIST.ipynb)** - [First VAE, using functional API (MNIST dataset)](VAE/01-VAE-with-MNIST.ipynb)  
+Construction and training of a VAE, using functional APPI, with a latent space of small dimension.
+- **[VAE2](VAE/02-VAE-with-MNIST.ipynb)** - [First VAE, using a subclass model (MNIST dataset)](VAE/02-VAE-with-MNIST.ipynb)  
+Construction and training of a VAE, using model subclass, with a latent space of small dimension.
+- **[VAE3](VAE/03-VAE-with-MNIST-post.ipynb)** - [Analysis of the VAE's latent space of MNIST dataset](VAE/03-VAE-with-MNIST-post.ipynb)  
+Visualization and analysis of the VAE's latent space of the dataset MNIST
 - **[VAE5](VAE/05-About-CelebA.ipynb)** - [Another game play : About the CelebA dataset](VAE/05-About-CelebA.ipynb)  
 Episode 1 : Presentation of the CelebA dataset and problems related to its size
 - **[VAE6](VAE/06-Prepare-CelebA-datasets.ipynb)** - [Generation of a clustered dataset](VAE/06-Prepare-CelebA-datasets.ipynb)  

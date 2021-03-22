@@ -301,30 +301,50 @@ Nb_VAE1:
   notebook_tag: default
   overrides:
     run_dir: default
-    scale: default
     latent_dim: default
-    r_loss_factor: default
+    loss_weights: default
+    scale: default
+    seed: default
     batch_size: default
     epochs: default
 Nb_VAE2:
   notebook_id: VAE2
   notebook_dir: VAE
-  notebook_src: 02-VAE-with-MNIST-post.ipynb
+  notebook_src: 02-VAE-with-MNIST.ipynb
   notebook_tag: default
   overrides:
     run_dir: default
+    latent_dim: default
+    loss_weights: default
+    scale: default
+    seed: default
+    batch_size: default
+    epochs: default
+Nb_VAE3:
+  notebook_id: VAE3
+  notebook_dir: VAE
+  notebook_src: 03-VAE-with-MNIST-post.ipynb
+  notebook_tag: default
+  overrides:
+    run_dir: default
+    scale: default
+    seed: default
 Nb_VAE5:
   notebook_id: VAE5
   notebook_dir: VAE
   notebook_src: 05-About-CelebA.ipynb
   notebook_tag: default
+  overrides:
+    run_dir: default
 Nb_VAE6:
   notebook_id: VAE6
   notebook_dir: VAE
   notebook_src: 06-Prepare-CelebA-datasets.ipynb
   notebook_tag: default
   overrides:
+    run_dir: default
     scale: default
+    seed: default
     cluster_size: default
     image_size: default
     output_dir: default
@@ -335,6 +355,7 @@ Nb_VAE7:
   notebook_src: 07-Check-CelebA.ipynb
   notebook_tag: default
   overrides:
+    run_dir: default
     image_size: default
     enhanced_dir: default
 Nb_VAE8:
@@ -348,7 +369,7 @@ Nb_VAE8:
     image_size: default
     enhanced_dir: default
     latent_dim: default
-    r_loss_factor: default
+    loss_weights: default
     batch_size: default
     epochs: default
 Nb_VAE9:

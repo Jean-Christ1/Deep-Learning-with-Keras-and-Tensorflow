@@ -390,25 +390,46 @@
         "id": "VAE1",
         "dirname": "VAE",
         "basename": "01-VAE-with-MNIST.ipynb",
-        "title": "First VAE, with a small dataset (MNIST)",
-        "description": "Construction and training of a VAE with a latent space of small dimension.",
+        "title": "First VAE, using functional API (MNIST dataset)",
+        "description": "Construction and training of a VAE, using functional APPI, with a latent space of small dimension.",
         "overrides": [
             "run_dir",
-            "scale",
             "latent_dim",
-            "r_loss_factor",
+            "loss_weights",
+            "scale",
+            "seed",
             "batch_size",
-            "epochs"
+            "epochs",
+            "run_dir"
         ]
     },
     "VAE2": {
         "id": "VAE2",
         "dirname": "VAE",
-        "basename": "02-VAE-with-MNIST-post.ipynb",
-        "title": "Analysis of the associated latent space",
-        "description": "Visualization and analysis of the VAE's latent space",
+        "basename": "02-VAE-with-MNIST.ipynb",
+        "title": "First VAE, using a subclass model (MNIST dataset)",
+        "description": "Construction and training of a VAE, using model subclass, with a latent space of small dimension.",
         "overrides": [
+            "run_dir",
+            "latent_dim",
+            "loss_weights",
+            "scale",
+            "seed",
+            "batch_size",
+            "epochs",
             "run_dir"
+        ]
+    },
+    "VAE3": {
+        "id": "VAE3",
+        "dirname": "VAE",
+        "basename": "03-VAE-with-MNIST-post.ipynb",
+        "title": "Analysis of the VAE's latent space of MNIST dataset",
+        "description": "Visualization and analysis of the VAE's latent space of the dataset MNIST",
+        "overrides": [
+            "run_dir",
+            "scale",
+            "seed"
         ]
     },
     "VAE5": {
@@ -417,7 +438,9 @@
         "basename": "05-About-CelebA.ipynb",
         "title": "Another game play : About the CelebA dataset",
         "description": "Episode 1 : Presentation of the CelebA dataset and problems related to its size",
-        "overrides": []
+        "overrides": [
+            "run_dir"
+        ]
     },
     "VAE6": {
         "id": "VAE6",
@@ -426,7 +449,9 @@
         "title": "Generation of a clustered dataset",
         "description": "Episode 2 : Analysis of the CelebA dataset and creation of an clustered and usable dataset",
         "overrides": [
+            "run_dir",
             "scale",
+            "seed",
             "cluster_size",
             "image_size",
             "output_dir",
@@ -440,6 +465,7 @@
         "title": "Checking the clustered dataset",
         "description": "Episode : 3 Clustered dataset verification and testing of our datagenerator",
         "overrides": [
+            "run_dir",
             "image_size",
             "enhanced_dir"
         ]
@@ -456,9 +482,10 @@
             "image_size",
             "enhanced_dir",
             "latent_dim",
-            "r_loss_factor",
+            "loss_weights",
             "batch_size",
-            "epochs"
+            "epochs",
+            "run_dir"
         ]
     },
     "VAE9": {
