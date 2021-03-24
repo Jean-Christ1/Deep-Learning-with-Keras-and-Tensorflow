@@ -103,8 +103,7 @@ class VAE(keras.Model):
             reconstruction_loss  = k1 * tf.reduce_mean( keras.losses.binary_crossentropy(input, reconstruction) )
 
             kl_loss = 1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var)
-            kl_loss = tf.reduce_mean(kl_loss) * k2
-            kl_loss *= -0.5 
+            kl_loss = -tf.reduce_mean(kl_loss) * k2
 
             total_loss = reconstruction_loss + kl_loss
 
