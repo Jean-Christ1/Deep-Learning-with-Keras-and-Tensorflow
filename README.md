@@ -19,9 +19,9 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 **- Prochain rendez-vous -**  
 
 
-|**Jeudi 25 mars, 14h, Séquence 6 : <br>Du réseau autoencodeur (AE) au Variational Autoencoder (VAE)<br>ou comment parcourir l'imagination de nos réseaux.**|
+|**Jeudi 1er avril, 14h, Séquence 7 : <br>Le Supercalculateur Jean Zay - Accélération GPU et apprentissage distribué.**|
 |--|
-|Principes et architecture d'un Variational Autoencoder (VAE).<br>Problématiques liées à la gestion de "gros" datasets.<br>Projection gaussienne - Génération de données - Morphing dans l'espace latent.<br>Programmation avancée avec Keras - Datasets clusterisés.<br>Exemple proposé :<br>Mise en œuvre d'un VAE, génération de données et morphing dans l'espace latent.<br>![VAE](./fidle/img/VAE.jpg )|
+|Accès et utilisation de Jean Zay.<br>Optimisation des accélérations GPU<br>Apprentissage distribué sur plusieurs GPU<br>Exemple proposé :<br>Mise en œuvre d'une classification "from scratch" d'Imagenet optimisée et distribuée sur plusieurs GPU.|
 |Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
