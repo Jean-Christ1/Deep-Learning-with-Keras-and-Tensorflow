@@ -18,11 +18,11 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 
 **- Prochain rendez-vous -**  
 
-
-|**Jeudi 1er avril, 14h, Séquence 7 : <br>Le Supercalculateur Jean Zay - Accélération GPU et apprentissage distribué.**|
+|**Jeudi 8 avril, 14h, Séquence 8 : <br>Démystifier les outils mathématiques pour l'apprentissage des réseaux de neurones.**|
 |--|
-|Accès et utilisation de Jean Zay.<br>Optimisation des accélérations GPU<br>Apprentissage distribué sur plusieurs GPU<br>Exemple proposé :<br>Mise en œuvre d'une classification "from scratch" d'Imagenet optimisée et distribuée sur plusieurs GPU.|
+|Mise en jambe : Qu-est ce qu'une descente de gradient ?<br>Partie 1 : Comment est calculé le gradient dans les réseaux de neurones (retro-propagation) ?<br> Partie 2 : Comment le réseau transforme couche après couche une donnée d'entrée en prédiction ?<br>Partie 3 : "Stochastique"... c'est quoi ? Quel intérêt pour l'apprentissage des réseaux de neurones ?<br><br>Illustrations :<br> - Mise en jambe : Descente de gradient en régression linéaire (le réseau de neurones le plus simple !)<br> - Partie 1 : Rétro-propagation 'à la main' sur un réseau avec des couches denses et convolutionnelles<br> - Partie 2 : Transformation d'un image couche après couche dans un réseau convolutionnel|
 |Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
+
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
 Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
