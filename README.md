@@ -18,11 +18,10 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 
 **- Prochain rendez-vous -**  
 
-|**Jeudi 8 avril, 14h, Séquence 8 : <br>Démystifier les outils mathématiques pour l'apprentissage des réseaux de neurones.**|
+|**Jeudi 15 avril, 14h, Séquence 9 : <br>Un détour par PyTorch**|
 |--|
-|Mise en jambe : Qu-est ce qu'une descente de gradient ?<br>Partie 1 : Comment est calculé le gradient dans les réseaux de neurones (retro-propagation) ?<br> Partie 2 : Comment le réseau transforme couche après couche une donnée d'entrée en prédiction ?<br>Partie 3 : "Stochastique"... c'est quoi ? Quel intérêt pour l'apprentissage des réseaux de neurones ?<br><br>Illustrations :<br> - Mise en jambe : Descente de gradient en régression linéaire (le réseau de neurones le plus simple !)<br> - Partie 1 : Rétro-propagation 'à la main' sur un réseau avec des couches denses et convolutionnelles<br> - Partie 2 : Transformation d'un image couche après couche dans un réseau convolutionnel|
-|Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) |
-
+|Principes et objets clés pour débuter sous PyTorch<br>Quelque trucs et astuces pour aller plus loin<br>Illustrations :<br>Classification et régression sous PyTorch|
+|Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) <br>Les support de cours seront/sont [disponibles ici](https://cloud.univ-grenoble-alpes.fr/index.php/s/wxCztjYBbQ6zwd6#pdfviewer) |
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
 Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
