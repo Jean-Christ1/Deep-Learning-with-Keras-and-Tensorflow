@@ -18,10 +18,10 @@ https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
 
 **- Prochain rendez-vous -**  
 
-|**Jeudi 15 avril, 14h, Séquence 9 : <br>Un détour par PyTorch**|
+|**Jeudi 22 avril, 14h, Séquence 10 : <br>Bilan et perspectives :-)**|
 |--|
-|Principes et objets clés pour débuter sous PyTorch<br>Quelque trucs et astuces pour aller plus loin<br>Illustrations :<br>Classification et régression sous PyTorch|
-|Durée : 2h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref) <br>Les support de cours seront/sont [disponibles ici](https://cloud.univ-grenoble-alpes.fr/index.php/s/wxCztjYBbQ6zwd6#pdfviewer) |
+|Petite synthèse en quelques chiffres <br>Pistes et perspectives d'amélioration ou d'évolution <br> Discussions et échanges|
+|Durée : 1h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)|
 
 A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
 Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
