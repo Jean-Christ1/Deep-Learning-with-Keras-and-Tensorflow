@@ -7,26 +7,6 @@
 <!-- Open the notebook: README.ipynb!                    -->
 <!-- --------------------------------------------------- -->
 
-## Session Fidle à distance (NEW !)
-
-Faute de pouvoir organiser des sessions en présentiel,\
-nous vous proposons une version **Fidle à distance** :-)
-
-**- Voir ou revoir en ligne -**
-
-https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ
-
-**- Prochain rendez-vous -**  
-
-|**Jeudi 22 avril, 14h, Séquence 10 : <br>Bilan et perspectives :-)**|
-|--|
-|Petite synthèse en quelques chiffres <br>Pistes et perspectives d'amélioration ou d'évolution <br> Discussions et échanges|
-|Durée : 1h - Les paramètres de diffusion seront [précisés la veille dans le wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)|
-
-A propos de **[Fidle à distance](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)**\
-Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
-Voir ou revoir les [vidéos](https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ)
-
 ## About Fidle
 
 This repository contains all the documents and links of the **Fidle Training** .   
@@ -43,6 +23,9 @@ For more information, you can contact [Fidle team](https://gricad-gitlab.univ-gr
 [<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#top)\
 Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
 
+A propos de [Fidle à distance (fevrier-avril 2021)](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)\
+Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
+Voir ou revoir les [vidéos](https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ)
 
 Current Version : <!-- VERSION_BEGIN -->
 **2.0.23**
@@ -169,6 +152,8 @@ Some activation functions, with their derivatives.
 Numpy is an essential tool for the Scientific Python.
 - **[SCRATCH1](Misc/Scratchbook.ipynb)** - [Scratchbook](Misc/Scratchbook.ipynb)  
 A scratchbook for small examples
+- **[??](Misc/Test.ipynb)** - [??](Misc/Test.ipynb)  
+??
 - **[TSB1](Misc/Using-Tensorboard.ipynb)** - [Tensorboard with/from Jupyter ](Misc/Using-Tensorboard.ipynb)  
 4 ways to use Tensorboard from the Jupyter environment
 <!-- INDEX_END -->
