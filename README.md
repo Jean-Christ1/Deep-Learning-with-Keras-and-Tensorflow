@@ -19,26 +19,28 @@ The objectives of this training are :
  - Understanding **Tensorflow/Keras** and **Jupyter lab** technologies
  - Apprehend the **academic computing environments** Tier-2 or Tier-1 with powerfull GPU
 
-For more information, you can contact [Fidle team](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20team) at : 
-[<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#top)\
-Don't forget to look at the [Wiki](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/home)
+For more information, see **https://fidle.cnrs.fr** :
+- **[Fidle site](https://fidle.cnrs.fr)**
+- **[Presentation of the training](https://fidle.cnrs.fr/presentation)**
+- **[Program 2021/2022](https://fidle.cnrs.fr/programme)**
+- [Subscribe to the list](https://fidle.cnrs.fr/listeinfo), to stay informed !
+- [Find us on youtube](https://fidle.cnrs.fr/youtube)
 
-A propos de [Fidle à distance (fevrier-avril 2021)](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/En%20bref)\
-Voir le [programme](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Fidle%20%C3%A0%20distance/Pr%C3%A9sentation#programme-)\
-Voir ou revoir les [vidéos](https://www.youtube.com/channel/UC4Sukzudhbwr6fs10cXrJsQ)
+For more information, you can contact us at :  
+[<img width="200px" style="vertical-align:middle" src="fidle/img/00-Mail_contact.svg"></img>](#top)
 
 Current Version : <!-- VERSION_BEGIN -->
-**2.0.23**
+**2.0.29**
 <!-- VERSION_END -->
 
 
 ## Course materials
 
-| | | |
-|:--:|:--:|:--:|
-| **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img><br>Course slides](https://cloud.univ-grenoble-alpes.fr/index.php/s/wxCztjYBbQ6zwd6)**<br>The course in pdf format<br>(12 Mo)| **[<img width="50px" src="fidle/img/00-Notebooks.svg"></img><br>Notebooks](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/archive/master/fidle-master.zip)**<br> &nbsp;&nbsp;&nbsp;&nbsp;Get a Zip or clone this repository &nbsp;&nbsp;&nbsp;&nbsp;<br>(40 Mo)| **[<img width="50px" src="fidle/img/00-Datasets-tar.svg"></img><br>Datasets](https://cloud.univ-grenoble-alpes.fr/index.php/s/wxCztjYBbQ6zwd6)**<br>All the needed datasets<br>(1.2 Go)|
+| | | | |
+|:--:|:--:|:--:|:--:|
+| **[<img width="50px" src="fidle/img/00-Fidle-pdf.svg"></img><br>Course slides](https://fidle.cnrs.fr/supports)**<br>The course in pdf format<br>(12 Mo)| **[<img width="50px" src="fidle/img/00-Notebooks.svg"></img><br>Notebooks](https://fidle.cnrs.fr/notebooks)**<br> &nbsp;&nbsp;&nbsp;&nbsp;Get a Zip or clone this repository &nbsp;&nbsp;&nbsp;&nbsp;<br>(40 Mo)| **[<img width="50px" src="fidle/img/00-Datasets-tar.svg"></img><br>Datasets](https://fidle.cnrs.fr/fidle-datasets.tar)**<br>All the needed datasets<br>(1.2 Go)|**[<img width="50px" src="fidle/img/00-Videos.svg"></img><br>Videos](https://fidle.cnrs.fr/youtube)**<br>&nbsp;&nbsp;&nbsp;&nbsp;Our Youtube channel&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;|
 
-Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Using%20Fidle/install%20fidle)** these notebooks and datasets.
+Have a look about **[How to get and install](https://fidle.cnrs.fr/installation)** these notebooks and datasets.
 
 
 ## Jupyter notebooks
@@ -128,7 +130,7 @@ Episode 5 : Construction of an advanced denoiser and classifier model
 ### Generative network with Variational Autoencoder (VAE)
 - **[VAE1](VAE/01-VAE-with-MNIST.ipynb)** - [First VAE, using functional API (MNIST dataset)](VAE/01-VAE-with-MNIST.ipynb)  
 Construction and training of a VAE, using functional APPI, with a latent space of small dimension.
-- **[VAE2](VAE/02-VAE-with-MNIST.ipynb)** - [First VAE, using a subclass model (MNIST dataset)](VAE/02-VAE-with-MNIST.ipynb)  
+- **[VAE2](VAE/02-VAE-with-MNIST.ipynb)** - [VAE, using a custom model class  (MNIST dataset)](VAE/02-VAE-with-MNIST.ipynb)  
 Construction and training of a VAE, using model subclass, with a latent space of small dimension.
 - **[VAE3](VAE/03-VAE-with-MNIST-post.ipynb)** - [Analysis of the VAE's latent space of MNIST dataset](VAE/03-VAE-with-MNIST-post.ipynb)  
 Visualization and analysis of the VAE's latent space of the dataset MNIST
@@ -145,6 +147,10 @@ Episode 5 : Exploring latent space to generate new data
 - **[VAE10](VAE/batch_slurm.sh)** - [SLURM batch script](VAE/batch_slurm.sh)  
 Bash script for SLURM batch submission of VAE8 notebooks 
 
+### Generative Adversarial Networks (GANs)
+- **[DCGAN01](DCGAN/01-DCGAN-Draw-me-a-sheep.ipynb)** - [A first DCGAN to Draw a Sheep](DCGAN/01-DCGAN-Draw-me-a-sheep.ipynb)  
+Episode 1 : Draw me a sheep, revisited with a DCGAN
+
 ### Miscellaneous
 - **[ACTF1](Misc/Activation-Functions.ipynb)** - [Activation functions](Misc/Activation-Functions.ipynb)  
 Some activation functions, with their derivatives.
@@ -152,8 +158,6 @@ Some activation functions, with their derivatives.
 Numpy is an essential tool for the Scientific Python.
 - **[SCRATCH1](Misc/Scratchbook.ipynb)** - [Scratchbook](Misc/Scratchbook.ipynb)  
 A scratchbook for small examples
-- **[??](Misc/Test.ipynb)** - [??](Misc/Test.ipynb)  
-??
 - **[TSB1](Misc/Using-Tensorboard.ipynb)** - [Tensorboard with/from Jupyter ](Misc/Using-Tensorboard.ipynb)  
 4 ways to use Tensorboard from the Jupyter environment
 <!-- INDEX_END -->
@@ -161,7 +165,7 @@ A scratchbook for small examples
 
 ## Installation
 
-Have a look about **[How to get and install](https://gricad-gitlab.univ-grenoble-alpes.fr/talks/fidle/-/wikis/Using%20Fidle/install%20fidle)** these notebooks and datasets.
+Have a look about **[How to get and install](https://fidle.cnrs.fr/installation)** these notebooks and datasets.
 
 ## Licence
 
